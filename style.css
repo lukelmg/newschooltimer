@@ -1,0 +1,36 @@
+<style>
+body {
+  background-color: #1e1e1e;
+  }
+#Selectors {
+  float: right;
+  background-color: #303030;
+  padding: 1% 1% 1% 1%;
+  margin: 1% 1% 1% 1%;
+  border-radius: 5%;
+  }
+#ScheduleTxt {
+  font-weight: bold;
+  font-family: Arial;
+  font-size: 1em;
+  color: #EDF2F4
+  }
+.period {
+  color: #A6AAAD;
+  font-weight: bold;
+  font-size: 3.35em;
+  font-family: Arial;
+  padding: 0px 0px 0px 0px;
+  margin-top: 0%;
+  margin-bottom: 0%;
+  margin-left: .5%;
+  }
+#end {
+  color: #C62135;
+  font-weight: bold;
+  font-size: 3.5em;
+  font-family: Arial;
+  padding: 0px 0px 0px 0px;
+  margin: 0px 0px 0px 0px;
+  }
+</style>

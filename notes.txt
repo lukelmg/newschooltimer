@@ -1,0 +1,5 @@
+Dark:   1e1e1e
+Gray:   A6AAAD
+White:  EDF2F4
+Red:    C62135
+Dark Gray: 303030
