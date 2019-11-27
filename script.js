@@ -5,16 +5,14 @@ function ask() {
   var howManyDays = prompt("How many different schedules are at your school?");
   
   for (var i = 1; i <= howManyDays; ++i) {
-    schedule[i] = prompt("What is the name of schedule day " + i + "?");
+    schedule[i] = prompt("What is the name of schedule day " + i + "? \n \n Ex. Normal, Homeroom, etc.");
   }
   
-   for (var i = 0; i < howManyDays; ++i) {
+   for (var i = 1; i <= howManyDays; ++i) {
     scheduleAbb[i] = prompt("What an abbreviation for schedule " + schedule[i] + "?");
   }
 
-  
-  var howManyPeriods = prompt("How many periods are there in a normal schedule?");
-  window.location.href = "https://schooltimernew.glitch.me/?howManyPeriods=" + howManyPeriods;
+  window.location.href = "https://schooltimernew.glitch.me/?d=";
 }
 
 function read() {

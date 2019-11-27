@@ -3,3 +3,33 @@ Gray:   A6AAAD
 White:  EDF2F4
 Red:    C62135
 Dark Gray: 303030
+
+URL Keys:
+
+d = number of days
+
+d1 = day 1 name
+d2 = day 2 name
+d3 = day 3 name
+d4 = day 4 name
+d5 = day 5 name
+d6 = day 6 name
+
+d1a = day 1 abbreviation
+d2a = day 2 abbreviation
+d3a = day 3 abbreviation
+d4a = day 4 abbreviation
+d5a = day 5 abbreviation
+d6a = day 6 abbreviation
+
+p = number of periods
+
+
+
+SECRET MASTER PLAN:
+
+
+1. Create a schooltimer that can be customized for any school
+2. do this by making variables stored in URL
+3. have users share website by creating a URL shortener
+4. Profit
