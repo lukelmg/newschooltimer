@@ -24,6 +24,35 @@ d6a = day 6 abbreviation
 
 p = number of periods
 
+p1h = period 1 hour
+p2h = period 2 hour
+p3h = period 3 hour
+p4h = period 4 hour
+p5h = period 5 hour
+p6h = period 6 hour
+p7h = period 7 hour
+p8h = period 8 hour
+p9h = period 9 hour
+p10h = period 10 hour
+p11h = period 11 hour
+p12h = period 12 hour
+p13h = period 13 hour
+p14h = period 14 hour
+
+p1m = period 1 minute
+p2m = period 2 minute
+p3m = period 3 minute
+p4m = period 4 minute
+p5m = period 5 minute
+p6m = period 6 minute
+p7m = period 7 minute
+p8m = period 8 minute
+p9m = period 9 minute
+p10m = period 10 minute
+p11m = period 11 minute
+p12m = period 12 minute
+p13m = period 13 minute
+p14m = period 14 minute
 
 
 SECRET MASTER PLAN:
