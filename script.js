@@ -6,12 +6,21 @@ var samePURL = "";
 var diffP = [];
 var sameP = [];
 
-var d1 = [];
-var d2 = [];
-var d3 = [];
-var d4 = [];
-var d5 = [];
-var d6 = [];
+var o = 1;
+
+var d1h = [];
+var d2h = [];
+var d3h = [];
+var d4h = [];
+var d5h = [];
+var d6h = [];
+
+var d1m = [];
+var d2m = [];
+var d3m = [];
+var d4m = [];
+var d5m = [];
+var d6m = [];
 
 function ask() {
   var howManyDays = prompt("How many different schedules are at your school?");
@@ -36,16 +45,50 @@ function ask() {
     var numPeriod = prompt("How many periods are there in a day?");
     
    
-      
-      for (var e = 1; e <= numPeriod; ++e) {
-          d1[e]= prompt("What hour does period " + e + " end at on a "+ schedule[1] + " day?");
-      }
+  
     
-    alert(d1[1]);
-    alert(d1[2]);
-    alert(d1[3]);
-    alert(d1[4]);
-    alert(d1[5]);
+        for (var e = 1; e <= numPeriod; ++e) {
+          d1h[e]= prompt("What hour does period " + e + " end at on a "+ schedule[1] + " day?");
+        }
+        for (var e = 1; e <= numPeriod; ++e) {
+          d1m[e]= prompt("What minute does period " + e + " end at on a "+ schedule[1] + " day?");
+        }
+        var daysDone = 1;
+        if (daysDone < howManyDays) {
+          for (var e = 1; e <= numPeriod; ++e) {
+          d2h[e]= prompt("What hour does period " + e + " end at on a "+ schedule[2] + " day?");
+        }
+          daysDone = 2;
+        }
+    if (daysDone < howManyDays) {
+          for (var e = 1; e <= numPeriod; ++e) {
+          d3h[e]= prompt("What hour does period " + e + " end at on a "+ schedule[3] + " day?");
+        }
+          daysDone = 3;
+        }
+        if (daysDone < howManyDays) {
+          for (var e = 1; e <= numPeriod; ++e) {
+          d4h[e]= prompt("What hour does period " + e + " end at on a "+ schedule[4] + " day?");
+        }
+          daysDone = 4;
+        }
+    if (daysDone < howManyDays) {
+          for (var e = 1; e <= numPeriod; ++e) {
+          d5h[e]= prompt("What hour does period " + e + " end at on a "+ schedule[5] + " day?");
+        }
+          daysDone = 5;
+        }
+    if (daysDone < howManyDays) {
+          for (var e = 1; e <= numPeriod; ++e) {
+          d6h[e]= prompt("What hour does period " + e + " end at on a "+ schedule[6] + " day?");
+        }
+          daysDone = 6;
+        }
+    
+    
+     alert(d1 + "++++" + d2 + "++++" + d3 + "++++" + d4 + "++++++" + d5 + "+++++" + d6);
+      
+  
     
   } else {
     alert("why are you typing anything other than yes or no like you were told?");
