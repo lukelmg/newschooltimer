@@ -40,24 +40,12 @@ function ask() {
       for (var e = 1; e <= numPeriod; ++e) {
           d1[e]= prompt("What hour does period " + e + " end at on a "+ schedule[1] + " day?");
       }
-     for (var e = 1; e <= numPeriod; ++e) {
-          d2[e]= prompt("What hour does period " + e + " end at on a "+ schedule[2] + " day?");
-      }
-     for (var e = 1; e <= numPeriod; ++e) {
-          d3[e]= prompt("What hour does period " + e + " end at on a "+ schedule[3] + " day?");
-      }
-     for (var e = 1; e <= numPeriod; ++e) {
-          d4[e]= prompt("What hour does period " + e + " end at on a "+ schedule[4] + " day?");
-      }
-     for (var e = 1; e <= numPeriod; ++e) {
-          d5[e]= prompt("What hour does period " + e + " end at on a "+ schedule[5] + " day?");
-      }
-     for (var e = 1; e <= numPeriod; ++e) {
-          d6[e]= prompt("What hour does period " + e + " end at on a "+ schedule[6] + " day?");
-      }
-      
     
-    alert(d1 + "\n" + d2 + "\n" + d3 + "\n" + d4 + "\n" + d5 + "\n" + d6);
+    alert(d1[1]);
+    alert(d1[2]);
+    alert(d1[3]);
+    alert(d1[4]);
+    alert(d1[5]);
     
   } else {
     alert("why are you typing anything other than yes or no like you were told?");
