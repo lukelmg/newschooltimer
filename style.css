@@ -1,6 +1,9 @@
 
 body {
   background-color: #1e1e1e;
+  color:white;
+  font-family:Arial;
+  font-size: 1.5vw;
   }
 .period {
   color: #A6AAAD;
@@ -8,3 +11,17 @@ body {
   font-size: 5vw;
   font-family: Arial;
   }
+
+
+input {
+  vertical-align:middle;
+  margin-left: 1vw;
+  width: 10vw;
+  font-size:1.5vw;
+}
+select {
+  vertical-align:middle;
+  margin-left:1vw;
+  width: 2vw;
+  font-size:1.5vw;
+}

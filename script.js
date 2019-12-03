@@ -1,3 +1,33 @@
+function numSchedule () {
+  var numberSchedule = document.getElementById("numSchedule").value;
+  alert(numberSchedule);
+  var para = document.createElement("P");
+  var mine = document.createElement("input");
+  //input.setAttribute("id", "Div1");
+  //para.innerHTML = "This is a paragraph.";
+  //document.getElementById("scheduleNames").appendChild(para);
+  //document.getElementById("scheduleNames").appendChild(input);
+  
+  
+  for (var i = 1; i <= numberSchedule; ++i) {
+    
+    document.getElementById("scheduleNames").appendChild(mine);
+
+  }
+  
+}
+
+
+
+
+
+
+
+
+
+
+
+
 var schedule = [];
 var scheduleAbb = [];
 var daysURL = "";
