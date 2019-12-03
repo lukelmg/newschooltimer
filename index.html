@@ -9,12 +9,12 @@
     <button onclick="read()">Read</button>
      <!-- <div class="period" id="1">Period 1 Ends In</div> -->
     <br><br>
-    <button onclick="numSchedule()">
+    <button onclick="addTest()">
       test
-    </button>
-    
+    </button><br><br /><br />
+
     <span>Number of Schedules</span>
-    <select id="numSchedule">
+    <select id="numSchedule" onchange="numSchedule()">
       <option>1</option>
       <option>2</option>
       <option>3</option>
@@ -22,11 +22,11 @@
       <option>5</option>
       <option>6</option>
     </select><br><br>
-    
+
     <div id="scheduleNames">
-      <span>Name of Schedule</span><input>
+      <span>Name of Schedule</span>
     </div>
-    
+
   </body>
 </html>
 
