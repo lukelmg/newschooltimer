@@ -25,3 +25,19 @@ select {
   width: 2vw;
   font-size:1.5vw;
 }
+
+.inputLabel {
+  vertical-align: top;
+}
+
+.scheduleNameInput {
+  background-color:Transparent;
+  border: 1px solid white;
+  color:white;
+  padding: .2vw .2vw .2vw .2vw;
+  width: 20vw;
+  margin-bottom: 1vw;
+  vertical-align: top;
+}
+
+input:focus {outline:0;}

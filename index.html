@@ -1,33 +1,43 @@
 <html>
-  <head>
-    <link rel="icon" href="https://images.vexels.com/media/users/3/132607/isolated/preview/86e952b378eaa8c5ea573fa2bf280d5b-wall-clock-icon-by-vexels.png">
-    <title>SchoolTimer</title>
-    <link rel="stylesheet" href="style.css">
-  </head>
-  <body>
-    <button onclick="ask();">Ask</button>
-    <button onclick="read()">Read</button>
-     <!-- <div class="period" id="1">Period 1 Ends In</div> -->
-    <br><br>
-    <button onclick="addTest()">
-      test
-    </button><br><br /><br />
 
-    <span>Number of Schedules</span>
-    <select id="numSchedule" onchange="numSchedule()">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-    </select><br><br>
+<head>
+  <link rel="icon" href="https://images.vexels.com/media/users/3/132607/isolated/preview/86e952b378eaa8c5ea573fa2bf280d5b-wall-clock-icon-by-vexels.png">
+  <title>SchoolTimer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
-    <div id="scheduleNames">
-      <span>Name of Schedule</span>
-    </div>
+<body>
+  <button onclick="ask();">Ask</button>
+  <button onclick="read()">Read</button>
 
-  </body>
+  <br><br>
+  <button onclick="removeTest()">
+    test
+  </button><br><br /><br />
+
+  <span>Number of Schedules</span>
+  <select id="numSchedule" onchange="addFields();">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+  </select><br><br>
+
+  <div id="scheduleNames">
+    <h2 class="inputLabel">Names of Schedules</h2>
+    <div id="scheduleNameInputContainer" />
+  </div>
+
+  <div id="scheduleAbbreviations">
+    <h2 class="inputLabel">Abbreviations of Schedules</h2>
+    <div id="scheduleAbbreviationContainer" />
+  </div>
+
+</body>
+
 </html>
 
 <script src="script.js"></script>

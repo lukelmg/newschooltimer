@@ -1,17 +1,71 @@
-  var x = document.createElement("INPUT");
 
+/*
   function numSchedule() {
     var numberSchedule = document.getElementById("numSchedule").value;
 
     for (var i = 1; i <= numberSchedule; ++i) {
 
+      var x = document.createElement("INPUT");
       x.setAttribute("type", "text");
       x.setAttribute("placeholder", "Schedule " + i + " Name");
       document.body.appendChild(x);
-
     }
 
   }
+  */
+
+  function removeTest() {
+    alert("remove");
+    node.removeChild(x);
+  }
+
+var numberOfSchedules;
+
+  function addFields(){
+      numberOfSchedules = document.getElementById("numSchedule").value;
+      var container = document.getElementById("scheduleNameInputContainer");
+
+      while (container.hasChildNodes()) {
+          container.removeChild(container.lastChild);
+      }
+      for (i=0;i<numberOfSchedules;i++){
+          container.appendChild(document.createTextNode("Schedule " + (i+1)));
+          var input = document.createElement("input");
+          input.type = "text";
+          input.placeholder = "Schedule Name";
+          input.id = "d" + i + "n";
+          input.className = "scheduleNameInput"
+          container.appendChild(input);
+          container.appendChild(document.createElement("br"));
+      }
+      abbreviations();
+  }
+
+
+  function abbreviations(){
+
+      var container = document.getElementById("scheduleAbbreviationContainer");
+
+      while (container.hasChildNodes()) {
+          container.removeChild(container.lastChild);
+      }
+      for (i=0;i<numberOfSchedules;i++){
+          container.appendChild(document.createTextNode("Schedule " + (i+1)));
+          var input = document.createElement("input");
+          input.type = "text";
+          input.placeholder = "Schedule Abbreviation"
+          input.name = "member" + i;
+          input.id = "d" + i + "a";
+          input.className = "scheduleNameInput"
+          container.appendChild(input);
+          container.appendChild(document.createElement("br"));
+      }
+  }
+
+
+
+
+
 
   var schedule = [];
   var scheduleAbb = [];
