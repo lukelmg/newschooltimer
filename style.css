@@ -92,6 +92,10 @@ input:focus {outline:0;}
   border-radius: 50%;
 }
 
+#radio1 {
+    z-index: -10;
+}
+
 /* On mouse-over, add a grey background color */
 .container:hover input ~ .checkmark {
   background-color: #ccc;
@@ -127,4 +131,22 @@ input:focus {outline:0;}
 
 #numPeriodSame {
   display:inline-block;
+}
+
+.numberSelect {
+  color:white;
+  background-color:Transparent;
+  border: 1px solid white;
+  vertical-align:middle;
+  font-size: 1vw;
+    z-index: 10;
+}
+
+#numPeriodSame {
+  width: 3vw;
+}
+.numberSelect:focus {
+  color:white;
+  background-color:#1E1E1E;
+  outline:none;
 }

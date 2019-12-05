@@ -18,7 +18,8 @@
 
 -->
   <h2 class="inputLabel">Number of Schedules</h2>
-  <select class="numerSelect" id="numSchedule" onchange="addFields();">
+  <span class="smallLabel">Schedules at your school: </span>
+  <select class="numberSelect" id="numSchedule" onchange="addFields();">
     <option>1</option>
     <option>2</option>
     <option>3</option>
@@ -40,10 +41,11 @@
 
   <h2>Number of Periods</h><br />
     <label class="container">Same number of periods everyday
-    <input type="radio" checked="checked" name="radio">
+    <input id="radio1" type="radio" checked="checked" name="radio" onclick="differentNumberSchedules();">
     <span class="checkmark"></span>
   </label>
-  <select class="numerSelect" id="numPeriodSame" onchange="periodSame();">
+
+  <select class="numberSelect" id="numPeriodSame" onchange="periodSame();">
     <option>1</option>
     <option>2</option>
     <option>3</option>
@@ -63,9 +65,11 @@
   <br />
 
   <label class="container">Different number of periods depending on schedule
-    <input type="radio" name="radio">
+    <input id="radio2" type="radio" name="radio" onclick="differentNumberSchedules();">
     <span class="checkmark"></span>
   </label>
+
+  <h2>Period Timing</h>
 
 </body>
 
