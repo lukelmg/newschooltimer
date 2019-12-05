@@ -77,13 +77,20 @@ function initialInputs() {
       }
   }
 
-/*
-function differentNumberSchedules () {
-  var radio1 = document.getElementById("radio1").value;
-  var radio1 = document.getElementById("radio2").value;
-  alert("rad1= " + radio1 "\n rad2=" + radio2);
+
+function differentNumberSchedules() {
+  var radios = document.getElementsByName('samePeriod');
+
+for (var i = 0, length = radios.length; i < length; i++)
+{
+ if (radios[i].checked)
+ {
+  break;
+ }
 }
-*/
+  alert(radios);
+}
+
 
 
 
