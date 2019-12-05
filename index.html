@@ -6,7 +6,8 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body onload="initialInputs();">
+  <!--
   <button onclick="ask();">Ask</button>
   <button onclick="read()">Read</button>
 
@@ -15,8 +16,9 @@
     test
   </button><br><br /><br />
 
-  <span>Number of Schedules</span>
-  <select id="numSchedule" onchange="addFields();">
+-->
+  <h2 class="inputLabel">Number of Schedules</h2>
+  <select class="numerSelect" id="numSchedule" onchange="addFields();">
     <option>1</option>
     <option>2</option>
     <option>3</option>
@@ -24,17 +26,46 @@
     <option>5</option>
     <option>6</option>
     <option>7</option>
-  </select><br><br>
+  </select>
 
   <div id="scheduleNames">
-    <h2 class="inputLabel">Names of Schedules</h2>
+    <h2 class="inputLabel">Name of Schedule</h2>
     <div id="scheduleNameInputContainer" />
   </div>
 
   <div id="scheduleAbbreviations">
-    <h2 class="inputLabel">Abbreviations of Schedules</h2>
+    <h2 class="inputLabel">Abbreviation of Schedule</h2>
     <div id="scheduleAbbreviationContainer" />
   </div>
+
+  <h2>Number of Periods</h><br />
+    <label class="container">Same number of periods everyday
+    <input type="radio" checked="checked" name="radio">
+    <span class="checkmark"></span>
+  </label>
+  <select class="numerSelect" id="numPeriodSame" onchange="periodSame();">
+    <option>1</option>
+    <option>2</option>
+    <option>3</option>
+    <option>4</option>
+    <option>5</option>
+    <option>6</option>
+    <option>7</option>
+    <option>8</option>
+    <option>9</option>
+    <option>10</option>
+    <option>11</option>
+    <option>12</option>
+    <option>13</option>
+    <option>14</option>
+    <option>15</option>
+  </select>
+  <br />
+
+  <label class="container">Different number of periods depending on schedule
+    <input type="radio" name="radio">
+    <span class="checkmark"></span>
+  </label>
 
 </body>
 

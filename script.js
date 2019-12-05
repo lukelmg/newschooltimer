@@ -1,25 +1,40 @@
 
-/*
-  function numSchedule() {
-    var numberSchedule = document.getElementById("numSchedule").value;
-
-    for (var i = 1; i <= numberSchedule; ++i) {
-
-      var x = document.createElement("INPUT");
-      x.setAttribute("type", "text");
-      x.setAttribute("placeholder", "Schedule " + i + " Name");
-      document.body.appendChild(x);
-    }
-
-  }
-  */
-
-  function removeTest() {
-    alert("remove");
-    node.removeChild(x);
-  }
-
 var numberOfSchedules;
+
+function initialInputs() {
+  numberOfSchedules = 1;
+  var container = document.getElementById("scheduleNameInputContainer");
+
+  while (container.hasChildNodes()) {
+      container.removeChild(container.lastChild);
+  }
+  for (i=0;i<numberOfSchedules;i++){
+      container.appendChild(document.createTextNode("Schedule " + (i+1)));
+      var input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "(Normal, Homeroom, Early Dissmissal, etc.)";
+      input.id = "d" + i + "n";
+      input.className = "scheduleNameInput"
+      container.appendChild(input);
+      container.appendChild(document.createElement("br"));
+  }
+  var container = document.getElementById("scheduleAbbreviationContainer");
+
+  while (container.hasChildNodes()) {
+      container.removeChild(container.lastChild);
+  }
+  for (i=0;i<numberOfSchedules;i++){
+      container.appendChild(document.createTextNode("Schedule " + (i+1) + " Abbreviation"));
+      var input = document.createElement("input");
+      input.type = "text";
+      input.placeholder = "(A, B, C, 1, 2, 3) "
+      input.name = "member" + i;
+      input.id = "d" + i + "a";
+      input.className = "scheduleNameInput"
+      container.appendChild(input);
+      container.appendChild(document.createElement("br"));
+  }
+}
 
   function addFields(){
       numberOfSchedules = document.getElementById("numSchedule").value;
@@ -32,7 +47,7 @@ var numberOfSchedules;
           container.appendChild(document.createTextNode("Schedule " + (i+1)));
           var input = document.createElement("input");
           input.type = "text";
-          input.placeholder = "Schedule Name";
+          input.placeholder = "(Normal, Homeroom, Early Dissmissal, etc.)";
           input.id = "d" + i + "n";
           input.className = "scheduleNameInput"
           container.appendChild(input);
@@ -50,10 +65,10 @@ var numberOfSchedules;
           container.removeChild(container.lastChild);
       }
       for (i=0;i<numberOfSchedules;i++){
-          container.appendChild(document.createTextNode("Schedule " + (i+1)));
+          container.appendChild(document.createTextNode("Schedule " + (i+1) + " Abbreviation"));
           var input = document.createElement("input");
           input.type = "text";
-          input.placeholder = "Schedule Abbreviation"
+          input.placeholder = "(A, B, C, 1, 2, 3) "
           input.name = "member" + i;
           input.id = "d" + i + "a";
           input.className = "scheduleNameInput"
