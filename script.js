@@ -77,6 +77,7 @@ function initialInputs() {
       }
   }
 
+var sameNumerOfPeriods = "yes";
 
 function differentNumberSchedules() {
   var radios = document.getElementsByName('samePeriod');
@@ -85,10 +86,14 @@ for (var i = 0, length = radios.length; i < length; i++)
 {
  if (radios[i].checked)
  {
+  if (i == 0) {
+    sameNumberOfPeriods = "yes";
+  } else {
+    sameNumberOfPeriods = "no";
+  }
   break;
  }
 }
-  alert(radios);
 }
 
 
