@@ -77,7 +77,8 @@ function initialInputs() {
       }
   }
 
-var sameNumerOfPeriods = "yes";
+var sameNumberOfPeriods = "yes";
+
 
 function differentNumberSchedules() {
   var radios = document.getElementsByName('samePeriod');
@@ -88,15 +89,44 @@ for (var i = 0, length = radios.length; i < length; i++)
  {
   if (i == 0) {
     sameNumberOfPeriods = "yes";
+    document.getElementById("numPeriodSame").style.display = "inline-block";
+    displaySamePeriods();
   } else {
     sameNumberOfPeriods = "no";
+    document.getElementById("numPeriodSame").style.display = "none";
+    
+    
+    
+    
+    
+    
   }
   break;
  }
 }
 }
+var i;
 
+function displaySamePeriods() {
+ var container = document.getElementById("periodContainer");
+  
+  var numberOfSamePeriods = document.getElementById("numPeriodSame").value;
 
+      while (container.hasChildNodes()) {
+          container.removeChild(container.lastChild);
+      }
+      for (i=0;i<numberOfSamePeriods;i++){
+          container.appendChild(document.createTextNode("Period " + (i+1) + " Name"));
+          var input = document.createElement("input");
+          input.type = "text";
+          input.placeholder = "(Period 1, Lunch A, Activity Period, etc.)"
+          input.name = "member" + i;
+          input.id = "d" + i + "a";
+          input.className = "scheduleNameInput"
+          container.appendChild(input);
+          container.appendChild(document.createElement("br"));
+      }
+}
 
 
 
