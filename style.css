@@ -1,6 +1,17 @@
 .slide {
   display:none;
   background-color:#202833;
+  width: 90vw;
+  position:absolute;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+  vertical-align:center;
+  margin-left: 5vw;
+  margin-right: 5vw;
+  padding: 0px 0px 0px 0px;
+  height: 80vh;
+  margin-bottom: 8vh;
+  margin-top: 8vh;
+
 }
 
 #bigHeading {
@@ -11,9 +22,25 @@ span {
   color:white;
 }
 
+h1, h2, h3 {
+  margin-top 0;
+}
+
 h2 {
   color:white;
+  margin-top: 1vw;
+  margin-left: 1vw;
 }
+
+.slideHeading {
+  font-size: 4vw;
+}
+
+.smallLabel {
+  font-weight: normal;
+  margin-left: 1vw;
+}
+
 h3 {
   color:white;
 }
@@ -29,6 +56,7 @@ body {
   font-weight: bold;
   font-size: 5vw;
   font-family: Arial;
+
   }
 
 
@@ -152,22 +180,55 @@ input:focus {outline:0;}
   display:inline-block;
 }
 
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+
+.updown {
+  margin-top: 5vw;
+  height: 7vw;
+  vertical-align: top;
+  width: 7vw;
+  margin-left:0px;
+  margin-right: 0px;
+  font-size: 4vw;
+  font-family: 'Lato', sans-serif;
+  background-color:white;
+  color:black;
+  outline:none;
+  border: none;
+  cursor:pointer;
+}
+
+#down {
+  margin-left: 1vw;
+}
+
+
 .numberSelect {
+  margin-top: 5vw;
   color:white;
   background-color:Transparent;
   border: 1px solid white;
   vertical-align:middle;
-  font-size: 1vw;
-    z-index: 10;
+  font-size: 2.5vw;
+  z-index: 10;
+  width: 7vw;
+  height: 7vw;
+  text-align:center;
+  margin-right: 0px;
+  margin-left: 0px;
 }
 
 #numPeriodSame {
   width: 3vw;
-}
-.numberSelect:focus {
-  color:white;
-  background-color:#1E1E1E;
-  outline:none;
 }
 
 .timeInput {

@@ -4,6 +4,7 @@
   <link rel="icon" href="https://images.vexels.com/media/users/3/132607/isolated/preview/86e952b378eaa8c5ea573fa2bf280d5b-wall-clock-icon-by-vexels.png">
   <title>SchoolTimer</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css?family=Lato:100&display=swap" rel="stylesheet">
 </head>
 
 <body onload="initialInputs(); differentNumberSchedules();">
@@ -17,24 +18,19 @@
   </button><br><br /><br />
 
 -->
-
+<div id="startDiv">
 <h1 id="bigHeading">Welcome to SchoolTimer 2020</h><br />
   <button onclick="slide1();">Custom Timer</button>
-
+</div>
 
   <div class="slide" id="slide1">
-    <h2 class="inputLabel">Number of Schedules</h2>
-    <span class="smallLabel">Schedules at your school: </span>
-    <select class="numberSelect" id="numSchedule" onchange="addFields();">
-      <option>1</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-      <option>6</option>
-      <option>7</option>
-    </select>
-
+    <h2 class="slideHeading">Number of Schedules</h2>
+    <span class="smallLabel">How many schedules does your school have? </span>
+    <p class="note">For Example: Normal Day, Early Dissmissal, Activity Day, or 2 Hour  Delay</p>
+    <br />
+    <button class="updown" id="down" onclick="subSchedule()">-</button>
+    <input id="numSchedule" class="numberSelect" onchange="addFields();" disabled="disabled" min="1" max="8" value="1"></input>
+    <button class="updown" id="up" onclick="plusSchedule()">+</button>
   </div>
 
   <div class="slide" id="slide2">

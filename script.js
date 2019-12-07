@@ -1,4 +1,19 @@
-var numberOfSchedules = 0;
+var numberOfSchedules = 1;
+
+function plusSchedule () {
+  if (numberOfSchedules < 8) {
+    numberOfSchedules++;
+  }
+  document.getElementById("numSchedule").value = numberOfSchedules;
+}
+
+function subSchedule () {
+  if (numberOfSchedules > 1) {
+    numberOfSchedules--;
+  }
+  document.getElementById("numSchedule").value = numberOfSchedules;
+}
+
 
   function addFields(){
       numberOfSchedules = document.getElementById("numSchedule").value;
