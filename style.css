@@ -276,15 +276,18 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .scheduleDiv {
-  background-color:#2196F3;
+  background-color:#Transparent;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
-  padding: 1vw 1vw 1vw 1vw;
+  padding: .5vw .5vw .5vw .5vw;
   margin-bottom:1vw;
   margin-top:0px;
-  margin-left: 1vw;
-  width: 28%;
+  margin-left: 0vw;
+  margin-right: 1vw;
+  width: 20%;
   display:inline-block;
   left: 50%;
+  text-align:left;
+  outline: 1px solid white;
 }
 
 
@@ -293,12 +296,12 @@ input[type=number]::-webkit-outer-spin-button {
   border: 1px solid white;
   color:black;
   padding: .2vw .2vw .2vw .2vw;
-  width: 20vw;
+  width: 80%;
   margin-bottom: 1vw;
   vertical-align: top;
   font-size: 1vw;
-  border-radius: 5px;
   border: 1px solid gray;
+  margin-right: 0px;
 }
 
 .scheduleAbbInput {
@@ -310,6 +313,42 @@ input[type=number]::-webkit-outer-spin-button {
   margin-bottom: 1vw;
   vertical-align: top;
   font-size: 1vw;
-  border-radius: 5px;
   border: 1px solid gray;
+}
+
+#scheduleNameInputContainer {
+  position:absolute;
+  width: 100%;
+  text-align:left;
+  margin-left: 1vw;
+}
+
+
+
+.yesno {
+  background-color: Transparent;
+  color:white;
+  border: 1px solid white;
+
+  width: 10vw;
+  height: 10vw;
+  font-size: 3vw;
+  font-family: 'Lato', sans-serif;
+  cursor:pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+  margin-left: 1vw;
+  margin-top: 2vw;
+
+  transition: ease-in 0.3s;
+}
+
+.yesno:hover {
+  background-color:white;
+  color:black;
+  border:none;
+  outline:none;
+}
+
+.yesno:focus {
+  outline:none;
 }

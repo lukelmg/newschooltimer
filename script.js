@@ -54,18 +54,16 @@ function subSchedule () {
                 scheduleDiv.appendChild(scheduleHeader);
 
                 scheduleDiv.appendChild(document.createElement("br"));
-                scheduleDiv.appendChild(document.createTextNode("Name"));
                 var input = document.createElement("input");
                 input.type = "text";
-                input.placeholder = "(Normal, Homeroom, Early Dissmissal, etc.)";
+                input.placeholder = "Schedule Full Name";
                 input.id = "d" + i + "n";
                 input.className = "scheduleNameInput"
                 scheduleDiv.appendChild(input);
 
-                scheduleDiv.appendChild(document.createTextNode("Abbreviation"));
                 var abb = document.createElement("input");
                 abb.type = "text";
-                abb.placeholder = "(A, B, 1, 2) "
+                abb.placeholder = "Abbreviation"
                 abb.name = "member" + i;
                 abb.id = "d" + i + "a";
                 abb.className = "scheduleAbbInput"
