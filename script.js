@@ -1,40 +1,4 @@
-
-var numberOfSchedules;
-
-function initialInputs() {
-  numberOfSchedules = 1;
-  var container = document.getElementById("scheduleNameInputContainer");
-
-  while (container.hasChildNodes()) {
-      container.removeChild(container.lastChild);
-  }
-  for (i=0;i<numberOfSchedules;i++){
-      container.appendChild(document.createTextNode("Schedule " + (i+1)));
-      var input = document.createElement("input");
-      input.type = "text";
-      input.placeholder = "(Normal, Homeroom, Early Dissmissal, etc.)";
-      input.id = "d" + i + "n";
-      input.className = "scheduleNameInput"
-      container.appendChild(input);
-      container.appendChild(document.createElement("br"));
-  }
-  var container = document.getElementById("scheduleAbbreviationContainer");
-
-  while (container.hasChildNodes()) {
-      container.removeChild(container.lastChild);
-  }
-  for (i=0;i<numberOfSchedules;i++){
-      container.appendChild(document.createTextNode("Schedule " + (i+1) + " Abbreviation"));
-      var input = document.createElement("input");
-      input.type = "text";
-      input.placeholder = "(A, B, C, 1, 2, 3) "
-      input.name = "member" + i;
-      input.id = "d" + i + "a";
-      input.className = "scheduleNameInput"
-      container.appendChild(input);
-      container.appendChild(document.createElement("br"));
-  }
-}
+var numberOfSchedules = 0;
 
   function addFields(){
       numberOfSchedules = document.getElementById("numSchedule").value;
@@ -44,7 +8,7 @@ function initialInputs() {
           container.removeChild(container.lastChild);
       }
       for (i=0;i<numberOfSchedules;i++){
-          container.appendChild(document.createTextNode("Schedule " + (i+1)));
+        /*  container.appendChild(document.createTextNode("Schedule " + (i+1)));
           var input = document.createElement("input");
           input.type = "text";
           input.placeholder = "(Normal, Homeroom, Early Dissmissal, etc.)";
@@ -52,28 +16,37 @@ function initialInputs() {
           input.className = "scheduleNameInput"
           container.appendChild(input);
           container.appendChild(document.createElement("br"));
-      }
-      abbreviations();
-  }
+*/
 
 
-  function abbreviations(){
+                var scheduleDiv = document.createElement("div");
+                scheduleDiv.className = "scheduleDiv";
+                container.appendChild(scheduleDiv);
 
-      var container = document.getElementById("scheduleAbbreviationContainer");
+                var scheduleHeader = document.createElement("H3");
+                var scheduleHeaderText = document.createTextNode("Schedule " + (i+1));
+                scheduleHeader.className = "periodHeader"
+                scheduleHeader.appendChild(scheduleHeaderText);
+                scheduleDiv.appendChild(scheduleHeader);
 
-      while (container.hasChildNodes()) {
-          container.removeChild(container.lastChild);
-      }
-      for (i=0;i<numberOfSchedules;i++){
-          container.appendChild(document.createTextNode("Schedule " + (i+1) + " Abbreviation"));
-          var input = document.createElement("input");
-          input.type = "text";
-          input.placeholder = "(A, B, C, 1, 2, 3) "
-          input.name = "member" + i;
-          input.id = "d" + i + "a";
-          input.className = "scheduleNameInput"
-          container.appendChild(input);
-          container.appendChild(document.createElement("br"));
+                scheduleDiv.appendChild(document.createElement("br"));
+                scheduleDiv.appendChild(document.createTextNode("Name"));
+                var input = document.createElement("input");
+                input.type = "text";
+                input.placeholder = "(Normal, Homeroom, Early Dissmissal, etc.)";
+                input.id = "d" + i + "n";
+                input.className = "scheduleNameInput"
+                scheduleDiv.appendChild(input);
+
+                scheduleDiv.appendChild(document.createTextNode("Abbreviation"));
+                var abb = document.createElement("input");
+                abb.type = "text";
+                abb.placeholder = "(A, B, 1, 2) "
+                abb.name = "member" + i;
+                abb.id = "d" + i + "a";
+                abb.className = "scheduleAbbInput"
+                scheduleDiv.appendChild(abb);
+
       }
   }
 
@@ -94,12 +67,12 @@ for (var i = 0, length = radios.length; i < length; i++)
   } else {
     sameNumberOfPeriods = "no";
     document.getElementById("numPeriodSame").style.display = "none";
-    
-    
-    
-    
-    
-    
+
+
+
+
+
+
   }
   break;
  }
@@ -107,24 +80,43 @@ for (var i = 0, length = radios.length; i < length; i++)
 }
 var i;
 
+//Big display blocks for periods below
+
 function displaySamePeriods() {
  var container = document.getElementById("periodContainer");
-  
+
   var numberOfSamePeriods = document.getElementById("numPeriodSame").value;
 
       while (container.hasChildNodes()) {
           container.removeChild(container.lastChild);
       }
       for (i=0;i<numberOfSamePeriods;i++){
-          container.appendChild(document.createTextNode("Period " + (i+1) + " Name"));
+          var periodDiv = document.createElement("div");
+          periodDiv.className = "periodDiv";
+          container.appendChild(periodDiv);
+
+          var periodHeader = document.createElement("H3");
+          var periodHeaderText = document.createTextNode("Period " + (i+1));
+          periodHeader.className = "periodHeader"
+          periodHeader.appendChild(periodHeaderText);
+          periodDiv.appendChild(periodHeader);
+
+          periodDiv.appendChild(document.createElement("br"));
+          periodDiv.appendChild(document.createTextNode("Name"));
           var input = document.createElement("input");
           input.type = "text";
-          input.placeholder = "(Period 1, Lunch A, Activity Period, etc.)"
+          input.placeholder = "(Period " + (i+1) + ", Lunch A, Activity Period, etc.)"
           input.name = "member" + i;
           input.id = "d" + i + "a";
-          input.className = "scheduleNameInput"
-          container.appendChild(input);
-          container.appendChild(document.createElement("br"));
+          input.className = "periodNameInput"
+          periodDiv.appendChild(input);
+          var hour = document.createElement("input");
+          hour.type = "time";
+          hour.id = "d" + i + "t";
+          hour.className = "timeInput"
+          periodDiv.appendChild(document.createElement("br"));
+          periodDiv.appendChild(document.createTextNode("Dissmissal Time"));
+          periodDiv.appendChild(hour);
       }
 }
 

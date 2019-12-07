@@ -17,63 +17,78 @@
   </button><br><br /><br />
 
 -->
-  <h2 class="inputLabel">Number of Schedules</h2>
-  <span class="smallLabel">Schedules at your school: </span>
-  <select class="numberSelect" id="numSchedule" onchange="addFields();">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-    <option>6</option>
-    <option>7</option>
-  </select>
 
-  <div id="scheduleNames">
-    <h2 class="inputLabel">Name of Schedule</h2>
-    <div id="scheduleNameInputContainer" />
+<h1 id="bigHeading">Welcome to SchoolTimer 2020</h><br />
+  <button onclick="slide1();">Custom Timer</button>
+
+
+  <div class="slide" id="slide1">
+    <h2 class="inputLabel">Number of Schedules</h2>
+    <span class="smallLabel">Schedules at your school: </span>
+    <select class="numberSelect" id="numSchedule" onchange="addFields();">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+      <option>6</option>
+      <option>7</option>
+    </select>
+
   </div>
 
-  <div id="scheduleAbbreviations">
-    <h2 class="inputLabel">Abbreviation of Schedule</h2>
-    <div id="scheduleAbbreviationContainer" />
+  <div class="slide" id="slide2">
+
+    <div id="scheduleNames">
+      <h2 class="inputLabel">Name of Schedule</h2>
+      <div id="scheduleNameInputContainer" />
+    </div>
+
   </div>
 
-  <h2>Number of Periods</h2><br />
+  <div slide="slide" id="slide3">
+
+    <h2>Number of Periods</h2><br />
     <div id="bigCheckContainer">
-    <label class="container">Same number of periods everyday
-    <input id="radio1" type="radio" checked="checked" name="samePeriod" onclick="differentNumberSchedules();">
-    <span class="checkmark"></span>
-  </label>
+      <label class="container">Same number of periods everyday
+        <input id="radio1" type="radio" checked="checked" name="samePeriod" onclick="differentNumberSchedules();">
+        <span class="checkmark"></span>
+      </label>
 
-  <select class="numberSelect" id="numPeriodSame" onchange="periodSame();">
-    <option>1</option>
-    <option>2</option>
-    <option>3</option>
-    <option>4</option>
-    <option>5</option>
-    <option>6</option>
-    <option>7</option>
-    <option>8</option>
-    <option>9</option>
-    <option>10</option>
-    <option>11</option>
-    <option>12</option>
-    <option>13</option>
-    <option>14</option>
-    <option>15</option>
-  </select>
-  <br />
+      <select onclick="displaySamePeriods();" class="numberSelect" id="numPeriodSame">
+        <option>1</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+        <option>6</option>
+        <option>7</option>
+        <option>8</option>
+        <option>9</option>
+        <option>10</option>
+        <option>11</option>
+        <option>12</option>
+        <option>13</option>
+        <option>14</option>
+        <option>15</option>
+      </select>
+      <br />
 
-  <label class="container">Different number of periods depending on schedule
-    <input id="radio2" type="radio" name="samePeriod" onclick="differentNumberSchedules();">
-    <span class="checkmark"></span>
-  </label>
-</div>
+      <label class="container">Different number of periods depending on schedule
+        <input id="radio2" type="radio" name="samePeriod" onchange="differentNumberSchedules();">
+        <span class="checkmark"></span>
+      </label>
+    </div>
 
-  <h2>Period Timing</h2>
-  <div id="periodContainer">
-    hello
+  </div>
+
+  <div class="slide" id="slide4">
+
+    <h2>Period Timing</h2>
+    <div id="periodContainer">
+      hello
+    </div>
+
   </div>
 
 </body>
@@ -81,3 +96,4 @@
 </html>
 
 <script src="script.js"></script>
+<script src="form.js"></script>

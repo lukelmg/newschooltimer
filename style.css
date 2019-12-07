@@ -1,6 +1,25 @@
+.slide {
+  display:none;
+  background-color:#202833;
+}
+
+#bigHeading {
+  color:black;
+}
+
+span {
+  color:white;
+}
+
+h2 {
+  color:white;
+}
+h3 {
+  color:white;
+}
 
 body {
-  background-color: #1e1e1e;
+  background-color: white;
   color:white;
   font-family:Arial;
   font-size: 1.5vw;
@@ -149,4 +168,95 @@ input:focus {outline:0;}
   color:white;
   background-color:#1E1E1E;
   outline:none;
+}
+
+.timeInput {
+  background-color:white;
+  border: 1px solid white;
+  color:gray;
+  padding: 0vw .2vw 0vw .2vw;
+  width: 7vw;
+  margin-bottom: 1vw;
+  vertical-align: top;
+  font-size: 1vw;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family:Arial;
+  text-align:center;
+}
+
+.periodDiv {
+  background-color:#2D9CCA;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+  padding: 1vw 1vw 1vw 1vw;
+  margin-bottom:1vw;
+  margin-top:0px;
+  margin-left: 1vw;
+  width: 25vw;
+  border-radius: 5px;
+  display:inline-block;
+}
+
+.periodNameInput {
+  background-color:white;
+  border: 1px solid white;
+  color:black;
+  padding: .2vw .2vw .2vw .2vw;
+  width: 20vw;
+  margin-bottom: 1vw;
+  vertical-align: top;
+  font-size: 1vw;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.periodNameInput::-webkit-input-placeholder {
+    color: gray;
+}
+
+
+
+
+.periodHeader {
+  color:white;
+  margin-top:0;
+  margin-bottom:0;
+}
+
+.scheduleDiv {
+  background-color:#2D9CCA;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+  padding: 1vw 1vw 1vw 1vw;
+  margin-bottom:1vw;
+  margin-top:0px;
+  margin-left: 1vw;
+  width: 30vw;
+  border-radius: 5px;
+  display:inline-block;
+}
+
+
+.scheduleNameInput {
+  background-color:white;
+  border: 1px solid white;
+  color:black;
+  padding: .2vw .2vw .2vw .2vw;
+  width: 20vw;
+  margin-bottom: 1vw;
+  vertical-align: top;
+  font-size: 1vw;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+
+.scheduleAbbInput {
+  background-color:white;
+  border: 1px solid white;
+  color:black;
+  padding: .2vw .2vw .2vw .2vw;
+  width: 7vw;
+  margin-bottom: 1vw;
+  vertical-align: top;
+  font-size: 1vw;
+  border-radius: 5px;
+  border: 1px solid gray;
 }

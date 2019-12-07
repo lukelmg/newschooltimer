@@ -1,3 +1,7 @@
+Accent Color:
+#2D9CCA
+
+
 Dark:   1e1e1e
 Gray:   A6AAAD
 White:  EDF2F4
