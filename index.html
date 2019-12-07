@@ -24,19 +24,26 @@
   <button onclick="slide1();">Custom Timer</button>
 </div>
 
+<!-- Slide 1 Start -->
+
+
   <div class="slide" id="slide1">
     <h2 class="slideHeading" id="slide1Heading">Number of Schedules</h2>
     <span class="smallLabel">How many different schedules does your school have? </span>
-    <p class="note">Examples: Normal Day, Early Dissmissal, Activity Day, 2 Hour  Delay, Mon-Fri</p>
-    <br />
+    <p class="note">Most schools have different schedules depending on the day. <br /> Some have normal days followed by an activity day or even special days like early dissmissals.</p>
     <div class="updowndiv">
       <button class="updown" id="down" onclick="subSchedule()">-</button>
-      <input id="numSchedule" class="numberSelect" onchange="addFields();" disabled="disabled" min="1" max="8" value="1"></input>
+      <input id="numSchedule" class="numberSelect" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Schedule"></input>
       <button class="updown" id="up" onclick="plusSchedule()">+</button>
     </div>
-    <button class="next back"><span>Back </span></button>
-    <button class="next" onclick="slide2()"><span>Next </span></button>
+    <button class="next back" onclick="backSlide1()"><span>Back </span></button>
+    <button class="next" onclick="slide2(); addFields();"><span>Next </span></button>
   </div>
+
+
+<!-- Slide 2 Start -->
+
+
 
   <div class="slide" id="slide2">
 
@@ -45,8 +52,18 @@
       <div id="scheduleNameInputContainer" />
     </div>
 
+    <button class="next back" onclick="backSlide2()"><span>Back </span></button>
+    <button class="next" onclick="slide3()"><span>Next </span></button>
+
   </div>
 
+
+
+<!-- Slide 3 Start -->
+
+
+
+<!--
   <div slide="slide" id="slide3">
 
     <h2>Number of Periods</h2><br />
@@ -83,6 +100,8 @@
 
   </div>
 
+-->
+
   <div class="slide" id="slide4">
 
     <h2>Period Timing</h2>
@@ -97,4 +116,5 @@
 </html>
 
 <script src="script.js"></script>
-<script src="form.js"></script>
+<script src="forwardSlide.js"></script>
+<script src="backSlide.js"></script>

@@ -4,19 +4,28 @@ function plusSchedule () {
   if (numberOfSchedules < 8) {
     numberOfSchedules++;
   }
-  document.getElementById("numSchedule").value = numberOfSchedules;
+  if (numberOfSchedules == 1) {
+    document.getElementById("numSchedule").value = numberOfSchedules + " Schedule";
+  } else {
+    document.getElementById("numSchedule").value = numberOfSchedules + " Schedules";
+  }
+  addFields();
 }
 
 function subSchedule () {
   if (numberOfSchedules > 1) {
     numberOfSchedules--;
   }
-  document.getElementById("numSchedule").value = numberOfSchedules;
+  if (numberOfSchedules == 1) {
+    document.getElementById("numSchedule").value = numberOfSchedules + " Schedule";
+  } else {
+    document.getElementById("numSchedule").value = numberOfSchedules + " Schedules";
+  }
+  addFields();
 }
 
 
   function addFields(){
-      numberOfSchedules = document.getElementById("numSchedule").value;
       var container = document.getElementById("scheduleNameInputContainer");
 
       while (container.hasChildNodes()) {

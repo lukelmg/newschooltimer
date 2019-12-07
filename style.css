@@ -26,6 +26,7 @@ h2 {
 .note {
   margin-left: 1vw;
   color:gray;
+  margin-bottom: 0px;
 }
 
 h3 {
@@ -178,11 +179,10 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .updowndiv {
-  position:absolute;
-  bottom: 0;
-  left:50%;
-  transform: translate(-50%);
-  margin-bottom:5vw;
+  float:left;
+  margin-bottom:3vw;
+  margin-left: 1vw;
+  margin-top: 0px;
 }
 
 .updown {
@@ -211,8 +211,8 @@ input[type=number]::-webkit-outer-spin-button {
   vertical-align:middle;
   font-size: 2.5vw;
   z-index: 10;
-  width: 7vw;
   height: 7vw;
+  width: 20vw;
   text-align:center;
   margin-right: 0px;
   margin-left: 0px;
@@ -239,7 +239,7 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .periodDiv {
-  background-color:#2D9CCA;
+  background-color:#2196F3;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
   padding: 1vw 1vw 1vw 1vw;
   margin-bottom:1vw;
@@ -276,15 +276,15 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .scheduleDiv {
-  background-color:#2D9CCA;
+  background-color:#2196F3;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
   padding: 1vw 1vw 1vw 1vw;
   margin-bottom:1vw;
   margin-top:0px;
   margin-left: 1vw;
-  width: 30vw;
-  border-radius: 5px;
+  width: 28%;
   display:inline-block;
+  left: 50%;
 }
 
 
