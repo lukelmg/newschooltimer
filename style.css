@@ -1,18 +1,3 @@
-.slide {
-  display:none;
-  background-color:#202833;
-  width: 90vw;
-  position:absolute;
-  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
-  vertical-align:center;
-  margin-left: 5vw;
-  margin-right: 5vw;
-  padding: 0px 0px 0px 0px;
-  height: 80vh;
-  margin-bottom: 8vh;
-  margin-top: 8vh;
-
-}
 
 #bigHeading {
   color:black;
@@ -31,14 +16,16 @@ h2 {
   margin-top: 1vw;
   margin-left: 1vw;
 }
-
-.slideHeading {
-  font-size: 4vw;
-}
-
 .smallLabel {
   font-weight: normal;
   margin-left: 1vw;
+  font-size: 3vw;
+  margin-top:0px;
+}
+
+.note {
+  margin-left: 1vw;
+  color:gray;
 }
 
 h3 {
@@ -190,6 +177,12 @@ input[type=number]::-webkit-outer-spin-button {
   -webkit-appearance: none;
 }
 
+.updowndiv {
+  position:absolute;
+  left:50%;
+  transform: translate(-50%);
+  margin-bottom:1vw;
+}
 
 .updown {
   margin-top: 5vw;
@@ -205,10 +198,7 @@ input[type=number]::-webkit-outer-spin-button {
   outline:none;
   border: none;
   cursor:pointer;
-}
-
-#down {
-  margin-left: 1vw;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
 }
 
 
@@ -225,6 +215,7 @@ input[type=number]::-webkit-outer-spin-button {
   text-align:center;
   margin-right: 0px;
   margin-left: 0px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
 }
 
 #numPeriodSame {
