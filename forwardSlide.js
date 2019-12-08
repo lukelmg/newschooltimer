@@ -13,4 +13,6 @@ function slide2 () {
   slide1.style.opacity = "0";
   slide2.style.display = "block";
   slide2.style.opacity = "1";
+
+  
 }
