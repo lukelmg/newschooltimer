@@ -32,17 +32,7 @@ function subSchedule () {
           container.removeChild(container.lastChild);
       }
       for (i=0;i<numberOfSchedules;i++){
-        /*  container.appendChild(document.createTextNode("Schedule " + (i+1)));
-          var input = document.createElement("input");
-          input.type = "text";
-          input.placeholder = "(Normal, Homeroom, Early Dissmissal, etc.)";
-          input.id = "d" + i + "n";
-          input.className = "scheduleNameInput"
-          container.appendChild(input);
-          container.appendChild(document.createElement("br"));
-*/
-
-
+  
                 var scheduleDiv = document.createElement("div");
                 scheduleDiv.className = "scheduleDiv";
                 container.appendChild(scheduleDiv);
@@ -141,6 +131,78 @@ function displaySamePeriods() {
           periodDiv.appendChild(hour);
       }
 }
+
+var yesnoperiod;
+
+function periodSameYes () {
+  var yesButton = document.getElementById("yes");
+  var noButton = document.getElementById("no");
+
+  var div = document.getElementById("yesSame");
+
+  div.style.display = "inline-block";
+
+  yesnoperiod = "yes";
+
+  yesButton.style.backgroundColor = "white";
+  yesButton.style.color = "black";
+
+  noButton.style.backgroundColor = "Transparent";
+  noButton.style.color = "white";
+
+}
+
+function periodSameNo () {
+  var yesButton = document.getElementById("yes");
+  var noButton = document.getElementById("no");
+
+  var div = document.getElementById("yesSame");
+
+  div.style.display = "none";
+
+  yesnoperiod = "no";
+
+  yesButton.style.backgroundColor = "Transparent";
+  yesButton.style.color = "white";
+
+  noButton.style.backgroundColor = "white";
+  noButton.style.color = "black";
+}
+
+var numberSamePeriods = 1;
+
+function upSame () {
+  if (numberSamePeriods < 15) {
+    numberSamePeriods++;
+  }
+  if (numberSamePeriods == 1) {
+    document.getElementById("numSamePeriod").value = numberSamePeriods + " Period";
+  } else {
+    document.getElementById("numSamePeriod").value = numberSamePeriods + " Periods";
+  }
+}
+
+function downSame() {
+  if (numberSamePeriods > 1) {
+    numberSamePeriods--;
+  }
+  if (numberSamePeriods == 1) {
+    document.getElementById("numSamePeriod").value = numberSamePeriods + " Period";
+  } else {
+    document.getElementById("numSamePeriod").value = numberSamePeriods + " Periods";
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
 
 
 

@@ -19,12 +19,12 @@
   </button><br><br /><br />
 
 -->
-<div id="startDiv">
-<h1 id="bigHeading">Welcome to SchoolTimer 2020</h><br />
-  <button onclick="slide1();">Custom Timer</button>
-</div>
+  <div id="startDiv">
+    <h1 id="bigHeading">Welcome to SchoolTimer 2020</h><br />
+      <button onclick="slide1();">Custom Timer</button>
+  </div>
 
-<!-- Slide 1 Start -->
+  <!-- Slide 1 Start -->
 
 
   <div class="slide" id="slide1">
@@ -41,15 +41,24 @@
   </div>
 
 
-<div class="slide" id="slide2">
-  <h2 class="slideHeading" id="slide2Heading">Schedule Configuration</h2>
-  <span class="smallLabel">Are there the same number of periods every schedule?</span> <br />
-        <button class="yesno" id="yes">Yes</button> <button class="yesno" id="no">No</button>
-  <button class="next back" onclick="backSlide2()"><span>Back </span></button>
-  <button class="next" onclick="slide3()"><span>Next </span></button>
-</div>
+  <div class="slide" id="slide2">
+    <h2 class="slideHeading" id="slide2Heading">Schedule Configuration</h2>
+    <span class="smallLabel">Are there the same number of periods every schedule?</span> <br />
+    <button class="yesno" id="yes" onclick="periodSameYes()">Yes</button> <button class="yesno" id="no" onclick="periodSameNo()">No</button>
 
-<!-- Slide 3 Start -->
+    <div id="yesSame">
+      <span class="smallLabel" id="howMany">How many?</span>
+      <button class="updownPeriod" id="downSamePeriod" onclick="downSame() ">-</button>
+      <input id="numSamePeriod" class="numberSelectSame" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Period"></input>
+      <button class="updownPeriod" id="upSamePeriod" onclick="upSame()">+</button>
+    </div>
+
+
+    <button class="next back" onclick="backSlide2()"><span>Back </span></button>
+    <button class="next" onclick="slide3()"><span>Next </span></button>
+  </div>
+
+  <!-- Slide 3 Start -->
 
 
 
@@ -67,11 +76,11 @@
 
 
 
-<!-- Slide 4 Start -->
+  <!-- Slide 4 Start -->
 
 
 
-<!--
+  <!--
   <div slide="slide" id="slide4">
 
     <h2>Number of Periods</h2><br />
