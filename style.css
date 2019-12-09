@@ -368,11 +368,10 @@ input[type=number]::-webkit-outer-spin-button {
 
 .updownPeriod {
   height: 5vh;
-  vertical-align: top;
   width: 5vh;
   margin-left:0px;
   margin-right: 0px;
-  font-size: 3em;
+  font-size: 3vh;
   font-family: 'Lato', sans-serif;
   background-color:white;
   color:black;
@@ -381,18 +380,21 @@ input[type=number]::-webkit-outer-spin-button {
   cursor:pointer;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
   vertical-align: middle;
-  value: "x";
+  text-align:bottom;
+}
+.downperiod {
+  margin-left: 1vw;
 }
 
-.numberSelectSame {
+.numberSelectPeriodNumber {
   color:white;
   background-color:Transparent;
   border: 1px solid white;
   vertical-align:middle;
-  font-size: 1.5em;
+  font-size: 3vh;
   z-index: 10;
-  height: 7vw;
-  width: 20vw;
+  height: 5vh;
+  width: 15vh;
   text-align:center;
   margin-right: 0px;
   margin-left: 0px;

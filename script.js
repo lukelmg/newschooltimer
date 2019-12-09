@@ -61,24 +61,26 @@ function subSchedule () {
         
                 scheduleDiv.appendChild(document.createElement("br"));
         
-                var up = document.createElement("button");
+                var up = document.createElement("input");
+                up.type = "button";
                 up.id = "upPeriod" + i + "schedule1";
-                up.className = "updownPeriod";
+                up.className = "updownPeriod downperiod";
                 up.value = "-";
                 scheduleDiv.appendChild(up);
         
                 var disp = document.createElement("input");
                 disp.type = "text";
                 disp.id = "s" + i + "periods";
-                disp.className = "scheduleAbbInput";
+                disp.className = "numberSelectPeriodNumber";
                 disp.disabled = "true";
                 disp.value = 1 + " Period";
                 scheduleDiv.appendChild(disp);
         
-                var down = document.createElement("button");
+                var down = document.createElement("input");
+                down.type = "button";
                 down.id = "upPeriod" + i + "schedule1";
                 down.className = "updownPeriod";
-                down.value = "+"
+                down.value = "+";
                 scheduleDiv.appendChild(down);
       }
   }
