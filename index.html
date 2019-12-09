@@ -33,7 +33,7 @@
     <p class="note">Most schools have different schedules depending on the day. <br /> Some have normal days followed by an activity day or even special days like early dissmissals.</p>
     <div class="updowndiv">
       <button class="updown" id="down" onclick="subSchedule()">-</button>
-      <input id="numSchedule" class="numberSelect" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Schedule"></input>
+      <input id="numSchedule" class="numberSelect" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Schedule">
       <button class="updown" id="up" onclick="plusSchedule()">+</button>
     </div>
     <button class="next back" onclick="backSlide1()"><span>Back </span></button>
@@ -44,12 +44,12 @@
   <div class="slide" id="slide2">
     <h2 class="slideHeading" id="slide2Heading">Schedule Configuration</h2>
     <span class="smallLabel">Are there the same number of periods every schedule?</span> <br />
-    <button class="yesno" id="yes" onclick="periodSameYes()">Yes</button> <button class="yesno" id="no" onclick="periodSameNo()">No</button>
+    <button class="yesno" id="yes" onclick="periodSameYes(); yesslide()">Yes</button> <button class="yesno" id="no" onclick="periodSameNo(); noslide()">No</button>
 
     <div id="yesSame">
       <span class="smallLabel" id="howMany">How many?</span>
       <button class="updownPeriod" id="downSamePeriod" onclick="downSame() ">-</button>
-      <input id="numSamePeriod" class="numberSelectSame" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Period"></input>
+      <input id="numSamePeriod" class="numberSelectSame" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Period">
       <button class="updownPeriod" id="upSamePeriod" onclick="upSame()">+</button>
     </div>
 
@@ -63,7 +63,7 @@
 
 
   <div class="slide" id="slide3">
-
+    
     <div id="scheduleNames">
       <h2 class="inputLabel">Schedule Configuration</h2>
       <div id="scheduleNameInputContainer" />
@@ -74,7 +74,12 @@
 
   </div>
 
-
+<!--
+<div id="scheduleNames">
+      <h2 class="inputLabel">Schedule Configuration</h2>
+      <div id="scheduleNameInputContainer" />
+</div>
+-->
 
   <!-- Slide 4 Start -->
 
@@ -135,3 +140,6 @@
 <script src="script.js"></script>
 <script src="forwardSlide.js"></script>
 <script src="backSlide.js"></script>
+<script type="text/javascript">
+$(document).ready(function1);
+</script>

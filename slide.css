@@ -11,18 +11,13 @@
   height: 80vh;
   margin-bottom: 8vh;
   margin-top: 8vh;
-  transition: all 1s;
+  transition: all 0.5s;
 }
 
 .slideHeading {
-  font-size: 5em;
+  font-size: 15vh;
   margin-bottom:3vw;
 }
-
-#slide1Heading, #slide2Heading{
-  font-size: 8em;
-}
-
 
 
 
@@ -42,12 +37,14 @@
   right:0;
   margin-right: 1vw;
   margin-bottom: 1vw;
+  touch-action: manipulation;	
 }
 
 .back {
   left: 0;
   right:auto;
   margin-left: 1vw;
+  touch-action: manipulation;	
 }
 
 .next:focus {

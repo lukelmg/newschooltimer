@@ -1,18 +1,34 @@
-function slide1 () {
+function slide1() {
   var startDiv = document.getElementById("startDiv");
   startDiv.style.display = "none";
   var slide1 = document.getElementById("slide1");
   slide1.style.display = "block";
-  slide1.style.opacity = "1";
 }
 
-function slide2 () {
+function slide2() {
   var slide1 = document.getElementById("slide1");
   var slide2 = document.getElementById("slide2");
   slide1.style.display = "none";
-  slide1.style.opacity = "0";
   slide2.style.display = "block";
-  slide2.style.opacity = "1";
+}
 
-  
+var yesno;
+
+function slide3() {
+  if (yesno == "yes" || yesno == "no") {
+    var slide2 = document.getElementById("slide2");
+    var slide3 = document.getElementById("slide3");
+    slide2.style.display = "none";
+    slide3.style.display = "block";
+  } else {
+    alert("Please select yes or no to continue.");
+  }
+}
+
+function yesslide() {
+  yesno = "yes";
+}
+
+function noslide() {
+  yesno = "no";
 }

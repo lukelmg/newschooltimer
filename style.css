@@ -19,7 +19,7 @@ h2 {
 .smallLabel {
   font-weight: normal;
   margin-left: 1vw;
-  font-size: 3em;
+  font-size: 5vh;
   margin-top:0px;
   margin-bottom:0px;
 }
@@ -29,7 +29,7 @@ h2 {
   color:gray;
   margin-bottom: 0px;
   margin-top:0px;
-  font-size: 2em;
+  font-size: 3vh;
 }
 
 h3 {
@@ -299,7 +299,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 80%;
   margin-bottom: 1vw;
   vertical-align: top;
-  font-size: 0.5em;
+  font-size: 3vh;
   border: 1px solid gray;
   margin-right: 0px;
 }
@@ -312,7 +312,7 @@ input[type=number]::-webkit-outer-spin-button {
   width: 7vw;
   margin-bottom: 1vw;
   vertical-align: top;
-  font-size: 0.5em;
+  font-size: 3vh;
   border: 1px solid gray;
 }
 
@@ -340,6 +340,7 @@ input[type=number]::-webkit-outer-spin-button {
   margin-top: 2vw;
 
   transition: ease-in 0.3s;
+  touch-action: manipulation;	
 }
 
 #yes:hover {
@@ -366,9 +367,9 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 .updownPeriod {
-  height: 7vw;
+  height: 5vh;
   vertical-align: top;
-  width: 7vw;
+  width: 5vh;
   margin-left:0px;
   margin-right: 0px;
   font-size: 3em;
@@ -380,6 +381,7 @@ input[type=number]::-webkit-outer-spin-button {
   cursor:pointer;
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
   vertical-align: middle;
+  value: "x";
 }
 
 .numberSelectSame {

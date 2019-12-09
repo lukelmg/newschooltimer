@@ -25,7 +25,7 @@ function subSchedule () {
 }
 
 
-  function addFields(){
+  function addFields(){ //Schedule Names, Abbreviations, and Period Input
       var container = document.getElementById("scheduleNameInputContainer");
 
       while (container.hasChildNodes()) {
@@ -58,7 +58,28 @@ function subSchedule () {
                 abb.id = "d" + i + "a";
                 abb.className = "scheduleAbbInput"
                 scheduleDiv.appendChild(abb);
-
+        
+                scheduleDiv.appendChild(document.createElement("br"));
+        
+                var up = document.createElement("button");
+                up.id = "upPeriod" + i + "schedule1";
+                up.className = "updownPeriod";
+                up.value = "-";
+                scheduleDiv.appendChild(up);
+        
+                var disp = document.createElement("input");
+                disp.type = "text";
+                disp.id = "s" + i + "periods";
+                disp.className = "scheduleAbbInput";
+                disp.disabled = "true";
+                disp.value = 1 + " Period";
+                scheduleDiv.appendChild(disp);
+        
+                var down = document.createElement("button");
+                down.id = "upPeriod" + i + "schedule1";
+                down.className = "updownPeriod";
+                down.value = "+"
+                scheduleDiv.appendChild(down);
       }
   }
 
@@ -138,9 +159,9 @@ function periodSameYes () {
   var yesButton = document.getElementById("yes");
   var noButton = document.getElementById("no");
 
-  var div = document.getElementById("yesSame");
+  //var div = document.getElementById("yesSame");
 
-  div.style.display = "inline-block";
+  //div.style.display = "inline-block";
 
   yesnoperiod = "yes";
 
