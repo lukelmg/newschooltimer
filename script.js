@@ -1,3 +1,23 @@
+var numberOfPeriods = [];
+
+var currentSchedule;
+
+function downPeriod (currentSchedule) {
+  alert(currentSchedule);
+}
+
+function upPeriod (currentSchedule) {
+  numberOfPeriods[currentSchedule] = 7;
+  alert(numberOfPeriods[currentSchedule]);//a;sldkjfa;lkjsdf;lakjsdf;lkasdfklj
+}
+
+function readNumberOfPeriods() {
+  alert(numberOfPeriods);
+}
+
+
+
+
 var numberOfSchedules = 1;
 
 function plusSchedule () {
@@ -63,9 +83,13 @@ function subSchedule () {
         
                 var up = document.createElement("input");
                 up.type = "button";
-                up.id = "upPeriod" + i + "schedule1";
+                up.id = "ps" + (i+1);
                 up.className = "updownPeriod downperiod";
                 up.value = "-";
+                up.onclick = function () {
+                  upPeriod(this.id);
+                };
+
                 scheduleDiv.appendChild(up);
         
                 var disp = document.createElement("input");
@@ -81,6 +105,9 @@ function subSchedule () {
                 down.id = "upPeriod" + i + "schedule1";
                 down.className = "updownPeriod";
                 down.value = "+";
+                down.onclick = function () {
+                  downPeriod(this.id);
+                };
                 scheduleDiv.appendChild(down);
       }
   }
