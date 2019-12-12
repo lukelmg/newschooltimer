@@ -6,6 +6,7 @@
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="slide.css">
   <link href="https://fonts.googleapis.com/css?family=Lato:100&display=swap" rel="stylesheet">
+  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
 </head>
 
 <body onload="initialInputs(); differentNumberSchedules();">
@@ -25,6 +26,13 @@
       Create a custom timer for any school.
     </p> <br><br>
       <button onclick="slide1();">Custom Timer</button>
+
+      <form action="?" method="POST">
+      <div class="g-recaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN"></div>
+      <br/>
+      <input type="submit" value="Submit">
+    </form>
+
   </div>
 
   <!-- Slide 1 Start -->
@@ -66,7 +74,7 @@
 
 
   <div class="slide" id="slide3">
-    
+
     <div id="scheduleNames">
       <h2 class="inputLabel">Schedule Configuration</h2>
       <div id="scheduleNameInputContainer" />

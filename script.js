@@ -28,9 +28,6 @@ var currentNumberOfPeriods = 1;
 var eee = 0;
 var previousSchedule;
 
-
-
-
 function upPeriod(currentSchedule) {
   if (previousSchedule !== currentSchedule) {
     currentNumberOfPeriods = 1;
