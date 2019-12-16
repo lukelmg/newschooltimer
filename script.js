@@ -1,3 +1,46 @@
+function addContainersForPeriodTiming {
+
+  var container = document.getElementById("scheduleNameInputContainer");
+
+  while (container.hasChildNodes()) {
+    container.removeChild(container.lastChild);
+  }
+  for (i = 0; i < numberOfSchedules; i++) {
+    var scheduleDiv = document.createElement("div");
+    scheduleDiv.className = "scheduleDiv";
+    container.appendChild(scheduleDiv);
+
+    var scheduleHeader = document.createElement("H3");
+    var scheduleHeaderText = document.createTextNode("Schedule " + (i + 1));
+    scheduleHeader.className = "periodHeader";
+    scheduleHeader.appendChild(scheduleHeaderText);
+    scheduleDiv.appendChild(scheduleHeader);
+
+    scheduleDiv.appendChild(document.createElement("br"));
+    var input = document.createElement("input");
+    input.type = "text";
+    input.placeholder = "Schedule Full Name";
+    input.id = "d" + i + "n";
+    input.className = "scheduleNameInput";
+    scheduleDiv.appendChild(input);
+
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 var numberOfPeriods = [];
 
 var currentSchedule;
@@ -5,7 +48,8 @@ var currentSchedule;
 var sameYesNo;
 
 function downPeriod(currentSchedule) {
-  if (sameNumberOfPeriods == "yes") {
+  if (yesnoperiod == "yes") {
+    //alert("same");
     if (currentNumberOfPeriods > 1) {
       currentNumberOfPeriods--;
     }
@@ -18,11 +62,11 @@ function downPeriod(currentSchedule) {
       }
     }
   } else {
+  //  alert("not same");
     if (previousSchedule !== currentSchedule) {
       currentNumberOfPeriods = 1;
     }
-    if (currentNumberOfPeriods == 1) {
-    } else {
+    if (currentNumberOfPeriods == 1) { } else {
       currentNumberOfPeriods--;
       var shortCurrent = currentSchedule.substr(1);
       var output;
@@ -31,7 +75,7 @@ function downPeriod(currentSchedule) {
         document.getElementById(shortCurrent + "periods").value =
           currentNumberOfPeriods + " Period";
       } else {
-        output = currentNumberOfPeriods + " Periods";
+        output = currentNumberOfPeriods +  " Periods";
         document.getElementById(shortCurrent + "periods").value =
           currentNumberOfPeriods + " Periods";
       }
@@ -46,7 +90,8 @@ var eee = 0;
 var previousSchedule;
 
 function upPeriod(currentSchedule) {
-  if (sameNumberOfPeriods == "yes") {
+  if (yesnoperiod == "yes") {
+  //  alert("same");
     if (currentNumberOfPeriods < 15) {
       currentNumberOfPeriods++;
     }
@@ -55,6 +100,7 @@ function upPeriod(currentSchedule) {
       elements[i].value = currentNumberOfPeriods + " Periods";
     }
   } else {
+  //  alert("not same");
     if (previousSchedule !== currentSchedule) {
       currentNumberOfPeriods = 1;
     }
@@ -179,6 +225,8 @@ function addFields() {
 
 var sameNumberOfPeriods = "yes";
 
+ // need button function to work!!!
+
 function differentNumberSchedules() {
   var radios = document.getElementsByName("samePeriod");
 
@@ -192,7 +240,6 @@ function differentNumberSchedules() {
         sameNumberOfPeriods = "no";
         document.getElementById("numPeriodSame").style.display = "none";
       }
-      break;
     }
   }
 }
@@ -302,6 +349,18 @@ function downSame() {
       numberSamePeriods + " Periods";
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 var schedule = [];
 var scheduleAbb = [];
