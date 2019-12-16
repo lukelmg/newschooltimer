@@ -1,43 +1,10 @@
-function addContainersForPeriodTiming {
-
-  var container = document.getElementById("scheduleNameInputContainer");
-
-  while (container.hasChildNodes()) {
-    container.removeChild(container.lastChild);
-  }
-  for (i = 0; i < numberOfSchedules; i++) {
-    var scheduleDiv = document.createElement("div");
-    scheduleDiv.className = "scheduleDiv";
-    container.appendChild(scheduleDiv);
-
-    var scheduleHeader = document.createElement("H3");
-    var scheduleHeaderText = document.createTextNode("Schedule " + (i + 1));
-    scheduleHeader.className = "periodHeader";
-    scheduleHeader.appendChild(scheduleHeaderText);
-    scheduleDiv.appendChild(scheduleHeader);
-
-    scheduleDiv.appendChild(document.createElement("br"));
-    var input = document.createElement("input");
-    input.type = "text";
-    input.placeholder = "Schedule Full Name";
-    input.id = "d" + i + "n";
-    input.className = "scheduleNameInput";
-    scheduleDiv.appendChild(input);
-
+function periodTimingAddSchedules() {
+  //Period Timing Input Per Schedule
+  var container = document.getElementById("schedulePeriodTimingDiv");
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
+function getScheduleInfo () {}
 
 
 

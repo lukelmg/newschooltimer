@@ -18,3 +18,10 @@ function backSlide3 () {
   slide2.style.display = "block";
   slide3.style.display = "none";
 }
+
+function backSlide4() {
+  var slide3 = document.getElementById("slide3");
+  var slide4 = document.getElementById("slide4");
+  slide3.style.display = "block";
+  slide4.style.display = "none";
+}
