@@ -35,7 +35,6 @@ function noslide() {
 
 
 function slide4() {
-  alert("slide4");
   var slide3 = document.getElementById("slide3");
   var slide4 = document.getElementById("slide4");
   slide3.style.display = "none";

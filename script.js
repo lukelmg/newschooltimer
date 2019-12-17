@@ -1,10 +1,42 @@
 function periodTimingAddSchedules() {
   //Period Timing Input Per Schedule
   var container = document.getElementById("schedulePeriodTimingDiv");
+  
+  for (var i = 0; i < numberOfSchedules; i++) {
+    var scheduleDiv = document.createElement("div");
+    scheduleDiv.className = "scheduleTimeDiv";
+    container.appendChild(scheduleDiv);
+
+    var scheduleHeader = document.createElement("H3");
+    var scheduleHeaderText = document.createTextNode(scheduleNames[i] + " Schedule");
+    scheduleHeader.className = "periodHeader";
+    scheduleHeader.appendChild(scheduleHeaderText);
+    scheduleDiv.appendChild(scheduleHeader);
+    
+    for (var e = 0; e < periodsPerSchedule[i]; e++) {
+      var time = document.createElement("input");
+      time.type = "time";
+      time.className = "timeInput";
+      scheduleDiv.appendChild(time);
+    }
+  }
 
 }
 
-function getScheduleInfo () {}
+var scheduleNames = [];
+var scheduleAbbreviations = [];
+var periodsPerSchedule = [];
+
+function getScheduleNameInfo () {
+  for (var i = 0; i < numberOfSchedules; i++) {
+    scheduleNames[i] = document.getElementById("d" + i + "n").value;
+    scheduleAbbreviations[i] = document.getElementById("d" + i + "a").value;
+    periodsPerSchedule[i] = document.getElementById("s" + (i + 1) + "periods").value;
+    periodsPerSchedule[i] = periodsPerSchedule[i].charAt(0)
+  }
+  periodTimingAddSchedules();
+//alert("Schedule Names \n" + scheduleNames + "\n \n ScheduleAbbreviations \n" + scheduleAbbreviations + "\n \n Periods \n" + periodsPerSchedule);
+}
 
 
 
