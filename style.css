@@ -403,8 +403,16 @@ input[type=number]::-webkit-outer-spin-button {
 
 
 .timeInput {
-  height: 20px;
-  width: 50px;
+  padding: .2vw .2vw .2vw .2vw;
+  font-size: 1vw;
+  border-radius: 0px;
+}
+
+.periodNameInput {
+  padding: .2vw .2vw .2vw .2vw;
+  font-size: 1vw;
+  border-radius: 0px;
+  width: 50%;
 }
 
 .scheduleTimeDiv {

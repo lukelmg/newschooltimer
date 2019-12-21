@@ -2,6 +2,10 @@ function periodTimingAddSchedules() {
   //Period Timing Input Per Schedule
   var container = document.getElementById("schedulePeriodTimingDiv");
   
+  while (container.hasChildNodes()) {
+    container.removeChild(container.lastChild);
+  }
+  
   for (var i = 0; i < numberOfSchedules; i++) {
     var scheduleDiv = document.createElement("div");
     scheduleDiv.className = "scheduleTimeDiv";
@@ -14,10 +18,19 @@ function periodTimingAddSchedules() {
     scheduleDiv.appendChild(scheduleHeader);
     
     for (var e = 0; e < periodsPerSchedule[i]; e++) {
+      var nameOfPeriod = document.createElement("input");
+      nameOfPeriod.type = "text";
+      nameOfPeriod.className = "periodNameInput";
+      nameOfPeriod.placeholder = "Period Name";
+      nameOfPeriod.id = i + e + "name";
+      scheduleDiv.appendChild(nameOfPeriod);
+      
       var time = document.createElement("input");
       time.type = "time";
       time.className = "timeInput";
+      time.id = i + e + "time";
       scheduleDiv.appendChild(time);
+      //scheduleDiv.appendChild(document.createElement("br"));
     }
   }
 
