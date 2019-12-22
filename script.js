@@ -1,11 +1,11 @@
 function periodTimingAddSchedules() {
   //Period Timing Input Per Schedule
   var container = document.getElementById("schedulePeriodTimingDiv");
-  
+
   while (container.hasChildNodes()) {
     container.removeChild(container.lastChild);
   }
-  
+
   for (var i = 0; i < numberOfSchedules; i++) {
     var scheduleDiv = document.createElement("div");
     scheduleDiv.className = "scheduleTimeDiv";
@@ -16,7 +16,7 @@ function periodTimingAddSchedules() {
     scheduleHeader.className = "periodHeader";
     scheduleHeader.appendChild(scheduleHeaderText);
     scheduleDiv.appendChild(scheduleHeader);
-    
+
     for (var e = 0; e < periodsPerSchedule[i]; e++) {
       var nameOfPeriod = document.createElement("input");
       nameOfPeriod.type = "text";
@@ -24,13 +24,13 @@ function periodTimingAddSchedules() {
       nameOfPeriod.placeholder = "Period Name";
       nameOfPeriod.id = i + e + "name";
       scheduleDiv.appendChild(nameOfPeriod);
-      
+
       var time = document.createElement("input");
       time.type = "time";
       time.className = "timeInput";
       time.id = i + e + "time";
       scheduleDiv.appendChild(time);
-      //scheduleDiv.appendChild(document.createElement("br"));
+      scheduleDiv.appendChild(document.createElement("br"));
     }
   }
 
@@ -45,7 +45,7 @@ function getScheduleNameInfo () {
     scheduleNames[i] = document.getElementById("d" + i + "n").value;
     scheduleAbbreviations[i] = document.getElementById("d" + i + "a").value;
     periodsPerSchedule[i] = document.getElementById("s" + (i + 1) + "periods").value;
-    periodsPerSchedule[i] = periodsPerSchedule[i].charAt(0)
+    periodsPerSchedule[i] = periodsPerSchedule[i].replace(/\D/g,'');
   }
   periodTimingAddSchedules();
 //alert("Schedule Names \n" + scheduleNames + "\n \n ScheduleAbbreviations \n" + scheduleAbbreviations + "\n \n Periods \n" + periodsPerSchedule);
@@ -209,6 +209,7 @@ function addFields() {
     down.id = "ps" + (i + 1);
     down.className = "updownPeriod";
     down.value = "-";
+    down.tabIndex = "-1";
     down.onclick = function() {
       downPeriod(this.id);
     };
@@ -221,6 +222,7 @@ function addFields() {
     disp.className = "numberSelectPeriodNumber";
     disp.disabled = "true";
     disp.value = 1 + " Period";
+    disp.tabIndex = "-1";
     scheduleDiv.appendChild(disp);
 
     var up = document.createElement("input");
@@ -228,6 +230,7 @@ function addFields() {
     up.id = "ps" + (i + 1);
     up.className = "updownPeriod downperiod";
     up.value = "+";
+    up.tabIndex = "-1";
     up.onclick = function() {
       upPeriod(this.id);
     };
