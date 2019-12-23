@@ -26,11 +26,11 @@
     <p class="note">
       Create a custom timer for any school.
     </p> <br><br>
-      <button onclick="slide1();">Custom Timer</button>
+    <button onclick="slide1();">Custom Timer</button>
 
-      <form action="?" method="POST">
+    <form action="?" method="POST">
       <div class="g-recaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN"></div>
-      <br/>
+      <br />
       <input type="submit" value="Submit">
     </form>
 
@@ -88,20 +88,21 @@
 
   </div>
 
-<div class="slide" id="slide4">
-  <div>
+  <div class="slide" id="slide4">
+    <div>
       <h2 class="inputLabel">Time Each Period Ends</h2>
-      <div id="schedulePeriodTimingDiv" /></div>
+      <div id="schedulePeriodTimingDiv" />
+    </div>
 
 
-  <button class="next back" onclick="backSlide4()"><span>Back </span></button>
-  <button class="next" onclick="slide5()"><span>Next </span></button>
+    <button class="next back" onclick="backSlide4()"><span>Back </span></button>
+    <button class="next" onclick="slide5()"><span>Next </span></button>
   </div>
-</div>
+  </div>
 
 
-<div class="slide" id="slide5">
-  <div>
+  <div class="slide" id="slide5">
+    <div>
       <h2 class="inputLabel">Almost Done...</h2>
       <span class="closingLabel">Name of your School</span><br /><input class="closingInput" placeholder="Random Area High School"></input> <br />
       <span class="closingLabel">School Color</span>
@@ -109,17 +110,38 @@
       <div class="colorPicker"></div> <br />
 
 
-        <span class="closingLabel">Confirm you are not a robot</span>
+      <span class="closingLabel">Confirm you are not a robot</span>
       <form action="?" method="POST">
-      <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN"></div>
-    <!-- <input type="submit" id="captchaSubmit" value="Submit"></input> -->
-    </form>
+        <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN"></div>
+        <!-- <input type="submit" id="captchaSubmit" value="Submit"></input> -->
+      </form>
+
+      <form method="post" onsubmit="return submitUserForm();">
+        <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
+        <div id="g-recaptcha-error"></div>
+        <input type="submit" name="submit" value="Submit" />
+      </form>
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <script>
+        function submitUserForm() {
+          var response = grecaptcha.getResponse();
+          if (response.length == 0) {
+            document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+            return false;
+          }
+          return true;
+        }
+
+        function verifyCaptcha() {
+          document.getElementById('g-recaptcha-error').innerHTML = '';
+        }
+      </script>
 
 
-  <button class="next back" onclick="backSlide5()"><span>Back </span></button>
-  <button class="next" onclick="slide6()"><span>Create Your Timer! </span></button>
+      <button class="next back" onclick="backSlide5()"><span>Back </span></button>
+      <button class="next" onclick="slide6()"><span>Create Your Timer! </span></button>
+    </div>
   </div>
-</div>
 
 </body>
 
@@ -129,14 +151,12 @@
 <script src="forwardSlide.js"></script>
 <script src="backSlide.js"></script>
 <script type="text/javascript">
-$(document).ready(function1);
+  $(document).ready(function1);
 </script>
 
 
 <script>
-
-
-var myHex;
+  var myHex;
   var count = 0;
 
   var colorPicker = new iro.ColorPicker(".colorPicker", {
@@ -164,6 +184,4 @@ var myHex;
       updateColors();
     }
   });
-
-
 </script>
