@@ -103,16 +103,21 @@
 <div class="slide" id="slide5">
   <div>
       <h2 class="inputLabel">Almost Done...</h2>
-      <span class="inputLabel">Name of School</span><input class=""></input> <br />
-      <span class="inputLabel">School Color</span>
+      <span class="closingLabel">Name of your School</span><br /><input class="closingInput" placeholder="Random Area High School"></input> <br />
+      <span class="closingLabel">School Color</span>
 
-      <div id="color-picker-container"></div>
+      <div class="colorPicker"></div> <br />
 
-      <div id="closingDiv" /></div>
+
+        <span class="closingLabel">Confirm you are not a robot</span>
+      <form action="?" method="POST">
+      <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN"></div>
+    <!-- <input type="submit" id="captchaSubmit" value="Submit"></input> -->
+    </form>
 
 
   <button class="next back" onclick="backSlide5()"><span>Back </span></button>
-  <button class="next" onclick="slide6()"><span>Next </span></button>
+  <button class="next" onclick="slide6()"><span>Create Your Timer! </span></button>
   </div>
 </div>
 
@@ -125,4 +130,40 @@
 <script src="backSlide.js"></script>
 <script type="text/javascript">
 $(document).ready(function1);
+</script>
+
+
+<script>
+
+
+var myHex;
+  var count = 0;
+
+  var colorPicker = new iro.ColorPicker(".colorPicker", {
+    // color picker options
+    // Option guide: https://iro.js.org/guide.html#color-picker-options
+    width: 150,
+    borderWidth: 1,
+    borderColor: "#fff"
+  });
+
+  var values = document.getElementById("values");
+
+  // https://iro.js.org/guide.html#color-picker-events
+  colorPicker.on(["color:init", "color:change"], function(color) {
+    // Show the current color in different formats
+    // Using the selected color: https://iro.js.org/guide.html#selected-color-api
+    values.innerHTML = [
+      (myHex = color.hexString),
+      "hex: " + color.hexString,
+      "rgb: " + color.rgbString,
+      "hsl: " + color.hslString
+    ].join("<br>");
+    count = count + 1;
+    if (count > 1) {
+      updateColors();
+    }
+  });
+
+
 </script>
