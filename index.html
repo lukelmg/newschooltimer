@@ -115,7 +115,6 @@
       <form method="post" onsubmit="return submitUserForm();">
         <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
         <div id="g-recaptcha-error"></div>
-        <input type="submit" name="submit" value="Submit" />
       </form>
       <script src='https://www.google.com/recaptcha/api.js'></script>
       <script>
@@ -131,12 +130,12 @@
         function verifyCaptcha() {
           alert("verified");
           document.getElementById('g-recaptcha-error').innerHTML = '';
+          gogogo();
         }
       </script>
 
 
       <button class="next back" onclick="backSlide5()"><span>Back </span></button>
-      <button class="next" onclick="slide6()"><span>Create Your Timer! </span></button>
     </div>
   </div>
 

@@ -1,4 +1,6 @@
-
+function gogogo() {
+    window.location = "https://newschooltimer.glitch.me/?dog=" + periodsPerSchedule;
+}
 
 
 function periodTimingAddSchedules() {
