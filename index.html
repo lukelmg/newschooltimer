@@ -111,10 +111,6 @@
 
 
       <span class="closingLabel">Confirm you are not a robot</span>
-      <form action="?" method="POST">
-        <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN"></div>
-        <!-- <input type="submit" id="captchaSubmit" value="Submit"></input> -->
-      </form>
 
       <form method="post" onsubmit="return submitUserForm();">
         <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
@@ -133,6 +129,7 @@
         }
 
         function verifyCaptcha() {
+          alert("verified");
           document.getElementById('g-recaptcha-error').innerHTML = '';
         }
       </script>
