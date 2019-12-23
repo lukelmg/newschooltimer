@@ -1,3 +1,6 @@
+
+
+
 function periodTimingAddSchedules() {
   //Period Timing Input Per Schedule
   var container = document.getElementById("schedulePeriodTimingDiv");
@@ -13,7 +16,7 @@ function periodTimingAddSchedules() {
 
     var scheduleHeader = document.createElement("H3");
     var scheduleHeaderText = document.createTextNode(scheduleNames[i] + " Schedule");
-    scheduleHeader.className = "periodHeader";
+    scheduleHeader.className = "scheduleHeaderTextDivText";
     scheduleHeader.appendChild(scheduleHeaderText);
     scheduleDiv.appendChild(scheduleHeader);
 

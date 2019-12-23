@@ -1,11 +1,9 @@
 Form Path
 1. How many schedules?
-2. Same # of periods every schedule?
-3. Period Name, Abbreviation, # number of periods
-4. Schedule 1 Time
-5. Schedule 2 Time
-6. Schedule 3 Time
-7. More schedules below
+2. Same Number of Periods Every Schedule?
+3. Schedule name, abbreviation, # of periods
+4. Period names and timing
+5. School Name, Color, Robot test
 
 8. /timer.html/?t=12
 

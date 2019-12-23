@@ -25,3 +25,10 @@ function backSlide4() {
   slide3.style.display = "block";
   slide4.style.display = "none";
 }
+
+function backSlide5() {
+  var slide4 = document.getElementById("slide4");
+  var slide5 = document.getElementById("slide5");
+  slide4.style.display = "block";
+  slide5.style.display = "none";
+}
