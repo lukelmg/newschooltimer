@@ -22,16 +22,56 @@ function periodTimingAddSchedules() {
       nameOfPeriod.type = "text";
       nameOfPeriod.className = "periodNameInput";
       nameOfPeriod.placeholder = "Period Name";
-      nameOfPeriod.id = i + e + "name";
+      nameOfPeriod.id = i + " " + e + "name";
+      nameOfPeriod.oninput = function() {
+        detectPeriodTimeChange(this.id);
+      };
       scheduleDiv.appendChild(nameOfPeriod);
 
       var time = document.createElement("input");
       time.type = "time";
       time.className = "timeInput";
-      time.id = i + e + "time";
+      time.id = i + " " + e + "time";
+      time.oninput = function() {
+        detectPeriodTimeChange(this.id);
+      };
+      if ((e+7) < 10) {
+        time.defaultValue = "0" + (e+7) + ":00";
+      } else {
+      time.defaultValue = (e+7) + ":00";
+      }
       scheduleDiv.appendChild(time);
       scheduleDiv.appendChild(document.createElement("br"));
     }
+  }
+
+}
+
+var initId;
+var hasChanged = "no";
+
+function detectPeriodTimeChange (initId) {
+  var schedule = initId.charAt(0);
+  var periodThing = initId.substr(1);
+  periodThing = periodThing.replace(/\D/g,'');
+
+  if (schedule == 0) {
+    if (hasChanged == "no") {
+      for (var i = 0; i < numberOfSchedules; i++) {
+        //alert(i + " " + periodThing + "name");
+        var myInput = document.getElementById("0 " + periodThing + "name").value;
+        document.getElementById(i + " " + periodThing + "name").value = myInput;
+
+        var myTime = document.getElementById("0 " + periodThing + "time").value;
+        document.getElementById(i + " " + periodThing + "time").value = myTime;
+      }
+    }else {
+      //alert("can't i already changed");
+    }
+  }
+
+  if (schedule !== "0") {
+    hasChanged = "yes";
   }
 
 }

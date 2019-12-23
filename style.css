@@ -40,6 +40,7 @@ body {
   background-color: white;
   color:white;
   font-family:Arial;
+  margin: 0px 0px 0px 0px;
   }
 .period {
   color: #A6AAAD;
@@ -411,6 +412,18 @@ input[type=number]::-webkit-outer-spin-button {
   height: 3vh;
 }
 
+.timeInput::-webkit-datetime-edit-ampm-field {
+   display: none;
+ }
+ input[type=time]::-webkit-clear-button {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   -o-appearance: none;
+   -ms-appearance:none;
+   appearance: none;
+   margin: -10px;
+ }
+
 .periodNameInput {
   padding: .2vw .2vw .2vw .2vw;
   font-size: 1vw;
@@ -426,11 +439,21 @@ input[type=number]::-webkit-outer-spin-button {
   box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
   margin-bottom:1vw;
   margin-top:0px;
-  margin-left: 0vw;
+  margin-left: 1vw;
   margin-right: 1vw;
+  margin-bottom: 1vw;
   display:inline-block;
   left: 50%;
   text-align:left;
   outline: 1px solid white;
-  padding: 10px 10px 10px 10px;
+  padding: 5px 5px 5px 5px;
+  margin-top: 1vw;
+}
+
+
+#schedulePeriodTimingDiv {
+  overflow: auto;
+  height: 80%;
+  background-color:#35363A;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
 }

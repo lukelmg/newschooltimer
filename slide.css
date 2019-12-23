@@ -15,12 +15,12 @@
 }
 
 #slide4 {
-  height: 95vh;
-  width: 95vw;
-  margin-top:1.5vh;
-  margin-bottom:1.5vh;
-  margin-left:1.5vw;
-  margin-right:1.5vw;
+  height: 100%;
+  width: 100%;
+  margin-top:0vh;
+  margin-bottom:0vh;
+  margin-left:0vw;
+  margin-right:0vw;
 }
 
 .slideHeading {
