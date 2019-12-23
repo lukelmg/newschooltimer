@@ -1,5 +1,20 @@
 function gogogo() {
-    window.location = "https://newschooltimer.glitch.me/?dog=" + periodsPerSchedule;
+    alert(periodsPerSchedule);
+  var startUrl = "https://newschooltimer.glitch.me/";
+  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + scheduleNames + "&abbs=" + scheduleAbbreviations + "&nper=" + periodsPerSchedule; 
+      
+      
+  window.location.href = startUrl + newUrlString;
+}
+
+
+function read() {
+  var c = [];
+  
+  var url_string = window.location.href;
+  var url = new URL(url_string);
+  c = url.searchParams.get("periodsPerSchedule");
+  alert(c);
 }
 
 
@@ -560,11 +575,4 @@ function ask() {
   }
 
   window.location.href = "https://schooltimernew.glitch.me/?" + daysURL;
-}
-
-function read() {
-  var url_string = window.location.href;
-  var url = new URL(url_string);
-  var c = url.searchParams.get("d2");
-  alert(c);
 }
