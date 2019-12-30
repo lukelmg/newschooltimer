@@ -1,16 +1,32 @@
+var periodNameURL = [];
+var periodTimeURL = [];
+var periodNameURLTest = [];
+var schedule1Test = [];
+
 function gogogo() {
-    alert(periodsPerSchedule);
-  var startUrl = "https://newschooltimer.glitch.me/";
-  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + scheduleNames + "&abbs=" + scheduleAbbreviations + "&nper=" + periodsPerSchedule; 
-      
-      
+  var startUrl = "timer.html";
+  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + scheduleNames + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule;
+  for (var i = 0; i < numberOfSchedules; i++) {
+
+    for (var e = 0; e < periodsPerSchedule[i]; e++) {
+    //  alert("i= " + i + "\n e= " + e);
+
+      schedule1Test[e] = document.getElementById(i + " " + e + "name").value;
+    }
+    var x = schedule1Test.toString();
+    periodNameURL[i] = x;
+
+  }
+
+  alert(periodNameURL);
+
   window.location.href = startUrl + newUrlString;
 }
 
 
 function read() {
   var c = [];
-  
+
   var url_string = window.location.href;
   var url = new URL(url_string);
   c = url.searchParams.get("periodsPerSchedule");
@@ -42,6 +58,7 @@ function periodTimingAddSchedules() {
       nameOfPeriod.type = "text";
       nameOfPeriod.className = "periodNameInput";
       nameOfPeriod.placeholder = "Period Name";
+      nameOfPeriod.value = "(" + i + "" + e + ")";
       nameOfPeriod.id = i + " " + e + "name";
       nameOfPeriod.oninput = function() {
         detectPeriodTimeChange(this.id);
@@ -55,10 +72,10 @@ function periodTimingAddSchedules() {
       time.oninput = function() {
         detectPeriodTimeChange(this.id);
       };
-      if ((e+7) < 10) {
-        time.defaultValue = "0" + (e+7) + ":00";
+      if ((e + 7) < 10) {
+        time.defaultValue = "0" + (e + 7) + ":00";
       } else {
-      time.defaultValue = (e+7) + ":00";
+        time.defaultValue = (e + 7) + ":00";
       }
       scheduleDiv.appendChild(time);
       scheduleDiv.appendChild(document.createElement("br"));
@@ -70,10 +87,10 @@ function periodTimingAddSchedules() {
 var initId;
 var hasChanged = "no";
 
-function detectPeriodTimeChange (initId) {
+function detectPeriodTimeChange(initId) {
   var schedule = initId.charAt(0);
   var periodThing = initId.substr(1);
-  periodThing = periodThing.replace(/\D/g,'');
+  periodThing = periodThing.replace(/\D/g, '');
 
   if (schedule == 0) {
     if (hasChanged == "no") {
@@ -85,7 +102,7 @@ function detectPeriodTimeChange (initId) {
         var myTime = document.getElementById("0 " + periodThing + "time").value;
         document.getElementById(i + " " + periodThing + "time").value = myTime;
       }
-    }else {
+    } else {
       //alert("can't i already changed");
     }
   }
@@ -100,15 +117,15 @@ var scheduleNames = [];
 var scheduleAbbreviations = [];
 var periodsPerSchedule = [];
 
-function getScheduleNameInfo () {
+function getScheduleNameInfo() {
   for (var i = 0; i < numberOfSchedules; i++) {
     scheduleNames[i] = document.getElementById("d" + i + "n").value;
     scheduleAbbreviations[i] = document.getElementById("d" + i + "a").value;
     periodsPerSchedule[i] = document.getElementById("s" + (i + 1) + "periods").value;
-    periodsPerSchedule[i] = periodsPerSchedule[i].replace(/\D/g,'');
+    periodsPerSchedule[i] = periodsPerSchedule[i].replace(/\D/g, '');
   }
   periodTimingAddSchedules();
-//alert("Schedule Names \n" + scheduleNames + "\n \n ScheduleAbbreviations \n" + scheduleAbbreviations + "\n \n Periods \n" + periodsPerSchedule);
+  //alert("Schedule Names \n" + scheduleNames + "\n \n ScheduleAbbreviations \n" + scheduleAbbreviations + "\n \n Periods \n" + periodsPerSchedule);
 }
 
 
@@ -134,11 +151,11 @@ function downPeriod(currentSchedule) {
       }
     }
   } else {
-  //  alert("not same");
+    //  alert("not same");
     if (previousSchedule !== currentSchedule) {
       currentNumberOfPeriods = 1;
     }
-    if (currentNumberOfPeriods == 1) { } else {
+    if (currentNumberOfPeriods == 1) {} else {
       currentNumberOfPeriods--;
       var shortCurrent = currentSchedule.substr(1);
       var output;
@@ -147,7 +164,7 @@ function downPeriod(currentSchedule) {
         document.getElementById(shortCurrent + "periods").value =
           currentNumberOfPeriods + " Period";
       } else {
-        output = currentNumberOfPeriods +  " Periods";
+        output = currentNumberOfPeriods + " Periods";
         document.getElementById(shortCurrent + "periods").value =
           currentNumberOfPeriods + " Periods";
       }
@@ -163,7 +180,7 @@ var previousSchedule;
 
 function upPeriod(currentSchedule) {
   if (yesnoperiod == "yes") {
-  //  alert("same");
+    //  alert("same");
     if (currentNumberOfPeriods < 15) {
       currentNumberOfPeriods++;
     }
@@ -172,7 +189,7 @@ function upPeriod(currentSchedule) {
       elements[i].value = currentNumberOfPeriods + " Periods";
     }
   } else {
-  //  alert("not same");
+    //  alert("not same");
     if (previousSchedule !== currentSchedule) {
       currentNumberOfPeriods = 1;
     }
@@ -300,7 +317,7 @@ function addFields() {
 
 var sameNumberOfPeriods = "yes";
 
- // need button function to work!!!
+// need button function to work!!!
 
 function differentNumberSchedules() {
   var radios = document.getElementsByName("samePeriod");
@@ -433,10 +450,6 @@ function downSame() {
 
 
 
-
-
-
-
 var schedule = [];
 var scheduleAbb = [];
 var daysURL = "";
@@ -468,8 +481,8 @@ function ask() {
   for (var i = 1; i <= howManyDays; ++i) {
     schedule[i] = prompt(
       "What is the name of schedule day " +
-        i +
-        "? \n \n Ex. Normal, Homeroom, etc."
+      i +
+      "? \n \n Ex. Normal, Homeroom, etc."
     );
   }
 
@@ -498,8 +511,7 @@ function ask() {
   var sameperiods = prompt(
     "Is there the same number of periods everyday? (yes or no)"
   );
-  if (sameperiods == "no") {
-  } else if (sameperiods == "yes") {
+  if (sameperiods == "no") {} else if (sameperiods == "yes") {
     var numPeriod = prompt("How many periods are there in a day?");
 
     for (var e = 1; e <= numPeriod; ++e) {
@@ -556,16 +568,16 @@ function ask() {
 
     alert(
       d1 +
-        "++++" +
-        d2 +
-        "++++" +
-        d3 +
-        "++++" +
-        d4 +
-        "++++++" +
-        d5 +
-        "+++++" +
-        d6
+      "++++" +
+      d2 +
+      "++++" +
+      d3 +
+      "++++" +
+      d4 +
+      "++++++" +
+      d5 +
+      "+++++" +
+      d6
     );
   } else {
     alert(

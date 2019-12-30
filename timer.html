@@ -1,0 +1,42 @@
+<html>
+
+<body onload="read();">
+  Timer
+  <br />
+  <p id="output"></p>
+</body>
+
+</html>
+
+<style>
+    body {
+      font-size: 2vh;
+    }
+</style>
+
+<script>
+
+var numberOfSchedules;
+var scheduleNames;
+var scheduleAbbreviations;
+var periodsPerSchedule;
+
+  function read() {
+
+    var url_string = window.location.href;
+    var url = new URL(url_string);
+
+     numberOfSchedules = url.searchParams.get("nums");
+    scheduleNames = url.searchParams.get("names");
+     scheduleAbbreviations = url.searchParams.get("abbs");
+     periodsPerSchedule = url.searchParams.get("pers");
+
+    // alert(numberOfSchedules + "\n" + scheduleNames + "\n" + scheduleAbbreviations + "\n");
+
+     document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
+
+
+
+
+  }
+</script>
