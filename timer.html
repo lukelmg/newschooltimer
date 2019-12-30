@@ -9,34 +9,46 @@
 </html>
 
 <style>
-    body {
-      font-size: 2vh;
-    }
+  body {
+    font-size: 2vh;
+  }
 </style>
 
 <script>
-
-var numberOfSchedules;
-var scheduleNames;
-var scheduleAbbreviations;
-var periodsPerSchedule;
+  var numberOfSchedules;
+  var scheduleNames;
+  var scheduleAbbreviations;
+  var periodsPerSchedule;
+  var periodTimes;
 
   function read() {
 
     var url_string = window.location.href;
     var url = new URL(url_string);
 
-     numberOfSchedules = url.searchParams.get("nums");
+    numberOfSchedules = url.searchParams.get("nums");
     scheduleNames = url.searchParams.get("names");
-     scheduleAbbreviations = url.searchParams.get("abbs");
-     periodsPerSchedule = url.searchParams.get("pers");
+    periodTimes = url.searchParams.get("times");
+    scheduleAbbreviations = url.searchParams.get("abbs");
+    periodsPerSchedule = url.searchParams.get("pers");
 
-    // alert(numberOfSchedules + "\n" + scheduleNames + "\n" + scheduleAbbreviations + "\n");
+    document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
+      "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
 
-     document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
+    var periodScheduleArray = [];
+    periodScheduleArray = periodsPerSchedule.split(",");
 
+    var nameArray = [];
+    nameArray = scheduleNames.split(",");
 
+    var timeArray = [];
+    timeArray = periodTimes.split(",");
 
+      for (var i = 0; i < numberOfSchedules; i++) {
+        for (var e = 0; e < 4; e++) {
+          alert(nameArray[e]);
+        }
+      }
 
   }
 </script>

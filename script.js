@@ -2,24 +2,29 @@ var periodNameURL = [];
 var periodTimeURL = [];
 var periodNameURLTest = [];
 var schedule1Test = [];
+var scheduleTimingTest = [];
+var scheduleTimes = [];
 
 function gogogo() {
   var startUrl = "timer.html";
-  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + scheduleNames + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule;
+
+
   for (var i = 0; i < numberOfSchedules; i++) {
 
     for (var e = 0; e < periodsPerSchedule[i]; e++) {
-    //  alert("i= " + i + "\n e= " + e);
-
       schedule1Test[e] = document.getElementById(i + " " + e + "name").value;
+      scheduleTimingTest[e] = document.getElementById(i + " " + e + "time").value;
     }
     var x = schedule1Test.toString();
     periodNameURL[i] = x;
 
+    var y = scheduleTimingTest.toString();
+    scheduleTimes[i] = y;
   }
 
-  alert(periodNameURL);
 
+
+  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + periodNameURL + "&times=" + scheduleTimes + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule;
   window.location.href = startUrl + newUrlString;
 }
 
@@ -58,7 +63,7 @@ function periodTimingAddSchedules() {
       nameOfPeriod.type = "text";
       nameOfPeriod.className = "periodNameInput";
       nameOfPeriod.placeholder = "Period Name";
-      nameOfPeriod.value = "(" + i + "" + e + ")";
+      //nameOfPeriod.value = "(" + i + "" + e + ")";
       nameOfPeriod.id = i + " " + e + "name";
       nameOfPeriod.oninput = function() {
         detectPeriodTimeChange(this.id);
