@@ -62,7 +62,7 @@ function periodTimingAddSchedules() {
       var nameOfPeriod = document.createElement("input");
       nameOfPeriod.type = "text";
       nameOfPeriod.className = "periodNameInput";
-      nameOfPeriod.placeholder = "Period Name";
+      nameOfPeriod.value = "Period " + (e+1);
       //nameOfPeriod.value = "(" + i + "" + e + ")";
       nameOfPeriod.id = i + " " + e + "name";
       nameOfPeriod.oninput = function() {
