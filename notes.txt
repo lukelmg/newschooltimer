@@ -1,6 +1,8 @@
 https://newschooltimer.glitch.me/timer.html?nums=4&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&times=08:29,09:17,10:05,10:53,11:41,12:29,,,,08:37,09:24,10:11,10:58,11:45,12:32,,,,08:22,09:04,09:46,10:20,10:54,23:28,,,,10:09,10:39,11:09,11:43,00:17,12:51,,,&abbs=A,B,C,D&pers=9,9,9,9
 
 
+https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&times=07:00,08:00,09:00,10:00,11:00,12:00,13:00,14:00,15:00,07:01,08:01,09:01,10:01,11:01,12:01,13:01,14:01,15:01,07:02,08:02,09:02,10:02,11:02,12:02,13:02,14:02,15:02,07:03,08:03,09:03,10:03,11:03,12:03,13:03,14:03,15:03&abbs=A,B,C,D&pers=9,9,9,9
+
 Form Path
 1. How many schedules?
 2. Same Number of Periods Every Schedule?

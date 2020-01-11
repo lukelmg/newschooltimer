@@ -22,6 +22,7 @@
   }
 </style>
 
+
 <script>
   var numberOfSchedules;
   var scheduleNames;
@@ -53,11 +54,28 @@ var timeArray = [];
 
     timeArray = periodTimes.split(",");
 
-      for (var i = 0; i < numberOfSchedules; i++) {
-        for (var e = 0; e < periodScheduleArray[i]; e++) {
-        //  alert("Schedule: " + i + "- Period Name: " + nameArray[e]);
-        }
-      }
+
+    var testArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
+
+/*
+
+    var p,j,temparray,chunk = periodScheduleArray[i];
+    for (p=0,j=testArray.length; p<j; p+=chunk) {
+        temparray = testArray.slice(p,p+chunk);
+        alert(temparray);
+    }
+
+    */
+
+
+              alert(periodScheduleArray[0]);
+              var p,j,temparray,chunk = 9;
+                for (p=0,j=timeArray.length; p<j; p+=chunk) {
+                    temparray = timeArray.slice(p,p+chunk);
+                      alert(temparray);
+                }
+
+
 
   }
 
