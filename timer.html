@@ -14,6 +14,9 @@
               <p id="time6"></p>
 
               <form id="selectorDiv"></form>
+<br><br><br>
+              <p id="result">test</p>
+              <button onclick="getSchedulesReadyForTimer()">timer test</button>
 </body>
 
 </html>
@@ -77,7 +80,11 @@ var scheduleAbbreviationsArray = [];
         rad.checked = true;
       }
       rad.type = "radio";
-      rad.name = "hello";
+      rad.name = "schedulesRadioName";
+      rad.id = i + "scheduleCheckRadio";
+      rad.oninput = function() {
+        radioButtonDetection(this.id);
+      };
       var para = document.createElement("span");
       var node = document.createTextNode(scheduleAbbreviationsArray[i]);
       para.appendChild(node);
@@ -98,16 +105,38 @@ var scheduleAbbreviationsArray = [];
                     timeSplitArray = timeArray.slice(p,p+chunk);
                     nameSplitArray = nameArray.slice(p,p+chunk);
 
-                    scheduleSplit[k] = timeSplitArray + " ||| " + nameSplitArray + " /// ";
+                    scheduleSplit[k] = timeSplitArray + nameSplitArray + "|||";
 
                     k++;
                 }
 
-                alert(scheduleSplit);
-
-
-
   }
+
+var which;
+
+var currentScheduleSelected = 0;
+
+function radioButtonDetection (which) {
+  var ele = document.getElementsByName('schedulesRadioName');
+
+            for(i = 0; i < ele.length; i++) {
+                if(ele[i].checked)
+                document.getElementById("result").innerHTML = which;
+                currentScheduleSelected = which.charAt(0);
+            }
+}
+
+var newTest = [];
+
+var testSplit = "hello|||time|||what|||time|||is|||it";
+
+function getSchedulesReadyForTimer() {
+  for (var i = 0; i < numberOfSchedules; i++) {
+    newTest[i] = scheduleSplit[i].split("|||");
+  }
+  alert(newTest[currentScheduleSelected]);
+}
+
 
 var hourTest = ["17", "18", "19", "20", "21", "22", "23"];
 var minTest = ["0", "10", "20", "30", "40", "50", "59"];
