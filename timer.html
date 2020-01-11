@@ -5,18 +5,11 @@
   <br />
   <p id="output"></p>
   <p id="time"></p>
-  <p id="time0"></p>
-    <p id="time1"></p>
-      <p id="time2"></p>
-        <p id="time3"></p>
-          <p id="time4"></p>
-            <p id="time5"></p>
-              <p id="time6"></p>
+<div id="timerContainer"></div>
 
               <form id="selectorDiv"></form>
 <br><br><br>
               <p id="result">test</p>
-              <button onclick="getSchedulesReadyForTimer()">timer test</button>
 </body>
 
 </html>
@@ -109,7 +102,7 @@ var scheduleAbbreviationsArray = [];
 
                     k++;
                 }
-
+addTimersPerSchedule();
   }
 
 var which;
@@ -124,6 +117,7 @@ function radioButtonDetection (which) {
                 document.getElementById("result").innerHTML = which;
                 currentScheduleSelected = which.charAt(0);
             }
+            getSchedulesReadyForTimer();
 }
 
 var newTest = [];
@@ -134,15 +128,64 @@ function getSchedulesReadyForTimer() {
   for (var i = 0; i < numberOfSchedules; i++) {
     newTest[i] = scheduleSplit[i].split("|||");
   }
-  alert(newTest[currentScheduleSelected]);
+//  alert(newTest[currentScheduleSelected]);
+  addTimersPerSchedule();
 }
 
 
+
+function addTimersPerSchedule () {
+  var container = document.getElementById("timerContainer");
+  while (container.hasChildNodes()) {
+    container.removeChild(container.lastChild);
+  }
+
+for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+
+  var para = document.createElement("p");
+  var node = document.createTextNode("Period" + (i+1));
+  para.appendChild(node);
+  container.appendChild(para);
+}
+}
+
+
+
+/*
 var hourTest = ["17", "18", "19", "20", "21", "22", "23"];
 var minTest = ["0", "10", "20", "30", "40", "50", "59"];
 
 
   (function() {
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tick() {
+    for (var i = 0; i < periodScheduleArray[0]; i++) {
+      var start = new Date;
+      start.setHours(hourTest[i], minTest[i], 0);
+      var now = new Date;
+      if (now > start) { // too late, go to tomorrow
+        start.setDate(start.getDate() + 1);
+      }
+      var remain = ((start - now) / 1000);
+      var hh = pad((remain / 60 / 60) % 60);
+      var mm = pad((remain / 60) % 60);
+      var ss = pad(remain % 60);
+      document.getElementById('time' + i).innerHTML =  hh + ":" + mm + ":" + ss;
+    }
+    setTimeout(tick, 500);
+  }
+
+  document.addEventListener('DOMContentLoaded', tick);
+})();
+*/
+
+(function() {
+  var start = new Date;
+  start.setHours(23, 0, 0); // 11pm
 
   function pad(num) {
     return ("0" + parseInt(num)).substr(-2);
