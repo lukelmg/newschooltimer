@@ -67,12 +67,16 @@ var timeArray = [];
 
     */
 
-
-              alert(periodScheduleArray[0]);
-              var p,j,temparray,chunk = 9;
+              var k = 0;
+              var p,j,temparray,chunk;
                 for (p=0,j=timeArray.length; p<j; p+=chunk) {
+
+                    var prtest = parseInt(periodScheduleArray[k]);
+                    p,j,temparray,chunk = prtest;
                     temparray = timeArray.slice(p,p+chunk);
+
                       alert(temparray);
+                    k++;
                 }
 
 
