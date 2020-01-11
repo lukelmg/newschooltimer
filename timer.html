@@ -12,13 +12,15 @@
           <p id="time4"></p>
             <p id="time5"></p>
               <p id="time6"></p>
+
+              <form id="selectorDiv"></form>
 </body>
 
 </html>
 
 <style>
   body {
-    font-size: 5vh;
+    font-size: 2vh;
   }
 </style>
 
@@ -34,6 +36,10 @@ var periodScheduleArray = [];
 var nameArray = [];
 var timeArray = [];
 
+var scheduleSplit = [];
+
+
+var scheduleAbbreviationsArray = [];
   function read() {
 
     var url_string = window.location.href;
@@ -48,6 +54,8 @@ var timeArray = [];
     document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
       "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
 
+      scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
+
     periodScheduleArray = periodsPerSchedule.split(",");
 
     nameArray = scheduleNames.split(",");
@@ -55,34 +63,51 @@ var timeArray = [];
     timeArray = periodTimes.split(",");
 
 
-    var testArray = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K"];
+//Made radio buttons
+    var container = document.getElementById("selectorDiv");
 
-/*
-
-    var p,j,temparray,chunk = periodScheduleArray[i];
-    for (p=0,j=testArray.length; p<j; p+=chunk) {
-        temparray = testArray.slice(p,p+chunk);
-        alert(temparray);
+    while (container.hasChildNodes()) {
+      container.removeChild(container.lastChild);
     }
 
-    */
 
+    for (var i = 0; i <  (numberOfSchedules); i++) {
+      var rad = document.createElement("input");
+      if (i == 0) {
+        rad.checked = true;
+      }
+      rad.type = "radio";
+      rad.name = "hello";
+      var para = document.createElement("span");
+      var node = document.createTextNode(scheduleAbbreviationsArray[i]);
+      para.appendChild(node);
+      container.appendChild(para);
+      container.appendChild(rad);
+    }
+// end of make radios buttons
+
+
+
+// make time and name in chunks
               var k = 0;
-              var p,j,temparray,chunk;
+              var p,j,timeSplitArray,nameSplitArray,chunk;
                 for (p=0,j=timeArray.length; p<j; p+=chunk) {
 
                     var prtest = parseInt(periodScheduleArray[k]);
-                    p,j,temparray,chunk = prtest;
-                    temparray = timeArray.slice(p,p+chunk);
+                    p,j,timeSplitArray,nameSplitArray,chunk = prtest;
+                    timeSplitArray = timeArray.slice(p,p+chunk);
+                    nameSplitArray = nameArray.slice(p,p+chunk);
 
-                      alert(temparray);
+                    scheduleSplit[k] = timeSplitArray + " ||| " + nameSplitArray + " /// ";
+
                     k++;
                 }
+
+                alert(scheduleSplit);
 
 
 
   }
-
 
 var hourTest = ["17", "18", "19", "20", "21", "22", "23"];
 var minTest = ["0", "10", "20", "30", "40", "50", "59"];
