@@ -184,8 +184,25 @@ var minuteArray = [];
      k = k + 2;
    }
 
-  // alert(hourArray);
-//   alert(minuteArray);
+   for (var i = 0; i <  periodScheduleArray[currentScheduleSelected]; i++) {
+     if (hourArray[i] == "00") {
+       hourArray[i] = "12";
+     } else if (hourArray[i] == "01") {
+       hourArray[i] = "13";
+     } else if (hourArray[i] == "02") {
+       hourArray[i] = "14";
+     } else if (hourArray[i] == "03") {
+       hourArray[i] = "15";
+     } else if (hourArray[i] == "04") {
+       hourArray[i] = "16";
+     } else if (hourArray[i] == "05") {
+       hourArray[i] = "17";
+     } else if (hourArray[i] == "06") {
+       hourArray[i] = "18";
+     }
+     k = k + 2;
+   }
+alert(hourArray);
 
   }
 

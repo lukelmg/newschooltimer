@@ -77,11 +77,8 @@ function periodTimingAddSchedules() {
       time.oninput = function() {
         detectPeriodTimeChange(this.id);
       };
-    /*  if ((e + 7) < 10) {
-        time.defaultValue = "0" + (e + 7) + ":00";
-      } else {
-        time.defaultValue = (e + 7) + ":00";
-      } */
+      time.defaultValue = "07:00";
+
 
     //  time.defaultValue = 8;
       scheduleDiv.appendChild(time);
@@ -107,7 +104,7 @@ function detectPeriodTimeChange(initId) {
         document.getElementById(i + " " + periodThing + "name").value = myInput;
 
         var myTime = document.getElementById("0 " + periodThing + "time").value;
-        document.getElementById(i + " " + periodThing + "time").value = myTime;
+      //  document.getElementById(i + " " + periodThing + "time").value = myTime;
       }
     } else {
       //alert("can't i already changed");
