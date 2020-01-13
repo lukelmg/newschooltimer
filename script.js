@@ -77,11 +77,13 @@ function periodTimingAddSchedules() {
       time.oninput = function() {
         detectPeriodTimeChange(this.id);
       };
-      if ((e + 7) < 10) {
+    /*  if ((e + 7) < 10) {
         time.defaultValue = "0" + (e + 7) + ":00";
       } else {
         time.defaultValue = (e + 7) + ":00";
-      }
+      } */
+
+    //  time.defaultValue = 8;
       scheduleDiv.appendChild(time);
       scheduleDiv.appendChild(document.createElement("br"));
     }

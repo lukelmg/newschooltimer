@@ -6,6 +6,9 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
 
 https://www.lukegutman.com/newschooltimer/timer.html?nums=6&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%2010,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%2010&times=07:00,08:00,09:00,10:00,11:00,12:00,13:00,14:00,07:01,08:01,09:01,10:00,11:00,12:00,13:00,14:00,07:02,08:02,09:02,10:02,00:02,12:00,13:00,14:00,07:03,08:03,09:03,10:03,11:03,12:03,13:03,14:00,07:04,08:04,09:04,10:04,11:04,12:04,13:04,14:04,15:04,16:04,07:05,08:04,09:04,10:04,11:04,12:04,13:04,14:04,15:04,16:04&abbs=a,b,c,d,e,f&pers=8,3,5,7,10,1
 
+Parkland:
+https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&times=08:29,09:17,10:08,,11:41,12:29,13:17,14:05,14:53,08:37,09:24,10:11,,11:45,12:32,13:19,14:06,14:53,08:22,09:04,09:46,,10:54,23:28,12:02,12:31,13:00,10:09,10:39,11:09,,00:17,12:51,13:25,14:09,14:53&abbs=A,B,C,D&pers=9,9,9,9
+
 
 Form Path
 1. How many schedules?
