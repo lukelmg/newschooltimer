@@ -11,14 +11,13 @@
 
   <form id="selectorDiv"></form>
   <br><br><br>
-  <p id="result">test</p>
 </body>
 
 </html>
 
 <style>
   body {
-    font-size: 2vh;
+    font-size: 22px;
   }
 </style>
 
@@ -52,9 +51,9 @@
     scheduleAbbreviations = url.searchParams.get("abbs");
     periodsPerSchedule = url.searchParams.get("pers");
 
-    document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
+  /*  document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
       "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
-
+*/
     scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
 
     periodScheduleArray = periodsPerSchedule.split(",");
@@ -119,7 +118,7 @@
 
     for (i = 0; i < ele.length; i++) {
       if (ele[i].checked)
-        document.getElementById("result").innerHTML = which;
+      //  document.getElementById("result").innerHTML = which;
       currentScheduleSelected = which.charAt(0);
     }
     getSchedulesReadyForTimer();
@@ -202,7 +201,7 @@ var minuteArray = [];
      }
      k = k + 2;
    }
-alert(hourArray);
+//alert(hourArray);
 
   }
 
@@ -227,7 +226,9 @@ alert(hourArray);
         var hh = pad((remain / 60 / 60) % 60);
         var mm = pad((remain / 60) % 60);
         var ss = pad(remain % 60);
-        document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+        if (hh != "" || mm != "") {
+            document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+          }
       }
       setTimeout(tick, 0);
     }
