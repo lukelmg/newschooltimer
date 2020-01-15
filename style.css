@@ -1,3 +1,23 @@
+ #colorPickerID {
+    text-align:center;
+    padding: 10px 10px 10px 10px;
+    margin-left: 4vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    width: 300px;
+    font-size: 20px;
+    height: 50px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+    outline:none;
+    border:none;
+    transition: .03s ease-in-out;
+    border-radius: 3px;
+  }
+  
+  #colorPickerID:hover {
+   filter:invert(7%); 
+    cursor:pointer;
+  }
 
 #bigHeading {
   color:black;
@@ -474,7 +494,7 @@ margin-left: 4vw;
   color:white;
   font-weight:100;
   margin-left: 4vw;
-  margin-bottom: 1vw;
+  margin-bottom: 0vw;
 }
 
 .closingInput {
@@ -482,7 +502,7 @@ margin-left: 4vw;
   color:black;
   width: 30%;
   margin-left: 4vw;
-  margin-bottom: 5vh;
+  margin-bottom: 0vh;
 }
 
 #closingCaptcha {

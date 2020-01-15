@@ -323,8 +323,7 @@ var sameNumberOfPeriods = "yes";
 
 // need button function to work!!!
 
-function differentNumberSchedules() {
-  var radios = document.getElementsByName("samePeriod");
+function differentNumberSchedules() {var radios = document.getElementsByName("samePeriod");
 
   for (var i = 0, length = radios.length; i < length; i++) {
     if (radios[i].checked) {
