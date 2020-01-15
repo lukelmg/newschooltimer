@@ -1,8 +1,6 @@
 <html>
 
 <body onload="read();">
-  Timer
-  <br />
   <p id="output"></p>
   <p id="time"></p>
   <div id="timerContainer"></div>
@@ -131,22 +129,34 @@
       newTest[i] = scheduleSplit[i].split("|||");
     }
   //   alert(newTest[currentScheduleSelected]);
-
+  //alert(newTest);
     addTimersPerSchedule();
   }
+  
+  var newNameArrayTest = [];
 
 
   var timerContainer = document.getElementById("timerContainer");
 
+var testNewTestNameNew = [];
+  
   function addTimersPerSchedule() {
     while (timerContainer.hasChildNodes()) {
       timerContainer.removeChild(timerContainer.lastChild);
     }
 
     for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
-
+      testNewTestNameNew = [];
+        var split1 = newTest[currentScheduleSelected];
+       var split2 = String(split1);
+       split2 = split2.split('#')[1]
+        testNewTestNameNew = split2.split(',');
+      
+      //alert(testNewTestNameNew[i])
+  
       var para = document.createElement("SPAN");
-      var node = document.createTextNode("Period" + (i + 1) + ": ");
+      var node = document.createTextNode(testNewTestNameNew[i] + ": ");
+      //var node = document.createTextNode("test: ");
       var timer = document.createElement("SPAN");
       var blah = document.createTextNode("<br>");
       timer.id = "realTimer" + i;
@@ -218,7 +228,6 @@ var minuteArray = [];
       for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
 
         start.setHours(hourArray[i], minuteArray[i], 0); // 11pm
-
         if (now > start) { // too late, go to tomorrow
           start.setDate(start.getDate() + 1);
         }
@@ -226,9 +235,19 @@ var minuteArray = [];
         var hh = pad((remain / 60 / 60) % 60);
         var mm = pad((remain / 60) % 60);
         var ss = pad(remain % 60);
-        if (hh != "" || mm != "") {
+        if (hh >= 24) {
+          hh = hh - 24;
+        }
+        if (hh >= 10) {
+     
+            document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+        
+        } else {
+           if (hh != "" || mm != "") {
             document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
           }
+        }
+       
       }
       setTimeout(tick, 0);
     }
