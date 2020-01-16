@@ -180,7 +180,6 @@ var testNewTestNameNew = [];
       timerContainer.appendChild(timer);
 
       if (lastPeriod == testNewTestNameNew[i]) {
-        alert(schoolColor);
         document.getElementById("realTimer" + i).style.color = schoolColor;
           document.getElementById("nameTimer" + i).style.color = schoolColor;
 
@@ -236,6 +235,9 @@ var minuteArray = [];
 
   }
 
+  var stateOfPeriod = [];
+  
+  
   (function() {
     var start = new Date;
 
@@ -262,9 +264,25 @@ var minuteArray = [];
         if (hh >= 10) {
 
             document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+            stateOfPeriod[i] = "over";
+            
 
         } else {
            if (hh != "" || mm != "") {
+             stateOfPeriod[i] = "notover"
+             
+             
+             var a = stateOfPeriod.indexOf("notover");
+             
+             
+  
+             
+             if (hh < 10 && a == i) {
+             
+               document.title = hh + ":" + mm + ":" + ss;
+               
+             }
+
             document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
           }
         }
