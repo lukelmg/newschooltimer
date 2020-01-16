@@ -4,6 +4,7 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
 <html>
 
 <body onload="read();">
+  <h1 id="schoolTitle"></h1>
   <p id="output"></p>
   <p id="time"></p>
   <div id="timerContainer"></div>
@@ -38,6 +39,8 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
 
   var scheduleSplit = [];
 
+var schoolName = "";
+var schoolColor = "";
 
   var scheduleAbbreviationsArray = [];
 
@@ -51,6 +54,11 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
     periodTimes = url.searchParams.get("times");
     scheduleAbbreviations = url.searchParams.get("abbs");
     periodsPerSchedule = url.searchParams.get("pers");
+    schoolName = url.searchParams.get("school");
+    schoolColor = url.searchParams.get("schoolColor");
+
+    document.getElementById("schoolTitle").innerHTML = schoolName + " Timer";
+
 
   /*  document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
       "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
@@ -135,14 +143,14 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
   //alert(newTest);
     addTimersPerSchedule();
   }
-  
+
   var newNameArrayTest = [];
 
 
   var timerContainer = document.getElementById("timerContainer");
 
 var testNewTestNameNew = [];
-  
+
   function addTimersPerSchedule() {
     while (timerContainer.hasChildNodes()) {
       timerContainer.removeChild(timerContainer.lastChild);
@@ -154,19 +162,29 @@ var testNewTestNameNew = [];
        var split2 = String(split1);
        split2 = split2.split('#')[1]
         testNewTestNameNew = split2.split(',');
-      
-      //alert(testNewTestNameNew[i])
-  
+
+      var lastPeriod = testNewTestNameNew.slice(-2)[0];
+
+
       var para = document.createElement("SPAN");
+      para.id = "nameTimer" + i;
       var node = document.createTextNode(testNewTestNameNew[i] + ": ");
-      //var node = document.createTextNode("test: ");
+
       var timer = document.createElement("SPAN");
       var blah = document.createTextNode("<br>");
       timer.id = "realTimer" + i;
+
       para.appendChild(node);
       timer.appendChild(blah);
       timerContainer.appendChild(para);
       timerContainer.appendChild(timer);
+
+      if (lastPeriod == testNewTestNameNew[i]) {
+        alert(schoolColor);
+        document.getElementById("realTimer" + i).style.color = schoolColor;
+          document.getElementById("nameTimer" + i).style.color = schoolColor;
+
+      }
     }
     setUpTimesForTimers();
   }
@@ -242,15 +260,15 @@ var minuteArray = [];
           hh = hh - 24;
         }
         if (hh >= 10) {
-     
+
             document.getElementById('realTimer' + i).innerHTML = "Over <br>";
-        
+
         } else {
            if (hh != "" || mm != "") {
             document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
           }
         }
-       
+
       }
       setTimeout(tick, 0);
     }

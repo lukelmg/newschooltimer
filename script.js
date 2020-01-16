@@ -5,6 +5,14 @@ var schedule1Test = [];
 var scheduleTimingTest = [];
 var scheduleTimes = [];
 
+var schoolName = "";
+var schoolColor = "#fffff";
+
+function update(jscolor) {
+  schoolColor = '#' + jscolor;
+}
+
+
 function gogogo() {
   var startUrl = "timer.html";
 
@@ -22,9 +30,9 @@ function gogogo() {
     scheduleTimes[i] = y;
   }
 
+  schoolName = document.getElementById("schoolNameID").value;
 
-
-  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + periodNameURL + "&times=" + scheduleTimes + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule;
+  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + periodNameURL + "&times=" + scheduleTimes + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor;
   window.location.href = startUrl + newUrlString;
 }
 
