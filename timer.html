@@ -20,6 +20,15 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
 <style>
   body {
     font-size: 22px;
+    background-color:black;
+    font-family:Arial;
+  }
+  .timeDisplay  {
+    color:white;
+  }
+
+  .nameDisplay {
+    color:white;
   }
 </style>
 
@@ -168,11 +177,13 @@ var testNewTestNameNew = [];
 
       var para = document.createElement("SPAN");
       para.id = "nameTimer" + i;
+      para.className = "nameDisplay"
       var node = document.createTextNode(testNewTestNameNew[i] + ": ");
 
       var timer = document.createElement("SPAN");
       var blah = document.createTextNode("<br>");
       timer.id = "realTimer" + i;
+      timer.class = "timeDisplay"
 
       para.appendChild(node);
       timer.appendChild(blah);
@@ -236,8 +247,8 @@ var minuteArray = [];
   }
 
   var stateOfPeriod = [];
-  
-  
+
+
   (function() {
     var start = new Date;
 
@@ -263,24 +274,24 @@ var minuteArray = [];
         }
         if (hh >= 10) {
 
-            document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+            //document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+            document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
             stateOfPeriod[i] = "over";
-            
 
         } else {
            if (hh != "" || mm != "") {
              stateOfPeriod[i] = "notover"
-             
-             
+
+
              var a = stateOfPeriod.indexOf("notover");
-             
-             
-  
-             
+
+
+
+
              if (hh < 10 && a == i) {
-             
+
                document.title = hh + ":" + mm + ":" + ss;
-               
+
              }
 
             document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
