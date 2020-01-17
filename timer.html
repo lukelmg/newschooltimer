@@ -19,9 +19,11 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
 
 <style>
   body {
-    font-size: 22px;
-    background-color:black;
+    font-size: 30px;
+      background-color:#212424;
     font-family:Arial;
+    color:white;
+    font-weight:bold;
   }
   .timeDisplay  {
     color:white;
@@ -30,6 +32,19 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
   .nameDisplay {
     color:white;
   }
+  
+  #schoolTitle {
+    color:white;
+  }
+  
+  .radioButtonClass {
+    color:white;
+  }
+  
+  .actualRadioButton {
+    background-color: black;
+  }
+  
 </style>
 
 
@@ -48,8 +63,8 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
 
   var scheduleSplit = [];
 
-var schoolName = "";
-var schoolColor = "";
+  var schoolName = "";
+  var schoolColor = "";
 
   var scheduleAbbreviationsArray = [];
 
@@ -68,10 +83,10 @@ var schoolColor = "";
 
     document.getElementById("schoolTitle").innerHTML = schoolName + " Timer";
 
-
   /*  document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
       "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
-*/
+  */
+    
     scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
 
     periodScheduleArray = periodsPerSchedule.split(",");
@@ -80,14 +95,11 @@ var schoolColor = "";
 
     timeArray = periodTimes.split(",");
 
-
-    //Made radio buttons
     var container = document.getElementById("selectorDiv");
 
     while (container.hasChildNodes()) {
       container.removeChild(container.lastChild);
     }
-
 
     for (var i = 0; i < (numberOfSchedules); i++) {
       var rad = document.createElement("input");
@@ -95,6 +107,7 @@ var schoolColor = "";
         rad.checked = true;
       }
       rad.type = "radio";
+      rad.class = "actualRadioButton";
       rad.name = "schedulesRadioName";
       rad.id = i + "scheduleCheckRadio";
       rad.oninput = function() {
@@ -102,6 +115,10 @@ var schoolColor = "";
       };
       var para = document.createElement("span");
       var node = document.createTextNode(scheduleAbbreviationsArray[i]);
+       para.color = "white";
+        node.color = "white";
+      para.class="radioButtonClass";
+      node.class="radioButtonClass";
       para.appendChild(node);
       container.appendChild(para);
       container.appendChild(rad);
@@ -183,7 +200,8 @@ var testNewTestNameNew = [];
       var timer = document.createElement("SPAN");
       var blah = document.createTextNode("<br>");
       timer.id = "realTimer" + i;
-      timer.class = "timeDisplay"
+      timer.class = "timeDisplay";
+      blah.class="timeDisplay";
 
       para.appendChild(node);
       timer.appendChild(blah);
@@ -191,9 +209,10 @@ var testNewTestNameNew = [];
       timerContainer.appendChild(timer);
 
       if (lastPeriod == testNewTestNameNew[i]) {
-        document.getElementById("realTimer" + i).style.color = schoolColor;
-          document.getElementById("nameTimer" + i).style.color = schoolColor;
-
+        document.getElementById("realTimer" + i).style.color = "blue";
+          document.getElementById("nameTimer" + i).style.color = "blue";
+      } else {
+        document.getElementById("realTimer" + i).style.color = "white";
       }
     }
     setUpTimesForTimers();
@@ -272,6 +291,11 @@ var minuteArray = [];
         if (hh >= 24) {
           hh = hh - 24;
         }
+        
+        if (hh < 10) {
+          hh = "0" + hh;
+        }
+        
         if (hh >= 10) {
 
             //document.getElementById('realTimer' + i).innerHTML = "Over <br>";
