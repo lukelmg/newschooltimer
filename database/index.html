@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Form site</title>
+</head>
+<body>
+<!--<iframe name="votar" style="display:none;"></iframe>   target="votar"   -->
+<form method="post" action="input.php">
+Long URL <input type="text" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
+
+Short URL <input type="text" name="shorturl" id="shortURL"></input>
+
+<br><br>
+
+<input type="submit" value="Submit">
+
+</form>
+</body>
+</html>
+
+<script>
+
+function createShortURL () {
+
+  const list = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
+    var res = "";
+    for(var i = 0; i < 6; i++) {
+        var rnd = Math.floor(Math.random() * list.length);
+        res = res + list.charAt(rnd);
+        if (i == 2) {
+          res = res + "-";
+        }
+    }
+
+    var input = document.getElementById("shortURL");
+    input.value = res;
+}
+
+</script>
