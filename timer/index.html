@@ -1,6 +1,3 @@
-<!-- Parkland:
-https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&times=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53&abbs=A,B,C,D&pers=9,9,9,9
--->
 <html>
 
 <body onload="read();">
@@ -32,19 +29,19 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
   .nameDisplay {
     color:white;
   }
-  
+
   #schoolTitle {
     color:white;
   }
-  
+
   .radioButtonClass {
     color:white;
   }
-  
+
   .actualRadioButton {
     background-color: black;
   }
-  
+
 </style>
 
 
@@ -86,7 +83,7 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
   /*  document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
       "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
   */
-    
+
     scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
 
     periodScheduleArray = periodsPerSchedule.split(",");
@@ -126,11 +123,14 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
     // end of make radios buttons
 
 
-
     // make time and name in chunks
+    for (var i = 0; i < nameArray.length; i++) {
+          alert(nameArray[i]);
+    }
+
     var k = 0;
     var p, j, timeSplitArray, nameSplitArray, chunk;
-    for (p = 0, j = timeArray.length; p < j; p += chunk) {
+    for (p = 0, j = nameArray.length; p < j; p += chunk) {
 
       var prtest = parseInt(periodScheduleArray[k]);
       p, j, timeSplitArray, nameSplitArray, chunk = prtest;
@@ -141,6 +141,9 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
 
       k++;
     }
+
+
+
     getSchedulesReadyForTimer();
   }
 
@@ -153,7 +156,6 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
 
     for (i = 0; i < ele.length; i++) {
       if (ele[i].checked)
-      //  document.getElementById("result").innerHTML = which;
       currentScheduleSelected = which.charAt(0);
     }
     getSchedulesReadyForTimer();
@@ -165,8 +167,6 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
     for (var i = 0; i < numberOfSchedules; i++) {
       newTest[i] = scheduleSplit[i].split("|||");
     }
-  //   alert(newTest[currentScheduleSelected]);
-  //alert(newTest);
     addTimersPerSchedule();
   }
 
@@ -181,10 +181,9 @@ var testNewTestNameNew = [];
     while (timerContainer.hasChildNodes()) {
       timerContainer.removeChild(timerContainer.lastChild);
     }
-
     for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
       testNewTestNameNew = [];
-        var split1 = newTest[currentScheduleSelected];
+       var split1 = newTest[currentScheduleSelected];
        var split2 = String(split1);
        split2 = split2.split('#')[1]
         testNewTestNameNew = split2.split(',');
@@ -197,7 +196,7 @@ var testNewTestNameNew = [];
       para.className = "nameDisplay"
       var node = document.createTextNode(testNewTestNameNew[i] + ": ");
 
-      var timer = document.createElement("SPAN");
+  var timer = document.createElement("SPAN");
       var blah = document.createTextNode("<br>");
       timer.id = "realTimer" + i;
       timer.class = "timeDisplay";
@@ -222,6 +221,7 @@ var timeForMathArray = [];
 var newTimeForMathArray = [];
 var hourArray = [];
 var minuteArray = [];
+var orderArray = [];
 
   function setUpTimesForTimers() {
     hourArray = [];
@@ -259,9 +259,10 @@ var minuteArray = [];
      } else if (hourArray[i] == "06") {
        hourArray[i] = "18";
      }
+    orderArray[i] = hourArray[i] + minuteArray[i];
      k = k + 2;
    }
-//alert(hourArray);
+
 
   }
 
@@ -291,11 +292,11 @@ var minuteArray = [];
         if (hh >= 24) {
           hh = hh - 24;
         }
-        
+
         if (hh < 10) {
           hh = "0" + hh;
         }
-        
+
         if (hh >= 10) {
 
             //document.getElementById('realTimer' + i).innerHTML = "Over <br>";
@@ -328,4 +329,25 @@ var minuteArray = [];
 
     document.addEventListener('DOMContentLoaded', tick);
   })();
+
+
+
+
+
+
+  function chunkArray(myArray, chunk_size){
+      var index = 0;
+      var arrayLength = myArray.length;
+      var tempArray = [];
+
+      for (index = 0; index < arrayLength; index += chunk_size) {
+          myChunk = myArray.slice(index, index+chunk_size);
+
+          tempArray.push(myChunk);
+      }
+
+      return tempArray;
+  }
+
+
 </script>

@@ -9,6 +9,9 @@ $dbpassword = "";
 $dbname = "SchoolTimer";
 // Create connection
 $conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
+$check=mysqli_query($conn,"select * from clients where firstname='$firstname' and lastname='$lastname'");
+$checkrows=mysqli_num_rows($check);
+
 
 
 if (mysqli_connect_error()){
@@ -16,6 +19,9 @@ die('Connect Error ('. mysqli_connect_errno() .') '
 . mysqli_connect_error());
 }
 else{
+
+
+
 $sql = "INSERT INTO urlshortener (longurl, shorturl)
 values ('$username','$password')";
 if ($conn->query($sql)){

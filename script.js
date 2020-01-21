@@ -14,7 +14,7 @@ function update(jscolor) {
 
 
 function gogogo() {
-  var startUrl = "timer.html";
+  var startUrl = "timer/";
 
 
   for (var i = 0; i < numberOfSchedules; i++) {
@@ -33,6 +33,7 @@ function gogogo() {
   schoolName = document.getElementById("schoolNameID").value;
 
   var newUrlString = "?nums=" + numberOfSchedules + "&names=" + periodNameURL + "&times=" + scheduleTimes + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor;
+
   window.location.href = startUrl + newUrlString;
 }
 
