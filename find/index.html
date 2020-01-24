@@ -1,22 +1,26 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <title>Demo</title>
+  <title>SchoolTimer</title>
 </head>
 
-<body>
+<body onload="sortTable(0);">
   <h1>
-    Premade SchoolTimers
+    Find Your School's Timer
   </h1>
+  <h3>
+    Can't find your school? Make your own! <a href="https://www.lukegutman.com/newschooltimer/create/">Custom Timer</a>
+    </h3
   <center>
   <div class="container">
     <table id="myTable" class="table">
       <thead id="head">
-        <th class="select" id="school" onclick="sortclick(this.id)">School</th>
-        <th class="select" id="city">City</th>
-        <th class="select" id="country">Country</th>
+        <th class="select" id="School" onclick="sortclick(this.id)">School &#8595;</th>
+        <th class="select" id="City">City</th>
+        <th class="select" id="Country">Country</th>
       </thead>
       <tbody>
         <tr>
@@ -51,10 +55,22 @@ h1 {
   color:white;
   font-family:Arial;
   font-weight:bold;
+  font-size: 3em;
+  margin-top: 0;
+  margin-left: 10px;
+}
+
+h3 {
+  color:white;
+  font-family:Arial;
+  font-weight: thin;
+  margin-top: 0;
+  margin-left: 10px;
 }
 
 .select {
   background-color: #FF1C3E;
+  font-size: 2em;
 }
 a {
   color:white;
@@ -108,8 +124,20 @@ tr:nth-child(even) {background-color: #363636;}
     }
   }
 
+  var names = ["School", "City", "Country"];
 
   function sortTable(c) {
+    var current = names[c]
+
+    document.getElementById(current).innerHTML = current + " &#8595;";
+
+    var cloneArray = names.slice();
+
+    cloneArray.splice(c, 1);
+
+    document.getElementById(cloneArray[0]).innerHTML = cloneArray[0];
+    document.getElementById(cloneArray[1]).innerHTML = clonearray[1];
+
     var table, rows, switching, i, x, y, shouldSwitch;
     table = document.getElementById("myTable");
     switching = true;
@@ -144,8 +172,4 @@ tr:nth-child(even) {background-color: #363636;}
     }
   }
 
-
-  function sortclick (id) {
-      
-  }
 </script>
