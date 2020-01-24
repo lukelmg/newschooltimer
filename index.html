@@ -1,161 +1,186 @@
-<!-- Parkland:
-https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&times=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53&abbs=A,B,C,D&pers=9,9,9,9
--->
+<!DOCTYPE html>
 <html>
+<title>SchoolTimer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<style>
+body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
-<head>
-  <link rel="icon" href="https://images.vexels.com/media/users/3/132607/isolated/preview/86e952b378eaa8c5ea573fa2bf280d5b-wall-clock-icon-by-vexels.png">
-  <title>SchoolTimer</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="slide.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100&display=swap" rel="stylesheet">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro/dist/iro.min.js"></script>
-</head>
+body, html {
+  height: 100%;
+  line-height: 1.8;
+}
 
-<body onload="slide1(); initialInputs(); differentNumberSchedules();">
-  <div id="startDiv">
-  </div>
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  background-image: url("https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2Fother%20view%20scdhooltimer.png?v=1579892139121");
+  min-height: 100%;
+}
 
-  <!-- Slide 1 Start -->
+.w3-bar .w3-button {
+  padding: 16px;
+  opacity: 1;
+}
 
-  <div class="slide" id="slide1">
-    <h2 class="slideHeading" id="slide1Heading">Number of Schedules</h2>
-    <span class="smallLabel">How many different schedules does your school have? </span>
-    <p class="note">Most schools have different schedules depending on the day. <br /> Some have normal days followed by an activity day or even special days like early dissmissals.</p>
-    <div class="updowndiv">
-      <button class="updown" id="down" onclick="subSchedule()">-</button>
-      <input id="numSchedule" class="numberSelect" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Schedule">
-      <button class="updown" id="up" onclick="plusSchedule()">+</button>
+  #test {
+    float:right;
+  }
+
+  .w3-jumbo {
+    color:white;
+  }
+
+  .bgimg-1 {
+
+  }
+</style>
+<body>
+
+<!-- Navbar (sit on top) -->
+<div class="w3-top">
+  <div class="w3-bar w3-white w3-card" id="myNavbar">
+    <a href="#home" class="w3-bar-item w3-button w3-wide">www.SchoolTimer.net</a>
+    <!-- Right-sided navbar links -->
+    <div class="w3-right w3-hide-small">
+        <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">MORE</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
     </div>
-    <button class="next back" onclick="backSlide1()"><span>Back </span></button>
-    <button class="next" onclick="slide2(); addFields();"><span>Next </span></button>
+    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+
+    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+      <i class="fa fa-bars"></i>
+    </a>
   </div>
+</div>
 
+<!-- Sidebar on small screens when clicking the menu icon -->
+<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">MORE</a>
+  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+</nav>
 
-  <div class="slide" id="slide2">
-    <h2 class="slideHeading" id="slide2Heading">Schedule Configuration</h2>
-    <span class="smallLabel">Are there the same number of periods every schedule?</span> <br />
-    <button class="yesno" id="yes" onclick="periodSameYes(); yesslide()">Yes</button> <button class="yesno" id="no" onclick="periodSameNo(); noslide()">No</button>
+<!-- Header with full-height image -->
+<header class="bgimg-1 w3-display-container" id="home">
+  <div class="w3-display-left w3-text-white" id="test" style="padding:48px">
+    <span class="w3-jumbo w3-hide-small" id="test">SchoolTimer</span><br>
+    <span class="w3-xxlarge w3-hide-large w3-hide-medium">SchoolTimer</span><br>
+    <span class="w3-large">A Timer for School</span>
+    <p><a href="/newschooltimer/create" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Custom Timer</a></p>
+    <p><a href="/newschooltimer/find" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Find your School's Timer</a></p>
+  </div>
+</header>
 
-    <div id="yesSame">
-      <span class="smallLabel" id="howMany">How many?</span>
-      <button class="updownPeriod" id="downSamePeriod" onclick="downSame() ">-</button>
-      <input id="numSamePeriod" class="numberSelectSame" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Period">
-      <button class="updownPeriod" id="upSamePeriod" onclick="upSame()">+</button>
+<!-- About Section -->
+<div class="w3-container" style="padding:128px 16px" id="about">
+  <h3 class="w3-center">About SchoolTimer</h3>
+  <p class="w3-center w3-large">Key features of our service:</p>
+  <div class="w3-row-padding w3-center" style="margin-top:64px">
+    <div class="w3-quarter">
+      <image height="75px" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.33%20AM.png?v=1579872821879" class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></image>
+      <p class="w3-large">Responsiveness</p>
+      <p>With billions of schedule combinations, a custom timer could be made for virtually any school out there.</p>
     </div>
-
-
-    <button class="next back" onclick="backSlide2()"><span>Back </span></button>
-    <button class="next" onclick="slide3()"><span>Next </span></button>
-  </div>
-
-  <!-- Slide 3 Start -->
-
-
-
-  <div class="slide" id="slide3">
-
-    <div id="scheduleNames">
-      <h2 class="inputLabel">Schedule Configuration</h2>
-      <div id="scheduleNameInputContainer" />
+    <div class="w3-quarter">
+      <image height="75px;" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.46%20AM.png?v=1579872807527" class="fa fa-heart w3-margin-bottom w3-jumbo"></image>
+      <p class="w3-large">Functionionality</p>
+      <p>Being able to change view exactly when each period at your school ends even with different schedules will improve productivity among students.</p>
     </div>
-
-    <button class="next back" onclick="backSlide3()"><span>Back </span></button>
-    <button class="next" onclick="slide4(); getScheduleNameInfo();"><span>Next </span></button>
-
-  </div>
-
-  </div>
-  <div class="slide" id="slide4">
-    <div>
-      <h2 class="inputLabel">Time Each Period Ends</h2>
-      <div id="schedulePeriodTimingDiv" />
+    <div class="w3-quarter">
+      <image height="75px;" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.41%20AM.png?v=1579872840042" class="fa fa-diamond w3-margin-bottom w3-jumbo"></image>
+      <p class="w3-large">Design</p>
+      <p>A huge part of our time goes into the design of SchoolTimer. Without a good design, SchoolTimer would not exist.</p>
     </div>
-
-
-    <button class="next back" onclick="backSlide4()"><span>Back </span></button>
-    <button class="next" onclick="slide5()"><span>Next </span></button>
-  </div>
-  </div>
-
-
-  <div class="slide" id="slide5">
-    <div>
-      <h2 class="inputLabel">Almost Done...</h2>
-      <span class="closingLabel">Name of your School</span><br /><input id="schoolNameID" class="closingInput" placeholder="Random Area High School"></input> <br>
-
-
-
-      <input id="colorPickerID" class="jscolor {onFineChange:'update(this)'}" disabled value="Pick Your School Color">
-      <!-- <div class="colorPicker"></div> <br /> -->
-
-      <form method="post" onsubmit="return submitUserForm();">
-        <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
-        <div id="g-recaptcha-error"></div>
-      </form>
-      <script src='https://www.google.com/recaptcha/api.js'></script>
-      <script>
-        function submitUserForm() {
-          var response = grecaptcha.getResponse();
-          if (response.length == 0) {
-            document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
-            return false;
-          }
-          return true;
-        }
-
-        function verifyCaptcha() {
-          alert("verified");
-          document.getElementById('g-recaptcha-error').innerHTML = '';
-          gogogo();
-        }
-      </script>
-      <button class="next back" onclick="backSlide5()"><span>Back </span></button>
+    <div class="w3-quarter">
+      <image height="75px;" class="fa fa-cog w3-margin-bottom w3-jumbo" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.30.57%20AM.png?v=1579872706858"></image>
+      <p class="w3-large">Social</p>
+      <p>The ability to share any timer you make with a unique 6 digit code makes it that much easier to connect with others and share your own timer.</p>
     </div>
   </div>
+</div>
+
+<!-- Promo Section - "We know design" -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="work">
+  <div class="w3-row-padding">
+    <div class="w3-col m6">
+      <h3>We know design.</h3>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
+      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
+    </div>
+    <div class="w3-col m6">
+      <img class="w3-image w3-round-large" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2Fschool%20timer%20high%20qual'.png?v=1579832346505" alt="Buildings" width="700" height="394">
+    </div>
+  </div>
+</div>
+
+<!-- Modal for full size images on click-->
+<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+    <img id="img01" class="w3-image">
+    <p id="caption" class="w3-opacity w3-large"></p>
+  </div>
+</div>
+
+<!-- Contact Section -->
+<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+  <h3 class="w3-center">CONTACT</h3>
+  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+  <div style="margin-top:48px">
+    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: support@schooltimer.net</p>
+    <br>
+    <form action="/action_page.php" target="_blank">
+      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+      <p>
+        <button class="w3-button w3-black" type="submit">
+          <i class="fa fa-paper-plane"></i> SEND MESSAGE
+        </button>
+      </p>
+    </form>
+  </div>
+</div>
+
+<!-- Footer -->
+<footer class="w3-center w3-black w3-padding-64">
+  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+</footer>
+
+<script>
+// Modal Image Gallery
+function onClick(element) {
+  document.getElementById("img01").src = element.src;
+  document.getElementById("modal01").style.display = "block";
+  var captionText = document.getElementById("caption");
+  captionText.innerHTML = element.alt;
+}
+
+
+// Toggle between showing and hiding the sidebar when clicking the menu icon
+var mySidebar = document.getElementById("mySidebar");
+
+function w3_open() {
+  if (mySidebar.style.display === 'block') {
+    mySidebar.style.display = 'none';
+  } else {
+    mySidebar.style.display = 'block';
+  }
+}
+
+// Close the sidebar with the close button
+function w3_close() {
+    mySidebar.style.display = "none";
+}
+</script>
 
 </body>
-
 </html>
-
-<script src="script.js"></script>
-<script src="forwardSlide.js"></script>
-<script src="backSlide.js"></script>
-<script type="text/javascript">
-  $(document).ready(function1);
-</script>
-
-<script src="jscolor.js"></script>
-<script>
-
-  var myHex;
-  var count = 0;
-
-  var colorPicker = new iro.ColorPicker(".colorPicker", {
-
-    width: 150,
-    borderWidth: 1,
-    borderColor: "#fff"
-  });
-
-  var values = document.getElementById("values");
-
-  colorPicker.on(["color:init", "color:change"], function(color) {
-
-    values.innerHTML = [
-      (myHex = color.hexString),
-      "hex: " + color.hexString,
-      "rgb: " + color.rgbString,
-      "hsl: " + color.hslString
-    ].join("<br>");
-    count = count + 1;
-    if (count > 1) {
-      updateColors();
-    }
-  });
-
-  function updateColors() {
-    alert(myHex);
-  }
-</script>

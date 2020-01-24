@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <script src="sorttable.js"></script>
+  </head>
+  <body>
+    Find Your Timer
+    <button onclick="sortTable();">
+      Sort
+    </button>
+    
+    <br><br><br><br>
+    
+    
+    <table id="schoolTimers" class="sortable">
+  <tr>
+    <th>School</th>
+    <th>City</th>
+    <th>Country</th>
+  </tr>
+  <tr>
+    <td><a href="https://schooltimer.glitch.me">Parkland High School</a></td>
+    <td>Allentown, PA</td>
+    <td>USA</td>
+  </tr>
+  <tr>
+    <td><a href="https://middleschooltimer.glitch.me">Orefield Middle School</a></td>
+    <td>Orefield, PA</td>
+    <td>USA</td>
+  </tr>
+  <tr>
+    <td><a href="https://middleschooltimer.glitch.me">Springhouse Middle School</a></td>
+    <td>Allentown, PA</td>
+    <td>USA</td>
+  </tr>
+</table>
+
+  </body>
+</html>
+
+
+
+<style>
+table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+td, th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+}
+
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+  
+</style>
+
+<script>
+  
+function sortTable() {
+  
+  var table, rows, switching, i, x, y, shouldSwitch;
+  table = document.getElementById("schoolTimers");
+  switching = true;
+  /*Make a loop that will continue until
+  no switching has been done:*/
+  while (switching) {
+    //start by saying: no switching is done:
+    switching = false;
+    rows = table.rows;
+    /*Loop through all table rows (except the
+    first, which contains table headers):*/
+    for (i = 1; i < (rows.length - 1); i++) {
+      //start by saying there should be no switching:
+      shouldSwitch = false;
+      /*Get the two elements you want to compare,
+      one from current row and one from the next:*/
+      x = rows[i].getElementsByTagName("TD")[0];
+      y = rows[i + 1].getElementsByTagName("TD")[0];
+      //check if the two rows should switch place:
+      if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+        //if so, mark as a switch and break the loop:
+        shouldSwitch = true;
+        break;
+      }
+    }
+    if (shouldSwitch) {
+      /*If a switch has been marked, make the switch
+      and mark that a switch has been done:*/
+      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+      switching = true;
+    }
+  }
+}
+
+</script>

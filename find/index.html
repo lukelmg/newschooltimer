@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Demo</title>
+</head>
+
+<body>
+  <h1>
+    Premade SchoolTimers
+  </h1>
+  <center>
+  <div class="container">
+    <table id="myTable" class="table">
+      <thead id="head">
+        <th class="select" id="school" onclick="sortclick(this.id)">School</th>
+        <th class="select" id="city">City</th>
+        <th class="select" id="country">Country</th>
+      </thead>
+      <tbody>
+        <tr>
+          <td><a href="https://schooltimer.glitch.me">Parkland High School</a></td>
+          <td>Allentown, PA</td>
+          <td>USA</td>
+        </tr>
+        <tr>
+          <td><a href="https://middleschooltimer.glitch.me">Orefield Middle School</a></td>
+          <td>Orefield, PA</td>
+          <td>USA</td>
+        </tr>
+        <tr>
+          <td><a href="https://middleschooltimer.glitch.me">Springhouse Middle School</a></td>
+          <td>Allentown, PA</td>
+          <td>USA</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</center>
+</body>
+
+<script src="main.js"></script>
+
+</html>
+
+<style>
+
+h1 {
+  color:white;
+  font-family:Arial;
+  font-weight:bold;
+}
+
+.select {
+  background-color: #FF1C3E;
+}
+a {
+  color:white;
+}
+
+body {
+  background-color:black;
+  font-family:Arial;
+}
+
+table {
+  border-collapse: collapse;
+  width: 80%;
+  border: 1px solid gray;
+  margin: 30px 30px 30px 30px;
+  color:white;
+}
+
+th, td {
+  text-align: left;
+  padding: 8px;
+    border: 1px solid black;
+}
+
+tr {
+  background-color:#1e1e1e;
+}
+
+tr:nth-child(even) {background-color: #363636;}
+
+.select {
+  cursor:pointer;
+}
+
+</style>
+
+<script>
+  th = document.getElementsByTagName('th');
+
+  for (let c = 0; c < th.length; c++) {
+
+    th[c].addEventListener('click', item(c))
+  }
+
+
+  function item(c) {
+
+    return function() {
+      console.log(c)
+      sortTable(c)
+    }
+  }
+
+
+  function sortTable(c) {
+    var table, rows, switching, i, x, y, shouldSwitch;
+    table = document.getElementById("myTable");
+    switching = true;
+    /*Make a loop that will continue until
+    no switching has been done:*/
+    while (switching) {
+      //start by saying: no switching is done:
+      switching = false;
+      rows = table.rows;
+      /*Loop through all table rows (except the
+      first, which contains table headers):*/
+      for (i = 1; i < (rows.length - 1); i++) {
+        //start by saying there should be no switching:
+        shouldSwitch = false;
+        /*Get the two elements you want to compare,
+        one from current row and one from the next:*/
+        x = rows[i].getElementsByTagName("TD")[c];
+        y = rows[i + 1].getElementsByTagName("TD")[c];
+        //check if the two rows should switch place:
+        if (x.innerHTML.toLowerCase() > y.innerHTML.toLowerCase()) {
+          //if so, mark as a switch and break the loop:
+          shouldSwitch = true;
+          break;
+        }
+      }
+      if (shouldSwitch) {
+        /*If a switch has been marked, make the switch
+        and mark that a switch has been done:*/
+        rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+        switching = true;
+      }
+    }
+  }
+
+
+  function sortclick (id) {
+      
+  }
+</script>
