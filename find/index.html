@@ -128,15 +128,10 @@ tr:nth-child(even) {background-color: #363636;}
 
   function sortTable(c) {
     var current = names[c]
+    var ncurrent1 = names
 
     document.getElementById(current).innerHTML = current + " &#8595;";
-
-    var cloneArray = names.slice();
-
-    cloneArray.splice(c, 1);
-
-    document.getElementById(cloneArray[0]).innerHTML = cloneArray[0];
-    document.getElementById(cloneArray[1]).innerHTML = clonearray[1];
+    document.getElementById()
 
     var table, rows, switching, i, x, y, shouldSwitch;
     table = document.getElementById("myTable");
