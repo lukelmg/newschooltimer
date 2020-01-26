@@ -1,103 +1,63 @@
 <!DOCTYPE html>
 <html>
-<head>
-<title>Form site</title>
-</head>
+<style>
+table,th,td {
+  border : 1px solid black;
+  border-collapse: collapse;
+}
+th,td {
+  padding: 5px;
+}
+
+#xmltable {
+
+}
+</style>
 <body>
-<!--<iframe name="votar" style="display:none;"></iframe>   target="votar"   -->
-<form method="post" action="input.php">
-Long URL <input type="text" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
 
-Short URL <input type="text" name="shorturl" id="shortURL"></input>
+<h1>The XMLHttpRequest Object</h1>
 
-<input class="none" id="uniqueid" name="uniqueid"></input>
-<input class="none" id="timeanddate" name="timeanddate">test</input>
-
-<br><br>
-
-<input type="submit" value="Submit">
-
+<form action="">
+<input name="customers" onchange="showCustomer(this.value)"></input>
 </form>
-</body>
-</html>
+<br>
+<div id="txtHint">Customer info will be listed here...</div>
+<p id="test">adsf</p>
 
 <script>
 
-function createShortURL () {
+var redirect;
 
-  const list = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
-    var res = "";
-    for(var i = 0; i < 6; i++) {
-        var rnd = Math.floor(Math.random() * list.length);
-        res = res + list.charAt(rnd);
-        if (i == 2) {
-          res = res + "-";
-        }
+var currenturl = window.location.href;
+
+if (currenturl.indexOf('-') > - 1) {
+    var code = currenturl.replace("https://www.lukegutman.com/newschooltimer/database/#", "");
+    showCustomer(code);
+
+
+    setTimeout(function(){
+
+      var x = document.getElementById("longurl").getAttribute("value");
+      location.replace(x);
+    }, 100);
+}
+
+function showCustomer(str) {
+  var xhttp;
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
     }
-
-    var uniqueid = "";
-    for(var i = 0; i < 10; i++) {
-        var rnd = Math.floor(Math.random() * list.length);
-        uniqueid = uniqueid + list.charAt(rnd);
-    }
-
-    var uni = document.getElementById("uniqueid");
-    uni.value = uniqueid;
-
-    var d = new Date();
-    var date = document.getElementById("timeanddate");
-    date.value = d;
-
-    var input = document.getElementById("shortURL");
-    input.value = res;
+  };
+  xhttp.open("GET", "read.php?q="+str, true);
+  xhttp.send();
 }
-
-/*
-<?php
-$uniqueid = filter_input(INPUT_POST, 'uniqueid');
-$timeanddate = filter_input(INPUT_POST, 'timeanddate');
-$username = filter_input(INPUT_POST, 'longurl');
-$shorturl = filter_input(INPUT_POST, 'shorturl');
-if (!empty($username)){
-if (!empty($shorturl)){
-$host = "localhost";
-$dbusername = "website";
-$dbpassword = "";
-$dbname = "SchoolTimer";
-// Create connection
-$conn = new mysqli ($host, $dbusername, $dbpassword, $dbname);
-$check=mysqli_query($conn,"select * from clients where firstname='$firstname' and lastname='$lastname'");
-$checkrows=mysqli_num_rows($check);
-
-if (mysqli_connect_error()){
-die('Connect Error ('. mysqli_connect_errno() .') '
-. mysqli_connect_error());
-}
-else{
-
-$sql = "INSERT INTO urlshortener (uniqueid, timeanddate, longurl, shorturl)
-values ('$uniqueid','$timeanddate',$username','$shorturl')";
-if ($conn->query($sql)){
-echo "New record is inserted sucessfully";
-}
-else{
-echo "Error: ". $sql ."
-". $conn->error;
-}
-$conn->close();
-}
-}
-else{
-echo "Password should not be empty";
-die();
-}
-}
-else{
-echo "Username should not be empty";
-die();
-}
-?>
-
-*/
-
 </script>
+
+</body>
+</html>

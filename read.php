@@ -15,14 +15,14 @@ $stmt->bind_result($cid, $cname, $name, $adr);
 $stmt->fetch();
 $stmt->close();
 
-echo "<table id=xmltable>";
+echo "<table>";
 echo "<tr>";
 echo "<th>Unique ID</th>";
 echo "<td>" . $cid . "</td>";
 echo "<th>Time and Date</th>";
 echo "<td>" . $cname . "</td>";
 echo "<th>Long URL</th>";
-echo "<td id=longurl value=$name>" . $name . "</td>";
+echo "<td id=longurl>" . $name . "</td>";
 echo "<th>Short URL</th>";
 echo "<td id=shorturl>" . $adr . "</td>";
 echo "</tr>";
