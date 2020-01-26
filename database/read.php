@@ -1,27 +1,30 @@
 <?php
-$con=mysqli_connect("localhost","website","","SchoolTimer");
-// Check connection
-if (mysqli_connect_errno())
-{
-echo "Failed to connect to MySQL: " . mysqli_connect_error();
+$mysqli = new mysqli("localhost", "website", "", "SchoolTimer");
+if($mysqli->connect_error) {
+  exit('Could not connect');
 }
 
-$result = mysqli_query($con,"SELECT * FROM urlshortener");
+$sql = "SELECT uniqueid, timeanddate, longurl, shorturl
+FROM urlshortener WHERE uniqueid = ?";
 
-echo "<table border='1'>
-<tr>
-<th>Long URL</th>
-<th>Short URL</th>
-</tr>";
+$stmt = $mysqli->prepare($sql);
+$stmt->bind_param("s", $_GET['q']);
+$stmt->execute();
+$stmt->store_result();
+$stmt->bind_result($cid, $cname, $name, $adr);
+$stmt->fetch();
+$stmt->close();
 
-while($row = mysqli_fetch_array($result))
-{
+echo "<table>";
 echo "<tr>";
-echo "<td>" . $row['longurl'] . "</td>";
-echo "<td>" . $row['short'] . "</td>";
+echo "<th>CustomerID</th>";
+echo "<td>" . $cid . "</td>";
+echo "<th>CompanyName</th>";
+echo "<td>" . $cname . "</td>";
+echo "<th>ContactName</th>";
+echo "<td>" . $name . "</td>";
+echo "<th>Address</th>";
+echo "<td>" . $adr . "</td>";
 echo "</tr>";
-}
 echo "</table>";
-
-mysqli_close($con);
 ?>
