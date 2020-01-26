@@ -10,19 +10,14 @@ th,td {
 }
 
 #xmltable {
-
+  display:none;
 }
 </style>
 <body>
 
-<h1>The XMLHttpRequest Object</h1>
+<h1>Finding Your School's Timer</h1>
 
-<form action="">
-<input name="customers" onchange="showCustomer(this.value)"></input>
-</form>
-<br>
-<div id="txtHint">Customer info will be listed here...</div>
-<p id="test">adsf</p>
+<div id="txtHint"></div>
 
 <script>
 
@@ -38,8 +33,8 @@ if (currenturl.indexOf('-') > - 1) {
     setTimeout(function(){
 
       var x = document.getElementById("longurl").getAttribute("value");
-      location.replace(x);
-    }, 100);
+      //location.replace(x);
+    }, 500);
 }
 
 function showCustomer(str) {

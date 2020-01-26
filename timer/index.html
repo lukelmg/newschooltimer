@@ -1,6 +1,7 @@
 <html>
 
 <body onload="read();">
+  <div id="txtHint">Customer info will be listed here...</div>
   <h1 id="schoolTitle"></h1>
   <p id="output"></p>
   <p id="time"></p>
@@ -125,7 +126,7 @@
 
     // make time and name in chunks
     for (var i = 0; i < nameArray.length; i++) {
-          alert(nameArray[i]);
+          //alert(nameArray[i]);
     }
 
     var k = 0;
@@ -347,6 +348,64 @@ var orderArray = [];
       }
 
       return tempArray;
+  }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  var redirect;
+
+  var currenturl = window.location.href;
+
+
+      var code = currenturl;
+      showCustomer(code);
+/*      setTimeout(function(){
+
+        var x = document.getElementById("shorturl").getAttribute("value");
+        alert(x);
+        location.replace("#" + x);
+      }, 5000);
+*/
+
+  function showCustomer(str) {
+    alert(str);
+    var xhttp;
+    if (str == "") {
+      document.getElementById("txtHint").innerHTML = "";
+      return;
+    }
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "readlong.php?q="+str, true);
+    xhttp.send();
   }
 
 
