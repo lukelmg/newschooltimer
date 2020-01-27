@@ -34,7 +34,40 @@ function gogogo() {
 
   var newUrlString = "?nums=" + numberOfSchedules + "&names=" + periodNameURL + "&times=" + scheduleTimes + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor;
 
-  window.location.href = startUrl + newUrlString;
+
+  document.getElementById("longURL").value = newUrlString;
+  createShortURL();
+
+}
+
+
+function createShortURL () {
+
+  const list = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
+    var res = "";
+    for(var i = 0; i < 6; i++) {
+        var rnd = Math.floor(Math.random() * list.length);
+        res = res + list.charAt(rnd);
+        if (i == 2) {
+          res = res + "-";
+        }
+    }
+
+    var uniqueid = "";
+    for(var i = 0; i < 10; i++) {
+        var rnd = Math.floor(Math.random() * list.length);
+        uniqueid = uniqueid + list.charAt(rnd);
+    }
+
+    var uni = document.getElementById("uniqueid");
+    uni.value = uniqueid;
+
+    var d = new Date();
+    var date = document.getElementById("timeanddate");
+    date.value = d;
+
+    var input = document.getElementById("shortURL");
+    input.value = res;
 }
 
 

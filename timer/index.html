@@ -1,6 +1,6 @@
 <html>
 
-<body onload="read();">
+<body>
   <div id="txtHint">Customer info will be listed here...</div>
   <h1 id="schoolTitle"></h1>
   <p id="output"></p>
@@ -68,8 +68,9 @@
 
   function read() {
 
-    var url_string = window.location.href;
-    var url = new URL(url_string);
+    var url_string = "https://www.test.com" + newDatabaseURL;
+    var test = url_string.replace("x=", "!!!!!!!!!!!!!!!!!!!!!!!!!!");
+    var url = new URL(test);
 
     numberOfSchedules = url.searchParams.get("nums");
     scheduleNames = url.searchParams.get("names");
@@ -81,9 +82,9 @@
 
     document.getElementById("schoolTitle").innerHTML = schoolName + " Timer";
 
-  /*  document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
+    document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
       "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
-  */
+
 
     scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
 
@@ -209,8 +210,8 @@ var testNewTestNameNew = [];
       timerContainer.appendChild(timer);
 
       if (lastPeriod == testNewTestNameNew[i]) {
-        document.getElementById("realTimer" + i).style.color = "blue";
-          document.getElementById("nameTimer" + i).style.color = "blue";
+        document.getElementById("realTimer" + i).style.color = selectedColor;
+          document.getElementById("nameTimer" + i).style.color = selectedColor;
       } else {
         document.getElementById("realTimer" + i).style.color = "white";
       }
@@ -378,21 +379,23 @@ var orderArray = [];
 
   var redirect;
 
+  var newDatabaseURL;
+
   var currenturl = window.location.href;
 
 
-      var code = currenturl;
+      var code = currenturl.replace("https://www.lukegutman.com/newschooltimer/timer/#", "");
       showCustomer(code);
-/*      setTimeout(function(){
+     setTimeout(function(){
 
-        var x = document.getElementById("shorturl").getAttribute("value");
-        alert(x);
-        location.replace("#" + x);
-      }, 5000);
-*/
+        newDatabaseURL = document.getElementById("longp").textContent;
+        alert(newDatabaseURL);
+          read();
+      }, 500);
+
 
   function showCustomer(str) {
-    alert(str);
+  //  alert(str);
     var xhttp;
     if (str == "") {
       document.getElementById("txtHint").innerHTML = "";
@@ -404,7 +407,7 @@ var orderArray = [];
         document.getElementById("txtHint").innerHTML = this.responseText;
       }
     };
-    xhttp.open("GET", "readlong.php?q="+str, true);
+    xhttp.open("GET", "read.php?q="+str, true);
     xhttp.send();
   }
 

@@ -90,6 +90,30 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
       <input id="colorPickerID" class="jscolor {onFineChange:'update(this)'}" disabled value="Pick Your School Color">
       <!-- <div class="colorPicker"></div> <br /> -->
 
+
+
+
+
+
+      <form method="post" action="input.php">
+      Long URL <input type="text" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
+
+      Short URL <input type="text" name="shorturl" id="shortURL"></input>
+
+      <input class="none" id="uniqueid" name="uniqueid"></input>
+      <input class="none" id="timeanddate" name="timeanddate">test</input>
+
+      <br><br>
+
+      <input type="submit" value="Submit">
+
+
+
+
+
+
+
+
       <form method="post" onsubmit="return submitUserForm();">
         <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
         <div id="g-recaptcha-error"></div>
@@ -106,7 +130,7 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
         }
 
         function verifyCaptcha() {
-          alert("verified");
+        //  alert("verified");
           document.getElementById('g-recaptcha-error').innerHTML = '';
           gogogo();
         }
@@ -158,4 +182,7 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
   function updateColors() {
     alert(myHex);
   }
+
+
+
 </script>
