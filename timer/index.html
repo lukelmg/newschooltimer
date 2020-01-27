@@ -81,7 +81,9 @@
     periodsPerSchedule = url.searchParams.get("pers");
     schoolName = url.searchParams.get("school");
     selectedColor = url.searchParams.get("color");
-    alert(selectedColor);
+
+    var colorTest = url_string.split('&color=')[1];
+    selectedColor = colorTest.substring(0, 7);
 
     periodTimes = url_string.split('newvariable=')[1];
 
@@ -89,7 +91,6 @@
 /*
     document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
       "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
-
 */
     scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
 
@@ -215,8 +216,10 @@ var testNewTestNameNew = [];
       timerContainer.appendChild(timer);
 
       if (lastPeriod == testNewTestNameNew[i]) {
-        document.getElementById("realTimer" + i).style.color = selectedColor;
-          document.getElementById("nameTimer" + i).style.color = selectedColor;
+        var newColor = String(selectedColor);
+
+        document.getElementById("realTimer" + i).style.color = newColor;
+          document.getElementById("nameTimer" + i).style.color = newColor;
       } else {
         document.getElementById("realTimer" + i).style.color = "white";
       }
@@ -394,7 +397,7 @@ var orderArray = [];
      setTimeout(function(){
 
         newDatabaseURL = document.getElementById("longp").textContent;
-        alert(newDatabaseURL);
+    //    alert(newDatabaseURL);
           read();
       }, 500);
 
