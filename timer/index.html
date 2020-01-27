@@ -1,15 +1,19 @@
 <html>
+<head>
 
+<link href="https://fonts.googleapis.com/css?family=ABeeZee|Bebas+Neue&display=swap" rel="stylesheet">
+
+  </head>
 <body>
   <div id="txtHint"></div>
   <h1 id="schoolTitle"></h1>
   <p id="output"></p>
   <p id="time"></p>
-  <div id="timerContainer"></div>
 
-  <div id="timerContainer2"></div>
+    <form id="selectorDiv"></form>
 
-  <form id="selectorDiv"></form>
+  <table id="timerContainer"></table>
+
   <br><br><br>
 </body>
 
@@ -22,21 +26,34 @@
 }
   body {
     font-size: 30px;
-      background-color:#212424;
+    background-color:#212424;
     font-family:Arial;
     color:white;
     font-weight:bold;
+    margin: 0px 0px 0px 0px;
   }
   .timeDisplay  {
     color:white;
+    font-family: 'ABeeZee', sans-serif;
   }
 
   .nameDisplay {
     color:white;
+    margin: 0px 0px 0px 0px;
+    top:0px;
+    font-family: 'Bebas Neue', cursive;
   }
 
   #schoolTitle {
     color:white;
+    height: 10vh;
+    position: relative;
+  }
+
+  #selectorDiv {
+    float:right;
+    position:relative;
+    background-color:blue;
   }
 
   .radioButtonClass {
@@ -46,6 +63,28 @@
   .actualRadioButton {
     background-color: black;
   }
+
+  table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    height: 93vh;
+    position: absolute;
+     top: 7vh;
+     bottom: 0;
+     left: 0;
+     right: 0;
+  }
+
+  td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    font-size: 7vh;
+  }
+
+tr:nth-child(even){background-color: #3E4444;}
+
+
 
 </style>
 
@@ -198,13 +237,14 @@ var testNewTestNameNew = [];
 
       var lastPeriod = testNewTestNameNew.slice(-2)[0];
 
+      var track = document.createElement("tr")
 
-      var para = document.createElement("SPAN");
+      var para = document.createElement("td");
       para.id = "nameTimer" + i;
       para.className = "nameDisplay"
-      var node = document.createTextNode(testNewTestNameNew[i] + ": ");
+      var node = document.createTextNode(testNewTestNameNew[i] + " Ends In ");
 
-  var timer = document.createElement("SPAN");
+      var timer = document.createElement("td");
       var blah = document.createTextNode("<br>");
       timer.id = "realTimer" + i;
       timer.class = "timeDisplay";
@@ -212,8 +252,11 @@ var testNewTestNameNew = [];
 
       para.appendChild(node);
       timer.appendChild(blah);
-      timerContainer.appendChild(para);
-      timerContainer.appendChild(timer);
+
+      track.appendChild(para);
+      track.appendChild(timer);
+
+      timerContainer.appendChild(track);
 
       if (lastPeriod == testNewTestNameNew[i]) {
         var newColor = String(selectedColor);
