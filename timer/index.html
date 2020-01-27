@@ -1,7 +1,7 @@
 <html>
 
 <body>
-  <div id="txtHint">Customer info will be listed here...</div>
+  <div id="txtHint"></div>
   <h1 id="schoolTitle"></h1>
   <p id="output"></p>
   <p id="time"></p>
@@ -16,6 +16,10 @@
 </html>
 
 <style>
+
+#txtHint {
+    display:none;
+}
   body {
     font-size: 30px;
       background-color:#212424;
@@ -68,24 +72,25 @@
 
   function read() {
 
-    var url_string = "https://www.test.com" + newDatabaseURL;
-    var test = url_string.replace("x=", "!!!!!!!!!!!!!!!!!!!!!!!!!!");
-    var url = new URL(test);
+    var url_string = "https://www.test.com/" + newDatabaseURL;
+    var url = new URL(url_string);
 
     numberOfSchedules = url.searchParams.get("nums");
     scheduleNames = url.searchParams.get("names");
-    periodTimes = url.searchParams.get("times");
     scheduleAbbreviations = url.searchParams.get("abbs");
     periodsPerSchedule = url.searchParams.get("pers");
     schoolName = url.searchParams.get("school");
-    schoolColor = url.searchParams.get("schoolColor");
+    selectedColor = url.searchParams.get("color");
+    alert(selectedColor);
+
+    periodTimes = url_string.split('newvariable=')[1];
 
     document.getElementById("schoolTitle").innerHTML = schoolName + " Timer";
-
+/*
     document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
       "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
 
-
+*/
     scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
 
     periodScheduleArray = periodsPerSchedule.split(",");
