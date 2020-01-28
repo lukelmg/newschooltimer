@@ -83,19 +83,14 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
   <div class="slide" id="slide5">
     <div>
       <h2 class="inputLabel">Almost Done...</h2>
-      <span class="closingLabel">Name of your School</span><br /><input id="schoolNameID" class="closingInput" placeholder="Random Area High School"></input> <br>
+            <form method="post" action="input.php">
+      <span class="closingLabel">Name of your School</span><br /><input id="schoolNameID" class="closingInput" name="schoolNameID" placeholder="Random Area High School"></input> <br>
 
 
 
       <input id="colorPickerID" class="jscolor {onFineChange:'update(this)'}" disabled value="Pick Your School Color">
-      <!-- <div class="colorPicker"></div> <br /> -->
 
 
-
-
-
-
-      <form method="post" action="input.php">
       Long URL <input type="text" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
 
       Short URL <input type="text" name="shorturl" id="shortURL"></input>

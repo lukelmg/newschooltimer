@@ -4,10 +4,24 @@ $username = "website";
 $password = "";
 $dbname = "SchoolTimer";
 
-$uniqueid = filter_input(INPUT_POST, 'uniqueid');
-$timeanddate = filter_input(INPUT_POST, 'timeanddate');
+$school = filter_input(INPUT_POST, 'schoolNameID');
 $longurl = filter_input(INPUT_POST, 'longurl');
 $shorturl = filter_input(INPUT_POST, 'shorturl');
+
+/*
+$myfile = fopen("newfile.txt", "w") or die("Unable to open file!");
+$txt = "John Doe\n";
+fwrite($myfile, $txt);
+$txt = "Jane Doe\n";
+fwrite($myfile, $txt);
+fclose($myfile);
+*/
+
+mkdir('/var/www/html/newschooltimer/create/' . $shorturl, 0755, true);
+
+
+
+
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);
@@ -16,11 +30,12 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-$sql = "INSERT INTO urlshortener (uniqueid, timeanddate, longurl, shorturl)
-VALUES ('$uniqueid', '$timeanddate', '$longurl', '$shorturl')";
+$sql = "INSERT INTO urlshortener (school, longurl, shorturl)
+VALUES ('$school', '$longurl', '$shorturl')";
 
 if (mysqli_query($conn, $sql)) {
     echo "New record created successfully";
+
 } else {
     echo "Error: " . $sql . "<br>" . mysqli_error($conn);
 }
