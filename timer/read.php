@@ -1,10 +1,12 @@
 <?php
+ini_set('display_errors', 1);
+
 $mysqli = new mysqli("localhost", "website", "", "SchoolTimer");
 if($mysqli->connect_error) {
   exit('Could not connect');
 }
 
-$sql = "SELECT uniqueid, timeanddate, longurl, shorturl
+$sql = "SELECT school, timeanddate, longurl, shorturl
 FROM urlshortener WHERE shorturl = ?";
 
 $stmt = $mysqli->prepare($sql);

@@ -435,12 +435,10 @@ var orderArray = [];
   var currenturl = window.location.href;
 
 
-      var code = currenturl.replace("https://www.lukegutman.com/newschooltimer/timer/#", "");
+      var code = currenturl.replace("https://www.lukegutman.com/timer/#", "");
       showCustomer(code);
      setTimeout(function(){
-
         newDatabaseURL = document.getElementById("longp").textContent;
-    //    alert(newDatabaseURL);
           read();
       }, 500);
 

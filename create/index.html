@@ -83,7 +83,8 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
   <div class="slide" id="slide5">
     <div>
       <h2 class="inputLabel">Almost Done...</h2>
-            <form method="post" action="input.php">
+      <iframe width="0" height="0" border="0" style="display:none;" name="myFrame" id="myFrame"></iframe>
+            <form method="post" id="phpformstuff" action="input.php" target="myFrame">
       <span class="closingLabel">Name of your School</span><br /><input id="schoolNameID" class="closingInput" name="schoolNameID" placeholder="Random Area High School"></input> <br>
 
 
@@ -91,23 +92,14 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
       <input id="colorPickerID" class="jscolor {onFineChange:'update(this)'}" disabled value="Pick Your School Color">
 
 
-      Long URL <input type="text" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
+       <input type="text" class="hide" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
 
-      Short URL <input type="text" name="shorturl" id="shortURL"></input>
+      <input type="text" class="hide" name="shorturl" id="shortURL"></input>
 
-      <input class="none" id="uniqueid" name="uniqueid"></input>
-      <input class="none" id="timeanddate" name="timeanddate">test</input>
+      <input id="uniqueid" class="hide" name="uniqueid"></input>
+      <input id="timeanddate" class="hide" name="timeanddate"></input>
 
       <br><br>
-
-      <input type="submit" value="Submit">
-
-
-
-
-
-
-
 
       <form method="post" onsubmit="return submitUserForm();">
         <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
@@ -128,6 +120,15 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
         //  alert("verified");
           document.getElementById('g-recaptcha-error').innerHTML = '';
           gogogo();
+
+
+          setTimeout(function() {
+                document.getElementById("phpformstuff").submit();
+                setTimeout(function() {
+                  var res = document.getElementById("shortURL").value;
+                    location.replace("https://www.lukegutman.com/timer/#" + res);
+                }, 200);
+          }, 200);
         }
       </script>
       <button class="next back" onclick="backSlide5()"><span>Back </span></button>
@@ -181,3 +182,14 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
 
 
 </script>
+
+
+
+<style>
+
+
+  .hide {
+    display:none;
+  }
+
+  </style>
