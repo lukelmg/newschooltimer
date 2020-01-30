@@ -32,7 +32,7 @@ function gogogo() {
 
   schoolName = document.getElementById("schoolNameID").value;
 
-  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + periodNameURL + "&newvariable=" + scheduleTimes + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor;
+  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + periodNameURL + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor + "&newvariable=" + scheduleTimes;
 
 
   document.getElementById("longURL").value = newUrlString;

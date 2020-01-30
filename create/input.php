@@ -17,11 +17,7 @@ fwrite($myfile, $txt);
 fclose($myfile);
 */
 
-mkdir('/var/www/html/newschooltimer/create/' . $shorturl, 0755, true);
-
-
-
-
+mkdir('/var/www/newschooltimer/hello', 0755, true);
 
 // Create connection
 $conn = mysqli_connect($servername, $username, $password, $dbname);

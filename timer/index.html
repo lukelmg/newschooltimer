@@ -1,16 +1,18 @@
 <html>
+
 <head>
 
-<link href="https://fonts.googleapis.com/css?family=ABeeZee|Bebas+Neue&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=ABeeZee|Bebas+Neue&display=swap" rel="stylesheet">
 
-  </head>
+</head>
+
 <body>
   <div id="txtHint"></div>
   <h1 id="schoolTitle"></h1>
   <p id="output"></p>
   <p id="time"></p>
 
-    <form id="selectorDiv"></form>
+  <form id="selectorDiv"></form>
 
   <table id="timerContainer"></table>
 
@@ -20,44 +22,45 @@
 </html>
 
 <style>
+  #txtHint {
+    display: none;
+  }
 
-#txtHint {
-    display:none;
-}
   body {
     font-size: 30px;
-    background-color:#212424;
-    font-family:Arial;
-    color:white;
-    font-weight:bold;
+    background-color: #212424;
+    font-family: Arial;
+    color: white;
+    font-weight: bold;
     margin: 0px 0px 0px 0px;
   }
-  .timeDisplay  {
-    color:white;
+
+  .timeDisplay {
+    color: white;
     font-family: 'ABeeZee', sans-serif;
   }
 
   .nameDisplay {
-    color:white;
+    color: white;
     margin: 0px 0px 0px 0px;
-    top:0px;
+    top: 0px;
     font-family: 'Bebas Neue', cursive;
   }
 
   #schoolTitle {
-    color:white;
+    color: white;
     height: 10vh;
     position: relative;
   }
 
   #selectorDiv {
-    float:right;
-    position:relative;
-    background-color:blue;
+    float: right;
+    position: relative;
+    background-color: blue;
   }
 
   .radioButtonClass {
-    color:white;
+    color: white;
   }
 
   .actualRadioButton {
@@ -69,29 +72,27 @@
     border-collapse: collapse;
     height: 93vh;
     position: absolute;
-     top: 7vh;
-     bottom: 0;
-     left: 0;
-     right: 0;
+    top: 7vh;
+    bottom: 0;
+    left: 0;
+    right: 0;
   }
 
-  td, th {
+  td,
+  th {
     border: 1px solid #dddddd;
     text-align: left;
     padding: 8px;
-    font-size:
+    font-size: 5vh;
   }
 
-tr:nth-child(even){background-color: #3E4444;}
-
-
-
+  tr:nth-child(even) {
+    background-color: #3E4444;
+  }
 </style>
 
 
 <script>
-
-
   var numberOfSchedules;
   var scheduleNames;
   var scheduleAbbreviations;
@@ -127,10 +128,10 @@ tr:nth-child(even){background-color: #3E4444;}
     periodTimes = url_string.split('newvariable=')[1];
 
     document.getElementById("schoolTitle").innerHTML = schoolName + " Timer";
-/*
-    document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
-      "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
-*/
+    /*
+        document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
+          "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
+    */
     scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
 
     periodScheduleArray = periodsPerSchedule.split(",");
@@ -159,10 +160,10 @@ tr:nth-child(even){background-color: #3E4444;}
       };
       var para = document.createElement("span");
       var node = document.createTextNode(scheduleAbbreviationsArray[i]);
-       para.color = "white";
-        node.color = "white";
-      para.class="radioButtonClass";
-      node.class="radioButtonClass";
+      para.color = "white";
+      node.color = "white";
+      para.class = "radioButtonClass";
+      node.class = "radioButtonClass";
       para.appendChild(node);
       container.appendChild(para);
       container.appendChild(rad);
@@ -172,7 +173,7 @@ tr:nth-child(even){background-color: #3E4444;}
 
     // make time and name in chunks
     for (var i = 0; i < nameArray.length; i++) {
-          //alert(nameArray[i]);
+      //alert(nameArray[i]);
     }
 
     var k = 0;
@@ -203,7 +204,7 @@ tr:nth-child(even){background-color: #3E4444;}
 
     for (i = 0; i < ele.length; i++) {
       if (ele[i].checked)
-      currentScheduleSelected = which.charAt(0);
+        currentScheduleSelected = which.charAt(0);
     }
     getSchedulesReadyForTimer();
   }
@@ -222,7 +223,7 @@ tr:nth-child(even){background-color: #3E4444;}
 
   var timerContainer = document.getElementById("timerContainer");
 
-var testNewTestNameNew = [];
+  var testNewTestNameNew = [];
 
   function addTimersPerSchedule() {
     while (timerContainer.hasChildNodes()) {
@@ -230,10 +231,10 @@ var testNewTestNameNew = [];
     }
     for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
       testNewTestNameNew = [];
-       var split1 = newTest[currentScheduleSelected];
-       var split2 = String(split1);
-       split2 = split2.split('#')[1]
-        testNewTestNameNew = split2.split(',');
+      var split1 = newTest[currentScheduleSelected];
+      var split2 = String(split1);
+      split2 = split2.split('#')[1]
+      testNewTestNameNew = split2.split(',');
 
       var lastPeriod = testNewTestNameNew.slice(-2)[0];
 
@@ -248,7 +249,7 @@ var testNewTestNameNew = [];
       var blah = document.createTextNode("<br>");
       timer.id = "realTimer" + i;
       timer.class = "timeDisplay";
-      blah.class="timeDisplay";
+      blah.class = "timeDisplay";
 
       para.appendChild(node);
       timer.appendChild(blah);
@@ -262,7 +263,7 @@ var testNewTestNameNew = [];
         var newColor = String(selectedColor);
 
         document.getElementById("realTimer" + i).style.color = newColor;
-          document.getElementById("nameTimer" + i).style.color = newColor;
+        document.getElementById("nameTimer" + i).style.color = newColor;
       } else {
         document.getElementById("realTimer" + i).style.color = "white";
       }
@@ -270,51 +271,52 @@ var testNewTestNameNew = [];
     setUpTimesForTimers();
   }
 
-var timeForMathArray = [];
-var newTimeForMathArray = [];
-var hourArray = [];
-var minuteArray = [];
-var orderArray = [];
+  var timeForMathArray = [];
+  var newTimeForMathArray = [];
+  var hourArray = [];
+  var minuteArray = [];
+  var orderArray = [];
 
   function setUpTimesForTimers() {
     hourArray = [];
     minuteArray = [];
     timeForMathArray = [];
     newTimeForMathArray = [];
-   var split1 = newTest[currentScheduleSelected];
-   var split2 = String(split1);
-   split2 = split2.split('#')[0]
+    var split1 = newTest[currentScheduleSelected];
+    var split2 = String(split1);
+    split2 = split2.split('#')[0]
 
-  timeForMathArray = split2.split(":");
-  timeForMathArray = String(timeForMathArray);
-  newTimeForMathArray = timeForMathArray.split(",");
+    timeForMathArray = split2.split(":");
+    timeForMathArray = String(timeForMathArray);
+    newTimeForMathArray = timeForMathArray.split(",");
 
-   var k = 0;
-   for (var i = 0; i <  periodScheduleArray[currentScheduleSelected]; i++) {
-     hourArray[i] = newTimeForMathArray[k];
-     minuteArray[i] = newTimeForMathArray[(k+1)];
-     k = k + 2;
-   }
+    var k = 0;
+    for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+      hourArray[i] = newTimeForMathArray[k];
+      minuteArray[i] = newTimeForMathArray[(k + 1)];
+      k = k + 2;
+    }
 
-   for (var i = 0; i <  periodScheduleArray[currentScheduleSelected]; i++) {
-     if (hourArray[i] == "00") {
-       hourArray[i] = "12";
-     } else if (hourArray[i] == "01") {
-       hourArray[i] = "13";
-     } else if (hourArray[i] == "02") {
-       hourArray[i] = "14";
-     } else if (hourArray[i] == "03") {
-       hourArray[i] = "15";
-     } else if (hourArray[i] == "04") {
-       hourArray[i] = "16";
-     } else if (hourArray[i] == "05") {
-       hourArray[i] = "17";
-     } else if (hourArray[i] == "06") {
-       hourArray[i] = "18";
-     }
-    orderArray[i] = hourArray[i] + minuteArray[i];
-     k = k + 2;
-   }
+    for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+      if (hourArray[i] == "00") {
+        hourArray[i] = "12";
+      } else if (hourArray[i] == "01") {
+        hourArray[i] = "13";
+      } else if (hourArray[i] == "02") {
+        hourArray[i] = "14";
+      } else if (hourArray[i] == "03") {
+        hourArray[i] = "15";
+      } else if (hourArray[i] == "04") {
+        hourArray[i] = "16";
+      } else if (hourArray[i] == "05") {
+        hourArray[i] = "17";
+      } else if (hourArray[i] == "06") {
+        hourArray[i] = "18";
+      }
+      orderArray[i] = hourArray[i] + minuteArray[i];
+      k = k + 2;
+    }
+
 
 
   }
@@ -352,25 +354,25 @@ var orderArray = [];
 
         if (hh >= 10) {
 
-            //document.getElementById('realTimer' + i).innerHTML = "Over <br>";
-            document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
-            stateOfPeriod[i] = "over";
+          //document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+          document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+          stateOfPeriod[i] = "over";
 
         } else {
-           if (hh != "" || mm != "") {
-             stateOfPeriod[i] = "notover"
+          if (hh != "" || mm != "") {
+            stateOfPeriod[i] = "notover"
 
 
-             var a = stateOfPeriod.indexOf("notover");
+            var a = stateOfPeriod.indexOf("notover");
 
 
 
 
-             if (hh < 10 && a == i) {
+            if (hh < 10 && a == i) {
 
-               document.title = hh + ":" + mm + ":" + ss;
+              document.title = hh + ":" + mm + ":" + ss;
 
-             }
+            }
 
             document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
           }
@@ -384,41 +386,19 @@ var orderArray = [];
   })();
 
 
+  function chunkArray(myArray, chunk_size) {
+    var index = 0;
+    var arrayLength = myArray.length;
+    var tempArray = [];
 
+    for (index = 0; index < arrayLength; index += chunk_size) {
+      myChunk = myArray.slice(index, index + chunk_size);
 
+      tempArray.push(myChunk);
+    }
 
-
-  function chunkArray(myArray, chunk_size){
-      var index = 0;
-      var arrayLength = myArray.length;
-      var tempArray = [];
-
-      for (index = 0; index < arrayLength; index += chunk_size) {
-          myChunk = myArray.slice(index, index+chunk_size);
-
-          tempArray.push(myChunk);
-      }
-
-      return tempArray;
+    return tempArray;
   }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -435,16 +415,16 @@ var orderArray = [];
   var currenturl = window.location.href;
 
 
-      var code = currenturl.replace("https://www.lukegutman.com/timer/#", "");
-      showCustomer(code);
-     setTimeout(function(){
-        newDatabaseURL = document.getElementById("longp").textContent;
-          read();
-      }, 500);
+  var code = currenturl.replace("https://www.lukegutman.com/timer/#", "");
+  showCustomer(code);
+  setTimeout(function() {
+    newDatabaseURL = document.getElementById("longp").textContent;
+    read();
+  }, 500);
 
 
   function showCustomer(str) {
-  //  alert(str);
+    //  alert(str);
     var xhttp;
     if (str == "") {
       document.getElementById("txtHint").innerHTML = "";
@@ -456,9 +436,7 @@ var orderArray = [];
         document.getElementById("txtHint").innerHTML = this.responseText;
       }
     };
-    xhttp.open("GET", "read.php?q="+str, true);
+    xhttp.open("GET", "read.php?q=" + str, true);
     xhttp.send();
   }
-
-
 </script>
