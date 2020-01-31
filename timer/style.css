@@ -1,0 +1,88 @@
+#txtHint {
+  display: none;
+}
+
+body {
+  font-size: 30px;
+  background-color: #181818;
+  font-family: Arial;
+  color: white;
+  font-weight: bold;
+  margin: 0px 0px 0px 0px;
+}
+
+.timeDisplay {
+  color: white;
+  font-family: Arial;
+  font-weight:bold;
+}
+
+.nameDisplay {
+  color: white;
+  margin: 0px 0px 0px 0px;
+  top: 0px;
+  font-family: Arial;
+  font-weight:bold;
+}
+
+#schoolTitle {
+  font-size: 7vh;
+  color: white;
+  position: relative;
+  background-color: #202020;
+  padding:bottom: 0px;
+}
+
+#selectorDiv {
+  float: right;
+  position: relative;
+  background-color: #202020;
+  padding: 10px 10px 10px 10px;
+}
+
+.radioButtonClass {
+  color: white;
+}
+
+.actualRadioButton {
+  background-color: black;
+}
+
+table {
+
+  border-collapse: collapse;
+  height: 93vh;
+  position: absolute;
+  top: 7vh;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+td,
+th {
+  border: 0px solid #202020;
+  text-align: left;
+  padding: 8px;
+  font-size: 5vh;
+}
+
+.timeDisplay {
+border-right:  5px solid #202020;
+width: 10vw;
+}
+
+tr:nth-child(even) {
+  background-color: #202020;
+}
+
+.nameDisplay {
+
+}
+
+@media (max-width : 320px) {
+  #schoolTitle {
+    font-size: 2vh;
+    padding-bottom: 10px;
+  }
+}
