@@ -15,10 +15,8 @@
   <form id="selectorDiv"></form>
 
   <table id="timerContainer"></table>
-
-  <br><br><br>
 </body>
-
+ <link rel="stylesheet" type="text/css" href="radio.css">
 </html>
 
 <style>
@@ -28,7 +26,7 @@
 
   body {
     font-size: 30px;
-    background-color: #212424;
+    background-color: #181818;
     font-family: Arial;
     color: white;
     font-weight: bold;
@@ -37,26 +35,31 @@
 
   .timeDisplay {
     color: white;
-    font-family: 'ABeeZee', sans-serif;
+    font-family: Arial;
+    font-weight:bold;
   }
 
   .nameDisplay {
     color: white;
     margin: 0px 0px 0px 0px;
     top: 0px;
-    font-family: 'Bebas Neue', cursive;
+    font-family: Arial;
+    font-weight:bold;
   }
 
   #schoolTitle {
+    font-size: 7vh;
     color: white;
-    height: 10vh;
     position: relative;
+    background-color: #202020;
+    padding:bottom: 0px;
   }
 
   #selectorDiv {
     float: right;
     position: relative;
-    background-color: blue;
+    background-color: #202020;
+    padding: 10px 10px 10px 10px;
   }
 
   .radioButtonClass {
@@ -68,7 +71,7 @@
   }
 
   table {
-    font-family: arial, sans-serif;
+
     border-collapse: collapse;
     height: 93vh;
     position: absolute;
@@ -80,15 +83,39 @@
 
   td,
   th {
-    border: 1px solid #dddddd;
+    border: 0px solid #202020;
     text-align: left;
     padding: 8px;
     font-size: 5vh;
   }
 
-  tr:nth-child(even) {
-    background-color: #3E4444;
+  .timeDisplay {
+border-right:  5px solid #202020;
+width: 10vw;
   }
+
+  tr:nth-child(even) {
+    background-color: #202020;
+  }
+
+  .nameDisplay {
+
+  }
+
+  @media (max-width : 320px) {
+
+
+    #schoolTitle {
+      font-size: 2vh;
+      padding-bottom: 10px;
+    }
+
+
+
+
+  }
+
+
 </style>
 
 
@@ -152,7 +179,7 @@
         rad.checked = true;
       }
       rad.type = "radio";
-      rad.class = "actualRadioButton";
+      rad.className = "actualRadioButton";
       rad.name = "schedulesRadioName";
       rad.id = i + "scheduleCheckRadio";
       rad.oninput = function() {
@@ -162,11 +189,16 @@
       var node = document.createTextNode(scheduleAbbreviationsArray[i]);
       para.color = "white";
       node.color = "white";
-      para.class = "radioButtonClass";
+      para.className = "radioButtonClass";
       node.class = "radioButtonClass";
+      var check = document.createElement("span");
+      check.className = "checkmark";
       para.appendChild(node);
+      para.appendChild(rad);
+      para.appendChild(check);
       container.appendChild(para);
-      container.appendChild(rad);
+      var breakit = document.createElement("br");
+      container.appendChild(breakit);
     }
     // end of make radios buttons
 
@@ -248,8 +280,9 @@
       var timer = document.createElement("td");
       var blah = document.createTextNode("<br>");
       timer.id = "realTimer" + i;
-      timer.class = "timeDisplay";
+      timer.className = "timeDisplay";
       blah.class = "timeDisplay";
+      node.className = "nameOfPeriod";
 
       para.appendChild(node);
       timer.appendChild(blah);
@@ -354,8 +387,8 @@
 
         if (hh >= 10) {
 
-          //document.getElementById('realTimer' + i).innerHTML = "Over <br>";
-          document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+          document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+          //document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
           stateOfPeriod[i] = "over";
 
         } else {
@@ -364,9 +397,6 @@
 
 
             var a = stateOfPeriod.indexOf("notover");
-
-
-
 
             if (hh < 10 && a == i) {
 
