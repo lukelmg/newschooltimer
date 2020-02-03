@@ -7,588 +7,626 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=ABeeZee|Bebas+Neue&display=swap" rel="stylesheet">
-  <link rel="stylesheet" type="text/css" href="style.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link rel="stylesheet" type="text/css" href="style.css">
 <style>
-body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
-
-body, html {
-  height: 100%;
-  line-height: 1.8;
-}
-
-.bgimg-1 {
-  background-position: center;
-  background-size: cover;
-  background-image: url("https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2Fother%20view%20scdhooltimer.png?v=1579892139121");
-  min-height: 100%;
-}
-
-.w3-bar .w3-button {
-  padding: 16px;
-  opacity: 1;
-}
-
-  #test {
-    float:right;
+  body,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: "Raleway", sans-serif
   }
 
-  .w3-jumbo {
-    color:white;
+  body,
+  html {
+    height: 100%;
+    line-height: 1.8;
   }
 
   .bgimg-1 {
-
+    background-position: center;
+    background-size: cover;
+    background-image: url("https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2Fother%20view%20scdhooltimer.png?v=1579892139121");
+    min-height: 100%;
   }
 
+  .w3-bar .w3-button {
+    padding: 16px;
+    opacity: 1;
+  }
+
+  #test {
+    float: right;
+  }
+
+  .w3-jumbo {
+    color: white;
+  }
+
+  #codeInput {
+    cursor: text;
+  }
+
+  input:focus {
+    outline: none;
+  }
 </style>
 
 
 <div id="timerBody">
-<div id="styleTimer">
-  <div id="txtHint"></div>
-  <h1 id="schoolTitle"></h1>
-  <p id="output"></p>
-  <p id="time"></p>
+  <div id="styleTimer">
+    <div id="txtHint"></div>
+    <h1 id="schoolTitle"></h1>
+    <p id="output"></p>
+    <p id="time"></p>
 
-  <form id="selectorDiv"></form>
+    <form id="selectorDiv"></form>
 
-  <table id="timerContainer"></table>
-</div>
+    <table id="timerContainer"></table>
+  </div>
 </div>
 
 
 <body id="home">
 
-<!-- Navbar (sit on top) -->
-<div class="w3-top">
-  <div class="w3-bar w3-white w3-card" id="myNavbar">
-    <a href="#home" class="w3-bar-item w3-button w3-wide">www.SchoolTimer.net</a>
-    <!-- Right-sided navbar links -->
-    <div class="w3-right w3-hide-small">
+  <!-- Navbar (sit on top) -->
+  <div class="w3-top">
+    <div class="w3-bar w3-white w3-card" id="myNavbar">
+      <a href="#home" class="w3-bar-item w3-button w3-wide">www.SchoolTimer.net</a>
+      <!-- Right-sided navbar links -->
+      <div class="w3-right w3-hide-small">
         <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">MORE</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
-    </div>
-    <!-- Hide right-floated links on small screens and replace them with a menu icon -->
+        <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">MORE</a>
+        <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+      </div>
+      <!-- Hide right-floated links on small screens and replace them with a menu icon -->
 
-    <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
-      <i class="fa fa-bars"></i>
-    </a>
-  </div>
-</div>
-
-<!-- Sidebar on small screens when clicking the menu icon -->
-<nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
-  <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
-  <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">MORE</a>
-  <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
-</nav>
-
-<!-- Header with full-height image -->
-<header class="bgimg-1 w3-display-container" id="home">
-  <div class="w3-display-left w3-text-white" id="test" style="padding:48px">
-    <span class="w3-jumbo w3-hide-small" id="test">SchoolTimer</span><br>
-    <span class="w3-xxlarge w3-hide-large w3-hide-medium">SchoolTimer</span><br>
-    <span class="w3-large">A Timer for School</span>
-    <p><a href="/create" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Create a Custom Timer</a></p>
-    <p><a href="/find" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Find your School's Timer</a></p>
-    <p><input type="text" placeholder="Have a code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input></p>
-  </div>
-</header>
-
-<!-- About Section -->
-<div class="w3-container" style="padding:128px 16px" id="about">
-  <h3 class="w3-center">About SchoolTimer</h3>
-  <p class="w3-center w3-large">Key features of our service:</p>
-  <div class="w3-row-padding w3-center" style="margin-top:64px">
-    <div class="w3-quarter">
-      <image height="75px" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.33%20AM.png?v=1579872821879" class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></image>
-      <p class="w3-large">Responsiveness</p>
-      <p>With billions of schedule combinations, a custom timer could be made for virtually any school out there.</p>
-    </div>
-    <div class="w3-quarter">
-      <image height="75px;" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.46%20AM.png?v=1579872807527" class="fa fa-heart w3-margin-bottom w3-jumbo"></image>
-      <p class="w3-large">Functionionality</p>
-      <p>Being able to change view exactly when each period at your school ends even with different schedules will improve productivity among students.</p>
-    </div>
-    <div class="w3-quarter">
-      <image height="75px;" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.41%20AM.png?v=1579872840042" class="fa fa-diamond w3-margin-bottom w3-jumbo"></image>
-      <p class="w3-large">Design</p>
-      <p>A huge part of our time goes into the design of SchoolTimer. Without a good design, SchoolTimer would not exist.</p>
-    </div>
-    <div class="w3-quarter">
-      <image height="75px;" class="fa fa-cog w3-margin-bottom w3-jumbo" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.30.57%20AM.png?v=1579872706858"></image>
-      <p class="w3-large">Social</p>
-      <p>The ability to share any timer you make with a unique 6 digit code makes it that much easier to connect with others and share your own timer.</p>
+      <a href="javascript:void(0)" class="w3-bar-item w3-button w3-right w3-hide-large w3-hide-medium" onclick="w3_open()">
+        <i class="fa fa-bars"></i>
+      </a>
     </div>
   </div>
-</div>
 
-<!-- Promo Section - "We know design" -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="work">
-  <div class="w3-row-padding">
-    <div class="w3-col m6">
-      <h3>We know design.</h3>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
-      <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
+  <!-- Sidebar on small screens when clicking the menu icon -->
+  <nav class="w3-sidebar w3-bar-block w3-black w3-card w3-animate-left w3-hide-medium w3-hide-large" style="display:none" id="mySidebar">
+    <a href="javascript:void(0)" onclick="w3_close()" class="w3-bar-item w3-button w3-large w3-padding-16">Close ×</a>
+    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button">ABOUT</a>
+    <a href="#work" onclick="w3_close()" class="w3-bar-item w3-button">MORE</a>
+    <a href="#contact" onclick="w3_close()" class="w3-bar-item w3-button">CONTACT</a>
+  </nav>
+
+  <!-- Header with full-height image -->
+  <header class="bgimg-1 w3-display-container" id="home">
+    <div class="w3-display-left w3-text-white" id="test" style="padding:48px">
+      <span class="w3-jumbo w3-hide-small" id="test">SchoolTimer</span><br>
+      <span class="w3-xxlarge w3-hide-large w3-hide-medium">SchoolTimer</span><br>
+      <span class="w3-large">A Timer for School</span>
+      <p><a href="/create" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Create a Custom Timer</a></p>
+      <p><a href="/find" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Find your School's Timer</a></p>
+      <p><input oninput="checkForCode();" id="codeInput" maxlength="7" type="text" placeholder="Have a code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input></p>
+
+      <script>
+      /*  var toggle = 0;
+
+        function checkForCode() {
+          var current = document.getElementById("codeInput").value;
+          if (current.length == 3 && toggle == 0) {
+            current = current + "-";
+            document.getElementById("codeInput").value = current;
+            toggle = 1;
+          } else if (toggle == 1) {
+            toggle = 0;
+          }
+        }
+        */
+
+        $(document).on('keypress', function(e) {
+          if (e.which == 13) {
+            var current = document.getElementById("codeInput").value;
+            if (current.length > 0) {
+              window.location.replace(current);
+            }
+          }
+        });
+      </script>
+
+
     </div>
-    <div class="w3-col m6">
-      <img class="w3-image w3-round-large" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2Fschool%20timer%20high%20qual'.png?v=1579832346505" alt="Buildings" width="700" height="394">
+  </header>
+
+  <!-- About Section -->
+  <div class="w3-container" style="padding:128px 16px" id="about">
+    <h3 class="w3-center">About SchoolTimer</h3>
+    <p class="w3-center w3-large">Key features of our service:</p>
+    <div class="w3-row-padding w3-center" style="margin-top:64px">
+      <div class="w3-quarter">
+        <image height="75px" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.33%20AM.png?v=1579872821879" class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></image>
+        <p class="w3-large">Responsiveness</p>
+        <p>With billions of schedule combinations, a custom timer could be made for virtually any school out there.</p>
+      </div>
+      <div class="w3-quarter">
+        <image height="75px;" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.46%20AM.png?v=1579872807527" class="fa fa-heart w3-margin-bottom w3-jumbo"></image>
+        <p class="w3-large">Functionionality</p>
+        <p>Being able to change view exactly when each period at your school ends even with different schedules will improve productivity among students.</p>
+      </div>
+      <div class="w3-quarter">
+        <image height="75px;" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.41%20AM.png?v=1579872840042" class="fa fa-diamond w3-margin-bottom w3-jumbo"></image>
+        <p class="w3-large">Design</p>
+        <p>A huge part of our time goes into the design of SchoolTimer. Without a good design, SchoolTimer would not exist.</p>
+      </div>
+      <div class="w3-quarter">
+        <image height="75px;" class="fa fa-cog w3-margin-bottom w3-jumbo" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.30.57%20AM.png?v=1579872706858"></image>
+        <p class="w3-large">Social</p>
+        <p>The ability to share any timer you make with a unique 6 digit code makes it that much easier to connect with others and share your own timer.</p>
+      </div>
     </div>
   </div>
-</div>
 
-<!-- Modal for full size images on click-->
-<div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
-  <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
-  <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
-    <img id="img01" class="w3-image">
-    <p id="caption" class="w3-opacity w3-large"></p>
+  <!-- Promo Section - "We know design" -->
+  <div class="w3-container w3-light-grey" style="padding:128px 16px" id="work">
+    <div class="w3-row-padding">
+      <div class="w3-col m6">
+        <h3>We know design.</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod<br>tempor incididunt ut labore et dolore.</p>
+        <p><a href="#work" class="w3-button w3-black"><i class="fa fa-th"> </i> View Our Works</a></p>
+      </div>
+      <div class="w3-col m6">
+        <img class="w3-image w3-round-large" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2Fschool%20timer%20high%20qual'.png?v=1579832346505" alt="Buildings" width="700" height="394">
+      </div>
+    </div>
   </div>
-</div>
 
-<!-- Contact Section -->
-<div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
-  <h3 class="w3-center">CONTACT</h3>
-  <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
-  <div style="margin-top:48px">
-    <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: support@schooltimer.net</p>
-    <br>
-    <form action="/action_page.php" target="_blank">
-      <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
-      <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
-      <p>
-        <button class="w3-button w3-black" type="submit">
-          <i class="fa fa-paper-plane"></i> SEND MESSAGE
-        </button>
-      </p>
-    </form>
+  <!-- Modal for full size images on click-->
+  <div id="modal01" class="w3-modal w3-black" onclick="this.style.display='none'">
+    <span class="w3-button w3-xxlarge w3-black w3-padding-large w3-display-topright" title="Close Modal Image">×</span>
+    <div class="w3-modal-content w3-animate-zoom w3-center w3-transparent w3-padding-64">
+      <img id="img01" class="w3-image">
+      <p id="caption" class="w3-opacity w3-large"></p>
+    </div>
   </div>
-</div>
 
-<!-- Footer -->
-<footer class="w3-center w3-black w3-padding-64">
-  <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
-  <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
-</footer>
+  <!-- Contact Section -->
+  <div class="w3-container w3-light-grey" style="padding:128px 16px" id="contact">
+    <h3 class="w3-center">CONTACT</h3>
+    <p class="w3-center w3-large">Lets get in touch. Send us a message:</p>
+    <div style="margin-top:48px">
+      <p><i class="fa fa-envelope fa-fw w3-xxlarge w3-margin-right"> </i> Email: support@schooltimer.net</p>
+      <br>
+      <form action="/action_page.php" target="_blank">
+        <p><input class="w3-input w3-border" type="text" placeholder="Name" required name="Name"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Email" required name="Email"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Subject" required name="Subject"></p>
+        <p><input class="w3-input w3-border" type="text" placeholder="Message" required name="Message"></p>
+        <p>
+          <button class="w3-button w3-black" type="submit">
+            <i class="fa fa-paper-plane"></i> SEND MESSAGE
+          </button>
+        </p>
+      </form>
+    </div>
+  </div>
 
-<script>
+  <!-- Footer -->
+  <footer class="w3-center w3-black w3-padding-64">
+    <a href="#home" class="w3-button w3-light-grey"><i class="fa fa-arrow-up w3-margin-right"></i>To the top</a>
+    <p>Powered by <a href="https://www.w3schools.com/w3css/default.asp" title="W3.CSS" target="_blank" class="w3-hover-text-green">w3.css</a></p>
+  </footer>
 
-var currenturl = window.location.pathname;
+  <script>
+    var currenturl = window.location.pathname;
 
-if (currenturl.indexOf('-') > - 1) {
+    if (currenturl.indexOf('-') > -1) {
 
-}
-
-function showCustomer(str) {
-  var xhttp;
-  if (str == "") {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  }
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("txtHint").innerHTML = this.responseText;
     }
-  };
-  xhttp.open("GET", "read.php?q="+str, true);
-  xhttp.send();
-}
+
+    function showCustomer(str) {
+      var xhttp;
+      if (str == "") {
+        document.getElementById("txtHint").innerHTML = "";
+        return;
+      }
+      xhttp = new XMLHttpRequest();
+      xhttp.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          document.getElementById("txtHint").innerHTML = this.responseText;
+        }
+      };
+      xhttp.open("GET", "read.php?q=" + str, true);
+      xhttp.send();
+    }
 
 
-// Modal Image Gallery
-function onClick(element) {
-  document.getElementById("img01").src = element.src;
-  document.getElementById("modal01").style.display = "block";
-  var captionText = document.getElementById("caption");
-  captionText.innerHTML = element.alt;
-}
+    // Modal Image Gallery
+    function onClick(element) {
+      document.getElementById("img01").src = element.src;
+      document.getElementById("modal01").style.display = "block";
+      var captionText = document.getElementById("caption");
+      captionText.innerHTML = element.alt;
+    }
 
 
-// Toggle between showing and hiding the sidebar when clicking the menu icon
-var mySidebar = document.getElementById("mySidebar");
+    // Toggle between showing and hiding the sidebar when clicking the menu icon
+    var mySidebar = document.getElementById("mySidebar");
 
-function w3_open() {
-  if (mySidebar.style.display === 'block') {
-    mySidebar.style.display = 'none';
-  } else {
-    mySidebar.style.display = 'block';
-  }
-}
+    function w3_open() {
+      if (mySidebar.style.display === 'block') {
+        mySidebar.style.display = 'none';
+      } else {
+        mySidebar.style.display = 'block';
+      }
+    }
 
-// Close the sidebar with the close button
-function w3_close() {
-    mySidebar.style.display = "none";
-}
-</script>
+    // Close the sidebar with the close button
+    function w3_close() {
+      mySidebar.style.display = "none";
+    }
+  </script>
 
 </body>
+
 </html>
 
 
 
 <script>
+  var myUrl = window.location.href;
 
-var myUrl = window.location.href;
-
-if (myUrl !==  "https://www.lukegutman.com/") {
-//  document.getElementsByTagName("BODY")[0].style.display = "none";
-var timerBody = document.getElementById("timerBody");
-  document.getElementsByTagName('BODY')[0].innerHTML = timerBody.innerHTML;
-  startTimer();
-}
-
-
-var numberOfSchedules;
-var scheduleNames;
-var scheduleAbbreviations;
-var periodsPerSchedule;
-var periodTimes;
-
-var periodScheduleArray = [];
-var nameArray = [];
-var timeArray = [];
-
-var scheduleSplit = [];
-
-var schoolName = "";
-var schoolColor = "";
-
-var scheduleAbbreviationsArray = [];
-
-var newDatabaseURL;
-
-function startTimer() {
-
-var redirect;
-
-var currenturl = window.location.href;
-
-
-var code = currenturl.replace("https://www.lukegutman.com/", "");
-showCustomer(code);
-setTimeout(function() {
-  newDatabaseURL = document.getElementById("longp").textContent;
-  read();
-}, 500);
-}
-
-
-function read() {
-  var url_string = "https://www.test.com/" + newDatabaseURL;
-  var url = new URL(url_string);
-
-  numberOfSchedules = url.searchParams.get("nums");
-  scheduleNames = url.searchParams.get("names");
-  scheduleAbbreviations = url.searchParams.get("abbs");
-  periodsPerSchedule = url.searchParams.get("pers");
-  schoolName = url.searchParams.get("school");
-  selectedColor = url.searchParams.get("color");
-
-  var colorTest = url_string.split('&color=')[1];
-  selectedColor = colorTest.substring(0, 7);
-
-  periodTimes = url_string.split('newvariable=')[1];
-
-  document.getElementById("schoolTitle").innerHTML = schoolName + " Timer";
-  /*
-      document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
-        "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
-  */
-  scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
-
-  periodScheduleArray = periodsPerSchedule.split(",");
-
-  nameArray = scheduleNames.split(",");
-
-  timeArray = periodTimes.split(",");
-
-  var container = document.getElementById("selectorDiv");
-
-  while (container.hasChildNodes()) {
-    container.removeChild(container.lastChild);
+  if (myUrl !== "https://www.lukegutman.com/") {
+    //  document.getElementsByTagName("BODY")[0].style.display = "none";
+    var timerBody = document.getElementById("timerBody");
+    document.getElementsByTagName('BODY')[0].innerHTML = timerBody.innerHTML;
+    document.body.style.backgroundColor = "#181818";
+    startTimer();
   }
 
-  for (var i = 0; i < (numberOfSchedules); i++) {
-    var rad = document.createElement("input");
-    if (i == 0) {
-      rad.checked = true;
+
+  var numberOfSchedules;
+  var scheduleNames;
+  var scheduleAbbreviations;
+  var periodsPerSchedule;
+  var periodTimes;
+
+  var periodScheduleArray = [];
+  var nameArray = [];
+  var timeArray = [];
+
+  var scheduleSplit = [];
+
+  var schoolName = "";
+  var schoolColor = "";
+
+  var scheduleAbbreviationsArray = [];
+
+  var newDatabaseURL;
+
+  function startTimer() {
+
+    var redirect;
+
+    var currenturl = window.location.href;
+
+
+    var code = currenturl.replace("https://www.lukegutman.com/", "");
+    showCustomer(code);
+    setTimeout(function() {
+      newDatabaseURL = document.getElementById("longp").textContent;
+      read();
+    }, 500);
+  }
+
+
+  function read() {
+    var url_string = "https://www.test.com/" + newDatabaseURL;
+    var url = new URL(url_string);
+
+    numberOfSchedules = url.searchParams.get("nums");
+    scheduleNames = url.searchParams.get("names");
+    scheduleAbbreviations = url.searchParams.get("abbs");
+    periodsPerSchedule = url.searchParams.get("pers");
+    schoolName = url.searchParams.get("school");
+    selectedColor = url.searchParams.get("color");
+
+    var colorTest = url_string.split('&color=')[1];
+    selectedColor = colorTest.substring(0, 7);
+
+    periodTimes = url_string.split('newvariable=')[1];
+
+    document.getElementById("schoolTitle").innerHTML = schoolName + " Timer";
+    /*
+        document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
+          "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
+    */
+    scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
+
+    periodScheduleArray = periodsPerSchedule.split(",");
+
+    nameArray = scheduleNames.split(",");
+
+    timeArray = periodTimes.split(",");
+
+    var container = document.getElementById("selectorDiv");
+
+    while (container.hasChildNodes()) {
+      container.removeChild(container.lastChild);
     }
-    rad.type = "radio";
-    rad.className = "actualRadioButton";
-    rad.name = "schedulesRadioName";
-    rad.id = i + "scheduleCheckRadio";
-    rad.oninput = function() {
-      radioButtonDetection(this.id);
-    };
-    var para = document.createElement("span");
-    var node = document.createTextNode(scheduleAbbreviationsArray[i]);
-    para.color = "white";
-    node.color = "white";
-    para.className = "radioButtonClass";
-    node.class = "radioButtonClass";
-    var check = document.createElement("span");
-    var tool = document.createTextNode(nameArray[i])
-    check.appendChild(tool);
-    check.className = "checkmark";
-    para.appendChild(node);
-    para.appendChild(rad);
-    para.appendChild(check);
-    container.appendChild(para);
-    var breakit = document.createElement("br");
-    container.appendChild(breakit);
+
+    for (var i = 0; i < (numberOfSchedules); i++) {
+      var rad = document.createElement("input");
+      if (i == 0) {
+        rad.checked = true;
+      }
+      rad.type = "radio";
+      rad.className = "actualRadioButton";
+      rad.name = "schedulesRadioName";
+      rad.id = i + "scheduleCheckRadio";
+      rad.oninput = function() {
+        radioButtonDetection(this.id);
+      };
+      var para = document.createElement("span");
+      var node = document.createTextNode(scheduleAbbreviationsArray[i]);
+      para.color = "white";
+      node.color = "white";
+      para.className = "radioButtonClass";
+      node.class = "radioButtonClass";
+      var check = document.createElement("span");
+      var tool = document.createTextNode(nameArray[i])
+      check.appendChild(tool);
+      check.className = "checkmark";
+      para.appendChild(node);
+      para.appendChild(rad);
+      para.appendChild(check);
+      container.appendChild(para);
+      var breakit = document.createElement("br");
+      container.appendChild(breakit);
+    }
+    // end of make radios buttons
+
+
+    // make time and name in chunks
+    for (var i = 0; i < nameArray.length; i++) {
+      //alert(nameArray[i]);
+    }
+
+    var k = 0;
+    var p, j, timeSplitArray, nameSplitArray, chunk;
+    for (p = 0, j = nameArray.length; p < j; p += chunk) {
+
+      var prtest = parseInt(periodScheduleArray[k]);
+      p, j, timeSplitArray, nameSplitArray, chunk = prtest;
+      timeSplitArray = timeArray.slice(p, p + chunk);
+      nameSplitArray = nameArray.slice(p, p + chunk);
+
+      scheduleSplit[k] = timeSplitArray + "#" + nameSplitArray + "|||";
+
+      k++;
+    }
+
+
+
+    getSchedulesReadyForTimer();
   }
-  // end of make radios buttons
 
+  var which;
 
-  // make time and name in chunks
-  for (var i = 0; i < nameArray.length; i++) {
-    //alert(nameArray[i]);
+  var currentScheduleSelected = 0;
+
+  function radioButtonDetection(which) {
+    var ele = document.getElementsByName('schedulesRadioName');
+
+    for (i = 0; i < ele.length; i++) {
+      if (ele[i].checked)
+        currentScheduleSelected = which.charAt(0);
+    }
+    getSchedulesReadyForTimer();
   }
 
-  var k = 0;
-  var p, j, timeSplitArray, nameSplitArray, chunk;
-  for (p = 0, j = nameArray.length; p < j; p += chunk) {
+  var newTest = [];
 
-    var prtest = parseInt(periodScheduleArray[k]);
-    p, j, timeSplitArray, nameSplitArray, chunk = prtest;
-    timeSplitArray = timeArray.slice(p, p + chunk);
-    nameSplitArray = nameArray.slice(p, p + chunk);
-
-    scheduleSplit[k] = timeSplitArray + "#" + nameSplitArray + "|||";
-
-    k++;
+  function getSchedulesReadyForTimer() {
+    for (var i = 0; i < numberOfSchedules; i++) {
+      newTest[i] = scheduleSplit[i].split("|||");
+    }
+    addTimersPerSchedule();
   }
 
+  var newNameArrayTest = [];
 
 
-  getSchedulesReadyForTimer();
-}
+  var timerContainer = document.getElementById("timerContainer");
 
-var which;
+  var testNewTestNameNew = [];
 
-var currentScheduleSelected = 0;
+  function addTimersPerSchedule() {
+    while (timerContainer.hasChildNodes()) {
+      timerContainer.removeChild(timerContainer.lastChild);
+    }
+    for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+      testNewTestNameNew = [];
+      var split1 = newTest[currentScheduleSelected];
+      var split2 = String(split1);
+      split2 = split2.split('#')[1]
+      testNewTestNameNew = split2.split(',');
 
-function radioButtonDetection(which) {
-  var ele = document.getElementsByName('schedulesRadioName');
+      var lastPeriod = testNewTestNameNew.slice(-2)[0];
 
-  for (i = 0; i < ele.length; i++) {
-    if (ele[i].checked)
-      currentScheduleSelected = which.charAt(0);
+      var track = document.createElement("tr")
+
+      var para = document.createElement("td");
+      para.id = "nameTimer" + i;
+      para.className = "nameDisplay"
+      var node = document.createTextNode(testNewTestNameNew[i] + " Ends In ");
+
+      var timer = document.createElement("td");
+      var blah = document.createTextNode("<br>");
+      timer.id = "realTimer" + i;
+      timer.className = "timeDisplay";
+      blah.class = "timeDisplay";
+      node.className = "nameOfPeriod";
+
+      para.appendChild(node);
+      timer.appendChild(blah);
+
+      track.appendChild(para);
+      track.appendChild(timer);
+
+      timerContainer.appendChild(track);
+
+      if (lastPeriod == testNewTestNameNew[i]) {
+        var newColor = String(selectedColor);
+
+        document.getElementById("realTimer" + i).style.color = newColor;
+        document.getElementById("nameTimer" + i).style.color = newColor;
+      } else {
+        document.getElementById("realTimer" + i).style.color = "white";
+      }
+    }
+    setUpTimesForTimers();
   }
-  getSchedulesReadyForTimer();
-}
 
-var newTest = [];
+  var timeForMathArray = [];
+  var newTimeForMathArray = [];
+  var hourArray = [];
+  var minuteArray = [];
+  var orderArray = [];
 
-function getSchedulesReadyForTimer() {
-  for (var i = 0; i < numberOfSchedules; i++) {
-    newTest[i] = scheduleSplit[i].split("|||");
-  }
-  addTimersPerSchedule();
-}
-
-var newNameArrayTest = [];
-
-
-var timerContainer = document.getElementById("timerContainer");
-
-var testNewTestNameNew = [];
-
-function addTimersPerSchedule() {
-  while (timerContainer.hasChildNodes()) {
-    timerContainer.removeChild(timerContainer.lastChild);
-  }
-  for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
-    testNewTestNameNew = [];
+  function setUpTimesForTimers() {
+    hourArray = [];
+    minuteArray = [];
+    timeForMathArray = [];
+    newTimeForMathArray = [];
     var split1 = newTest[currentScheduleSelected];
     var split2 = String(split1);
-    split2 = split2.split('#')[1]
-    testNewTestNameNew = split2.split(',');
+    split2 = split2.split('#')[0]
 
-    var lastPeriod = testNewTestNameNew.slice(-2)[0];
+    timeForMathArray = split2.split(":");
+    timeForMathArray = String(timeForMathArray);
+    newTimeForMathArray = timeForMathArray.split(",");
 
-    var track = document.createElement("tr")
-
-    var para = document.createElement("td");
-    para.id = "nameTimer" + i;
-    para.className = "nameDisplay"
-    var node = document.createTextNode(testNewTestNameNew[i] + " Ends In ");
-
-    var timer = document.createElement("td");
-    var blah = document.createTextNode("<br>");
-    timer.id = "realTimer" + i;
-    timer.className = "timeDisplay";
-    blah.class = "timeDisplay";
-    node.className = "nameOfPeriod";
-
-    para.appendChild(node);
-    timer.appendChild(blah);
-
-    track.appendChild(para);
-    track.appendChild(timer);
-
-    timerContainer.appendChild(track);
-
-    if (lastPeriod == testNewTestNameNew[i]) {
-      var newColor = String(selectedColor);
-
-      document.getElementById("realTimer" + i).style.color = newColor;
-      document.getElementById("nameTimer" + i).style.color = newColor;
-    } else {
-      document.getElementById("realTimer" + i).style.color = "white";
+    var k = 0;
+    for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+      hourArray[i] = newTimeForMathArray[k];
+      minuteArray[i] = newTimeForMathArray[(k + 1)];
+      k = k + 2;
     }
-  }
-  setUpTimesForTimers();
-}
-
-var timeForMathArray = [];
-var newTimeForMathArray = [];
-var hourArray = [];
-var minuteArray = [];
-var orderArray = [];
-
-function setUpTimesForTimers() {
-  hourArray = [];
-  minuteArray = [];
-  timeForMathArray = [];
-  newTimeForMathArray = [];
-  var split1 = newTest[currentScheduleSelected];
-  var split2 = String(split1);
-  split2 = split2.split('#')[0]
-
-  timeForMathArray = split2.split(":");
-  timeForMathArray = String(timeForMathArray);
-  newTimeForMathArray = timeForMathArray.split(",");
-
-  var k = 0;
-  for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
-    hourArray[i] = newTimeForMathArray[k];
-    minuteArray[i] = newTimeForMathArray[(k + 1)];
-    k = k + 2;
-  }
-
-  for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
-    if (hourArray[i] == "00") {
-      hourArray[i] = "12";
-    } else if (hourArray[i] == "01") {
-      hourArray[i] = "13";
-    } else if (hourArray[i] == "02") {
-      hourArray[i] = "14";
-    } else if (hourArray[i] == "03") {
-      hourArray[i] = "15";
-    } else if (hourArray[i] == "04") {
-      hourArray[i] = "16";
-    } else if (hourArray[i] == "05") {
-      hourArray[i] = "17";
-    } else if (hourArray[i] == "06") {
-      hourArray[i] = "18";
-    }
-    orderArray[i] = hourArray[i] + minuteArray[i];
-    k = k + 2;
-  }
-
-
-
-}
-
-var stateOfPeriod = [];
-
-
-(function() {
-  var start = new Date;
-
-  function pad(num) {
-    return ("0" + parseInt(num)).substr(-2);
-  }
-
-  function tick() {
-    var now = new Date;
 
     for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
-
-      start.setHours(hourArray[i], minuteArray[i], 0); // 11pm
-      if (now > start) { // too late, go to tomorrow
-        start.setDate(start.getDate() + 1);
+      if (hourArray[i] == "00") {
+        hourArray[i] = "12";
+      } else if (hourArray[i] == "01") {
+        hourArray[i] = "13";
+      } else if (hourArray[i] == "02") {
+        hourArray[i] = "14";
+      } else if (hourArray[i] == "03") {
+        hourArray[i] = "15";
+      } else if (hourArray[i] == "04") {
+        hourArray[i] = "16";
+      } else if (hourArray[i] == "05") {
+        hourArray[i] = "17";
+      } else if (hourArray[i] == "06") {
+        hourArray[i] = "18";
       }
-      var remain = ((start - now) / 1000);
-      var hh = pad((remain / 60 / 60) % 60);
-      var mm = pad((remain / 60) % 60);
-      var ss = pad(remain % 60);
-      if (hh >= 24) {
-        hh = hh - 24;
-      }
-
-      if (hh < 10) {
-        hh = "0" + hh;
-      }
-
-      if (hh >= 10) {
-
-        document.getElementById('realTimer' + i).innerHTML = "Over <br>";
-        //document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
-        stateOfPeriod[i] = "over";
-
-      } else {
-        if (hh != "" || mm != "") {
-          stateOfPeriod[i] = "notover"
+      orderArray[i] = hourArray[i] + minuteArray[i];
+      k = k + 2;
+    }
 
 
-          var a = stateOfPeriod.indexOf("notover");
 
-          if (hh < 10 && a == i) {
+  }
 
-            document.title = hh + ":" + mm + ":" + ss;
+  var stateOfPeriod = [];
 
-          }
 
-          document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+  (function() {
+    var start = new Date;
+
+    function pad(num) {
+      return ("0" + parseInt(num)).substr(-2);
+    }
+
+    function tick() {
+      var now = new Date;
+
+      for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+
+        start.setHours(hourArray[i], minuteArray[i], 0); // 11pm
+        if (now > start) { // too late, go to tomorrow
+          start.setDate(start.getDate() + 1);
         }
+        var remain = ((start - now) / 1000);
+        var hh = pad((remain / 60 / 60) % 60);
+        var mm = pad((remain / 60) % 60);
+        var ss = pad(remain % 60);
+        if (hh >= 24) {
+          hh = hh - 24;
+        }
+
+        if (hh < 10) {
+          hh = "0" + hh;
+        }
+
+        if (hh >= 10) {
+
+          document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+          //document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+          stateOfPeriod[i] = "over";
+
+        } else {
+          if (hh != "" || mm != "") {
+            stateOfPeriod[i] = "notover"
+
+
+            var a = stateOfPeriod.indexOf("notover");
+
+            if (hh < 10 && a == i) {
+
+              document.title = hh + ":" + mm + ":" + ss;
+
+            }
+
+            document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+          }
+        }
+
       }
-
+      setTimeout(tick, 0);
     }
-    setTimeout(tick, 0);
-  }
 
-  document.addEventListener('DOMContentLoaded', tick);
-})();
+    document.addEventListener('DOMContentLoaded', tick);
+  })();
 
 
-function chunkArray(myArray, chunk_size) {
-  var index = 0;
-  var arrayLength = myArray.length;
-  var tempArray = [];
+  function chunkArray(myArray, chunk_size) {
+    var index = 0;
+    var arrayLength = myArray.length;
+    var tempArray = [];
 
-  for (index = 0; index < arrayLength; index += chunk_size) {
-    myChunk = myArray.slice(index, index + chunk_size);
+    for (index = 0; index < arrayLength; index += chunk_size) {
+      myChunk = myArray.slice(index, index + chunk_size);
 
-    tempArray.push(myChunk);
-  }
-
-  return tempArray;
-}
-
-
-function showCustomer(str) {
-  //  alert(str);
-  var xhttp;
-  if (str == "") {
-    document.getElementById("txtHint").innerHTML = "";
-    return;
-  }
-  xhttp = new XMLHttpRequest();
-  xhttp.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-      document.getElementById("txtHint").innerHTML = this.responseText;
+      tempArray.push(myChunk);
     }
-  };
-  xhttp.open("GET", "read.php?q=" + str, true);
-  xhttp.send();
-}
+
+    return tempArray;
+  }
 
 
+  function showCustomer(str) {
+    //  alert(str);
+    var xhttp;
+    if (str == "") {
+      document.getElementById("txtHint").innerHTML = "";
+      return;
+    }
+    xhttp = new XMLHttpRequest();
+    xhttp.onreadystatechange = function() {
+      if (this.readyState == 4 && this.status == 200) {
+        document.getElementById("txtHint").innerHTML = this.responseText;
+      }
+    };
+    xhttp.open("GET", "read.php?q=" + str, true);
+    xhttp.send();
+  }
 </script>

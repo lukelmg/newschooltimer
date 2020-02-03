@@ -2,6 +2,10 @@
   display: none;
 }
 
+body {
+  margin: 0px 0px 0px 0px;
+}
+
 #styleTimer {
   font-size: 30px;
   background-color: #181818;
@@ -15,6 +19,8 @@
   color: white;
   font-family: Arial;
   font-weight:bold;
+  margin-top:0px;
+  boder: 0px;
 }
 
 .nameDisplay {
@@ -26,11 +32,12 @@
 }
 
 #schoolTitle {
-  font-size: 7vh;
+  font-size: 5vh;
   color: white;
   position: relative;
   background-color: #202020;
   padding:bottom: 0px;
+  margin: 0px 0px 0px 0px;
 }
 
 #selectorDiv {
