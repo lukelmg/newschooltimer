@@ -6,6 +6,8 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link href="https://fonts.googleapis.com/css?family=ABeeZee|Bebas+Neue&display=swap" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="style.css">
 <style>
 body,h1,h2,h3,h4,h5,h6 {font-family: "Raleway", sans-serif}
 
@@ -37,8 +39,25 @@ body, html {
   .bgimg-1 {
 
   }
+
 </style>
-<body>
+
+
+<div id="timerBody">
+<div id="styleTimer">
+  <div id="txtHint"></div>
+  <h1 id="schoolTitle"></h1>
+  <p id="output"></p>
+  <p id="time"></p>
+
+  <form id="selectorDiv"></form>
+
+  <table id="timerContainer"></table>
+</div>
+</div>
+
+
+<body id="home">
 
 <!-- Navbar (sit on top) -->
 <div class="w3-top">
@@ -209,3 +228,367 @@ function w3_close() {
 
 </body>
 </html>
+
+
+
+<script>
+
+var myUrl = window.location.href;
+
+if (myUrl !==  "https://www.lukegutman.com/") {
+//  document.getElementsByTagName("BODY")[0].style.display = "none";
+var timerBody = document.getElementById("timerBody");
+  document.getElementsByTagName('BODY')[0].innerHTML = timerBody.innerHTML;
+  startTimer();
+}
+
+
+var numberOfSchedules;
+var scheduleNames;
+var scheduleAbbreviations;
+var periodsPerSchedule;
+var periodTimes;
+
+var periodScheduleArray = [];
+var nameArray = [];
+var timeArray = [];
+
+var scheduleSplit = [];
+
+var schoolName = "";
+var schoolColor = "";
+
+var scheduleAbbreviationsArray = [];
+
+var newDatabaseURL;
+
+function startTimer() {
+
+var redirect;
+
+var currenturl = window.location.href;
+
+
+var code = currenturl.replace("https://www.lukegutman.com/", "");
+showCustomer(code);
+setTimeout(function() {
+  newDatabaseURL = document.getElementById("longp").textContent;
+  read();
+}, 500);
+}
+
+
+function read() {
+  var url_string = "https://www.test.com/" + newDatabaseURL;
+  var url = new URL(url_string);
+
+  numberOfSchedules = url.searchParams.get("nums");
+  scheduleNames = url.searchParams.get("names");
+  scheduleAbbreviations = url.searchParams.get("abbs");
+  periodsPerSchedule = url.searchParams.get("pers");
+  schoolName = url.searchParams.get("school");
+  selectedColor = url.searchParams.get("color");
+
+  var colorTest = url_string.split('&color=')[1];
+  selectedColor = colorTest.substring(0, 7);
+
+  periodTimes = url_string.split('newvariable=')[1];
+
+  document.getElementById("schoolTitle").innerHTML = schoolName + " Timer";
+  /*
+      document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
+        "<br> Schedule Abbrevaitions: " + scheduleAbbreviations + "<br> Periods per schedule: " + periodsPerSchedule;
+  */
+  scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
+
+  periodScheduleArray = periodsPerSchedule.split(",");
+
+  nameArray = scheduleNames.split(",");
+
+  timeArray = periodTimes.split(",");
+
+  var container = document.getElementById("selectorDiv");
+
+  while (container.hasChildNodes()) {
+    container.removeChild(container.lastChild);
+  }
+
+  for (var i = 0; i < (numberOfSchedules); i++) {
+    var rad = document.createElement("input");
+    if (i == 0) {
+      rad.checked = true;
+    }
+    rad.type = "radio";
+    rad.className = "actualRadioButton";
+    rad.name = "schedulesRadioName";
+    rad.id = i + "scheduleCheckRadio";
+    rad.oninput = function() {
+      radioButtonDetection(this.id);
+    };
+    var para = document.createElement("span");
+    var node = document.createTextNode(scheduleAbbreviationsArray[i]);
+    para.color = "white";
+    node.color = "white";
+    para.className = "radioButtonClass";
+    node.class = "radioButtonClass";
+    var check = document.createElement("span");
+    var tool = document.createTextNode(nameArray[i])
+    check.appendChild(tool);
+    check.className = "checkmark";
+    para.appendChild(node);
+    para.appendChild(rad);
+    para.appendChild(check);
+    container.appendChild(para);
+    var breakit = document.createElement("br");
+    container.appendChild(breakit);
+  }
+  // end of make radios buttons
+
+
+  // make time and name in chunks
+  for (var i = 0; i < nameArray.length; i++) {
+    //alert(nameArray[i]);
+  }
+
+  var k = 0;
+  var p, j, timeSplitArray, nameSplitArray, chunk;
+  for (p = 0, j = nameArray.length; p < j; p += chunk) {
+
+    var prtest = parseInt(periodScheduleArray[k]);
+    p, j, timeSplitArray, nameSplitArray, chunk = prtest;
+    timeSplitArray = timeArray.slice(p, p + chunk);
+    nameSplitArray = nameArray.slice(p, p + chunk);
+
+    scheduleSplit[k] = timeSplitArray + "#" + nameSplitArray + "|||";
+
+    k++;
+  }
+
+
+
+  getSchedulesReadyForTimer();
+}
+
+var which;
+
+var currentScheduleSelected = 0;
+
+function radioButtonDetection(which) {
+  var ele = document.getElementsByName('schedulesRadioName');
+
+  for (i = 0; i < ele.length; i++) {
+    if (ele[i].checked)
+      currentScheduleSelected = which.charAt(0);
+  }
+  getSchedulesReadyForTimer();
+}
+
+var newTest = [];
+
+function getSchedulesReadyForTimer() {
+  for (var i = 0; i < numberOfSchedules; i++) {
+    newTest[i] = scheduleSplit[i].split("|||");
+  }
+  addTimersPerSchedule();
+}
+
+var newNameArrayTest = [];
+
+
+var timerContainer = document.getElementById("timerContainer");
+
+var testNewTestNameNew = [];
+
+function addTimersPerSchedule() {
+  while (timerContainer.hasChildNodes()) {
+    timerContainer.removeChild(timerContainer.lastChild);
+  }
+  for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+    testNewTestNameNew = [];
+    var split1 = newTest[currentScheduleSelected];
+    var split2 = String(split1);
+    split2 = split2.split('#')[1]
+    testNewTestNameNew = split2.split(',');
+
+    var lastPeriod = testNewTestNameNew.slice(-2)[0];
+
+    var track = document.createElement("tr")
+
+    var para = document.createElement("td");
+    para.id = "nameTimer" + i;
+    para.className = "nameDisplay"
+    var node = document.createTextNode(testNewTestNameNew[i] + " Ends In ");
+
+    var timer = document.createElement("td");
+    var blah = document.createTextNode("<br>");
+    timer.id = "realTimer" + i;
+    timer.className = "timeDisplay";
+    blah.class = "timeDisplay";
+    node.className = "nameOfPeriod";
+
+    para.appendChild(node);
+    timer.appendChild(blah);
+
+    track.appendChild(para);
+    track.appendChild(timer);
+
+    timerContainer.appendChild(track);
+
+    if (lastPeriod == testNewTestNameNew[i]) {
+      var newColor = String(selectedColor);
+
+      document.getElementById("realTimer" + i).style.color = newColor;
+      document.getElementById("nameTimer" + i).style.color = newColor;
+    } else {
+      document.getElementById("realTimer" + i).style.color = "white";
+    }
+  }
+  setUpTimesForTimers();
+}
+
+var timeForMathArray = [];
+var newTimeForMathArray = [];
+var hourArray = [];
+var minuteArray = [];
+var orderArray = [];
+
+function setUpTimesForTimers() {
+  hourArray = [];
+  minuteArray = [];
+  timeForMathArray = [];
+  newTimeForMathArray = [];
+  var split1 = newTest[currentScheduleSelected];
+  var split2 = String(split1);
+  split2 = split2.split('#')[0]
+
+  timeForMathArray = split2.split(":");
+  timeForMathArray = String(timeForMathArray);
+  newTimeForMathArray = timeForMathArray.split(",");
+
+  var k = 0;
+  for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+    hourArray[i] = newTimeForMathArray[k];
+    minuteArray[i] = newTimeForMathArray[(k + 1)];
+    k = k + 2;
+  }
+
+  for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+    if (hourArray[i] == "00") {
+      hourArray[i] = "12";
+    } else if (hourArray[i] == "01") {
+      hourArray[i] = "13";
+    } else if (hourArray[i] == "02") {
+      hourArray[i] = "14";
+    } else if (hourArray[i] == "03") {
+      hourArray[i] = "15";
+    } else if (hourArray[i] == "04") {
+      hourArray[i] = "16";
+    } else if (hourArray[i] == "05") {
+      hourArray[i] = "17";
+    } else if (hourArray[i] == "06") {
+      hourArray[i] = "18";
+    }
+    orderArray[i] = hourArray[i] + minuteArray[i];
+    k = k + 2;
+  }
+
+
+
+}
+
+var stateOfPeriod = [];
+
+
+(function() {
+  var start = new Date;
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tick() {
+    var now = new Date;
+
+    for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+
+      start.setHours(hourArray[i], minuteArray[i], 0); // 11pm
+      if (now > start) { // too late, go to tomorrow
+        start.setDate(start.getDate() + 1);
+      }
+      var remain = ((start - now) / 1000);
+      var hh = pad((remain / 60 / 60) % 60);
+      var mm = pad((remain / 60) % 60);
+      var ss = pad(remain % 60);
+      if (hh >= 24) {
+        hh = hh - 24;
+      }
+
+      if (hh < 10) {
+        hh = "0" + hh;
+      }
+
+      if (hh >= 10) {
+
+        document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+        //document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+        stateOfPeriod[i] = "over";
+
+      } else {
+        if (hh != "" || mm != "") {
+          stateOfPeriod[i] = "notover"
+
+
+          var a = stateOfPeriod.indexOf("notover");
+
+          if (hh < 10 && a == i) {
+
+            document.title = hh + ":" + mm + ":" + ss;
+
+          }
+
+          document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+        }
+      }
+
+    }
+    setTimeout(tick, 0);
+  }
+
+  document.addEventListener('DOMContentLoaded', tick);
+})();
+
+
+function chunkArray(myArray, chunk_size) {
+  var index = 0;
+  var arrayLength = myArray.length;
+  var tempArray = [];
+
+  for (index = 0; index < arrayLength; index += chunk_size) {
+    myChunk = myArray.slice(index, index + chunk_size);
+
+    tempArray.push(myChunk);
+  }
+
+  return tempArray;
+}
+
+
+function showCustomer(str) {
+  //  alert(str);
+  var xhttp;
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "read.php?q=" + str, true);
+  xhttp.send();
+}
+
+
+</script>

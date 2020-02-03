@@ -91,6 +91,8 @@ function read() {
     para.className = "radioButtonClass";
     node.class = "radioButtonClass";
     var check = document.createElement("span");
+    var tool = document.createTextNode(nameArray[i])
+    check.appendChild(tool);
     check.className = "checkmark";
     para.appendChild(node);
     para.appendChild(rad);
