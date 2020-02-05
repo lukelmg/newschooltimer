@@ -122,7 +122,6 @@
           }
         }
         */
-
         $(document).on('keypress', function(e) {
           if (e.which == 13) {
             var current = document.getElementById("codeInput").value;
@@ -314,7 +313,7 @@
     setTimeout(function() {
       newDatabaseURL = document.getElementById("longp").textContent;
       read();
-    }, 500);
+    }, 750);
   }
 
 
@@ -465,6 +464,30 @@
       timer.className = "timeDisplay";
       blah.class = "timeDisplay";
       node.className = "nameOfPeriod";
+
+      var sizeOfFont = periodScheduleArray[currentScheduleSelected] / 2;
+
+
+     var eToThe = Math.exp(-0.113*periodScheduleArray[currentScheduleSelected]);
+
+     sizeOfFont = 15.5 * eToThe;
+
+    //  alert(sizeOfFont);
+
+
+      if (periodScheduleArray[currentScheduleSelected] == 4) {
+        sizeOfFont = 10;
+      }
+
+
+      /*
+          Equation ->     15.5e^-0.113x
+
+      */
+
+
+      para.style.fontSize = sizeOfFont + "vh";
+      timer.style.fontSize = sizeOfFont + "vh";
 
       para.appendChild(node);
       timer.appendChild(blah);

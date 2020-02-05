@@ -32,6 +32,8 @@ function gogogo() {
 
   schoolName = document.getElementById("schoolNameID").value;
 
+  console.log = scheduleNames;
+
   var newUrlString = "?nums=" + numberOfSchedules + "&names=" + periodNameURL + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor + "&newvariable=" + scheduleTimes;
 
 

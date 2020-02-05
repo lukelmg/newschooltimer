@@ -7,32 +7,16 @@ body {
 }
 
 #styleTimer {
-  font-size: 30px;
   background-color: #181818;
   font-family: Arial;
   color: white;
   font-weight: bold;
   margin: 0px 0px 0px 0px;
+   overflow: visible;
 }
 
-.timeDisplay {
-  color: white;
-  font-family: Arial;
-  font-weight:bold;
-  margin-top:0px;
-  boder: 0px;
-}
-
-.nameDisplay {
-  color: white;
-  margin: 0px 0px 0px 0px;
-  top: 0px;
-  font-family: Arial;
-  font-weight:bold;
-}
 
 #schoolTitle {
-  font-size: 5vh;
   color: white;
   position: relative;
   background-color: #202020;
@@ -70,26 +54,21 @@ td,
 th {
   border: 0px solid #202020;
   text-align: left;
-  padding: 8px;
   font-size: 5vh;
 }
 
 .timeDisplay {
 border-right:  5px solid #202020;
 width: 10vw;
+padding-left: 15px;
 }
 
 tr:nth-child(even) {
   background-color: #202020;
 }
 
-.nameDisplay {
-
-}
-
 @media (max-width : 320px) {
   #schoolTitle {
-    font-size: 2vh;
     padding-bottom: 10px;
   }
 }
