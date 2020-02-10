@@ -1,0 +1,50 @@
+<html>
+test
+</html>
+
+<script>
+
+  var timeArray = ["08:29", "09:17", "10:05", "10:53", "11:41", "00:29", "01:17", "02:05", "02:53",
+   "08:37", "09:24", "10:11", "10:58", "11:45", "00:32", "01:19", "02:06", "02:53",
+    "08:22", "09:04", "09:46", "10:20", "10:54", "11:28", "00:02", "00:31", "01:00",
+     "10:09", "10:39", "11:09", "11:43", "00:17", "00:51", "01:25", "02:09", "02:53"];
+
+     var nameArray = ["Period 1", "Period 2", "Period 3", "Period 4", "Period 5", "Period 6", "Period 7", "Period 8", "Period 9",
+      "Period 1", "Period 2", "Period 3", "Period 4", "Period 5", "Period 6", "Period 7", "Period 8", "Period 9",
+       "Period 1", "Period 2", "Period 3", "Period 4", "Period 5", "Period 6", "Period 7", "Period 8", "Period 9",
+       "Period 1", "Period 2", "Period 3", "Period 4", "Period 5", "Period 6", "Period 7", "Period 8", "Period 9"]
+
+
+       function chunk(array, size) {
+           const chunked_arr = [];
+           for (let i = 0; i < array.length; i++) {
+             const last = chunked_arr[chunked_arr.length - 1];
+             if (!last || last.length === size) {
+               chunked_arr.push([array[i]]);
+             } else {
+               last.push(array[i]);
+             }
+           }
+           return chunked_arr;
+       }
+
+
+var timeSplitArray = [];
+var nameSplitArray = [];
+var scheduleSplit = [];
+
+var numberOfSchedules = 4;
+var periodScheduleArray = [9, 9, 9, 9];
+
+ for (var i = 0; i < numberOfSchedules; i++) {
+
+ timeSplitArray = chunk(timeArray, periodScheduleArray[i]);
+ nameSplitArray = chunk(nameArray, periodScheduleArray[i]);
+
+ scheduleSplit[i] = timeSplitArray[i] + "#" + nameSplitArray[i] + "|||";
+
+}
+
+alert(scheduleSplit);
+
+    </script>

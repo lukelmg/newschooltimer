@@ -8,33 +8,71 @@ var scheduleTimes = [];
 var schoolName = "";
 var schoolColor = "#fffff";
 
+var newNames = [];
+
+var scheduleNamingTestNew = [];
+var scheduleTimingTestNew = [];
+
 function update(jscolor) {
   schoolColor = '#' + jscolor;
 }
 
 
 function gogogo() {
-  var startUrl = "timer/";
+  var startUrl = "/";
 
+/*
+  for (var i = 0; i < numberOfSchedules; i++) {
+      for (var p = 0; p < periodsPerSchedule; p++) {
+        newNames[p] = document.getElementById(i + " " + p + "name").value;
+      }
+  }
+  alert(newNames);
+*/
+
+/*
 
   for (var i = 0; i < numberOfSchedules; i++) {
-
     for (var e = 0; e < periodsPerSchedule[i]; e++) {
       schedule1Test[e] = document.getElementById(i + " " + e + "name").value;
       scheduleTimingTest[e] = document.getElementById(i + " " + e + "time").value;
     }
+
     var x = schedule1Test.toString();
     periodNameURL[i] = x;
 
     var y = scheduleTimingTest.toString();
     scheduleTimes[i] = y;
+
+    schedule1Test = [];
+    scheduleTimingTest = [];
   }
+
+  */
+
+
+
+var arrayTestNew = [];
+var arrayCreator = [];
+var arrayTimingTestNew = [];
+  for (var i = 0; i < numberOfSchedules; i++) {
+    for (var e = 0; e < periodsPerSchedule[i]; e++) {
+      arrayTestNew[e] = document.getElementById(i + " " + e + "name").value;
+      arrayTimingTestNew[e] = document.getElementById(i + " " + e + "time").value;
+    }
+    periodNameURL[i] = arrayTestNew;
+    scheduleTimes[i] = arrayTimingTestNew;
+    arrayTestNew = [];
+  }
+
+
+
+
+
 
   schoolName = document.getElementById("schoolNameID").value;
 
-  console.log = scheduleNames;
-
-  var newUrlString = "?nums=" + numberOfSchedules + "&names=" + periodNameURL + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor + "&newvariable=" + scheduleTimes;
+  var newUrlString = "?nums=" + numberOfSchedules + "&schedNames=" + scheduleNames +  "&names=" + periodNameURL + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor + "&newvariable=" + scheduleTimes;
 
 
   document.getElementById("longURL").value = newUrlString;
@@ -79,7 +117,6 @@ function read() {
   var url_string = window.location.href;
   var url = new URL(url_string);
   c = url.searchParams.get("periodsPerSchedule");
-  alert(c);
 }
 
 
@@ -107,7 +144,7 @@ function periodTimingAddSchedules() {
       nameOfPeriod.type = "text";
       nameOfPeriod.className = "periodNameInput";
       nameOfPeriod.value = "Period " + (e+1);
-      //nameOfPeriod.value = "(" + i + "" + e + ")";
+      nameOfPeriod.value = "(" + i + "" + e + ")";
       nameOfPeriod.id = i + " " + e + "name";
       nameOfPeriod.oninput = function() {
         detectPeriodTimeChange(this.id);

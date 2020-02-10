@@ -106,7 +106,7 @@
       <span class="w3-large">A Timer for School</span>
       <p><a href="/create" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Create a Custom Timer</a></p>
       <p><a href="/find" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Find your School's Timer</a></p>
-      <p><input oninput="checkForCode();" id="codeInput" maxlength="7" type="text" placeholder="Have a code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input></p>
+      <p><input oninput="checkForCode();" id="codeInput" maxlength="15" type="text" placeholder="Have a code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input></p>
 
       <script>
       /*  var toggle = 0;
@@ -294,6 +294,7 @@
 
   var scheduleSplit = [];
 
+
   var schoolName = "";
   var schoolColor = "";
 
@@ -316,13 +317,15 @@
     }, 750);
   }
 
-
+var realScheduleNames = [];
+var realScheduleNamesArray = [];
   function read() {
     var url_string = "https://www.test.com/" + newDatabaseURL;
     var url = new URL(url_string);
 
     numberOfSchedules = url.searchParams.get("nums");
     scheduleNames = url.searchParams.get("names");
+    realScheduleNames = url.searchParams.get("schedNames");
     scheduleAbbreviations = url.searchParams.get("abbs");
     periodsPerSchedule = url.searchParams.get("pers");
     schoolName = url.searchParams.get("school");
@@ -345,6 +348,10 @@
     nameArray = scheduleNames.split(",");
 
     timeArray = periodTimes.split(",");
+
+    if (realScheduleNames != null) {
+    realScheduleNamesArray = realScheduleNames.split(",");
+    }
 
     var container = document.getElementById("selectorDiv");
 
@@ -371,7 +378,7 @@
       para.className = "radioButtonClass";
       node.class = "radioButtonClass";
       var check = document.createElement("span");
-      var tool = document.createTextNode(nameArray[i])
+      var tool = document.createTextNode(realScheduleNamesArray[i])
       check.appendChild(tool);
       check.className = "checkmark";
       para.appendChild(node);
@@ -388,7 +395,7 @@
     for (var i = 0; i < nameArray.length; i++) {
       //alert(nameArray[i]);
     }
-
+/*
     var k = 0;
     var p, j, timeSplitArray, nameSplitArray, chunk;
     for (p = 0, j = nameArray.length; p < j; p += chunk) {
@@ -402,11 +409,47 @@
 
       k++;
     }
+    */
+
+
+var timeSplitArray = [];
+var nameSplitArray = [];
+
+alert(nameArray);
+
+for (var i = 0; i < numberOfSchedules; i++) {
+
+var current = parseInt(periodScheduleArray[0]);
+
+timeSplitArray = chunk(timeArray, current);
+nameSplitArray = chunk(nameArray, current);
+
+scheduleSplit[i] = timeSplitArray[i] + "#" + nameSplitArray[i] + "|||";
+
+}
+   alert(scheduleSplit);
+
+
 
 
 
     getSchedulesReadyForTimer();
   }
+
+
+  function chunk(array, size) {
+      const chunked_arr = [];
+      for (let i = 0; i < array.length; i++) {
+        const last = chunked_arr[chunked_arr.length - 1];
+        if (!last || last.length === size) {
+          chunked_arr.push([array[i]]);
+        } else {
+          last.push(array[i]);
+        }
+      }
+      return chunked_arr;
+  }
+
 
   var which;
 
@@ -592,8 +635,8 @@
 
         if (hh >= 10) {
 
-          document.getElementById('realTimer' + i).innerHTML = "Over <br>";
-          //document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+        //  document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+          document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
           stateOfPeriod[i] = "over";
 
         } else {
