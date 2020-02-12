@@ -395,7 +395,10 @@ var realScheduleNamesArray = [];
     for (var i = 0; i < nameArray.length; i++) {
       //alert(nameArray[i]);
     }
-/*
+
+
+
+
     var k = 0;
     var p, j, timeSplitArray, nameSplitArray, chunk;
     for (p = 0, j = nameArray.length; p < j; p += chunk) {
@@ -409,25 +412,6 @@ var realScheduleNamesArray = [];
 
       k++;
     }
-    */
-
-
-var timeSplitArray = [];
-var nameSplitArray = [];
-
-alert(nameArray);
-
-for (var i = 0; i < numberOfSchedules; i++) {
-
-var current = parseInt(periodScheduleArray[0]);
-
-timeSplitArray = chunk(timeArray, current);
-nameSplitArray = chunk(nameArray, current);
-
-scheduleSplit[i] = timeSplitArray[i] + "#" + nameSplitArray[i] + "|||";
-
-}
-   alert(scheduleSplit);
 
 
 
