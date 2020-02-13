@@ -55,14 +55,18 @@ function gogogo() {
 var arrayTestNew = [];
 var arrayCreator = [];
 var arrayTimingTestNew = [];
+
+
   for (var i = 0; i < numberOfSchedules; i++) {
     for (var e = 0; e < periodsPerSchedule[i]; e++) {
       arrayTestNew[e] = document.getElementById(i + " " + e + "name").value;
       arrayTimingTestNew[e] = document.getElementById(i + " " + e + "time").value;
     }
+    alert(arrayTimingTestNew);
     periodNameURL[i] = arrayTestNew;
     scheduleTimes[i] = arrayTimingTestNew;
     arrayTestNew = [];
+    arrayTimingTestNew = [];
   }
 
 
@@ -144,7 +148,7 @@ function periodTimingAddSchedules() {
       nameOfPeriod.type = "text";
       nameOfPeriod.className = "periodNameInput";
       nameOfPeriod.value = "Period " + (e+1);
-      nameOfPeriod.value = "(" + i + "" + e + ")";
+      nameOfPeriod.value = "Period " + e;
       nameOfPeriod.id = i + " " + e + "name";
       nameOfPeriod.oninput = function() {
         detectPeriodTimeChange(this.id);
@@ -155,10 +159,11 @@ function periodTimingAddSchedules() {
       time.type = "time";
       time.className = "timeInput";
       time.id = i + " " + e + "time";
+      time.defaultValue = i + "0:00";
       time.oninput = function() {
         detectPeriodTimeChange(this.id);
       };
-      time.defaultValue = "07:00";
+    time.defaultValue =  "07:00";
 
 
     //  time.defaultValue = 8;
@@ -296,10 +301,6 @@ function upPeriod(currentSchedule) {
   }
 }
 
-function readNumberOfPeriods() {
-  alert(numberOfPeriods);
-}
-
 var numberOfSchedules = 1;
 
 function plusSchedule() {
@@ -362,6 +363,8 @@ function addFields() {
     abb.name = "member" + i;
     abb.id = "d" + i + "a";
     abb.className = "scheduleAbbInput";
+
+
     scheduleDiv.appendChild(abb);
 
     scheduleDiv.appendChild(document.createElement("br"));

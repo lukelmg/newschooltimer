@@ -60,8 +60,6 @@
   <div id="styleTimer">
     <div id="txtHint"></div>
     <h1 id="schoolTitle"></h1>
-    <p id="output"></p>
-    <p id="time"></p>
 
     <form id="selectorDiv"></form>
 
@@ -371,16 +369,16 @@ var realScheduleNamesArray = [];
       rad.oninput = function() {
         radioButtonDetection(this.id);
       };
-      var para = document.createElement("span");
+      var para = document.createElement("div");
       var node = document.createTextNode(scheduleAbbreviationsArray[i]);
       para.color = "white";
       node.color = "white";
-      para.className = "radioButtonClass";
-      node.class = "radioButtonClass";
+      para.className = "tooltip";
+      node.className = "tooltip";
       var check = document.createElement("span");
       var tool = document.createTextNode(realScheduleNamesArray[i])
       check.appendChild(tool);
-      check.className = "checkmark";
+      check.className = "tooltiptext";
       para.appendChild(node);
       para.appendChild(rad);
       para.appendChild(check);
@@ -390,27 +388,18 @@ var realScheduleNamesArray = [];
     }
     // end of make radios buttons
 
-
-    // make time and name in chunks
-    for (var i = 0; i < nameArray.length; i++) {
-      //alert(nameArray[i]);
-    }
-
-
-
-
     var k = 0;
-    var p, j, timeSplitArray, nameSplitArray, chunk;
-    for (p = 0, j = nameArray.length; p < j; p += chunk) {
+  var p, j, timeSplitArray, nameSplitArray, chunk;
+  for (p = 0, j = nameArray.length; p < j; p += chunk) {
 
-      var prtest = parseInt(periodScheduleArray[k]);
-      p, j, timeSplitArray, nameSplitArray, chunk = prtest;
-      timeSplitArray = timeArray.slice(p, p + chunk);
-      nameSplitArray = nameArray.slice(p, p + chunk);
+    var prtest = parseInt(periodScheduleArray[k]);
+    p, j, timeSplitArray, nameSplitArray, chunk = prtest;
+    timeSplitArray = timeArray.slice(p, p + chunk);
+    nameSplitArray = nameArray.slice(p, p + chunk);
 
-      scheduleSplit[k] = timeSplitArray + "#" + nameSplitArray + "|||";
+    scheduleSplit[k] = timeSplitArray + "#" + nameSplitArray + "|||";
 
-      k++;
+    k++;
     }
 
 
@@ -421,7 +410,7 @@ var realScheduleNamesArray = [];
   }
 
 
-  function chunk(array, size) {
+  function newChunk(array, size) {
       const chunked_arr = [];
       for (let i = 0; i < array.length; i++) {
         const last = chunked_arr[chunked_arr.length - 1];
@@ -459,7 +448,6 @@ var realScheduleNamesArray = [];
   }
 
   var newNameArrayTest = [];
-
 
   var timerContainer = document.getElementById("timerContainer");
 
@@ -499,7 +487,6 @@ var realScheduleNamesArray = [];
 
      sizeOfFont = 15.5 * eToThe;
 
-    //  alert(sizeOfFont);
 
 
       if (periodScheduleArray[currentScheduleSelected] == 4) {
@@ -547,8 +534,8 @@ var realScheduleNamesArray = [];
     minuteArray = [];
     timeForMathArray = [];
     newTimeForMathArray = [];
-    var split1 = newTest[currentScheduleSelected];
-    var split2 = String(split1);
+     split1 = newTest[currentScheduleSelected];
+     split2 = String(split1);
     split2 = split2.split('#')[0]
 
     timeForMathArray = split2.split(":");
@@ -581,6 +568,8 @@ var realScheduleNamesArray = [];
       orderArray[i] = hourArray[i] + minuteArray[i];
       k = k + 2;
     }
+    // issue happens before this ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
 
 
 
@@ -619,7 +608,7 @@ var realScheduleNamesArray = [];
 
         if (hh >= 10) {
 
-        //  document.getElementById('realTimer' + i).innerHTML = "Over <br>";
+          document.getElementById('realTimer' + i).innerHTML = "Over <br>";
           document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
           stateOfPeriod[i] = "over";
 
@@ -664,7 +653,6 @@ var realScheduleNamesArray = [];
 
 
   function showCustomer(str) {
-    //  alert(str);
     var xhttp;
     if (str == "") {
       document.getElementById("txtHint").innerHTML = "";
