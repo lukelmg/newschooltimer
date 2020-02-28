@@ -1,7 +1,7 @@
 <?php
-$servername = "localhost";
+$servername = "phpmyadmin";
 $username = "website";
-$password = "";
+$password = "Bananasluke@123";
 $dbname = "SchoolTimer";
 
 $school = filter_input(INPUT_POST, 'schoolNameID');
