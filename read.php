@@ -1,7 +1,7 @@
 <?php
 ini_set('display_errors', 1);
 
-$mysqli = new mysqli("localhost", "website", "", "SchoolTimer");
+$mysqli = new mysqli("localhost", "phpmyadmin", "Bananasluke@123", "SchoolTimer");
 if($mysqli->connect_error) {
   exit('Could not connect');
 }

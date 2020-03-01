@@ -1,6 +1,6 @@
 <?php
-$servername = "phpmyadmin";
-$username = "website";
+$servername = "localhost";
+$username = "phpmyadmin";
 $password = "Bananasluke@123";
 $dbname = "SchoolTimer";
 
