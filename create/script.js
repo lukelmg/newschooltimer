@@ -62,7 +62,7 @@ var arrayTimingTestNew = [];
       arrayTestNew[e] = document.getElementById(i + " " + e + "name").value;
       arrayTimingTestNew[e] = document.getElementById(i + " " + e + "time").value;
     }
-    alert(arrayTimingTestNew);
+  //  alert(arrayTimingTestNew);
     periodNameURL[i] = arrayTestNew;
     scheduleTimes[i] = arrayTimingTestNew;
     arrayTestNew = [];

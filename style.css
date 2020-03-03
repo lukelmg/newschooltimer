@@ -2,6 +2,14 @@
   display: none;
 }
 
+#looking {
+  margin-top: 35vh;
+}
+
+#cantFind, #backupCode {
+  display:none;
+}
+
 #timeContainer {
   margin: 0 0 0 0;
 }
@@ -17,6 +25,7 @@ body {
   font-weight: bold;
   margin: 0px 0px 0px 0px;
    overflow: visible;
+  font-family: 'Play';
 }
 
 
@@ -66,6 +75,7 @@ th {
 border-right:  5px solid #202020;
 width: 10vw;
 padding-left: 15px;
+font-family: 'Play';
 }
 
 tr:nth-child(even) {

@@ -4,7 +4,8 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+<link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=ABeeZee|Bebas+Neue&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
@@ -58,6 +59,11 @@
 
 <div id="timerBody">
   <div id="styleTimer">
+    <center>
+      <h1 id="looking">Looking for timer...</h1>
+      <h3 id="cantFind">hmmmm, we can't seem to find <br> the timer you were looking for. <br>
+      <input oninput="checkForCode();" id="backupCode" maxlength="15" type="text" placeholder="Try another code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input>
+    </center>
     <div id="txtHint"></div>
     <h1 id="schoolTitle"></h1>
 
@@ -122,9 +128,13 @@
         */
         $(document).on('keypress', function(e) {
           if (e.which == 13) {
-            var current = document.getElementById("codeInput").value;
+            //var current = document.getElementById("codeInput").value;
+            var current2 = document.getElementById("backupCode").value;
             if (current.length > 0) {
               window.location.replace(current);
+            }
+            if (current2.length > 0) {
+              window.location.replace(current2);
             }
           }
         });
@@ -276,6 +286,7 @@
     var timerBody = document.getElementById("timerBody");
     document.getElementsByTagName('BODY')[0].innerHTML = timerBody.innerHTML;
     document.body.style.backgroundColor = "#181818";
+    document.body.style.overflow = "hidden";
     startTimer();
   }
 
@@ -311,7 +322,16 @@
     showCustomer(code);
     setTimeout(function() {
       newDatabaseURL = document.getElementById("longp").textContent;
+      if (newDatabaseURL == "") {
+        document.getElementById("cantFind").style.display = "block";
+        document.getElementById("backupCode").style.display = "block";
+
+      } else {
+      document.getElementById("looking").style.display = "none";
+      document.getElementById("cantFind").style.display = "none";
+      document.getElementById("backupCode").style.display = "none";
       read();
+    }
     }, 750);
   }
 
