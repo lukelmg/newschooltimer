@@ -59,16 +59,18 @@
 
 <div id="timerBody">
   <div id="styleTimer">
-    <center>
+    <center id="waiting">
       <h1 id="looking">Looking for timer...</h1>
       <h3 id="cantFind">hmmmm, we can't seem to find <br> the timer you were looking for. <br>
-      <input oninput="checkForCode();" id="backupCode" maxlength="15" type="text" placeholder="Try another code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input>
+      <input id="backupCode" maxlength="15" type="text" placeholder="Try another code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input>
     </center>
     <div id="txtHint"></div>
     <h1 id="schoolTitle"></h1>
 
-    <form id="selectorDiv"></form>
-
+    <div id="sidebar">
+      <form id="selectorDiv"></form>
+      <button>Customize</button>
+    </div>
     <table id="timerContainer"></table>
   </div>
 </div>
@@ -113,34 +115,19 @@
       <p><input oninput="checkForCode();" id="codeInput" maxlength="15" type="text" placeholder="Have a code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input></p>
 
       <script>
-      /*  var toggle = 0;
-
-        function checkForCode() {
-          var current = document.getElementById("codeInput").value;
-          if (current.length == 3 && toggle == 0) {
-            current = current + "-";
-            document.getElementById("codeInput").value = current;
-            toggle = 1;
-          } else if (toggle == 1) {
-            toggle = 0;
-          }
-        }
-        */
         $(document).on('keypress', function(e) {
           if (e.which == 13) {
             //var current = document.getElementById("codeInput").value;
             var current2 = document.getElementById("backupCode").value;
-            if (current.length > 0) {
-              window.location.replace(current);
-            }
+            //if (current.length > 0) {
+          //    window.location.replace(current);
+          //  }
             if (current2.length > 0) {
               window.location.replace(current2);
             }
           }
         });
       </script>
-
-
     </div>
   </header>
 
@@ -285,7 +272,7 @@
     //  document.getElementsByTagName("BODY")[0].style.display = "none";
     var timerBody = document.getElementById("timerBody");
     document.getElementsByTagName('BODY')[0].innerHTML = timerBody.innerHTML;
-    document.body.style.backgroundColor = "#181818";
+    document.body.style.backgroundColor = "black";
     document.body.style.overflow = "hidden";
     startTimer();
   }
@@ -323,13 +310,16 @@
     setTimeout(function() {
       newDatabaseURL = document.getElementById("longp").textContent;
       if (newDatabaseURL == "") {
+        document.getElementById("looking").style.display = "none";
         document.getElementById("cantFind").style.display = "block";
         document.getElementById("backupCode").style.display = "block";
+        document.getElementById("waiting").style.display = "block";
 
       } else {
       document.getElementById("looking").style.display = "none";
       document.getElementById("cantFind").style.display = "none";
       document.getElementById("backupCode").style.display = "none";
+      document.getElementById("waiting").style.display = "none";
       read();
     }
     }, 750);
@@ -517,8 +507,17 @@ var realScheduleNamesArray = [];
       /*
           Equation ->     15.5e^-0.113x
 
+          Equation 2
+          19.2 - 1.1x + 0.0121x^2
+
       */
 
+    //  sizeOfFont = (18) + (-1.1 * periodScheduleArray[currentScheduleSelected]) + (0.0121* (periodScheduleArray[currentScheduleSelected]*periodScheduleArray[currentScheduleSelected]));
+    //  var lineHeightNew = (0) + (-3.62*periodScheduleArray[currentScheduleSelected]) + (0.124* (periodScheduleArray[currentScheduleSelected]*periodScheduleArray[currentScheduleSelected]));
+
+
+    //  para.style.lineHeight = lineHeightNew;
+    //  timer.style.lineHeight = lineHeightNew;
 
       para.style.fontSize = sizeOfFont + "vh";
       timer.style.fontSize = sizeOfFont + "vh";

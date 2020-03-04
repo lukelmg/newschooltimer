@@ -2,7 +2,7 @@
   display: none;
 }
 
-#looking {
+#waiting {
   margin-top: 35vh;
 }
 
@@ -18,8 +18,14 @@ body {
   margin: 0px 0px 0px 0px;
 }
 
+button:focus {
+  outline:none;
+}
+button:hover {
+  outline:none;
+}
+
 #styleTimer {
-  background-color: #181818;
   font-family: Arial;
   color: white;
   font-weight: bold;
@@ -32,15 +38,17 @@ body {
 #schoolTitle {
   color: white;
   position: relative;
-  background-color: #202020;
   padding:bottom: 0px;
   margin: 0px 0px 0px 0px;
 }
 
 #selectorDiv {
+
+}
+
+#sidebar {
   float: right;
   position: relative;
-  background-color: #202020;
   padding: 10px 10px 10px 10px;
   height: 100vh;
 }
@@ -66,26 +74,20 @@ table {
 
 td,
 th {
-  border: 0px solid #202020;
   text-align: left;
   font-size: 5vh;
 }
 
 .timeDisplay {
-border-right:  5px solid #202020;
 width: 10vw;
 padding-left: 15px;
 font-family: 'Play';
 }
 
-tr:nth-child(even) {
-  background-color: #202020;
-}
 
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
