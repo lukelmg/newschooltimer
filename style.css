@@ -31,7 +31,7 @@ button:hover {
   font-weight: bold;
   margin: 0px 0px 0px 0px;
    overflow: visible;
-  font-family: 'Play';
+  font-family: 'Arial';
 }
 
 
@@ -81,7 +81,7 @@ th {
 .timeDisplay {
 width: 10vw;
 padding-left: 15px;
-font-family: 'Play';
+font-family: 'Arial';
 }
 
 

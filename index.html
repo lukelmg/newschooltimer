@@ -9,7 +9,13 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <link href="https://fonts.googleapis.com/css?family=ABeeZee|Bebas+Neue&display=swap" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Raleway:100,200|Roboto+Mono&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="customize.css">
+<link rel="shortcut icon" href="/resources/clock-line.png" />
 <style>
   body,
   h1,
@@ -54,6 +60,10 @@
   input:focus {
     outline: none;
   }
+
+  #timerBody {
+    display:none;
+  }
 </style>
 
 
@@ -69,7 +79,51 @@
 
     <div id="sidebar">
       <form id="selectorDiv"></form>
-      <button>Customize</button>
+      <button onclick="openCustomize();">Customize</button>
+    </div>
+    <div id="customizeModal">
+      <button id="closeXModal" onclick="closeCustomize()">
+        &times;
+      </button>
+      <h1 class="customizeHeader">
+        Customize
+      </h1>
+      <h2 class="customizeContent">
+        Preset Themes
+      </h2>
+      <select class="presetThemeSelector">
+        <option>Default</option>
+        <option>Light</option>
+        <option>Stealth</option>
+        <option>Hacker</option>
+        <option>Retro</option>
+        <option>Terrible</option>
+      </select>
+      <h2 class="customizeContent">
+        Change Font
+      </h2>
+
+      <select class="presetThemeSelector">
+        <option stlye="font-family:'Play'">Default</option>
+        <option style="font-family: Arial">Arial</option>
+        <option style="font-family:'Raleway', sans-serif;">Raleway</option>
+        <option style="font-family: Times">Times New Roman</option>
+        <option style="font-family: Wingdings">Wingdings</option>
+      </select>
+
+      <h2 class="customizeContent colorChange">
+        Change Colors
+      </h2>
+       <select id="custom">
+        <option>Accent</option>
+        <option>Background</option>
+        <option>Main Text</option>
+        <option>Other Text</option>
+        <option>Sidebar</option>
+        <option>Sidebar Text</option>
+        <option>Sidebar Buttons</option>
+      </select>
+      <input class="colorSelector" type="color"  value="#e66465">
     </div>
     <table id="timerContainer"></table>
   </div>
@@ -266,13 +320,23 @@
 
 
 <script>
+
+function openCustomize () {
+  document.getElementById("customizeModal").style.display = "block";
+}
+
+function closeCustomize () {
+   document.getElementById("customizeModal").style.display = "none";
+}
+
+
   var myUrl = window.location.href;
 
   if (myUrl !== "https://www.lukegutman.com/") {
     //  document.getElementsByTagName("BODY")[0].style.display = "none";
     var timerBody = document.getElementById("timerBody");
     document.getElementsByTagName('BODY')[0].innerHTML = timerBody.innerHTML;
-    document.body.style.backgroundColor = "black";
+    document.body.style.backgroundColor = "#131417";
     document.body.style.overflow = "hidden";
     startTimer();
   }

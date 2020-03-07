@@ -1,0 +1,85 @@
+#customizeModal {
+  width: 50vw;
+  height: 75vh;
+  display:none;
+  color:black;
+  background-color:white;
+  box-shadow: 0 19px 38px rgba(0,0,0,5), 0 15px 12px rgba(0,0,0,5);
+
+  position:absolute;
+  left:0; right:0;
+  top:0; bottom:0;
+  margin:auto;
+  max-width:100%;
+  max-height:100%;
+  overflow:auto;
+
+  transition: 1s ease-in-out;
+
+  z-index: 99;
+}
+
+.customizeHeader {
+  font-family: 'Raleway', sans-serif;
+  font-weight:100;
+  font-size: 11vh;
+  margin: 1vh 0 0 1vw;
+}
+
+.customizeContent {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 3.5vh;
+  margin: 1vh 0 0 1.5vw;
+}
+
+.presetThemeSelector {
+  margin: 1vh 0 3vh 1.5vw;
+  font-family: 'Raleway', sans-serif;
+  font-weight:Bold;
+  font-size:3.5vh;
+  height: 4.5vh;
+  background-color:white;
+}
+
+.colorChange {
+  margin-bottom: 1vh;
+}
+
+#custom {
+  margin: 0 0 0 1.5vw;
+  font-family: 'Raleway', sans-serif;
+  font-weight:Bold;
+  font-size:3.5vh;
+  height: 4.5vh;
+  background-color:white;
+  vertical-align:middle;
+}
+
+.colorSelector {
+  display:inline-block;
+  vertical-align:middle;
+  height: 4.5vh;
+  width: 5vw;
+  background-color:white;
+}
+
+select:focus {
+  outline:none;
+}
+
+#closeXModal {
+  float:right;
+  outline:none;
+  border:none;
+  width: 40px;
+  height: 40px;
+  font-size: 20px;
+  padding: 0 0 0 0;
+  background-color:white;
+  cursor:pointer;
+  transition: .2s ease-in-out;
+}
+
+#closeXModal:hover {
+  background-color:#ff405c;
+}
