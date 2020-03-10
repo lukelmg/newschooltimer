@@ -1,3 +1,9 @@
+#customizeButton {
+  display:none;
+  float:right;
+}
+
+
 #customizeModal {
   width: 50vw;
   height: 75vh;

@@ -2,55 +2,34 @@
   display: none;
 }
 
-#waiting {
-  margin-top: 35vh;
-}
-
-#cantFind, #backupCode {
-  display:none;
-}
-
-#timeContainer {
-  margin: 0 0 0 0;
-}
-
 body {
   margin: 0px 0px 0px 0px;
 }
 
-button:focus {
-  outline:none;
-}
-button:hover {
-  outline:none;
-}
-
 #styleTimer {
+  background-color: #181818;
   font-family: Arial;
   color: white;
   font-weight: bold;
   margin: 0px 0px 0px 0px;
    overflow: visible;
-  font-family: 'Arial';
 }
 
 
 #schoolTitle {
   color: white;
   position: relative;
+  background-color: #202020;
   padding:bottom: 0px;
   margin: 0px 0px 0px 0px;
 }
 
 #selectorDiv {
-
-}
-
-#sidebar {
   float: right;
   position: relative;
+  background-color: #202020;
   padding: 10px 10px 10px 10px;
-  height: 100vh;
+  height: 110vh;
 }
 
 .radioButtonClass {
@@ -61,33 +40,47 @@ button:hover {
   background-color: black;
 }
 
-table {
+td {
+  height: 1px;
+}
 
+table {
   border-collapse: collapse;
-  height: 93vh;
+
   position: absolute;
-  top: 7vh;
-  bottom: 0;
+  top: 50%;
+  -ms-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
   left: 0;
   right: 0;
+  border-collapse: collapse;
+      white-space: nowrap;
 }
 
 td,
 th {
   text-align: left;
-  font-size: 5vh;
+  font-size: 1vh;
+  height: 1px;
+      white-space: nowrap;
 }
+
 
 .timeDisplay {
 width: 10vw;
 padding-left: 15px;
-font-family: 'Arial';
+height: 1px;
+}
+
+.nameDisplay {
+  height: 1px;
 }
 
 
 .tooltip {
   position: relative;
   display: inline-block;
+  border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {
@@ -112,7 +105,6 @@ transition: opacity 1s;
   visibility: visible;
     opacity: 1;
 }
-
 
 
 
