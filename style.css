@@ -1,3 +1,14 @@
+#cantFind {
+  display:none;
+  background-color:transparent;
+}
+
+#waiting {
+  background-color:transparent;
+}
+
+
+
 #txtHint {
   display: none;
 }
@@ -24,11 +35,17 @@ body {
   margin: 0px 0px 0px 0px;
 }
 
+#scheduleLabel {
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
 #selectorDiv {
-  padding: 10px 10px 10px 10px;
-  font-size: 3vh;
+  margin-top:0;
+  font-size: 3.5vh;
   border:none;
   outline:none;
+  margin-bottom: 100px;
 }
 
 #selectorDiv:hover, #selectorDiv:active, #selectorDiv:focus, div, input, span {
@@ -36,6 +53,7 @@ body {
 }
 
 #sidebar {
+  display:none;
   height: 110vh;
   background-color: white;
   position: relative:absolute;
@@ -92,7 +110,6 @@ height: 1px;
 .tooltip {
   position: relative;
   display: inline-block;
-  border-bottom: 1px dotted black;
 }
 
 .tooltip .tooltiptext {

@@ -11,6 +11,7 @@
 <link href="https://fonts.googleapis.com/css?family=Raleway:100,200|Roboto+Mono&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<script src="colors.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="customize.css">
 <link rel="shortcut icon" href="/resources/clock-line.png" />
@@ -75,7 +76,8 @@
 
     <div id="sidebar">
       <center>
-        <form id="selectorDiv"></form>
+        <h1 id="scheduleLabel">Schedule</h1>
+          <form id="selectorDiv"></form>
         <button id="customizeButton" onclick="openCustomize();">Customize</button>
       </center>
     </div>
@@ -86,10 +88,11 @@
       <h1 class="customizeHeader">
         Customize
       </h1>
+      <button onclick="changePresetTheme();">test</button>
       <h2 class="customizeContent">
         Preset Themes
       </h2>
-      <select class="presetThemeSelector">
+      <select onchange="logValue()" id="presetSelector" class="presetThemeSelector">
         <option>Default</option>
         <option>Light</option>
         <option>Stealth</option>
@@ -376,6 +379,7 @@ function closeCustomize () {
         document.getElementById("cantFind").style.display = "block";
         document.getElementById("backupCode").style.display = "block";
         document.getElementById("waiting").style.display = "block";
+        document.getElementById("sidebar").style.display = "none";
 
       } else {
       document.getElementById("looking").style.display = "none";
@@ -383,6 +387,7 @@ function closeCustomize () {
       document.getElementById("backupCode").style.display = "none";
       document.getElementById("waiting").style.display = "none";
       document.getElementById("customizeButton").style.display = "block";
+      document.getElementById("sidebar").style.display = "block";
       read();
     }
     }, 750);
@@ -600,6 +605,10 @@ var realScheduleNamesArray = [];
 
         document.getElementById("realTimer" + i).style.color = newColor;
         document.getElementById("nameTimer" + i).style.color = newColor;
+
+        configureAccent(i);
+
+
       } else {
         document.getElementById("realTimer" + i).style.color = "white";
       }
@@ -702,6 +711,8 @@ var realScheduleNamesArray = [];
 
 
             var a = stateOfPeriod.indexOf("notover");
+
+
 
             if (hh < 10 && a == i) {
 
