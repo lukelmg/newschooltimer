@@ -25,11 +25,23 @@ body {
 }
 
 #selectorDiv {
-  float: right;
-  position: relative;
-  background-color: #202020;
   padding: 10px 10px 10px 10px;
+  font-size: 3vh;
+  border:none;
+  outline:none;
+}
+
+#selectorDiv:hover, #selectorDiv:active, #selectorDiv:focus, div, input, span {
+  outline:none;
+}
+
+#sidebar {
   height: 110vh;
+  background-color: white;
+  position: relative:absolute;
+  float:right;
+  padding: 10px 10px 10px 10px;
+  color:black;
 }
 
 .radioButtonClass {
@@ -87,7 +99,6 @@ height: 1px;
   opacity: 0;
 transition: opacity 1s;
   visibility: hidden;
-  width: 120px;
   background-color: black;
   color: #fff;
   text-align: center;
@@ -97,15 +108,21 @@ transition: opacity 1s;
   /* Position the tooltip */
   position: absolute;
   z-index: 1;
-  top: -5px;
   right: 105%;
+  font-size: 2vh;
+
+  top: 50%;
+  -ms-transform: translate(0%, -50%);
+  transform: translate(0%, -50%);
+
+  padding: 10px 10px 10px 10px;
+  width: 200px;
 }
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
-    opacity: 1;
+  opacity: 1;
 }
-
 
 
 

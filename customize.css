@@ -1,6 +1,13 @@
 #customizeButton {
   display:none;
   float:right;
+  width: 8vw;
+  height: 5vh;
+}
+
+ #customizeButton:focus {
+  outline:none;
+  border:none;
 }
 
 
