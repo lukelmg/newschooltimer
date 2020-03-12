@@ -1,16 +1,16 @@
 var font;
 
+var myX;
+
 function detectFontSelect() { // this isn't working
-  alert("hello")
-  var x = document.getElementById("fontSelector").selectedIndex;
-  alert(x);
-  switch (x) {
+  myX = document.getElementById("fontSelector").selectedIndex;
+  switch (myX) {
   case 0:
     font = "Arial";
 
     break;
   case 1:
-    font = "Arial";
+    font = "Play";
 
     break;
   case 2:
@@ -23,12 +23,27 @@ function detectFontSelect() { // this isn't working
     break;
   case 4:
     font = "Wingdings";
-
+      
+    break;
+  case 5:
+    font = "Comic Sans MS";
   }
-  changePresetTheme();
-  }
+  changeFont();
+  saveFont();
 }
 
+
+function saveFont() {
+  localStorage.setItem("myX", myX);
+  localStorage.setItem("font", font);
+}
+
+function readFont () {
+  myX = localStorage.getItem("myX");
+  font = localStorage.getItem("font");
+  document.getElementById("fontSelector").selectedIndex = myX;
+  changeFont();
+}
 
 
 function changeFont() {
@@ -41,8 +56,8 @@ function changeFont() {
     nameDisplay[i].style.fontWeight = "100";
     timeDisplay[i].style.fontWeight = "100";
   } else {
-    nameDisplay[i].style.fontWeight = "300";
-    timeDisplay[i].style.fontWeight = "300";
+    nameDisplay[i].style.fontWeight = "Bold";
+    timeDisplay[i].style.fontWeight = "Bold";
   }
   }
 }
