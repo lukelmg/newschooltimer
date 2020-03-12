@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="colors.js"></script>
+<script src="font.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="customize.css">
 <link rel="shortcut icon" href="/resources/clock-line.png" />
@@ -88,7 +89,7 @@
       <h1 class="customizeHeader">
         Customize
       </h1>
-      <button onclick="changePresetTheme();">test</button>
+      <button onclick="changeFont();">test</button>
       <h2 class="customizeContent">
         Preset Themes
       </h2>
@@ -104,7 +105,7 @@
         Change Font
       </h2>
 
-      <select class="presetThemeSelector">
+      <select class="presetThemeSelector" id="fontSelector" onchange="detectFontSelect();">
         <option stlye="font-family:'Play'">Default</option>
         <option style="font-family: Arial">Arial</option>
         <option style="font-family:'Raleway', sans-serif;">Raleway</option>
@@ -763,3 +764,5 @@ var realScheduleNamesArray = [];
     xhttp.send();
   }
 </script>
+
+<script src="font.js"></script>
