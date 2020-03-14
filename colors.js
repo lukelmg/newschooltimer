@@ -1,11 +1,9 @@
 var preset;
-var textColor = "white",
-    accentColor = "#FF2D2D",
-    backgroundColor = "#131417",
-    sidebar = "white",
-    sidebarText = "black",
-    otherText = "black",
-    sidebarButtons = "white";
+var   textColor = "white",
+  accentColor = "#FF2D2D",
+  backgroundColor = "#131417",
+  sidebar = "white",
+  sidebarText = "black";
 
 var myX;
 
@@ -103,9 +101,9 @@ function readCustomize () {
   backgroundColor = localStorage.getItem("backgroundColor");
   sidebar = localStorage.getItem("sidebar");
   sidebarText = localStorage.getItem("sidebarText");
-  
+
   document.getElementById("presetSelector").selectedIndex = myX;
-  
+
   setColors();
 }
 
@@ -162,7 +160,7 @@ case 4:
   sidebar = currentColor;
   break;
 case 5:
-  currentElementSelected = "Sidebar Text"; 
+  currentElementSelected = "Sidebar Text";
   sidebarText = currentColor;
   break;
 case 6:
