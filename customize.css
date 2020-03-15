@@ -11,7 +11,7 @@
 }
 
 
-#customizeModal {
+.myModals {
   width: 50vw;
   height: 75vh;
   display:none;
@@ -80,7 +80,7 @@ select:focus {
   outline:none;
 }
 
-#closeXModal {
+.closeXModal {
   float:right;
   outline:none;
   border:none;
@@ -93,7 +93,7 @@ select:focus {
   z-index:9999;
 }
 
-#closeXModal:hover {
+.closeXModal:hover {
   background-color:#ff405c;
   cursor:pointer;
 }

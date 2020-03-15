@@ -1,0 +1,16 @@
+#editButton {
+  width: 90%;
+}
+
+.remixInput {
+  margin-left: 1vw;
+}
+
+
+h4,h3,h2,h1,span,input {
+  margin-left: 1vw;
+}
+
+.remixNumberOfPeriodsInput {
+  width: 50px;
+}

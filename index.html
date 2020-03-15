@@ -14,9 +14,10 @@
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
 <script src="colors.js"></script>
 <script src="font.js"></script>
+<script src="remix.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
 <link rel="stylesheet" type="text/css" href="customize.css">
-<link rel="stylesheet" type="text/css" href="edit.css">
+<link rel="stylesheet" type="text/css" href="remix.css">
 <link rel="shortcut icon" href="/resources/clock-line.png" />
 <style>
   body,
@@ -81,12 +82,28 @@
       <center>
         <h1 id="scheduleLabel">Schedule</h1>
           <form id="selectorDiv"></form>
-        <button id="editButton">Edit</button><br>
+        <button id="editButton" onclick="openEditModal()">Remix</button><br>
         <button id="customizeButton" onclick="openCustomize();">Customize</button>
       </center>
     </div>
-    <div id="customizeModal">
-      <button id="closeXModal" onclick="closeCustomize()">
+
+    <div class="myModals" id="editModal">
+      <button class="closeXModal" onclick="closeEditModal()">
+        &times;
+      </button>
+      <h1 class="customizeHeader">
+        Remix Timer
+      </h1>
+      <button onclick="getReadyForEdit();">test</button> <br> <br>
+      <h3>Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text"></input> <br><br>
+
+      <h3>Number Of Schedules</h3><input class="remixInput" id="remixSchoolScheduleNumbers" type="number"></input>
+      <div id="remixScheduleContainer"></div>
+    </div>
+
+
+    <div class="myModals" id="customizeModal">
+      <button class="closeXModal" onclick="closeCustomize()">
         &times;
       </button>
       <h1 class="customizeHeader">
@@ -405,7 +422,7 @@ var realScheduleNamesArray = [];
   function read() {
 
     //// for testing only ///////
-    newDatabaseURL = "?nums=4&schedNames=Normal,Homeroom,EarlyDismissal,2HourDelay&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&abbs=A,B,C,D&pers=9,9,9,9&school=ParklandHighSchool&color=#ff2d2d&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53"
+  //  newDatabaseURL = "?nums=4&schedNames=Normal,Homeroom,EarlyDismissal,2HourDelay&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&abbs=A,B,C,D&pers=9,9,9,9&school=ParklandHighSchool&color=#ff2d2d&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53"
 
     var url_string = "https://www.test.com/" + newDatabaseURL;
     var url = new URL(url_string);
@@ -777,6 +794,49 @@ var realScheduleNamesArray = [];
     xhttp.open("GET", "read.php?q=" + str, true);
     xhttp.send();
   }
+
+
+
+
+function getReadyForEdit () {
+  document.getElementById("remixSchoolName").value = schoolName;
+  document.getElementById("remixSchoolScheduleNumbers").value = numberOfSchedules;
+
+  var remixScheduleContainer = document.getElementById("remixScheduleContainer");
+
+for (var i = 0; i < numberOfSchedules; i++) {
+
+  var h = document.createElement("H5");
+  var t = document.createTextNode(realScheduleNamesArray[i] + " Schedule");
+  h.appendChild(t);
+
+  var inp = document.createElement("input");
+  inp.type = "number";
+
+  var myspan = document.createElement("SPAN");
+  var myspantext = document.createTextNode("# Of Periods: ");
+  myspan.appendChild(myspantext);
+
+  inp.value = periodScheduleArray[i];
+  inp.className = "remixNumberOfPeriodsInput"
+
+  remixScheduleContainer.appendChild(h);
+  remixScheduleContainer.appendChild(myspan);
+  remixScheduleContainer.appendChild(inp);
+
+}
+
+}
+
+
+
+
+
+
+
+
+
+
 </script>
 
 <script src="font.js"></script>
