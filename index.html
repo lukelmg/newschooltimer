@@ -805,9 +805,11 @@ function getReadyForEdit () {
   var remixScheduleContainer = document.getElementById("remixScheduleContainer");
 
 for (var i = 0; i < numberOfSchedules; i++) {
+  var thisinp = document.createElement("input");
+  thisinp.value = realScheduleNamesArray[i];
 
   var h = document.createElement("H5");
-  var t = document.createTextNode(realScheduleNamesArray[i] + " Schedule");
+  var t = document.createTextNode(" Schedule");
   h.appendChild(t);
 
   var inp = document.createElement("input");
@@ -820,11 +822,35 @@ for (var i = 0; i < numberOfSchedules; i++) {
   inp.value = periodScheduleArray[i];
   inp.className = "remixNumberOfPeriodsInput"
 
+  remixScheduleContainer.appendChild(thisinp);
   remixScheduleContainer.appendChild(h);
   remixScheduleContainer.appendChild(myspan);
   remixScheduleContainer.appendChild(inp);
 
+  var myBreak = document.createElement("BR");
+  remixScheduleContainer.appendChild(myBreak);
+
+  for (var e = 0; e < periodScheduleArray[i]; e++) {
+    var perinp = document.createElement("input");
+
+
+    var mineminemine = [];
+    var split1 = newTest[i];
+    var split2 = String(split1);
+    split2 = split2.split('#')[1]
+    mineminemine = split2.split(',');
+
+    perinp.value = mineminemine[e];
+    remixScheduleContainer.appendChild(perinp);
+
+    var myBreak = document.createElement("BR");
+    remixScheduleContainer.appendChild(myBreak);
+  }
+
+
 }
+
+
 
 }
 
