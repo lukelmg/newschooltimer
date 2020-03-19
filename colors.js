@@ -119,12 +119,13 @@ function configureAccent (accentElement) {
 
 
 
+switch (ss) {
+  case expression:
 
+    break;
+  default:
 
-
-
-
-var myElement;
+}var myElement;
 var currentElementSelected;
 var currentColor;
 

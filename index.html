@@ -806,11 +806,17 @@ function getReadyForEdit () {
 
 for (var i = 0; i < numberOfSchedules; i++) {
   var thisinp = document.createElement("input");
+  thisinp.className = "actualScheduleName";
   thisinp.value = realScheduleNamesArray[i];
 
   var h = document.createElement("H5");
   var t = document.createTextNode(" Schedule");
+  h.className = "boringSchedule";
   h.appendChild(t);
+
+  var myBreak = document.createElement("BR");
+  remixScheduleContainer.appendChild(myBreak);
+
 
   var inp = document.createElement("input");
   inp.type = "number";
@@ -832,7 +838,7 @@ for (var i = 0; i < numberOfSchedules; i++) {
 
   for (var e = 0; e < periodScheduleArray[i]; e++) {
     var perinp = document.createElement("input");
-
+    var timeinp = document.createElement("input");
 
     var mineminemine = [];
     var split1 = newTest[i];
@@ -842,11 +848,24 @@ for (var i = 0; i < numberOfSchedules; i++) {
 
     perinp.value = mineminemine[e];
     remixScheduleContainer.appendChild(perinp);
+    timeinp.type = "time";
+
+    var mytimemytime = [];
+
+    split1 = newTest[i];
+    split2 = String(split1);
+    split2 = split2.split('#')[0]
+
+
+    mytimemytime = split2.split(",");
+
+
+    timeinp.value = mytimemytime[e];
+    remixScheduleContainer.appendChild(timeinp);
 
     var myBreak = document.createElement("BR");
     remixScheduleContainer.appendChild(myBreak);
   }
-
 
 }
 

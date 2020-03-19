@@ -2,6 +2,11 @@
   width: 90%;
 }
 
+#editModal {
+  width: 50vw;
+  height: 95vh;
+}
+
 .remixInput {
   margin-left: 1vw;
 }
@@ -13,4 +18,9 @@ h4,h3,h2,h1,span,input {
 
 .remixNumberOfPeriodsInput {
   width: 50px;
+}
+
+
+.actualScheduleName {
+  display:inline-block;
 }
