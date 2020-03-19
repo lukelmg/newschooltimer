@@ -82,7 +82,7 @@
       <center>
         <h1 id="scheduleLabel">Schedule</h1>
           <form id="selectorDiv"></form>
-        <button id="editButton" onclick="openEditModal()">Remix</button><br>
+        <button id="editButton" onclick="openEditModal(); getReadyForEdit();">Remix</button><br>
         <button id="customizeButton" onclick="openCustomize();">Customize</button>
       </center>
     </div>
@@ -94,7 +94,6 @@
       <h1 class="customizeHeader">
         Remix Timer
       </h1>
-      <button onclick="getReadyForEdit();">test</button> <br> <br>
       <h3>Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text"></input> <br><br>
 
       <h3>Number Of Schedules</h3><input class="remixInput" id="remixSchoolScheduleNumbers" type="number"></input>
@@ -847,6 +846,8 @@ for (var i = 0; i < numberOfSchedules; i++) {
     mineminemine = split2.split(',');
 
     perinp.value = mineminemine[e];
+    perinp.id = i + " " + e + "name";
+
     remixScheduleContainer.appendChild(perinp);
     timeinp.type = "time";
 
@@ -861,6 +862,7 @@ for (var i = 0; i < numberOfSchedules; i++) {
 
 
     timeinp.value = mytimemytime[e];
+    timeinp.id = i + " " + e + "time";
     remixScheduleContainer.appendChild(timeinp);
 
     var myBreak = document.createElement("BR");
