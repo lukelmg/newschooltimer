@@ -12,15 +12,52 @@
 }
 
 
-h4,h3,h2,h1,span,input {
+h4,h3,h2,h1,span {
   margin-left: 1vw;
+}
+
+.actualScheduleName {
+  display:inline-block;
+outline:none;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-weight:normal;
+}
+
+.boringSchedule {
+  display:inline-block;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+.remixHeader {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  font-size: 35spx;
+}
+
+.remixElement {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  background-color:white;
+  color:black;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  margin: 20px 20px 20px 20px;
+  padding: 20px 20px 20px 20px;
+  white-space: nowrap;
+  max-width: 50%;
+}
+
+.inlinespantest {
+  display:inline-block;
+}
+
+.numberOfPeriodsSpan {
+  display:block;
 }
 
 .remixNumberOfPeriodsInput {
   width: 50px;
+  display:inline-block;
+  font-weight:normal;
 }
 
-
-.actualScheduleName {
-  display:inline-block;
+#schoolColorInput {
+  margin-left: 1vw;
 }
