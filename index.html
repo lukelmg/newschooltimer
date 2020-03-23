@@ -816,14 +816,13 @@ for (var i = 0; i < numberOfSchedules; i++) {
   var thisinp = document.createElement("input");
   thisinp.className = "actualScheduleName";
   thisinp.oninput = function() {
-    this.style.width = ((this.value.length + 1) * 8) + 'px';
+    this.style.width = ((this.value.length + 0) * 7) + 'px';
+    if (this.value.length == 0) {
+      this.style.width = '20px';
+    }
   };
 
     thisinp.value = realScheduleNamesArray[i];
-
-  thisinp.onload = function() {
-    this.style.width = ((this.value.length + 1) * 8) + 'px';
-  };
 
   var h = document.createElement("H5");
   var t = document.createTextNode(" Schedule");
@@ -891,6 +890,14 @@ for (var i = 0; i < numberOfSchedules; i++) {
     var myBreak = document.createElement("BR");
     otherContainer.appendChild(myBreak);
   }
+
+    var currentLength;
+    var x = document.getElementsByClassName("actualScheduleName");
+    for (var i = 0; i < x.length; i++) {
+      var valueOfX = x[i].value;
+      var lengthOfX = valueOfX.length;
+      x[i].style.width = lengthOfX * 7 + 'px';
+    }
 
 }
 }
