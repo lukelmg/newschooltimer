@@ -7,15 +7,6 @@
   height: 95vh;
 }
 
-.remixInput {
-  margin-left: 1vw;
-}
-
-
-h4,h3,h2,h1,span {
-  margin-left: 1vw;
-}
-
 .actualScheduleName {
   display:inline-block;
 outline:none;
@@ -27,6 +18,11 @@ outline:none;
   display:inline-block;
   font-family: 'Fira Sans Extra Condensed', sans-serif;
   margin-left: 7px;
+}
+
+.otherboring {
+  display:inline-block;
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
 }
 
 .remixHeader {
@@ -55,10 +51,12 @@ outline:none;
 
 .remixNumberOfPeriodsInput {
   width: 50px;
-  display:inline-block;
   font-weight:normal;
+  display:inline-block;
+  margin-left: .5vw;
+  text-align:center;
 }
 
-#schoolColorInput {
-  margin-left: 1vw;
+.numberLabel {
+  display:inline-block;
 }
