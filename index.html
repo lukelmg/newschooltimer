@@ -87,7 +87,7 @@
       </center>
     </div>
 
-    <div class="myModals" id="editModal" oninput="updateRemix();">
+    <div class="myModals" id="editModal">
       <button class="closeXModal" onclick="closeEditModal()">
         &times;
       </button>
@@ -97,7 +97,7 @@
     <div class="remixElement">  <h3 class="remixHeader">Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text"></input> </div>
     <div class="remixElement">  <h3 class="remixHeader">School Color</h3><input type="color" id="schoolColorInput"> </div>
 
-    <div class="remixElement"><h3 class="remixHeader">Number Of Schedules</h3><input class="remixInput" id="remixSchoolScheduleNumbers" type="number"></input></div>
+    <div class="remixElement"><h3 class="remixHeader">Number Of Schedules</h3><input class="remixInput" id="remixSchoolScheduleNumbers" oninput="updateRemixSchedules();" type="number"></input></div>
       <div id="remixScheduleContainer"></div>
     </div>
 

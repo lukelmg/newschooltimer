@@ -465,7 +465,8 @@ function getReadyForEdit() {
   for (var i = 0; i < (numberOfSchedules); i++) {
 
     var otherContainer = document.createElement("DIV");
-    otherContainer.className = "remixElement"
+    otherContainer.className = "remixElement";
+    otherContainer.id = i + "otherContainer";
 
     var thisinp = document.createElement("input");
     thisinp.className = "actualScheduleName";
@@ -492,6 +493,10 @@ function getReadyForEdit() {
     inp.type = "number"
     inp.value = periodScheduleArray[i];
     inp.className = "remixNumberOfPeriodsInput";
+    inp.id = i + "numberOfPeriodsPerThisSchedule";
+    inp.oninput = function () {
+      updateRemixPeriods(this.id);
+    }
 
     var text = document.createTextNode("Number Of Periods: ");
     var inplabel = document.createElement("H5");
@@ -553,10 +558,136 @@ function getReadyForEdit() {
   }
 }
 
-function updateRemix() {
+function updateRemixSchedules() {
   var remixScheduleContainer = document.getElementById("remixScheduleContainer");
 
   while (remixScheduleContainer.hasChildNodes()) {
     remixScheduleContainer.removeChild(remixScheduleContainer.lastChild);
   }
+
+  var currentNumberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
+
+
+  for (var i = 0; i < (currentNumberOfSchedules); i++) {
+
+    var otherContainer = document.createElement("DIV");
+    otherContainer.className = "remixElement";
+    otherContainer.id = i + "otherContainer";
+
+    var thisinp = document.createElement("input");
+    thisinp.className = "actualScheduleName";
+    thisinp.oninput = function() {
+      this.style.width = ((this.value.length + 0) * 7) + 'px';
+      if (this.value.length == 0) {
+        this.style.width = '20px';
+      }
+    };
+
+    thisinp.value = realScheduleNamesArray[i];
+
+    var h = document.createElement("H5");
+    var t = document.createTextNode(" Schedule");
+    h.className = "boringSchedule";
+    h.appendChild(t);
+
+    var thisspan = document.createElement("div");
+    thisspan.className = "divtest";
+    thisspan.appendChild(thisinp);
+    thisspan.appendChild(h);
+
+    var inp = document.createElement("input");
+    inp.type = "number"
+    inp.value = periodScheduleArray[i];
+    inp.className = "remixNumberOfPeriodsInput";
+    inp.id = i + "numberOfPeriodsPerThisSchedule";
+    inp.oninput = function () {
+      updateRemixPeriods(this.id);
+    }
+
+    var text = document.createTextNode("Number Of Periods: ");
+    var inplabel = document.createElement("H5");
+    inplabel.className = "otherboring";
+    inplabel.appendChild(text);
+
+
+    otherContainer.appendChild(thisspan);
+    otherContainer.appendChild(inplabel);
+    otherContainer.appendChild(inp);
+
+
+
+    remixScheduleContainer.appendChild(otherContainer);
+
+    var myBreak = document.createElement("BR");
+    otherContainer.appendChild(myBreak);
+
+
+    for (var e = 0; e < periodScheduleArray[i]; e++) {
+      var perinp = document.createElement("input");
+      var timeinp = document.createElement("input");
+
+      var mineminemine = [];
+      var split1 = newTest[i];
+      var split2 = String(split1);
+      split2 = split2.split('#')[1]
+      mineminemine = split2.split(',');
+
+      perinp.value = mineminemine[e];
+      perinp.id = i + " " + e + "name";
+
+      otherContainer.appendChild(perinp);
+      timeinp.type = "time";
+
+      var mytimemytime = [];
+
+      split1 = newTest[i];
+      split2 = String(split1);
+      split2 = split2.split('#')[0]
+
+      mytimemytime = split2.split(",");
+
+      timeinp.value = mytimemytime[e];
+      timeinp.id = i + " " + e + "time";
+      otherContainer.appendChild(timeinp);
+
+      var myBreak = document.createElement("BR");
+      otherContainer.appendChild(myBreak);
+    }
+
+    var x = document.getElementsByClassName("actualScheduleName");
+
+    for (var t = 0; t < x.length; t++) {
+      var valueOfX = x[t].value;
+      var lengthOfX = valueOfX.length;
+      x[t].style.width = lengthOfX * 7 + 'px';
+    }
+
+  }
+}
+
+
+function updateRemixPeriods(idOfThis) {
+  var currentNumberOfPeriods = document.getElementById(idOfThis).value;
+  var one = String(idOfThis).charAt(0);
+  var myCurrentScheduleSelected =  Number(one);
+
+  var thisContainer =  document.getElementById(myCurrentScheduleSelected + "otherContainer");
+
+  while (thisContainer.hasChildNodes()) {
+    thisContainer.removeChild(thisContainer.lastChild);
+  }
+
+  var nameAndTimeContainer = document.createElement("div");
+
+  thisContainer.appendChild(nameAndTimeContainer)
+
+  while (nameAndTimeContainer.hasChildNodes()) {
+    nameAndTimeContainer.removeChild(nameAndTimeContainer.lastChild);
+  }
+
+  for (var i = 0; i < currentNumberOfPeriods; i++) {
+    var buttTest = document.createElement("button");
+    nameAndTimeContainer.appendChild(buttTest);
+  }
+
 }
