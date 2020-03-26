@@ -673,9 +673,7 @@ function updateRemixPeriods(idOfThis) {
 
   var thisContainer =  document.getElementById(myCurrentScheduleSelected + "otherContainer");
 
-  while (thisContainer.hasChildNodes()) {
-    thisContainer.removeChild(thisContainer.lastChild);
-  }
+  thisContainer.removeChild(thisContainer.lastChild);
 
   var nameAndTimeContainer = document.createElement("div");
 
