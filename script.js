@@ -455,9 +455,6 @@ function showCustomer(str) {
   xhttp.send();
 }
 
-
-alert("hello")
-
 function getReadyForEdit() {
   document.getElementById("remixSchoolName").value = schoolName;
   document.getElementById("remixSchoolScheduleNumbers").value = numberOfSchedules;
@@ -465,13 +462,7 @@ function getReadyForEdit() {
 
   var remixScheduleContainer = document.getElementById("remixScheduleContainer");
 
-  alert(numberOfSchedules);
-
   for (var i = 0; i < (numberOfSchedules); i++) {
-
-    alert(i);
-
-
 
     var otherContainer = document.createElement("DIV");
     otherContainer.className = "remixElement"
@@ -541,9 +532,7 @@ function getReadyForEdit() {
       split2 = String(split1);
       split2 = split2.split('#')[0]
 
-
       mytimemytime = split2.split(",");
-
 
       timeinp.value = mytimemytime[e];
       timeinp.id = i + " " + e + "time";
@@ -553,17 +542,21 @@ function getReadyForEdit() {
       otherContainer.appendChild(myBreak);
     }
 
-    var currentLength;
     var x = document.getElementsByClassName("actualScheduleName");
+
     for (var t = 0; t < x.length; t++) {
       var valueOfX = x[t].value;
       var lengthOfX = valueOfX.length;
       x[t].style.width = lengthOfX * 7 + 'px';
     }
-        
+
   }
 }
 
 function updateRemix() {
+  var remixScheduleContainer = document.getElementById("remixScheduleContainer");
 
+  while (remixScheduleContainer.hasChildNodes()) {
+    remixScheduleContainer.removeChild(remixScheduleContainer.lastChild);
+  }
 }
