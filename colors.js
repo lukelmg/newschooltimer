@@ -2,8 +2,9 @@ var preset;
 var   textColor = "white",
   accentColor = "#FF2D2D",
   backgroundColor = "#131417",
-  sidebar = "white",
-  sidebarText = "black";
+  sidebar = "#21252B",
+  sidebarText = "white",
+  sidebarButtons = "#F0F0F0";
 
 var myX;
 
@@ -17,8 +18,9 @@ case 0:
   textColor = "white";
   accentColor = "#FF2D2D";
   backgroundColor = "#131417";
-  sidebar = "white";
-  sidebarText = "black";
+  sidebar = "#21252B";
+  sidebarText = "white";
+  sidebarButtons = "#24344b";
   break;
 case 1:
   preset = "light";
@@ -27,6 +29,7 @@ case 1:
   backgroundColor = "white";
   sidebar = "black";
   sidebarText = "white";
+  sidebarButtons = "white";
   break;
 case 2:
   preset = "stealth";
@@ -35,6 +38,7 @@ case 2:
   backgroundColor = "black";
   sidebar = "black";
   sidebarText = "#242424";
+  sidebarButtons = "#F0F0F0";
   break;
 case 3:
   preset = "hacker";
@@ -43,6 +47,7 @@ case 3:
   backgroundColor = "black";
   sidebar = "black";
   sidebarText = "#00FF00";
+  sidebarButtons = "#00FF00";
   break;
 case 4:
   preset = "retro";
@@ -51,6 +56,7 @@ case 4:
   backgroundColor = "#272324";
   sidebar = "#E4D8B4";
   sidebarText = "#272324";
+  sidebarButtons = "#E4D8B4";
   break;
 case 5:
   preset = "terrible";
@@ -59,6 +65,7 @@ case 5:
   backgroundColor = "yellow";
   sidebar = "blue";
   sidebarText = "red";
+  sidebarButtons = "#F0F0F0";
 }
 setColors();
 saveCustomize();
@@ -78,6 +85,11 @@ function setColors () {
 
   document.getElementById("realTimer" + mine).style.color = accentColor;
   document.getElementById("nameTimer" + mine).style.color = accentColor;
+
+  var buttons = document.getElementsByClassName("sidebarButtons");
+  for (var p = 0; p < buttons.length; p++) {
+    buttons[p].style.backgroundColor = sidebarButtons;
+  }
 }
 
 
@@ -91,6 +103,7 @@ function saveCustomize () {
   localStorage.setItem("backgroundColor", backgroundColor);
   localStorage.setItem("sidebar", sidebar);
   localStorage.setItem("sidebarText", sidebarText);
+  localStorage.setItem("sidebarButtons", sidebarButtons);
 }
 
 function readCustomize () {
@@ -101,6 +114,7 @@ function readCustomize () {
   backgroundColor = localStorage.getItem("backgroundColor");
   sidebar = localStorage.getItem("sidebar");
   sidebarText = localStorage.getItem("sidebarText");
+  sidebarButtons = localStorage.getItem("sidebarButtons")
 
   document.getElementById("presetSelector").selectedIndex = myX;
 

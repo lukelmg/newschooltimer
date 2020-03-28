@@ -142,6 +142,16 @@ transition: opacity 1s;
 }
 
 
+.sidebarButtons {
+  border:none;
+  outline:none;
+  color:white;
+  width: 5vw;
+  height: 5vh;
+  margin: 20px 20px 20px 20px;
+}
+
+
 
 @media (max-width : 320px) {
   #schoolTitle {

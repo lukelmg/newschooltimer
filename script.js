@@ -751,7 +751,7 @@ if (myCurrentScheduleSelected < (numberOfSchedules)) {
         timeinp.value = "5:00 PM";
       }
 
-timeinp.className = "periodTimingRemix";
+      timeinp.className = "periodTimingRemix";
 
     timeinp.id = myCurrentScheduleSelected + " " + i + "time";
 
