@@ -764,3 +764,20 @@ if (myCurrentScheduleSelected < (numberOfSchedules)) {
   nameAndTimeContainer.appendChild(newContainer);
   readPeriods();
 }
+
+var verified = 'no';
+
+function verifyCaptcha() {
+  document.getElementById('g-recaptcha-error').innerHTML = '';
+  verified = 'yes';
+}
+
+function readRemix () { // happens on captcha press
+  if (verified == 'yes') {
+
+  } else {
+    alert('Please Check the "I am not a robot" box');
+  }
+
+
+}

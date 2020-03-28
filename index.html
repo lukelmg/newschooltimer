@@ -119,6 +119,24 @@
 
     <div class="remixElement"><h3 class="remixHeader">Number Of Schedules</h3><input class="remixInput" id="remixSchoolScheduleNumbers" oninput="updateRemixSchedules();" type="number"></input></div>
       <div id="remixScheduleContainer"></div>
+
+
+
+      <form method="post" onsubmit="return submitUserForm();">
+        <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
+        <div id="g-recaptcha-error"></div>
+      </form>
+      <script src='https://www.google.com/recaptcha/api.js'></script>
+      <script>
+        function submitUserForm() {
+          var response = grecaptcha.getResponse();
+          if (response.length == 0) {
+            document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+            return false;
+          }
+          return true;
+        }
+      </script>
     </div>
 
 
