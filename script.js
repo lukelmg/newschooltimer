@@ -472,12 +472,16 @@ function getReadyForEdit() {
     thisinp.className = "actualScheduleName";
     thisinp.oninput = function() {
       this.style.width = ((this.value.length + 0) * 7) + 'px';
-      if (this.value.length == 0) {
-        this.style.width = '20px';
+      if (this.value.length < 5) {
+        this.style.width = '35px';
       }
     };
 
-    thisinp.value = realScheduleNamesArray[i];
+    if (realScheduleNamesArray[i] == undefined || realScheduleNamesArray[i] == "") {
+      thisinp.value = "Schedule Name"
+    } else {
+      thisinp.value = realScheduleNamesArray[i];
+    }
 
     var h = document.createElement("H5");
     var t = document.createTextNode(" Schedule");
@@ -515,8 +519,10 @@ function getReadyForEdit() {
     var myBreak = document.createElement("BR");
     otherContainer.appendChild(myBreak);
 
+    periodTimeContainer = document.createElement("div");
+    periodTimeContainer.id = i + "periodTimeContainer";
+
     for (var e = 0; e < periodScheduleArray[i]; e++) {
-      var periodTimeContainer = document.createElement("div");
 
       var perinp = document.createElement("input");
       var timeinp = document.createElement("input");
@@ -543,6 +549,7 @@ function getReadyForEdit() {
 
       timeinp.value = mytimemytime[e];
       timeinp.id = i + " " + e + "time";
+      timeinp.className = "periodTimingRemix";
       periodTimeContainer.appendChild(timeinp);
 
       var myBreak = document.createElement("BR");
@@ -550,15 +557,6 @@ function getReadyForEdit() {
 
       otherContainer.appendChild(periodTimeContainer);
     }
-
-    var x = document.getElementsByClassName("actualScheduleName");
-
-    for (var t = 0; t < x.length; t++) {
-      var valueOfX = x[t].value;
-      var lengthOfX = valueOfX.length;
-      x[t].style.width = lengthOfX * 7 + 'px';
-    }
-
   }
 }
 
@@ -593,12 +591,16 @@ function updateRemixSchedules() {
     thisinp.className = "actualScheduleName";
     thisinp.oninput = function() {
       this.style.width = ((this.value.length + 0) * 7) + 'px';
-      if (this.value.length == 0) {
-        this.style.width = '20px';
+      if (this.value.length < 5) {
+        this.style.width = '35px';
       }
     };
 
-    thisinp.value = realScheduleNamesArray[i];
+    if (realScheduleNamesArray[i] == undefined || realScheduleNamesArray[i] == "") {
+      thisinp.value = "Schedule Name"
+    } else {
+      thisinp.value = realScheduleNamesArray[i];
+    }
 
     var h = document.createElement("H5");
     var t = document.createTextNode(" Schedule");
@@ -665,6 +667,7 @@ function updateRemixSchedules() {
 
       timeinp.value = mytimemytime[e];
       timeinp.id = i + " " + e + "time";
+      timeinp.className = "periodTimingRemix";
       periodTimeContainer.appendChild(timeinp);
 
       var myBreak = document.createElement("BR");
@@ -672,15 +675,6 @@ function updateRemixSchedules() {
     }
 
     otherContainer.appendChild(periodTimeContainer);
-
-    var x = document.getElementsByClassName("actualScheduleName");
-
-    for (var t = 0; t < x.length; t++) {
-      var valueOfX = x[t].value;
-      var lengthOfX = valueOfX.length;
-      x[t].style.width = lengthOfX * 7 + 'px';
-    }
-
   }
 
 }
@@ -719,7 +713,7 @@ function updateRemixPeriods(idOfThis) {
 
 //alert("current: " + currentNumberOfSchedules + "      ------- number: " + numberOfSchedules);
 
-if (myCurrentScheduleSelected < (numberOfSchedules - 1)) {
+if (myCurrentScheduleSelected < (numberOfSchedules)) {
 
     var mineminemine = [];
     var split1 = newTest[myCurrentScheduleSelected];
@@ -728,6 +722,10 @@ if (myCurrentScheduleSelected < (numberOfSchedules - 1)) {
     mineminemine = split2.split(',');
 
     perinp.value = mineminemine[i];
+
+    if (mineminemine[i] == "" || mineminemine[i] == undefined) {
+      perinp.value = "Period Name"
+    }
 
   } else {
     perinp.value = "Period " + (i+1);
@@ -739,7 +737,7 @@ if (myCurrentScheduleSelected < (numberOfSchedules - 1)) {
     var timeinp = document.createElement("input");
     timeinp.type = "time";
 
-    if (myCurrentScheduleSelected < (numberOfSchedules - 1)) {
+    if (myCurrentScheduleSelected < (numberOfSchedules)) {
 
       var mytimemytime = [];
       split1 = newTest[myCurrentScheduleSelected];
@@ -753,6 +751,7 @@ if (myCurrentScheduleSelected < (numberOfSchedules - 1)) {
         timeinp.value = "5:00 PM";
       }
 
+timeinp.className = "periodTimingRemix";
 
     timeinp.id = myCurrentScheduleSelected + " " + i + "time";
 
@@ -763,6 +762,5 @@ if (myCurrentScheduleSelected < (numberOfSchedules - 1)) {
   }
   newContainer.id = i + "newContainer";
   nameAndTimeContainer.appendChild(newContainer);
-  alert('hello')
   readPeriods();
 }
