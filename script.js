@@ -516,6 +516,8 @@ function getReadyForEdit() {
     otherContainer.appendChild(myBreak);
 
     for (var e = 0; e < periodScheduleArray[i]; e++) {
+      var periodTimeContainer = document.createElement("div");
+
       var perinp = document.createElement("input");
       var timeinp = document.createElement("input");
 
@@ -528,7 +530,7 @@ function getReadyForEdit() {
       perinp.value = mineminemine[e];
       perinp.id = i + " " + e + "name";
 
-      otherContainer.appendChild(perinp);
+      periodTimeContainer.appendChild(perinp);
       timeinp.type = "time";
 
       var mytimemytime = [];
@@ -541,10 +543,12 @@ function getReadyForEdit() {
 
       timeinp.value = mytimemytime[e];
       timeinp.id = i + " " + e + "time";
-      otherContainer.appendChild(timeinp);
+      periodTimeContainer.appendChild(timeinp);
 
       var myBreak = document.createElement("BR");
-      otherContainer.appendChild(myBreak);
+      periodTimeContainer.appendChild(myBreak);
+
+      otherContainer.appendChild(periodTimeContainer);
     }
 
     var x = document.getElementsByClassName("actualScheduleName");
@@ -557,6 +561,8 @@ function getReadyForEdit() {
 
   }
 }
+
+    var periodTimeContainer;
 
 function updateRemixSchedules() {
   var remixScheduleContainer = document.getElementById("remixScheduleContainer");
@@ -621,8 +627,11 @@ function updateRemixSchedules() {
     var myBreak = document.createElement("BR");
     otherContainer.appendChild(myBreak);
 
+    periodTimeContainer = document.createElement("div");
+    periodTimeContainer.id = i + "periodTimeContainer";
 
     for (var e = 0; e < periodScheduleArray[i]; e++) {
+
       var perinp = document.createElement("input");
       var timeinp = document.createElement("input");
 
@@ -635,7 +644,7 @@ function updateRemixSchedules() {
       perinp.value = mineminemine[e];
       perinp.id = i + " " + e + "name";
 
-      otherContainer.appendChild(perinp);
+      periodTimeContainer.appendChild(perinp);
       timeinp.type = "time";
 
       var mytimemytime = [];
@@ -648,11 +657,15 @@ function updateRemixSchedules() {
 
       timeinp.value = mytimemytime[e];
       timeinp.id = i + " " + e + "time";
-      otherContainer.appendChild(timeinp);
+      periodTimeContainer.appendChild(timeinp);
 
       var myBreak = document.createElement("BR");
-      otherContainer.appendChild(myBreak);
+      periodTimeContainer.appendChild(myBreak);
+
+
     }
+
+    otherContainer.appendChild(periodTimeContainer);
 
     var x = document.getElementsByClassName("actualScheduleName");
 
@@ -665,27 +678,70 @@ function updateRemixSchedules() {
   }
 }
 
+function testOtherContainer () {
+  var otherContainer = document.getElmenetById("2otherContainer");
+  otherContainer.removeChild(otherContainer);
+}
+
+var myCurrentScheduleSelected;
+
 
 function updateRemixPeriods(idOfThis) {
-  var currentNumberOfPeriods = document.getElementById(idOfThis).value;
+  var currentNumberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
+  var currentNumberOfPeriods = document.getElementById(idOfThis).value; // number of periods for the current schedule
   var one = String(idOfThis).charAt(0);
-  var myCurrentScheduleSelected =  Number(one);
+  myCurrentScheduleSelected =  Number(one); // the number the schedule is on
 
-  var thisContainer =  document.getElementById(myCurrentScheduleSelected + "otherContainer");
-
-  thisContainer.removeChild(thisContainer.lastChild);
-
-  var nameAndTimeContainer = document.createElement("div");
-
-  thisContainer.appendChild(nameAndTimeContainer)
+  nameAndTimeContainer = document.getElementById(myCurrentScheduleSelected + "periodTimeContainer");
 
   while (nameAndTimeContainer.hasChildNodes()) {
     nameAndTimeContainer.removeChild(nameAndTimeContainer.lastChild);
   }
 
+  var newContainer = document.createElement("div");
+
+
   for (var i = 0; i < currentNumberOfPeriods; i++) {
-    var buttTest = document.createElement("button");
-    nameAndTimeContainer.appendChild(buttTest);
+    var perinp = document.createElement("input");
+
+//alert("current: " + currentNumberOfSchedules + "      ------- number: " + numberOfSchedules);
+
+if (myCurrentScheduleSelected < (numberOfSchedules - 1)) {
+
+    var mineminemine = [];
+    var split1 = newTest[myCurrentScheduleSelected];
+    var split2 = String(split1);
+    split2 = split2.split('#')[1]
+    mineminemine = split2.split(',');
+
+    perinp.value = mineminemine[i];
+
+  } else {
+    perinp.value = "test";
   }
+    perinp.id = myCurrentScheduleSelected + " " + i + "name";
+
+    newContainer.appendChild(perinp);
+
+    var timeinp = document.createElement("input");
+    timeinp.type = "time";
+/*
+    var mytimemytime = [];
+    split1 = newTest[myCurrentScheduleSelected];
+    split2 = String(split1);
+    split2 = split2.split('#')[0]
+    mytimemytime = split2.split(",");
+    */
+
+    timeinp.value = "5:00 PM";
+    timeinp.id = myCurrentScheduleSelected + " " + i + "time";
+
+    newContainer.appendChild(timeinp);
+
+    var myBreak = document.createElement("BR");
+    newContainer.appendChild(myBreak);
+  }
+  newContainer.id = i + "newContainer";
+  nameAndTimeContainer.appendChild(newContainer);
 
 }
