@@ -78,6 +78,11 @@ function startTimer() {
 var realScheduleNames = [];
 var realScheduleNamesArray = [];
 
+
+var schoolCountry;
+var schoolState;
+var schoolCity;
+
 function read() {
 
   //// for testing only ///////
@@ -99,7 +104,37 @@ function read() {
 
   periodTimes = url_string.split('newvariable=')[1];
 
+
+schoolCountry = url.searchParams.get("schoolCountry");
+schoolState = url.searchParams.get("schoolState");
+schoolCity = url.searchParams.get("schoolCity");
+
+
   getAccent(selectedColor);
+
+/*
+
+?nums=4&names=Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9&schedNames=Normal,Homeroom,Early Dismissal,2 Hour Delay&abbs=A,B,C,D&pers=9,9,9,9&school=Parkland High School &color=#ff0000&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,&schoolCountry=United States&schoolState=Pennsylvania&schoolCity=Allentown
+
+
+?nums=4&schoolCountry=United States&schoolState=Pennsylvania&schoolCity=Allentown&names=Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9&schedNames=Normal,Homeroom,Early Dismissal,2 Hour Delay&abbs=A,B,C,D&pers=9,9,9,9&school=Parkland High School &color=#ff0000&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,
+
+
+*/
+
+
+/*
+
+
+?nums=4&names=Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9&schedNames=Normal,Homeroom,Early Dismissal,2 Hour Delay&abbs=A,B,C,D&pers=9,9,9,9&school=Parkland High School &color=#ff0000&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,&schoolCountry=United States&schoolState=Pennsylvania&schoolCity=Allentown
+*/
+
+
+
+
+
+
+
 
 /*
   alert("numberOfSchedules=" + numberOfSchedules);
@@ -498,7 +533,7 @@ function showCustomer(str) {
 
 
 
-
+var weirdArray = [];
 
 function getReadyForEdit() {
   document.getElementById("remixSchoolName").value = schoolName;
