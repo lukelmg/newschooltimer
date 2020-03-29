@@ -455,6 +455,25 @@ function showCustomer(str) {
   xhttp.send();
 }
 
+
+
+
+
+
+
+
+
+// remixing below
+
+
+
+
+
+
+
+
+
+
 function getReadyForEdit() {
   document.getElementById("remixSchoolName").value = schoolName;
   document.getElementById("remixSchoolScheduleNumbers").value = numberOfSchedules;
@@ -468,23 +487,35 @@ function getReadyForEdit() {
     otherContainer.className = "remixElement";
     otherContainer.id = i + "otherContainer";
 
+    var abb = document.createElement("input");
+    abb.id = i + "remixAbb";
+    abb.placeholder = "Schedule Abbreviation";
+    abb.className = "actualScheduleName";
+
     var thisinp = document.createElement("input");
     thisinp.className = "actualScheduleName";
+    thisinp.id = i + "scheduleName";
     thisinp.oninput = function() {
-      this.style.width = ((this.value.length + 0) * 7) + 'px';
+    this.style.width = ((this.value.length + 0) * 7) + 'px';
       if (this.value.length < 5) {
         this.style.width = '35px';
       }
     };
 
     if (realScheduleNamesArray[i] == undefined || realScheduleNamesArray[i] == "") {
-      thisinp.value = "Schedule Name"
+      thisinp.value = "";
+      abb.value = "";
     } else {
       thisinp.value = realScheduleNamesArray[i];
+      abb.value = scheduleAbbreviationsArray[i];
     }
+    //scheduleAbbreviationsArray
+
+    thisinp.placeholder = "Schedule Name";
+
 
     var h = document.createElement("H5");
-    var t = document.createTextNode(" Schedule");
+    var t = document.createTextNode("");
     h.className = "boringSchedule";
     h.appendChild(t);
 
@@ -492,6 +523,9 @@ function getReadyForEdit() {
     thisspan.className = "divtest";
     thisspan.appendChild(thisinp);
     thisspan.appendChild(h);
+
+
+    thisspan.appendChild(abb);
 
     var inp = document.createElement("input");
     inp.type = "number"
@@ -587,23 +621,32 @@ function updateRemixSchedules() {
     otherContainer.className = "remixElement";
     otherContainer.id = i + "otherContainer";
 
+    var abb = document.createElement("input");
+    abb.id = i + "remixAbb";
+    abb.placeholder = "Schedule Abbreviation";
+    abb.className = "actualScheduleName";
+
     var thisinp = document.createElement("input");
     thisinp.className = "actualScheduleName";
+    thisinp.id = i + "scheduleName";
+    thisinp.placeholder = "Schedule Name";
     thisinp.oninput = function() {
-      this.style.width = ((this.value.length + 0) * 7) + 'px';
+    this.style.width = ((this.value.length + 0) * 7) + 'px';
       if (this.value.length < 5) {
         this.style.width = '35px';
       }
     };
 
     if (realScheduleNamesArray[i] == undefined || realScheduleNamesArray[i] == "") {
-      thisinp.value = "Schedule Name"
+      thisinp.value = "";
+      abb.value = "";
     } else {
       thisinp.value = realScheduleNamesArray[i];
+      abb.value = scheduleAbbreviationsArray[i];
     }
 
     var h = document.createElement("H5");
-    var t = document.createTextNode(" Schedule");
+    var t = document.createTextNode("");
     h.className = "boringSchedule";
     h.appendChild(t);
 
@@ -611,6 +654,8 @@ function updateRemixSchedules() {
     thisspan.className = "divtest";
     thisspan.appendChild(thisinp);
     thisspan.appendChild(h);
+
+      thisspan.appendChild(abb);
 
     var inp = document.createElement("input");
     inp.type = "number"
@@ -763,21 +808,4 @@ if (myCurrentScheduleSelected < (numberOfSchedules)) {
   newContainer.id = i + "newContainer";
   nameAndTimeContainer.appendChild(newContainer);
   readPeriods();
-}
-
-var verified = 'no';
-
-function verifyCaptcha() {
-  document.getElementById('g-recaptcha-error').innerHTML = '';
-  verified = 'yes';
-}
-
-function readRemix () { // happens on captcha press
-  if (verified == 'yes') {
-
-  } else {
-    alert('Please Check the "I am not a robot" box');
-  }
-
-
 }
