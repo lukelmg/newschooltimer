@@ -107,3 +107,7 @@ outline:none;
  button:focus {
    outline:none;
  }
+
+ #customerLol {
+   display:none;
+ }

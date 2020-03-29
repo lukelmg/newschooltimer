@@ -1,12 +1,33 @@
+//needs to remember per timer
+
 var preset;
 var   textColor = "white",
-  accentColor = "#FF2D2D",
-  backgroundColor = "#131417",
-  sidebar = "#21252B",
+  backgroundColor = "black",
+  sidebar = "black",
   sidebarText = "white",
   sidebarButtons = "#F0F0F0";
 
 var myX;
+
+var accentColor = "white";
+var thisAccent;
+
+function getAccent(accent) {
+  thisAccent = accent;
+}
+
+function setToDefault () {
+  preset = "default";
+  textColor = "white";
+  accentColor = thisAccent;
+  backgroundColor = "#131417";
+  sidebar = "#21252B";
+  sidebarText = "white";
+  sidebarButtons = "#24344b";
+  setColors();
+  saveCustomize();
+}
+
 
 function logValue() {
 
@@ -16,7 +37,7 @@ switch (myX) {
 case 0:
   preset = "default";
   textColor = "white";
-  accentColor = "#FF2D2D";
+  accentColor = thisAccent;
   backgroundColor = "#131417";
   sidebar = "#21252B";
   sidebarText = "white";
@@ -25,7 +46,7 @@ case 0:
 case 1:
   preset = "light";
   textColor = "black";
-  accentColor = "#FF2D2D";
+  accentColor = thisAccent;
   backgroundColor = "white";
   sidebar = "black";
   sidebarText = "white";
@@ -96,25 +117,31 @@ function setColors () {
 
 
 function saveCustomize () {
-  localStorage.setItem("preset", preset);
-  localStorage.setItem("myX", myX);
-  localStorage.setItem("textColor", textColor);
-  localStorage.setItem("accentColor", accentColor);
-  localStorage.setItem("backgroundColor", backgroundColor);
-  localStorage.setItem("sidebar", sidebar);
-  localStorage.setItem("sidebarText", sidebarText);
-  localStorage.setItem("sidebarButtons", sidebarButtons);
+
+  var path = window.location.pathname;
+
+  localStorage.setItem(path + "preset", preset);
+  localStorage.setItem(path + "myX", myX);
+  localStorage.setItem(path + "textColor", textColor);
+  localStorage.setItem(path + "accentColor", accentColor);
+  localStorage.setItem(path + "backgroundColor", backgroundColor);
+  localStorage.setItem(path + "sidebar", sidebar);
+  localStorage.setItem(path + "sidebarText", sidebarText);
+  localStorage.setItem(path + "sidebarButtons", sidebarButtons);
 }
 
 function readCustomize () {
-  preset = localStorage.getItem("preset");
-  myX = localStorage.getItem("myX");
-  textColor = localStorage.getItem("textColor");
-  accentColor = localStorage.getItem("accentColor");
-  backgroundColor = localStorage.getItem("backgroundColor");
-  sidebar = localStorage.getItem("sidebar");
-  sidebarText = localStorage.getItem("sidebarText");
-  sidebarButtons = localStorage.getItem("sidebarButtons")
+
+  var path = window.location.pathname;
+
+  preset = localStorage.getItem(path + "preset");
+  myX = localStorage.getItem(path + "myX");
+  textColor = localStorage.getItem(path + "textColor");
+  accentColor = localStorage.getItem(path + "accentColor");
+  backgroundColor = localStorage.getItem(path + "backgroundColor");
+  sidebar = localStorage.getItem(path + "sidebar");
+  sidebarText = localStorage.getItem(path + "sidebarText");
+  sidebarButtons = localStorage.getItem(path + "sidebarButtons")
 
   document.getElementById("presetSelector").selectedIndex = myX;
 
@@ -133,7 +160,7 @@ function configureAccent (accentElement) {
 
 
 
-switch (ss) {
+switch (s) {
   case expression:
 
     break;

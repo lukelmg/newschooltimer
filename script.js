@@ -99,6 +99,18 @@ function read() {
 
   periodTimes = url_string.split('newvariable=')[1];
 
+  getAccent(selectedColor);
+
+/*
+  alert("numberOfSchedules=" + numberOfSchedules);
+  alert("schednames=" + scheduleNames);
+  alert("realschednames=" + realScheduleNames);
+  alert("abbs=" + scheduleAbbreviations);
+  alert("peridods per shced=" + periodsPerSchedule);
+  alert("schoolname=" + schoolName);
+  alert("selectedcolor=" + selectedColor);
+  alert("periodtimes=" + periodTimes);
+*/
   //    document.getElementById("schoolTitle").innerHTML = schoolName + " Timer";
   /*
       document.getElementById("output").innerHTML = "# of Schedules:" + numberOfSchedules + "<br> Schedule Names: " + scheduleNames + "<br> Schedule Times: " + periodTimes +
@@ -418,10 +430,24 @@ var stateOfPeriod = [];
     setTimeout(tick, 0);
   }
 
-  document.addEventListener('DOMContentLoaded', tick);
-  readCustomize();
-  readFont();
+   document.addEventListener('DOMContentLoaded', tick);
+
+   var path = window.location.pathname;
+
+    if (localStorage.getItem(path + "hasCodeRunBefore") === null) {
+          setTimeout(newDeafult, 1000);
+        localStorage.setItem(path + "hasCodeRunBefore", true);
+    } else {
+     readCustomize();
+     readFont();
+    }
+
 })();
+
+
+function newDeafult() {
+  setToDefault();
+}
 
 
 function chunkArray(myArray, chunk_size) {
