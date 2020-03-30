@@ -88,6 +88,8 @@ function read() {
   //// for testing only ///////
   //  newDatabaseURL = "?nums=4&schedNames=Normal,Homeroom,EarlyDismissal,2HourDelay&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&abbs=A,B,C,D&pers=9,9,9,9&school=ParklandHighSchool&color=#ff2d2d&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53"
 
+  alert(newDatabaseURL)
+
   var url_string = "https://www.test.com/" + newDatabaseURL;
   var url = new URL(url_string);
 
@@ -301,25 +303,12 @@ function addTimersPerSchedule() {
 
     sizeOfFont = 15.5 * eToThe;
 
-    //  alert(sizeOfFont);
-
-
     if (periodScheduleArray[currentScheduleSelected] == 4) {
       sizeOfFont = 10;
     }
 
-
-
-    /*
-        Equation ->     15.5e^-0.113x
-
-        Equation 2
-        19.2 - 1.1x + 0.0121x^2
-
-    */
-
     sizeOfFont = (9.1) + (0.0746 * periodScheduleArray[currentScheduleSelected]) + (-0.018 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
-    var lineHeightNew = (24.7) + (-1.99 * periodScheduleArray[currentScheduleSelected]) + (0.0514 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
+    var lineHeightNew = (24.5) + (-1.99 * periodScheduleArray[currentScheduleSelected]) + (0.0514 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
 
     para.style.lineHeight = lineHeightNew + "vh";
     timer.style.lineHeight = lineHeightNew + "vh";
