@@ -118,6 +118,7 @@ function setColors () {
 
 function saveCustomize () {
 
+
   var path = window.location.pathname;
 
   localStorage.setItem(path + "preset", preset);
@@ -160,13 +161,7 @@ function configureAccent (accentElement) {
 
 
 
-switch (s) {
-  case expression:
-
-    break;
-  default:
-
-}var myElement;
+var myElement;
 var currentElementSelected;
 var currentColor;
 

@@ -74,7 +74,19 @@
     <center id="waiting">
       <h1 id="looking">Looking for timer...</h1>
       <h3 id="cantFind">hmmmm, we can't seem to find <br> the timer you were looking for. <br>
-      <input id="backupCode" maxlength="15" type="text" placeholder="Try another code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input>
+      <span id="idkatthispoint" style="display: inline-block;">
+        <input id="backupCode" maxlength="15" type="text" placeholder="Try another code?"></input>
+        <button id="goCode" onclick="gogo()">Go!</button>
+      </span>
+       <br>
+
+
+      <script>
+          function gogo() {
+            var val = document.getElementById("backupCode").value;
+            window.location.href = ("https://www.lukegutman.com/" + val);
+          }
+     </script>
     </center>
     <div id="txtHint"></div>
 
@@ -97,9 +109,7 @@
       <h5 id="remixDef">Remix this timer by changing the parameters below. <br>This will make a brand new timer with it's own link!</h5>
     <div class="remixElement">  <h3 class="remixHeader">Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text"></input> </div>
     <div class="remixElement">
-
       <h3 class="remixHeader"> Location of School </h3>
-
       <select name="country" class="countries order-alpha limit-pop-1000000 presel-byip " id="countryId">
           <option value="">Select Country</option>
       </select> <br> <br>
@@ -110,18 +120,11 @@
           <option value="">Select City</option>
       </select>
       <script src="//geodata.solutions/includes/countrystatecity.js"></script>
-
-
-
-
     </div>
     <div class="remixElement">  <h3 class="remixHeader">School Color</h3><input type="color" id="schoolColorInput"> </div>
 
     <div class="remixElement"><h3 class="remixHeader">Number Of Schedules</h3><input class="remixInput" id="remixSchoolScheduleNumbers" oninput="updateRemixSchedules();" type="number"></input></div>
       <div id="remixScheduleContainer"></div>
-
-
-
       <form method="post" onsubmit="return submitUserForm();">
         <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
         <div id="g-recaptcha-error"></div>
@@ -269,19 +272,19 @@
       <span class="w3-large">A Timer for School</span>
       <p><a href="/create" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Create a Custom Timer</a></p>
       <p><a href="/find" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Find your School's Timer</a></p>
-      <p><input oninput="checkForCode();" id="codeInput" maxlength="15" type="text" placeholder="Have a code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input></p>
+      <p><input oninput="checkForCode2();" id="codeInput" maxlength="15" type="text" placeholder="Have a code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input></p>
 
       <script>
         $(document).on('keypress', function(e) {
           if (e.which == 13) {
-            //var current = document.getElementById("codeInput").value;
+            var current = document.getElementById("codeInput").value;
             var current2 = document.getElementById("backupCode").value;
-            //if (current.length > 0) {
-          //    window.location.replace(current);
-          //  }
-            if (current2.length > 0) {
-              window.location.replace(current2);
-            }
+            alert(current2);
+            if (current.length > current2.length) {
+            window.location.replace("https://www.lukegutman.com/" + current);
+          } else {
+            window.location.replace("https://www.lukegutman.com/" + current2);
+          }
           }
         });
       </script>
@@ -296,12 +299,12 @@
       <div class="w3-quarter">
         <image height="75px" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.33%20AM.png?v=1579872821879" class="fa fa-desktop w3-margin-bottom w3-jumbo w3-center"></image>
         <p class="w3-large">Responsiveness</p>
-        <p>With billions of schedule combinations, a custom timer could be made for virtually any school out there.</p>
+        <p>With billions of schedule combinations, a custom timer could be made for any school.</p>
       </div>
       <div class="w3-quarter">
         <image height="75px;" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.46%20AM.png?v=1579872807527" class="fa fa-heart w3-margin-bottom w3-jumbo"></image>
         <p class="w3-large">Functionionality</p>
-        <p>Being able to change view exactly when each period at your school ends even with different schedules will improve productivity among students.</p>
+        <p>Being able to view exactly when each period at your school ends will improve productivity among students.</p>
       </div>
       <div class="w3-quarter">
         <image height="75px;" src="https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2FScreenshot%202020-01-24%20at%208.29.41%20AM.png?v=1579872840042" class="fa fa-diamond w3-margin-bottom w3-jumbo"></image>
