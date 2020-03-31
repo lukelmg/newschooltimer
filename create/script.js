@@ -17,40 +17,8 @@ function update(jscolor) {
   schoolColor = '#' + jscolor;
 }
 
-
 function gogogo() {
   var startUrl = "/";
-
-/*
-  for (var i = 0; i < numberOfSchedules; i++) {
-      for (var p = 0; p < periodsPerSchedule; p++) {
-        newNames[p] = document.getElementById(i + " " + p + "name").value;
-      }
-  }
-  alert(newNames);
-*/
-
-/*
-
-  for (var i = 0; i < numberOfSchedules; i++) {
-    for (var e = 0; e < periodsPerSchedule[i]; e++) {
-      schedule1Test[e] = document.getElementById(i + " " + e + "name").value;
-      scheduleTimingTest[e] = document.getElementById(i + " " + e + "time").value;
-    }
-
-    var x = schedule1Test.toString();
-    periodNameURL[i] = x;
-
-    var y = scheduleTimingTest.toString();
-    scheduleTimes[i] = y;
-
-    schedule1Test = [];
-    scheduleTimingTest = [];
-  }
-
-  */
-
-
 
 var arrayTestNew = [];
 var arrayCreator = [];
@@ -69,23 +37,16 @@ var arrayTimingTestNew = [];
     arrayTimingTestNew = [];
   }
 
-
-
-
   schoolColor = document.getElementById("colorPickerID").value;
 
   schoolName = document.getElementById("schoolNameID").value;
 
-
-
   var newUrlString = "?nums=" + numberOfSchedules + "&schedNames=" + scheduleNames +  "&names=" + periodNameURL + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor + "&newvariable=" + scheduleTimes;
-
 
   document.getElementById("longURL").value = newUrlString;
   createShortURL();
 
 }
-
 
 function createShortURL () {
 

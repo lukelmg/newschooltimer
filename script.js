@@ -437,26 +437,19 @@ var stateOfPeriod = [];
       }
 
       if (hh >= 10) {
-
-        document.getElementById('realTimer' + i).innerHTML = "Over <br>";
-        document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
         stateOfPeriod[i] = "over";
+        document.getElementById("nameTimer" + i).innerHTML = testNewTestNameNew[i] + " is Over";
+        document.getElementById('realTimer' + i).innerHTML = "";
+        //document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
 
       } else {
         if (hh != "" || mm != "") {
           stateOfPeriod[i] = "notover"
-
-
           var a = stateOfPeriod.indexOf("notover");
 
-
-
           if (hh < 10 && a == i) {
-
             document.title = hh + ":" + mm + ":" + ss;
-
           }
-
           document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
         }
       }
