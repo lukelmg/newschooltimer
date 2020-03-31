@@ -59,17 +59,6 @@ var schoolState;
 var schoolCity;
 var schoolName;
 
-function testRead() {
-  alert(document.getElementById("3 8theTimes").value);
-
-  alert(document.getElementsByName("3 8theTimes")[0].value);
-
-  var x = document.getElementById("3 8theTimes");
-  alert(x.value);
-  alert(x.defaultValue);
-  alert(x);
-}
-
 function readRemix() { // happens on captcha press
   alert(document.getElementById("3 8theTimes").value);
   if (verified == 'yes') {

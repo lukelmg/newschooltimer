@@ -635,12 +635,15 @@ function getReadyForEdit() {
       timeinp.type = "time";
 
       var mytimemytime = [];
-
       split1 = newTest[i];
       split2 = String(split1);
       split2 = split2.split('#')[0]
 
-      mytimemytime = split2.split(",");
+      var s = split2;
+      var n = s.indexOf('?');
+      s = s.substring(0, n != -1 ? n : s.length);
+
+      mytimemytime = s.split(",");
 
       timeinp.value = mytimemytime[e];
       timeinp.id = i + " " + e + "theTimes";
@@ -733,12 +736,9 @@ function updateRemixSchedules() {
     inplabel.className = "otherboring";
     inplabel.appendChild(text);
 
-
     otherContainer.appendChild(thisspan);
     otherContainer.appendChild(inplabel);
     otherContainer.appendChild(inp);
-
-
 
     remixScheduleContainer.appendChild(otherContainer);
 
