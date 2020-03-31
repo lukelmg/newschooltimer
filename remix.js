@@ -60,7 +60,6 @@ var schoolCity;
 var schoolName;
 
 function readRemix() { // happens on captcha press
-  alert(document.getElementById("3 8theTimes").value);
   if (verified == 'yes') {
     var numberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
 
@@ -83,17 +82,12 @@ function readRemix() { // happens on captcha press
       for (var e = 0; e < periodsPerSchedule[i]; e++) {
         arrayTestNew[e] = document.getElementById(i + " " + e + "name").value;
         arrayTimingTestNew[e] = document.getElementById(i + " " + e + "theTimes").value;
-        if (i==3 && e==8) {
-          alert(document.getElementById("3 8theTimes").value);
-        }
       }
       periodNameURL[i] = arrayTestNew;
       scheduleTimes[i] = arrayTimingTestNew;
       arrayTestNew = [];
       arrayTimingTestNew = [];
     }
-
-    alert(scheduleTimes)
 
      schoolName = document.getElementById("remixSchoolName").value;
      schoolCountry = document.getElementById("countryId").value;

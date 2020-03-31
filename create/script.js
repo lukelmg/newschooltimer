@@ -72,9 +72,11 @@ var arrayTimingTestNew = [];
 
 
 
-
+  schoolColor = document.getElementById("colorPickerID").value;
 
   schoolName = document.getElementById("schoolNameID").value;
+
+
 
   var newUrlString = "?nums=" + numberOfSchedules + "&schedNames=" + scheduleNames +  "&names=" + periodNameURL + "&abbs=" + scheduleAbbreviations + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor + "&newvariable=" + scheduleTimes;
 
@@ -165,7 +167,6 @@ function periodTimingAddSchedules() {
       nameOfPeriod.type = "text";
       nameOfPeriod.className = "periodNameInput";
       nameOfPeriod.value = "Period " + (e+1);
-      nameOfPeriod.value = "Period " + e;
       nameOfPeriod.id = i + " " + e + "name";
       nameOfPeriod.oninput = function() {
         detectPeriodTimeChange(this.id);
