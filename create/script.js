@@ -103,6 +103,10 @@ function createShortURL () {
         uniqueid = uniqueid + list.charAt(rnd);
     }
 
+    var schoolCountry = document.getElementById("countryId").value;
+    var schoolState = document.getElementById("stateId").value;
+    var schoolCity = document.getElementById("cityId").value;
+
     var uni = document.getElementById("uniqueid");
     uni.value = uniqueid;
 
@@ -112,6 +116,19 @@ function createShortURL () {
 
     var input = document.getElementById("shortURL");
     input.value = res;
+
+    var country = document.getElementById("country");
+    country.value = schoolCountry;
+
+    var state = document.getElementById("state");
+    state.value = schoolState;
+
+    var city = document.getElementById("city");
+    city.value = schoolCity;
+
+    var schoolInput = document.getElementById("schoolNameID");
+    schoolInput.value = schoolName;
+
 }
 
 

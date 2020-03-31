@@ -84,22 +84,36 @@ https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Per
     <div>
       <h2 class="inputLabel">Almost Done...</h2>
       <iframe width="0" height="0" border="0" style="display:none;" name="myFrame" id="myFrame"></iframe>
-            <form method="post" id="phpformstuff" action="input.php" target="myFrame">
+      <form method="post" id="phpformstuff" action="input.php" target="myFrame">
       <span class="closingLabel">Name of your School</span><br /><input id="schoolNameID" class="closingInput" name="schoolNameID" placeholder="Random Area High School"></input> <br>
+<br>
+      <span class="closingLabel">Location of School</span> <br>
+      <select name="country" class="countries" id="countryId">
+      <option value="">Select Country</option>
+  </select> <br>
+  <select name="state" class="states" id="stateId">
+      <option value="">Select State</option>
+  </select> <br>
+  <select name="city" class="cities" id="cityId">
+      <option value="">Select City</option>
+  </select>
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <script src="//geodata.solutions/includes/countrystatecity.js"></script>
 
+   <br><br>
 
+      <span class="closingLabel">Pick Your School Color</span> <br>
+      <input id="colorPickerID" type="color" value="#e66465">
 
-      <input id="colorPickerID" class="jscolor {onFineChange:'update(this)'}" disabled value="Pick Your School Color">
-
-
-       <input type="text" class="hide" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
-
+      <input type="text" class="hide" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
       <input type="text" class="hide" name="shorturl" id="shortURL"></input>
-
       <input id="uniqueid" class="hide" name="uniqueid"></input>
       <input id="timeanddate" class="hide" name="timeanddate"></input>
 
-      <br><br>
+      <input id="country" class="hide" name="country"></input>
+      <input id="state" class="hide" name="state"></input>
+      <input id="city" class="hide" name="city"></input>
+
 
       <form method="post" onsubmit="return submitUserForm();">
         <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>

@@ -78,7 +78,9 @@ function startTimer() {
       readCustomize();
       readFont();
     }
+    if (cantFind == true) {
       setTimeout(doSomething, 350);
+    }
   }, 750);
 }
 
@@ -641,7 +643,8 @@ function getReadyForEdit() {
       mytimemytime = split2.split(",");
 
       timeinp.value = mytimemytime[e];
-      timeinp.id = i + " " + e + "time";
+      timeinp.id = i + " " + e + "theTimes";
+      timeinp.name = i + " " + e + "theTimes";
       timeinp.className = "periodTimingRemix";
       periodTimeContainer.appendChild(timeinp);
 
@@ -770,7 +773,8 @@ function updateRemixSchedules() {
       mytimemytime = split2.split(",");
 
       timeinp.value = mytimemytime[e];
-      timeinp.id = i + " " + e + "time";
+      timeinp.id = i + " " + e + "theTimes";
+      timeinp.name = i + " " + e + "theTimes";
       timeinp.className = "periodTimingRemix";
       periodTimeContainer.appendChild(timeinp);
 

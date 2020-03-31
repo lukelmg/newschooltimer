@@ -155,14 +155,8 @@
       <span class="closingLabel">Name of your School</span><br /><input id="schoolNameID" class="closingInput" name="schoolNameID" placeholder="Random Area High School"></input> <br>
 
 
-
-      <input id="colorPickerID" class="jscolor {onFineChange:'update(this)'}" disabled value="Pick Your School Color">
-
-
-       <input type="text" class="hide" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
-
+      <input type="text" class="hide" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
       <input type="text" class="hide" name="shorturl" id="shortURL"></input>
-
       <input id="uniqueid" class="hide" name="uniqueid"></input>
       <input id="timeanddate" class="hide" name="timeanddate"></input>
 
@@ -279,7 +273,6 @@
           if (e.which == 13) {
             var current = document.getElementById("codeInput").value;
             var current2 = document.getElementById("backupCode").value;
-            alert(current2);
             if (current.length > current2.length) {
             window.location.replace("https://www.lukegutman.com/" + current);
           } else {

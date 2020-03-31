@@ -1,3 +1,16 @@
+.countries, .cities, .states {
+  width: 27vw;
+  height: 5vh;
+  margin-top: 2vh;
+  margin-left: 4vw;
+  font-size: 2.75vh;
+  color:gray;
+}
+
+select:focus {
+  outline:none;
+}
+
  #colorPickerID {
     text-align:center;
     padding: 10px 10px 10px 10px;
@@ -13,9 +26,9 @@
     transition: .03s ease-in-out;
     border-radius: 3px;
   }
-  
+
   #colorPickerID:hover {
-   filter:invert(7%); 
+   filter:invert(7%);
     cursor:pointer;
   }
 
@@ -490,7 +503,7 @@ margin-left: 4vw;
 }
 
 .closingLabel {
-  font-size: 5vh;
+  font-size: 4vh;
   color:white;
   font-weight:100;
   margin-left: 4vw;
