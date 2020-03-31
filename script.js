@@ -366,6 +366,13 @@ function setUpTimesForTimers() {
   split2 = String(split1);
   split2 = split2.split('#')[0]
 
+  var s = split2;
+  var n = s.indexOf('&');
+  s = s.substring(0, n != -1 ? n : s.length);
+
+  split2 = s;
+
+
   timeForMathArray = split2.split(":");
   timeForMathArray = String(timeForMathArray);
   newTimeForMathArray = timeForMathArray.split(",");
@@ -633,7 +640,7 @@ function getReadyForEdit() {
       split2 = split2.split('#')[0]
 
       var s = split2;
-      var n = s.indexOf('?');
+      var n = s.indexOf('&');
       s = s.substring(0, n != -1 ? n : s.length);
 
       mytimemytime = s.split(",");
@@ -763,7 +770,7 @@ function updateRemixSchedules() {
       split2 = split2.split('#')[0]
 
       var s = split2;
-      var n = s.indexOf('?');
+      var n = s.indexOf('&');
       s = s.substring(0, n != -1 ? n : s.length);
 
       mytimemytime = s.split(",");
