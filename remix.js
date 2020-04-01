@@ -48,6 +48,7 @@ Parkland:
 
 
 var verified = 'no';
+var completed = 'no';
 
 function verifyCaptcha() {
   document.getElementById('g-recaptcha-error').innerHTML = '';
@@ -60,7 +61,21 @@ var schoolCity;
 var schoolName;
 
 function readRemix() { // happens on captcha press
-  if (verified == 'yes') {
+
+  schoolName = document.getElementById("remixSchoolName").value;
+  schoolCountry = document.getElementById("countryId").value;
+  schoolState = document.getElementById("stateId").value;
+  schoolCity = document.getElementById("cityId").value;
+
+  if (schoolName == "" || schoolCountry == "" || schoolState == "" || schoolCity == "") {
+    completed = 'no';
+  } else {
+    completed = "yes";
+  }
+
+
+
+  if (verified == 'yes' && completed == 'yes') {
     var numberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
 
     var periodsPerSchedule = [];
@@ -95,35 +110,19 @@ function readRemix() { // happens on captcha press
      schoolCity = document.getElementById("cityId").value;
     var schoolColor = document.getElementById("schoolColorInput").value;
 
-    /*
-    var theURL = "?school=" + schoolName + "&country=" + schoolCountry + "&state=" + schoolState + "&city=" + schoolCity;
-    theURL = theURL + "&color=" + schoolColor + "&nums=" + numberOfSchedules + "&schedNames=" + scheduleNames + "&abbs=" + scheduleAbbs + "&pers=" + periodsPerSchedule;
-    theURL = theURL + "&names=" + periodNameURL + "&newvariable=" + scheduleTimes;
-    */
-
     var theURL = "?nums=" + numberOfSchedules + "&names=" + periodNameURL +  "&schedNames=" + scheduleNames + "&abbs=" + scheduleAbbs + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor + "&newvariable=" + scheduleTimes;
     theURL = theURL + "&schoolCountry=" + schoolCountry + "&schoolState=" + schoolState + "&schoolCity=" + schoolCity;
 
-    /*
-    ?nums=4&schedNames=Normal,Homeroom,Early Dismissal,2 Hour Delay&abbs=A,B,C,D&pers=9,9,9,9&school=Parkland High School &color=#ff0000&names=Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53
-    */
-
     document.getElementById("longURL").value = theURL;
-
-    /*
-
-
-    ?school=Parkland High School &country=&state=&city=&schoolColor=#ff0000&nums=4&abbs=,,,&pers=9,9,9,9&names=Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53
-
-
-    ?nums=4&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&abbs=A,B,C,D&pers=9,9,9,9&school=Parkland%20High%20School%20&color=#ff0000&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53
-
-    */
 
     createShortURL();
 
   } else {
+    if (verified != 'yes') {
     alert('Please Check the "I am not a robot" box');
+  } else {
+    alert('Please fill out this entire form \n \n (Name of School, Location of School, etc.)')
+  }
   }
 
 

@@ -124,7 +124,7 @@
     </div>
     <div class="remixElement">  <h3 class="remixHeader">School Color</h3><input type="color" id="schoolColorInput"> </div>
 
-    <div class="remixElement"><h3 class="remixHeader">Number Of Schedules</h3><input min="1" max="8" disabeled class="remixInput" id="remixSchoolScheduleNumbers" oninput="updateRemixSchedules();" type="number"></input></div>
+    <div class="remixElement"><h3 class="remixHeader">Number Of Schedules</h3><input onkeydown="return false" min="1" max="8" class="remixInput" id="remixSchoolScheduleNumbers" oninput="updateRemixSchedules();" type="number"></input></div>
       <div id="remixScheduleContainer"></div>
       <form method="post" onsubmit="return submitUserForm();">
         <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>

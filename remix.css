@@ -1,3 +1,25 @@
+.remixPeriodNameInput {
+  width: 30%;
+}
+
+.actualScheduleName {
+  width: 40%;
+}
+
+.scheduleAbbreviationInput {
+  width: 25%;
+  padding-left: 10px;
+}
+
+#remixSchoolName {
+  width: 45%;
+}
+
+#schoolColorInput {
+  height: 50px;
+  width: 100px;
+}
+
 
 .sidebarButtons {
   border:none;
@@ -46,7 +68,7 @@ outline:none;
   margin: 20px 20px 20px 20px;
   padding: 20px 20px 20px 20px;
   white-space: nowrap;
-  max-width: 50%;
+  max-width: 70%;
 }
 
 .inlinespantest {

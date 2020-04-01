@@ -551,17 +551,13 @@ function getReadyForEdit() {
     var abb = document.createElement("input");
     abb.id = i + "remixAbb";
     abb.placeholder = "Schedule Abbreviation";
-    abb.className = "actualScheduleName";
+    abb.className = "scheduleAbbreviationInput";
+    abb.maxLength = 5;
 
     var thisinp = document.createElement("input");
     thisinp.className = "actualScheduleName";
     thisinp.id = i + "scheduleName";
-    thisinp.oninput = function() {
-    this.style.width = ((this.value.length + 0) * 7) + 'px';
-      if (this.value.length < 5) {
-        this.style.width = '35px';
-      }
-    };
+    thisinp.maxLength = 50;
 
     if (realScheduleNamesArray[i] == undefined || realScheduleNamesArray[i] == "") {
       thisinp.value = "";
@@ -596,6 +592,11 @@ function getReadyForEdit() {
     inp.oninput = function () {
       updateRemixPeriods(this.id);
     }
+    inp.onkeydown = function () {
+      return false;
+    }
+    inp.max = 15;
+    inp.min = 1;
 
     var text = document.createTextNode("Number Of Periods: ");
     var inplabel = document.createElement("H5");
@@ -629,6 +630,8 @@ function getReadyForEdit() {
       mineminemine = split2.split(',');
 
       perinp.value = mineminemine[e];
+      perinp.maxLength = 30;
+      perinp.className = "remixPeriodNameInput";
       perinp.id = i + " " + e + "name";
 
       periodTimeContainer.appendChild(perinp);
@@ -689,18 +692,14 @@ function updateRemixSchedules() {
     var abb = document.createElement("input");
     abb.id = i + "remixAbb";
     abb.placeholder = "Schedule Abbreviation";
-    abb.className = "actualScheduleName";
+    abb.className = "scheduleAbbreviationInput";
+    abb.maxLength = 5;
 
     var thisinp = document.createElement("input");
     thisinp.className = "actualScheduleName";
     thisinp.id = i + "scheduleName";
     thisinp.placeholder = "Schedule Name";
-    thisinp.oninput = function() {
-    this.style.width = ((this.value.length + 0) * 7) + 'px';
-      if (this.value.length < 5) {
-        this.style.width = '35px';
-      }
-    };
+    thisinp.maxLength = 50;
 
     if (realScheduleNamesArray[i] == undefined || realScheduleNamesArray[i] == "") {
       thisinp.value = "";
@@ -730,6 +729,11 @@ function updateRemixSchedules() {
     inp.oninput = function () {
       updateRemixPeriods(this.id);
     }
+    inp.onkeydown = function () {
+      return false;
+    }
+    inp.max = 15;
+    inp.min = 1;
 
     var text = document.createTextNode("Number Of Periods: ");
     var inplabel = document.createElement("H5");
@@ -759,6 +763,8 @@ function updateRemixSchedules() {
       mineminemine = split2.split(',');
 
       perinp.value = mineminemine[e];
+      perinp.maxLength = 30;
+      perinp.className = "remixPeriodNameInput"
       perinp.id = i + " " + e + "name";
 
       periodTimeContainer.appendChild(perinp);
@@ -817,7 +823,6 @@ function updateRemixPeriods(idOfThis) {
   }
 
   var newContainer = document.createElement("div");
-2
 
   for (var i = 0; i < currentNumberOfPeriods; i++) {
     var perinp = document.createElement("input");
