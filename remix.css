@@ -1,6 +1,14 @@
-#editButton {
+
+.sidebarButtons {
+  border:none;
+  outline:none;
+  color:#3b3b3b;
   width: 90%;
+  height: 10vh;
+  margin-top: 2.5vh;
+  margin-bottom: 2.5vh;
 }
+
 
 #editModal {
   width: 45vw;

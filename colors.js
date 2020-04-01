@@ -5,7 +5,7 @@ var   textColor = "white",
   backgroundColor = "black",
   sidebar = "black",
   sidebarText = "white",
-  sidebarButtons = "#F0F0F0";
+  sidebarButtons = "white";
 
 var myX;
 
@@ -23,7 +23,7 @@ function setToDefault () {
   backgroundColor = "#131417";
   sidebar = "#21252B";
   sidebarText = "white";
-  sidebarButtons = "#24344b";
+  sidebarButtons = "white";
   setColors();
   saveCustomize();
 }
@@ -41,7 +41,7 @@ case 0:
   backgroundColor = "#131417";
   sidebar = "#21252B";
   sidebarText = "white";
-  sidebarButtons = "#24344b";
+  sidebarButtons = "white";
   break;
 case 1:
   preset = "light";

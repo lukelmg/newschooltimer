@@ -817,7 +817,7 @@ function updateRemixPeriods(idOfThis) {
   }
 
   var newContainer = document.createElement("div");
-
+2
 
   for (var i = 0; i < currentNumberOfPeriods; i++) {
     var perinp = document.createElement("input");

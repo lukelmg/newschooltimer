@@ -1,3 +1,11 @@
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+
+   opacity: 1;
+
+}
+
+
 #backupCode, #goCode {
   width: 300px;
   border:none;
@@ -84,8 +92,9 @@ body {
   background-color: white;
   position: relative:absolute;
   float:right;
-  padding: 10px 10px 10px 10px;
+  padding: 25px 25px 25px 25px;
   color:black;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
 
 .radioButtonClass {
@@ -166,17 +175,6 @@ transition: opacity 1s;
   visibility: visible;
   opacity: 1;
 }
-
-
-.sidebarButtons {
-  border:none;
-  outline:none;
-  color:white;
-  width: 5vw;
-  height: 5vh;
-  margin: 20px 20px 20px 20px;
-}
-
 
 
 @media (max-width : 320px) {

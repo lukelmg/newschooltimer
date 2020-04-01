@@ -94,6 +94,7 @@
       <center>
         <h1 id="scheduleLabel">Schedule</h1>
           <form id="selectorDiv"></form>
+          <h1 id="scheduleLabel">Settings</h1>
         <button class="sidebarButtons" id="editButton" onclick="openEditModal();">Remix</button><br>
         <button class="sidebarButtons" id="customizeButton" onclick="openCustomize();">Customize</button>
       </center>
@@ -107,7 +108,7 @@
         Remix Timer
       </h1>
       <h5 id="remixDef">Remix this timer by changing the parameters below. <br>This will make a brand new timer with it's own link!</h5>
-    <div class="remixElement">  <h3 class="remixHeader">Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text"></input> </div>
+    <div class="remixElement">  <h3 class="remixHeader">Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text" maxlength="40"></input> </div>
     <div class="remixElement">
       <h3 class="remixHeader"> Location of School </h3>
       <select name="country" class="countries order-alpha limit-pop-1000000 presel-byip " id="countryId">
@@ -123,7 +124,7 @@
     </div>
     <div class="remixElement">  <h3 class="remixHeader">School Color</h3><input type="color" id="schoolColorInput"> </div>
 
-    <div class="remixElement"><h3 class="remixHeader">Number Of Schedules</h3><input class="remixInput" id="remixSchoolScheduleNumbers" oninput="updateRemixSchedules();" type="number"></input></div>
+    <div class="remixElement"><h3 class="remixHeader">Number Of Schedules</h3><input min="1" max="8" disabeled class="remixInput" id="remixSchoolScheduleNumbers" oninput="updateRemixSchedules();" type="number"></input></div>
       <div id="remixScheduleContainer"></div>
       <form method="post" onsubmit="return submitUserForm();">
         <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
