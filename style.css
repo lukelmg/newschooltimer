@@ -181,8 +181,25 @@ transition: opacity 1s;
 }
 
 
-@media (max-width : 320px) {
-  #schoolTitle {
-    padding-bottom: 10px;
+@media (max-width : 600px) { /* Phones */
+  table {
+    border-collapse: collapse;
+    position: absolute;
+    top: 0%;
+    -ms-transform: translate(0%, 0%);
+    transform: translate(0%, 0%);
+    left: 0;
+    right: 0;
+  }
+
+
+  #sidebar {
+    display:none;
+    height: 110vh;
+    background-color: white;
+    position: relative:absolute;
+    float:right;
+    color:black;
+    width: 0px;
   }
 }

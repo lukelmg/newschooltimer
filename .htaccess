@@ -5,6 +5,8 @@ Require valid-user
 php_flag display_errors 1
 
 ErrorDocument 404 /index.html
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^(content\asdf)$ - [R=404,L]
 
 ## Turn on rewrite engine
 RewriteEngine on
