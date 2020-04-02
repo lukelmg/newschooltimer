@@ -293,10 +293,10 @@ function addTimersPerSchedule() {
       var lineHeightNew = (24.5) + (-1.99 * periodScheduleArray[currentScheduleSelected]) + (0.0514 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
 
 
+alert(lineHeightNew)
 
-
-    sizeOfFont = 3;
-    lineHeightNew = 1.25;
+  //  sizeOfFont = 3;
+  //  lineHeightNew = 1.25;
 
 
     var myTable = document.getElementById("timerContainer");
@@ -320,6 +320,11 @@ function addTimersPerSchedule() {
     timer.appendChild(blah);
 
     track.appendChild(para);
+    //isMobile = true;
+    if (isMobile == true) {
+      var myBreak = document.createElement("BR");
+      track.appendChild(myBreak);
+    }
     track.appendChild(timer);
 
     timerContainer.appendChild(track);
