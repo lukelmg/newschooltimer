@@ -25,7 +25,7 @@ if (myUrl !== "https://www.lukegutman.com/") {
   //  document.getElementsByTagName("BODY")[0].style.display = "none";
   var timerBody = document.getElementById("timerBody");
   document.getElementsByTagName('BODY')[0].innerHTML = timerBody.innerHTML;
-  document.body.style.backgroundColor = "#131417";
+  document.getElementById("bigDiv").style.backgroundColor = "#131417";
   document.body.style.overflow = "hidden";
   startTimer();
 }
@@ -72,7 +72,7 @@ function startTimer() {
       document.getElementById("backupCode").style.display = "block";
       document.getElementById("waiting").style.display = "block";
       document.getElementById("sidebar").style.display = "none";
-      document.body.style.backgroundColor = "white";
+      document.getElementById("bigDiv").style.backgroundColor = "white";
       cantFind = true;
 
     } else {
@@ -87,6 +87,7 @@ function startTimer() {
       read();
       readCustomize();
       readFont();
+      setupSidebarCode();
     }
     if (cantFind == true) {
       setTimeout(doSomething, 350);
@@ -97,12 +98,18 @@ function startTimer() {
   }, 750);
 }
 
+function setupSidebarCode () {
+  var code = window.location.pathname;
+  code = code.substr(1);
+  document.getElementById("timerCode").innerHTML = code.toUpperCase();
+}
+
 function removeSidebar() {
   document.getElementById("sidebar").style.display = "none";
 }
 
 function doSomething() {
-  document.body.style.backgroundColor = "white";
+  document.getElementById("bigDiv").style.backgroundColor = "white";
 }
 
 var realScheduleNames = [];
@@ -282,39 +289,25 @@ function addTimersPerSchedule() {
     blah.class = "timeDisplay";
     node.className = "nameOfPeriod";
 
-    var sizeOfFont;
+    var sizeOfFont = periodScheduleArray[currentScheduleSelected] / 2;
 
 
-      if (periodScheduleArray[currentScheduleSelected] == 4) {
-        sizeOfFont = 10;
-      }
+  var eToThe = Math.exp(-0.113 * periodScheduleArray[currentScheduleSelected]);
 
-      sizeOfFont = (9.1) + (0.0746 * periodScheduleArray[currentScheduleSelected]) + (-0.018 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
-      var lineHeightNew = (24.5) + (-1.99 * periodScheduleArray[currentScheduleSelected]) + (0.0514 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
+  sizeOfFont = 15.5 * eToThe;
 
+  if (periodScheduleArray[currentScheduleSelected] == 4) {
+    sizeOfFont = 10;
+  }
 
-alert(lineHeightNew)
+  sizeOfFont = (9.1) + (0.0746 * periodScheduleArray[currentScheduleSelected]) + (-0.018 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
+  var lineHeightNew = (24.5) + (-1.99 * periodScheduleArray[currentScheduleSelected]) + (0.0514 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
 
-  //  sizeOfFont = 3;
-  //  lineHeightNew = 1.25;
+  para.style.lineHeight = lineHeightNew + "vh";
+  timer.style.lineHeight = lineHeightNew + "vh";
 
-
-    var myTable = document.getElementById("timerContainer");
-  //  alert(myTable.offsetWidth);
-
-
-    alertLineHeight = lineHeightNew;
-
-    para.style.lineHeight = lineHeightNew; + "vh";
-    timer.style.lineHeight = lineHeightNew + "vh";
-
-    if (isMobile == false) {
-      para.style.fontSize = sizeOfFont + "vh";
-      timer.style.fontSize = sizeOfFont + "vh";
-    } else {
-      para.style.fontSize = sizeOfFont + "vw";
-      timer.style.fontSize = sizeOfFont + "vw";
-    }
+  para.style.fontSize = sizeOfFont + "vh";
+  timer.style.fontSize = sizeOfFont + "vh";
 
     para.appendChild(node);
     timer.appendChild(blah);

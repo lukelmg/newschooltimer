@@ -16,6 +16,7 @@
 <script src="font.js"></script>
 <script src="remix.js"></script>
 <link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="share.css">
 <link rel="stylesheet" type="text/css" href="customize.css">
 <link rel="stylesheet" type="text/css" href="remix.css">
 <link rel="shortcut icon" href="/resources/clock-line.png" />
@@ -97,6 +98,17 @@
           <h1 id="scheduleLabel">Settings</h1>
         <button class="sidebarButtons" id="editButton" onclick="openEditModal();">Remix</button><br>
         <button class="sidebarButtons" id="customizeButton" onclick="openCustomize();">Customize</button>
+
+        <h2 id="timerCodeLabel">Timer Code</h2>
+          <h1 id="timerCode"></h1>
+          <h3 id="shareCode">Share This Timer </h3>
+
+
+
+
+
+
+
       </center>
     </div>
 
@@ -223,7 +235,7 @@
       </select>
       <input id="colorSelector" class="colorSelector" type="color"  value="#e66465" oninput="readCustomColor();">
     </div>
-    <table id="timerContainer"></table>
+    <div id="bigDiv"><table id="timerContainer"></table></div>
     <button onclick="getLineHeight();" style="margin-top:150%;">get line hieght</button>
   </div>
 </div>

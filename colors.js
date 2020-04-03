@@ -2,7 +2,7 @@
 
 var preset;
 var   textColor = "white",
-  backgroundColor = "black",
+  backgroundColor = "blue",
   sidebar = "black",
   sidebarText = "white",
   sidebarButtons = "white";
@@ -95,7 +95,7 @@ saveCustomize();
 function setColors () {
   var nameDisplay = document.getElementsByClassName("nameDisplay");
   var timeDisplay = document.getElementsByClassName("timeDisplay");
-  document.body.style.backgroundColor = backgroundColor;
+  document.getElementById("bigDiv").style.backgroundColor = backgroundColor;
   for (var i = 0; i < nameDisplay.length; i++) {
     nameDisplay[i].style.color = textColor;
     timeDisplay[i].style.color = textColor;

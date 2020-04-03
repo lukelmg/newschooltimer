@@ -1,3 +1,8 @@
+#bigDiv {
+  width: 100vw;
+  height: 100vh;
+}
+
 input[type=number]::-webkit-inner-spin-button,
 input[type=number]::-webkit-outer-spin-button {
 
@@ -7,6 +12,14 @@ input[type=number]::-webkit-outer-spin-button {
 
 #about {
   background-color:white;
+}
+
+#timerCodeLabel {
+  margin-top: 7vh;
+}
+
+#shareCode {
+  margin-top: 2vh;
 }
 
 
