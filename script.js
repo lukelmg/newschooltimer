@@ -5,11 +5,6 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     isMobile = true;
 }
 
-
-
-
-
-
   function openCustomize() {
     document.getElementById("customizeModal").style.display = "block";
   }
@@ -88,6 +83,17 @@ function startTimer() {
       readCustomize();
       readFont();
       setupSidebarCode();
+
+
+      if (localStorage.getItem("hasCodeRunBefore") === null) {
+          localStorage.setItem("hasCodeRunBefore", true);
+          setSchedule = 0 + "outer";
+      } else {
+      setSchedule = localStorage.getItem('setSchedule');
+      }
+      myChangeSelected(setSchedule);
+
+
     }
     if (cantFind == true) {
       setTimeout(doSomething, 350);
@@ -174,13 +180,13 @@ function read() {
       abbreviationLabelElement.appendChild(abbreviationLabel);
       abbreviationLabelElement.className = "actualAbbreviationLetter";
 
-  //    var tooltipLabel = document.createTextNode(realScheduleNamesArray[i]);
-  //    var tooltipLabelElement = document.createElement("span")
+      var tooltipLabel = document.createTextNode(realScheduleNamesArray[i]);
+      var tooltipLabelElement = document.createElement("span")
 
-  //    tooltipLabelElement.appendChild(tooltipLabel);
+      tooltipLabelElement.appendChild(tooltipLabel);
 
-    //  tooltipLabelElement.className = "myTooltip";
-  //    tooltipLabelElement.id = i + "outer" + "tooltip"
+      tooltipLabelElement.className = "myTooltip";
+      tooltipLabelElement.id = i + "outer" + "tooltip"
 
       var outer = document.createElement('div');
       outer.className = "radioButton";
@@ -207,7 +213,7 @@ function read() {
       inner.className = "inner";
       inner.id = i + "inner";
 
-    //  container.appendChild(tooltipLabelElement);
+      container.appendChild(tooltipLabelElement);
 
       outer.appendChild(inner);
       container.appendChild(abbreviationLabelElement);
