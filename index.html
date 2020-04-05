@@ -12,6 +12,7 @@
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css?family=Play&display=swap" rel="stylesheet">
 <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="colors.js"></script>
 <script src="font.js"></script>
 <script src="remix.js"></script>
@@ -105,7 +106,22 @@
 
 
 
+  <input type="text" id="myInput">
 
+  <script>
+  function copyURL() {
+    var copyText = document.getElementById("myInput");
+    copyText.select();
+    copyText.setSelectionRange(0, 99999)
+    document.execCommand("copy");
+    alert("Copied the text: " + copyText.value);
+  }
+  </script>
+
+<a href="https://www.facebook.com/sharer/sharer.php?u=&quote=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&quote=' + encodeURIComponent(document.URL)); return false;" class="fa fa-facebook"></a>
+<a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;" class="fa fa-twitter"></a>
+<a href="http://www.reddit.com/submit?url=&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent('SchoolTimer')); return false;" class="fa fa-reddit"></a>
+<a href="#" class="fa fa-rss" onclick="copyURL();"></a>
 
 
 

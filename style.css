@@ -1,3 +1,68 @@
+.radioButton {
+  width: 5vh;
+  height: 5vh;
+  background-color:gray;
+  border:none;
+  border-radius: 50%;
+  margin-bottom: 0px;
+  cursor:pointer;
+  padding: 15px;
+  display:inline-block;
+  clear: none;
+  vertical-align: middle
+}
+
+.radioButton:focus {
+  outline:none;
+  clear: none;
+}
+
+.inner {
+  background-color:white;
+  height: 2vh;
+  width: 2vh;
+  border-radius: 50%;
+  border:none;
+  cursor:pointer;
+  clear: none;
+}
+
+.actualAbbreviationLetter {
+  margin-bottom: 10px;
+  vertical-align: middle;
+  margin-right: 10px;
+}
+
+.myTooltip {
+  display:none;
+  background-color:gray;
+  color:white;
+  padding: 7px;
+  width: 200px;
+  text-align:center;
+  right: 8.5%;
+  margin-top: 5px;
+  position: absolute;
+  z-index: 1;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 #bigDiv {
   width: 100vw;
   height: 100vh;
@@ -15,11 +80,17 @@ input[type=number]::-webkit-outer-spin-button {
 }
 
 #timerCodeLabel {
-  margin-top: 7vh;
+  margin-top: 4vh;
+}
+
+#timerCode {
+  font-family: 'Fira Sans Extra Condensed', sans-serif;
+  margin-bottom: 5vh;
 }
 
 #shareCode {
   margin-top: 2vh;
+  margin-bottom: 0px;
 }
 
 

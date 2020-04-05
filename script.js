@@ -102,6 +102,7 @@ function setupSidebarCode () {
   var code = window.location.pathname;
   code = code.substr(1);
   document.getElementById("timerCode").innerHTML = code.toUpperCase();
+  document.getElementById("myInput").value = "https://www.lukegutman.com/" + code.toUpperCase();
 }
 
 function removeSidebar() {
@@ -167,33 +168,63 @@ function read() {
   }
 
   for (var i = 0; i < (numberOfSchedules); i++) {
-    var rad = document.createElement("input");
-    if (i == 0) {
-      rad.checked = true;
-    }
-    rad.type = "radio";
-    rad.className = "actualRadioButton";
-    rad.name = "schedulesRadioName";
-    rad.id = i + "scheduleCheckRadio";
-    rad.oninput = function() {
-      radioButtonDetection(this.id);
-    };
-    var para = document.createElement("div");
-    var node = document.createTextNode(scheduleAbbreviationsArray[i]);
-    para.color = "white";
-    node.color = "white";
-    para.className = "tooltip";
-    node.className = "tooltip";
-    var check = document.createElement("span");
-    var tool = document.createTextNode(realScheduleNamesArray[i])
-    check.appendChild(tool);
-    check.className = "tooltiptext";
-    para.appendChild(node);
-    para.appendChild(rad);
-    para.appendChild(check);
-    container.appendChild(para);
-    var breakit = document.createElement("br");
-    container.appendChild(breakit);
+      var abbreviationLabel = document.createTextNode(scheduleAbbreviationsArray[i]);
+      var abbreviationLabelElement = document.createElement("span");
+
+      abbreviationLabelElement.appendChild(abbreviationLabel);
+      abbreviationLabelElement.className = "actualAbbreviationLetter";
+
+  //    var tooltipLabel = document.createTextNode(realScheduleNamesArray[i]);
+  //    var tooltipLabelElement = document.createElement("span")
+
+  //    tooltipLabelElement.appendChild(tooltipLabel);
+
+    //  tooltipLabelElement.className = "myTooltip";
+  //    tooltipLabelElement.id = i + "outer" + "tooltip"
+
+      var outer = document.createElement('div');
+      outer.className = "radioButton";
+      outer.id = i + "outer";
+      outer.onclick = function () {
+        myChangeSelected(this.id);
+      }
+    outer.onmouseover = function () {
+
+        for (var p = 0; p < numberOfSchedules; p++) {
+          document.getElementById(p + "outer" + "tooltip").style.display = "none";
+        }
+        document.getElementById(this.id + "tooltip").style.display = "inline-block";
+      }
+
+      outer.onmouseout = function () {
+        for (var q= 0; q < numberOfSchedules; q++) {
+          document.getElementById(q + "outer" + "tooltip").style.display = "none";
+        }
+      }
+
+
+      var inner = document.createElement('div');
+      inner.className = "inner";
+      inner.id = i + "inner";
+
+    //  container.appendChild(tooltipLabelElement);
+
+      outer.appendChild(inner);
+      container.appendChild(abbreviationLabelElement);
+      container.appendChild(outer);
+
+
+
+
+      var myBreak = document.createElement("BR");
+      container.appendChild(myBreak);
+
+
+
+
+
+  //  var node = document.createTextNode(scheduleAbbreviationsArray[i]);
+  //  var tool = document.createTextNode(realScheduleNamesArray[i])
   }
   // end of make radios buttons
 
@@ -237,6 +268,24 @@ var which;
 
 var currentScheduleSelected = 0;
 
+
+var changer = [];
+
+
+function myChangeSelected(id) {
+    for (var i = 0; i < numberOfSchedules; i++) {
+      changer[i] = document.getElementById(i + "inner");
+      changer[i].style.display = "none";
+    }
+    document.getElementById(id.charAt(0) + "inner").style.display = "block";
+    localStorage.setItem('setSchedule', id);
+    currentScheduleSelected = (id.charAt(0));
+    getSchedulesReadyForTimer();
+  }
+
+
+
+/*
 function radioButtonDetection(which) {
   var ele = document.getElementsByName('schedulesRadioName');
 
@@ -246,6 +295,8 @@ function radioButtonDetection(which) {
   }
   getSchedulesReadyForTimer();
 }
+
+*/
 
 var newTest = [];
 
@@ -464,13 +515,18 @@ var stateOfPeriod = [];
 
     if (localStorage.getItem(path + "hasCodeRunBefore") === null) {
           setTimeout(newDeafult, 1000);
+          setSchedule = 0 + "outer";
         localStorage.setItem(path + "hasCodeRunBefore", true);
     } else {
      readCustomize();
      readFont();
+     setSchedule = localStorage.getItem('setSchedule');
     }
+        changeSelected(setSchedule);
 
 })();
+
+var setSchedule;
 
 
 function newDeafult() {
@@ -656,8 +712,6 @@ function getReadyForEdit() {
 }
 
     var periodTimeContainer;
-
-
 
 
 
