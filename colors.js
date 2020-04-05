@@ -77,7 +77,7 @@ case 4:
   backgroundColor = "#272324";
   sidebar = "#E4D8B4";
   sidebarText = "#272324";
-  sidebarButtons = "#E4D8B4";
+  sidebarButtons = "#f2e5bd";
   break;
 case 5:
   preset = "terrible";
@@ -102,6 +102,22 @@ function setColors () {
   }
 
   document.getElementById("sidebar").style.backgroundColor = sidebar;
+
+  var inner = document.getElementsByClassName("inner");
+  for (var i = 0; i < inner.length; i++) {
+      inner[i].style.backgroundColor=sidebar;
+  }
+
+  var outer = document.getElementsByClassName("radioButton");
+  for (var i = 0; i < outer.length; i++) {
+      outer[i].style.backgroundColor=sidebarText;
+  }
+
+  var fa = document.getElementsByClassName("fa");
+  for (var i = 0; i < fa.length; i++) {
+      fa[i].style.color=sidebarText;
+  }
+
   document.getElementById("sidebar").style.color = sidebarText;
 
   document.getElementById("realTimer" + mine).style.color = accentColor;
@@ -117,7 +133,6 @@ function setColors () {
 
 
 function saveCustomize () {
-
 
   var path = window.location.pathname;
 
@@ -143,6 +158,7 @@ function readCustomize () {
   sidebar = localStorage.getItem(path + "sidebar");
   sidebarText = localStorage.getItem(path + "sidebarText");
   sidebarButtons = localStorage.getItem(path + "sidebarButtons")
+
 
   document.getElementById("presetSelector").selectedIndex = myX;
 

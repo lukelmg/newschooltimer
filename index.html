@@ -96,12 +96,15 @@
       <center>
         <h1 id="scheduleLabel">Schedule</h1>
           <form id="selectorDiv"></form>
-          <h1 id="scheduleLabel">Settings</h1>
+          <h1 id="settingsLabel">Settings</h1>
         <button class="sidebarButtons" id="editButton" onclick="openEditModal();">Remix</button><br>
         <button class="sidebarButtons" id="customizeButton" onclick="openCustomize();">Customize</button>
 
         <h2 id="timerCodeLabel">Timer Code</h2>
           <h1 id="timerCode"></h1>
+
+<div id="shareDiv">
+
           <h3 id="shareCode">Share This Timer </h3>
 
 
@@ -123,7 +126,7 @@
 <a href="http://www.reddit.com/submit?url=&title=" target="_blank" title="Submit to Reddit" onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent('SchoolTimer')); return false;" class="fa fa-reddit"></a>
 <a href="#" class="fa fa-rss" onclick="copyURL();"></a>
 
-
+</div>
 
       </center>
     </div>

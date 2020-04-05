@@ -89,9 +89,10 @@ function startTimer() {
           localStorage.setItem("hasCodeRunBefore", true);
           setSchedule = 0 + "outer";
       } else {
-      setSchedule = localStorage.getItem('setSchedule');
+         var path = window.location.pathname;
+      setSchedule = localStorage.getItem(path + 'setSchedule');
       }
-      myChangeSelected(setSchedule);
+      myChangeSelected('0outer');
 
 
     }
@@ -519,14 +520,12 @@ var stateOfPeriod = [];
 
    var path = window.location.pathname;
 
-    if (localStorage.getItem(path + "hasCodeRunBefore") === null) {
+    if (localStorage.getItem(path + "hasCodeRunBefore2") === null) {
           setTimeout(newDeafult, 1000);
-          setSchedule = 0 + "outer";
-        localStorage.setItem(path + "hasCodeRunBefore", true);
+        localStorage.setItem(path + "hasCodeRunBefore2", true);
     } else {
      readCustomize();
      readFont();
-     setSchedule = localStorage.getItem('setSchedule');
     }
         changeSelected(setSchedule);
 

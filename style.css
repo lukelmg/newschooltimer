@@ -1,3 +1,11 @@
+#shareDiv {
+  position:absolute;
+  bottom:1%;
+}
+
+
+
+
 .radioButton {
   width: 35px;
   height: 35px;
@@ -28,7 +36,7 @@
 }
 
 .actualAbbreviationLetter {
-  margin-bottom: 10px;
+  margin-bottom: 5px;
   vertical-align: middle;
   margin-right: 10px;
 }
@@ -40,11 +48,13 @@
   padding: 7px;
   width: 200px;
   text-align:center;
-  right: 8.5%;
+  right: 15%;
+  margin-right: 120px;
   margin-top: 5px;
   position: absolute;
   z-index: 1;
   font-size: 20px;
+  border-radius: 5px;
 }
 
 
@@ -162,12 +172,16 @@ body {
   margin-top: 0px;
 }
 
+#settingsLabel {
+  margin-top:0px;
+}
+
 #selectorDiv {
   margin-top:0;
   font-size: 3.5vh;
   border:none;
   outline:none;
-  margin-bottom: 100px;
+  margin-bottom: 20px;
 }
 
 #selectorDiv:hover, #selectorDiv:active, #selectorDiv:focus, div, input, span {
@@ -176,11 +190,11 @@ body {
 
 #sidebar {
   display:none;
-  height: 110vh;
+  height: 100vh;
   background-color: white;
-  position: relative:absolute;
+  position: relative;
   float:right;
-  padding: 25px 25px 25px 25px;
+  padding: 0px 25px 0px 25px;
   color:black;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
