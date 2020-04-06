@@ -96,6 +96,16 @@ input[type=number]::-webkit-outer-spin-button {
 #timerCode {
   font-family: 'Fira Sans Extra Condensed', sans-serif;
   margin-bottom: 5vh;
+  text-align:center;
+  background-color:transparent;
+  border: 1px solid white;
+  color:white;
+  font-size: 30px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 70%;
+  position:absolute;
+  right:13%;
 }
 
 #shareCode {
@@ -304,4 +314,62 @@ transition: opacity 1s;
     color:black;
     width: 0px;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Raleway", sans-serif
+}
+
+body,
+html {
+  height: 100%;
+}
+
+.bgimg-1 {
+  background-position: center;
+  background-size: cover;
+  /*  background-image: url("https://cdn.glitch.com/95f0262b-6da4-4919-bd09-69e155211bb2%2Fother%20view%20scdhooltimer.png?v=1579892139121"); */
+  min-height: 100%;
+}
+
+.w3-bar .w3-button {
+  padding: 16px;
+  opacity: 1;
+}
+
+#test {
+  float: right;
+}
+
+.w3-jumbo {
+  color: white;
+}
+
+#codeInput {
+  cursor: text;
+}
+
+input:focus {
+  outline: none;
+}
+
+#timerBody {
+  display: none;
 }

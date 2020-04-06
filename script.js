@@ -108,7 +108,7 @@ function startTimer() {
 function setupSidebarCode () {
   var code = window.location.pathname;
   code = code.substr(1);
-  document.getElementById("timerCode").innerHTML = code.toUpperCase();
+  document.getElementById("timerCode").value = code.toUpperCase();
   document.getElementById("myInput").value = "https://www.lukegutman.com/" + code.toUpperCase();
 }
 
