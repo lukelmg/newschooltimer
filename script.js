@@ -5,6 +5,32 @@ if(/(android|bb\d+|meego).+mobile|avantgo|bada\/|blackberry|blazer|compal|elaine
     isMobile = true;
 }
 
+function setHomeFalse () {
+  onHome = false;
+}
+
+
+ $(document).on('keypress', function(e) {
+    if (e.which == 13) {
+
+      var currentPath = window.location.pathname;
+
+      if (cantFind == true) {
+        //alert("cantfind")
+        var current2 = document.getElementById("backupCode").value;
+        window.location.replace("https://www.lukegutman.com/" + current2);
+      } else if (currentPath != "/") {
+        //alert("currentpath")
+        var pathname = document.getElementById("timerCode").value;
+        window.location.replace('https://www.lukegutman.com/' + pathname);
+      } else {
+        //alert("home")
+        var current = document.getElementById("codeInput").value;
+        window.location.replace("https://www.lukegutman.com/" + current);
+      }
+    }
+  });
+
   function openCustomize() {
     document.getElementById("customizeModal").style.display = "block";
   }

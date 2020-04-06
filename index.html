@@ -50,7 +50,7 @@
         <button class="sidebarButtons" id="customizeButton" onclick="openCustomize();">Customize</button>
 
         <h2 id="timerCodeLabel">Timer Code</h2>
-        <input id="timerCode" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="15"></input>
+        <input id="timerCode" style="text-transform:uppercase" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" maxlength="15"></input>
         <div id="shareDiv">
           <h3 id="shareCode">Share This Timer </h3>
 
@@ -234,23 +234,6 @@
       <p><a href="/create" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Create a Custom Timer</a></p>
       <p><a href="/find" class="w3-button w3-white w3-padding-large w3-large w3-margin-top">Find your School's Timer</a></p>
       <p><input oninput="checkForCode2();" id="codeInput" maxlength="15" type="text" placeholder="Have a code?" class="w3-button w3-white w3-padding-large w3-large w3-margin-top"></input></p>
-
-      <script>
-        $(document).on('keypress', function(e) {
-          if (e.which == 13) {
-            var pathname = document.getElementById("timerCode").value;
-            window.location.replace('https://www.lukegutman.com/' + pathname);
-             // need to easily switch between these 2 ^^^^
-            var current = document.getElementById("codeInput").value;
-            var current2 = document.getElementById("backupCode").value;
-            if (current.length > current2.length) {
-              window.location.replace("https://www.lukegutman.com/" + current);
-            } else {
-              window.location.replace("https://www.lukegutman.com/" + current2);
-            }
-          }
-        });
-      </script>
     </div>
   </header>
 
