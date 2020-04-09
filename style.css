@@ -1,6 +1,8 @@
 #shareDiv {
   position:absolute;
   bottom:1%;
+  text-align:center;
+  right: 5%;
 }
 
 
@@ -185,6 +187,7 @@ body {
 
 #settingsLabel {
   margin-top:0px;
+  margin-bottom:0px;
 }
 
 #selectorDiv {
@@ -192,7 +195,7 @@ body {
   font-size: 3.5vh;
   border:none;
   outline:none;
-  margin-bottom: 20px;
+  margin-bottom: 0;
 }
 
 #selectorDiv:hover, #selectorDiv:active, #selectorDiv:focus, div, input, span {
@@ -208,6 +211,7 @@ body {
   padding: 0px 25px 0px 25px;
   color:black;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+  width: 13vw;
 }
 
 .radioButtonClass {

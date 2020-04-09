@@ -18,15 +18,15 @@ function setHomeFalse () {
       if (cantFind == true) {
         //alert("cantfind")
         var current2 = document.getElementById("backupCode").value;
-        window.location.replace("https://www.lukegutman.com/" + current2);
+        window.location.href("https://www.lukegutman.com/" + current2);
       } else if (currentPath != "/") {
         //alert("currentpath")
         var pathname = document.getElementById("timerCode").value;
-        window.location.replace('https://www.lukegutman.com/' + pathname);
+        window.location.href('https://www.lukegutman.com/' + pathname);
       } else {
         //alert("home")
         var current = document.getElementById("codeInput").value;
-        window.location.replace("https://www.lukegutman.com/" + current);
+        window.location.href("https://www.lukegutman.com/" + current);
       }
     }
   });
@@ -128,6 +128,7 @@ function startTimer() {
     if (isMobile == true) {
       removeSidebar();
     }
+    readCustomize();
   }, 750);
 }
 

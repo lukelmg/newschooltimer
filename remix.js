@@ -134,7 +134,7 @@ function goToRemix() {
         document.getElementById("phpformstuff").submit();
         setTimeout(function() {
           var res = document.getElementById("shortURL").value;
-            location.replace("https://www.lukegutman.com/" + res);
+            window.location.href("https://www.lukegutman.com/" + res);
         }, 200);
   }, 200);
 }

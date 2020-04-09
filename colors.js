@@ -59,7 +59,7 @@ case 2:
   backgroundColor = "black";
   sidebar = "black";
   sidebarText = "#242424";
-  sidebarButtons = "#F0F0F0";
+  sidebarButtons = "black";
   break;
 case 3:
   preset = "hacker";
@@ -127,6 +127,9 @@ function setColors () {
   for (var p = 0; p < buttons.length; p++) {
     buttons[p].style.backgroundColor = sidebarButtons;
   }
+
+  document.getElementById("timerCode").style.color = sidebarText;
+  document.getElementById("timerCode").style.borderColor = sidebarText;
 }
 
 
