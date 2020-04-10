@@ -1,4 +1,8 @@
 var schoolName, numberOfSchedules, schoolColor;
+var remNumberOfSchedules;
+var remPeriodsPerSchedule = [1,1,1,1,1,1,1,1];
+var remPeriodNames = [];
+
 
 function setSchedules() {
   numberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
@@ -43,14 +47,15 @@ function setSchedules() {
     inp.className = "remixNumberOfPeriodsInput";
     inp.id = i + "numberOfPeriodsPerThisSchedule";
     inp.oninput = function () {
-      setPeriods(this.id);
+      setAllPeriods();
     }
     inp.onkeydown = function () {
       return false;
     }
     inp.max = 15;
     inp.min = 1;
-    
+    inp.value = remPeriodsPerSchedule[i];
+
     var text = document.createTextNode("Number Of Periods: ");
     var inplabel = document.createElement("H5");
     inplabel.className = "otherboring";
@@ -69,47 +74,39 @@ function setSchedules() {
 
     container.appendChild(otherContainer);
   }
-  readToRemember();
+  setAllPeriods();
 }
 
-function setPeriods(id) {
-  var currentNumberOfPeriods = document.getElementById(id).value;
-  var currentSchedule = id.charAt(0);
 
-  var periodTimeContainer = document.getElementById(currentSchedule + "periodTimeContainer");
-  var otherContainer = document.getElementById(currentSchedule + "otherContainer")
+function setAllPeriods () {
+  var numberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
+  for (var i = 0; i < numberOfSchedules; i++) {
 
-  while (periodTimeContainer.hasChildNodes()) {
-    periodTimeContainer.removeChild(periodTimeContainer.lastChild);
-  }
-
-  for (var p = 0; p < currentNumberOfPeriods; p++) {
-    var perinp = document.createElement("input");
-    var timeinp = document.createElement("input");
-
-    perinp.maxLength = 30;
-    perinp.className = "remixPeriodNameInput"
-
-    periodTimeContainer.appendChild(perinp);
-    timeinp.type = "time";
-
-    timeinp.className = "periodTimingRemix";
-    periodTimeContainer.appendChild(timeinp);
-
-    var myBreak = document.createElement("BR");
-    periodTimeContainer.appendChild(myBreak);
-  }
-  otherContainer.appendChild(periodTimeContainer);
-  readToRemember();
-}
-
-var remNumberOfSchedules;
-var remPeriodsPerSchedule = [1,1,1,1,1,1,1,1];
-
-function readToRemember () {
-  remNumberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
-  for (var i = 0; i < remNumberOfSchedules; i++) {
     remPeriodsPerSchedule[i] = document.getElementById(i + "numberOfPeriodsPerThisSchedule").value;
+
+    var periodTimeContainer = document.getElementById(i + "periodTimeContainer");
+    var otherContainer = document.getElementById(i + "otherContainer");
+
+    while (periodTimeContainer.hasChildNodes()) {
+      periodTimeContainer.removeChild(periodTimeContainer.lastChild);
+    }
+
+    for (var p = 0; p < remPeriodsPerSchedule[i]; p++) {
+      var perinp = document.createElement("input");
+      var timeinp = document.createElement("input");
+
+      perinp.maxLength = 30;
+      perinp.className = "remixPeriodNameInput"
+
+      periodTimeContainer.appendChild(perinp);
+      timeinp.type = "time";
+
+      timeinp.className = "periodTimingRemix";
+      periodTimeContainer.appendChild(timeinp);
+
+      var myBreak = document.createElement("BR");
+      periodTimeContainer.appendChild(myBreak);
+    }
+    otherContainer.appendChild(periodTimeContainer);
   }
-//  alert(remPeriodsPerSchedule);
 }
