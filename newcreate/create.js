@@ -101,6 +101,22 @@ function setAllPeriods () {
       perinp.className = "remixPeriodNameInput";
       perinp.id = i + " " + p + "name";
 
+      perinp.oninput = function () {
+        rememberPeriodInput();
+      }
+
+      if (remPeriodNames != "") {
+        var current = remPeriodNames[i].substr(1);
+        console.log(current);
+        var myNew = current.slice(0, -1);
+        var final = myNew.split(',');
+        if (final[p] != undefined) {
+          perinp.value = final[p]
+        } else {
+          perinp.value = "";
+        }
+      }
+
       periodTimeContainer.appendChild(perinp);
       timeinp.type = "time";
       timeinp.id = i + " " + p + "theTimes";
