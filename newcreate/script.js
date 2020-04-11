@@ -232,3 +232,6 @@ function rememberPeriodInput () {
     currentTimeArray = [];
   }
 }
+
+
+//copy pase buttons between schedules

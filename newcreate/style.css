@@ -148,6 +148,7 @@ input:focus {
   margin-bottom:0;
   display:inline-block;
   margin-right: 7px;
+  margin-top: 5px;
 }
 
 .remixNumberOfPeriodsInput {
@@ -172,7 +173,7 @@ input:focus {
 .boringSchedule2 {
   display:inline-block;
   margin:0;
-  margin-top: 20px;
+  margin-top: 10px;
   margin-left: 0px;
   margin-right:40px;
   color:gray;
@@ -182,8 +183,28 @@ input:focus {
 .boringSchedule3 {
   display:inline-block;
   margin:0;
-  margin-top: 20px;
-  margin-left: 55px;
+  margin-top: 10px;
+  margin-left: 85px;
   color:gray;
   font-weight:100;
+}
+
+
+.remixPeriodNameInput {
+  width: 200px;
+}
+
+.remixPeriodNameInput, .periodTimingRemix {
+  height: 25px;
+  border:0.5px solid gray;
+  margin-bottom: -1px;
+  font-size: 12px;
+}
+.periodTimingRemix {
+  border:1px solid gray;
+  border-left:none;
+}
+
+input {
+  padding-left:5px;
 }
