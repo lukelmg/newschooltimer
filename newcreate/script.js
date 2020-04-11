@@ -11,6 +11,43 @@ var currentTimeArray = [];
 var remScheduleNames = [];
 var remScheduleAbbs = [];
 
+var copyNames = [];
+var copyTimes = [];
+
+
+function myCopy(id) {
+  var currentSchedule = id.charAt(0);
+  var currentNumberOfPeriods = document.getElementById(currentSchedule + "numberOfPeriodsPerThisSchedule").value;
+  for (var p = 0; p < currentNumberOfPeriods; p++) {
+    copyNames[p] = document.getElementById(currentSchedule + " " + p + "name").value;
+  }
+  var copyButtons = document.getElementsByClassName("copyButtons");
+  var pasteButtons = document.getElementsByClassName("pasteButtons");
+  for (var i = 0; i < copyButtons.length; i++) {
+      copyButtons[i].style.display="none";
+      pasteButtons[i].style.display="block";
+  }
+    document.getElementById(currentSchedule + "paste").style.display = "none";
+}
+
+
+function myPaste(id) {
+  var currentSchedule = id.charAt(0);
+  var currentNumberOfPeriods = document.getElementById(currentSchedule + "numberOfPeriodsPerThisSchedule").value;
+  for (var i = 0; i < currentNumberOfPeriods; i++) {
+    if (copyNames[i] != undefined) {
+    document.getElementById(currentSchedule + " " + i + "name").value = copyNames[i];
+    }
+  }
+  var copyButtons = document.getElementsByClassName("copyButtons");
+  var pasteButtons = document.getElementsByClassName("pasteButtons");
+  for (var q = 0; q < copyButtons.length; q++) {
+      copyButtons[q].style.display="block";
+      pasteButtons[q].style.display="none";
+  }
+  rememberPeriodInput();
+}
+
 
 function setSchedules() {
   numberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
@@ -26,6 +63,22 @@ function setSchedules() {
     var otherContainer = document.createElement("div");
     otherContainer.className = "remixElement";
     otherContainer.id = i + "otherContainer";
+
+    var copy = document.createElement("button");
+    copy.innerHTML = "Copy Schedule";
+    copy.id = i + "copy";
+    copy.className = "copyButtons";
+    copy.onclick = function () {
+      myCopy(this.id);
+    }
+
+    var paste = document.createElement("button");
+    paste.innerHTML = "Paste Schedule";
+    paste.id = i + "paste";
+    paste.className = "pasteButtons";
+    paste.onclick = function () {
+      myPaste(this.id);
+    }
 
     var abb = document.createElement("input");
     abb.id = i + "remixAbb";
@@ -86,6 +139,9 @@ function setSchedules() {
 
     otherContainer.appendChild(thisinp);
     otherContainer.appendChild(h);
+
+    otherContainer.appendChild(paste);
+    otherContainer.appendChild(copy);
 
     var myBreak = document.createElement("br");
     otherContainer.appendChild(myBreak);
