@@ -1,9 +1,15 @@
 var schoolName, numberOfSchedules, schoolColor;
 var remNumberOfSchedules;
 var remPeriodsPerSchedule = [1,1,1,1,1,1,1,1];
+
 var remPeriodNames = [];
+var remPeriodTimes = [];
+
 var currentArray = [];
-var otherCurrentArray = [];
+var currentTimeArray = [];
+
+var remScheduleNames = [];
+var remScheduleAbbs = [];
 
 
 function setSchedules() {
@@ -27,11 +33,27 @@ function setSchedules() {
     abb.className = "scheduleAbbreviationInput";
     abb.maxLength = 5;
 
+    abb.oninput = function () {
+      rememberPeriodInput();
+    }
+
+    if (remScheduleAbbs[i] != undefined) {
+      abb.value = remScheduleAbbs[i];
+    }
+
     var thisinp = document.createElement("input");
     thisinp.className = "actualScheduleName";
     thisinp.id = i + "scheduleName";
     thisinp.maxLength = 50;
     thisinp.placeholder = "Schedule Name";
+
+    thisinp.oninput = function () {
+      rememberPeriodInput();
+    }
+
+    if (remScheduleNames[i] != undefined) {
+      thisinp.value = remScheduleNames[i];
+    }
 
     var h = document.createElement("H5");
     var t = document.createTextNode("");
@@ -77,6 +99,7 @@ function setSchedules() {
     container.appendChild(otherContainer);
   }
   setAllPeriods();
+  rememberPeriodInput();
 }
 
 
@@ -105,7 +128,8 @@ function setAllPeriods () {
         rememberPeriodInput();
       }
 
-      if (remPeriodNames != "") {
+
+      if (remPeriodNames[i] != undefined) {
         var current = remPeriodNames[i].substr(1);
         console.log(current);
         var myNew = current.slice(0, -1);
@@ -120,6 +144,22 @@ function setAllPeriods () {
       periodTimeContainer.appendChild(perinp);
       timeinp.type = "time";
       timeinp.id = i + " " + p + "theTimes";
+
+      timeinp.oninput = function () {
+        rememberPeriodInput();
+      }
+
+      if (remPeriodTimes[i] != undefined) {
+        var current2 = remPeriodTimes[i].substr(1);
+        console.log(current2);
+        var myNew2 = current2.slice(0, -1);
+        var final2 = myNew2.split(',');
+        if (final2[p] != undefined) {
+          timeinp.value = final2[p]
+        } else {
+          timeinp.value = "";
+        }
+      }
 
       timeinp.className = "periodTimingRemix";
       periodTimeContainer.appendChild(timeinp);
@@ -136,11 +176,19 @@ function rememberPeriodInput () {
   var numberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
   for (var i = 0; i < numberOfSchedules; i++) {
     remPeriodsPerSchedule[i] = document.getElementById(i + "numberOfPeriodsPerThisSchedule").value;
+    remScheduleNames[i] = document.getElementById(i + "scheduleName").value;
+    remScheduleAbbs[i] = document.getElementById(i + "remixAbb").value;
     for (var p = 0; p < remPeriodsPerSchedule[i]; p++) {
       var currentName = document.getElementById(i + " " + p + "name").value;
       currentArray[p] = currentName;
+
+      var currentTime = document.getElementById(i + " " + p + "theTimes").value;
+      currentTimeArray[p] = currentTime;
     }
     remPeriodNames[i] = "{" + currentArray + "}";
     currentArray = [];
+
+    remPeriodTimes[i] = "{" + currentTimeArray + "}";
+    currentTimeArray = [];
   }
 }
