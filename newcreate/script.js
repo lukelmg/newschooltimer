@@ -144,8 +144,16 @@ function setAllPeriods () {
       periodTimeContainer.appendChild(perinp);
       timeinp.type = "time";
       timeinp.id = i + " " + p + "theTimes";
+      timeinp.className = "timeInput";
 
       timeinp.oninput = function () {
+        alert("hello");
+        rememberPeriodInput();
+      }
+      timeinp.onkeydown = function () {
+        rememberPeriodInput();
+      }
+      timeinp.onclick = function () {
         rememberPeriodInput();
       }
 

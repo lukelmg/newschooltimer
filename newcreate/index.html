@@ -4,15 +4,18 @@
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300&display=swap" rel="stylesheet">
 
   </head>
-<h5 id="remixDef"></h5>
+<h5 class="pageHeader">Create a Custom Timer</h5>
 <div id="leftSide">
 <div class="remixElement">
   <h3 class="remixHeader">Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text" maxlength="40"></input>
 </div>
 <div class="remixElement">
-  <h3 class="remixHeader"> Location of School </h3>
+  <h3 class="remixHeader" id="location"> Location of School </h3>
+   <p class="explain">Why do we need this? <span class="tooltiptext">We use the location of your school to help other students find the timer you create.</span></p> <br>
   <select name="country" class="countries order-alpha limit-pop-1000000 presel-byip " id="countryId">
     <option value="">Select Country</option>
   </select> <br> <br>
@@ -29,10 +32,10 @@
 </div>
 
 <div class="remixElement">
-  <h3 class="remixHeader">Number Of Schedules</h3><input onkeydown="return false" min="1" max="8" class="remixInput" id="remixSchoolScheduleNumbers" oninput="setSchedules();" type="number"></input>
+  <h3 class="remixHeader" id="number">Number Of Schedules</h3>
+  <p class="explain other">Most schools have different schedules for each day of the week, early dismissals, or even two hour delays. </p> <br>
+  <input onkeydown="return false" min="1" max="8" class="remixNumberInput" id="remixSchoolScheduleNumbers" oninput="setSchedules();" type="number" value="1"></input>
 </div>
-
-<button onclick="rememberPeriodInput()">test</button>
 
 <form method="post" onsubmit="return submitUserForm();">
   <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>

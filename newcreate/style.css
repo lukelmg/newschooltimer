@@ -1,3 +1,14 @@
+.pageHeader {
+  font-family: 'Raleway', sans-serif;
+  font-size: 7vh;
+  font-weight:100;
+  margin-left: 1vw;
+}
+
+.remixHeader {
+  margin-top:0;
+}
+
 .remixElement {
   font-family: 'Fira Sans Extra Condensed', sans-serif;
   background-color:white;
@@ -10,13 +21,13 @@
 
 #leftSide {
   width: 45%;
-  height:90vh;
+  height:85vh;
   position:absolute;
   float:left;
   background-color: #f2f2f2;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 
-  top: 5%;
+  top: 10%;
   margin-left:1vw;
 
   z-index:5;
@@ -48,4 +59,68 @@
     height: 40px;
     border-radius: 5px;
     box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+}
+
+.g-recaptcha {
+  margin-left: 1vw;
+}
+
+ input[type=time]::-webkit-datetime-edit-ampm-field {
+   display: none;
+ }
+
+ #location, #number {
+   margin-bottom:5px;
+ }
+
+ .remixNumberInput {
+   height: 5vh;
+   width: 7vh;
+   font-size: 3vh;
+   cursor:pointer;
+ }
+
+input:focus {
+  outline:none;
+}
+
+
+.explain {
+  color:blue;
+  font-size: 20px;
+  font-family: 'BenchNine', sans-serif;
+  text-decoration:underline;
+  cursor:pointer;
+  position: relative;
+  display: inline-block;
+  margin-top:0;
+}
+
+.other {
+  color:gray;
+  cursor:text;
+  text-decoration:none;
+}
+
+ .tooltiptext {
+  visibility: hidden;
+  background-color: #0C0F1B;
+  color: #fff;
+  text-align: center;
+  border-radius: 3px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  top: -5px;
+  left: 170%;
+  margin-left: -60px;
+
+  /* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+  opacity: 0;
+  transition: ease-in-out 0.5s;
+}
+
+.explain:hover .tooltiptext {
+  visibility: visible;
+  opacity: 1;
 }
