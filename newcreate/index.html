@@ -1,0 +1,60 @@
+<html>
+
+<head>
+
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
+
+  </head>
+<h5 id="remixDef"></h5>
+<div id="leftSide">
+<div class="remixElement">
+  <h3 class="remixHeader">Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text" maxlength="40"></input>
+</div>
+<div class="remixElement">
+  <h3 class="remixHeader"> Location of School </h3>
+  <select name="country" class="countries order-alpha limit-pop-1000000 presel-byip " id="countryId">
+    <option value="">Select Country</option>
+  </select> <br> <br>
+  <select name="state" class="states order-alpha" id="stateId">
+    <option value="">Select State</option>
+  </select> <br> <br>
+  <select name="city" class="cities order-alpha" id="cityId">
+    <option value="">Select City</option>
+  </select>
+  <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+</div>
+<div class="remixElement">
+  <h3 class="remixHeader">School Color</h3><input type="color" id="schoolColorInput">
+</div>
+
+<div class="remixElement">
+  <h3 class="remixHeader">Number Of Schedules</h3><input onkeydown="return false" min="1" max="8" class="remixInput" id="remixSchoolScheduleNumbers" oninput="setSchedules();" type="number"></input>
+</div>
+
+<button onclick="rememberPeriodInput()">test</button>
+
+<form method="post" onsubmit="return submitUserForm();">
+  <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
+  <div id="g-recaptcha-error"></div>
+</form>
+<script src='https://www.google.com/recaptcha/api.js'></script>
+<script>
+  function submitUserForm() {
+    var response = grecaptcha.getResponse();
+    if (response.length == 0) {
+      document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+      return false;
+    }
+    return true;
+  }
+</script>
+<button onclick=readRemix(); id="createButton">Create Timer!</button>
+
+
+</div>
+
+<div id="remixScheduleContainer"></div>
+</html>
+
+<script src="script.js"></script>
