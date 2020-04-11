@@ -56,14 +56,13 @@ function setSchedules() {
     }
 
     var h = document.createElement("H5");
-    var t = document.createTextNode("");
+    var t = document.createTextNode("Examples: Normal, Early Dismissal, Homeroom, 2 Hour Delay");
     h.className = "boringSchedule";
     h.appendChild(t);
 
     var thisspan = document.createElement("div");
     thisspan.className = "divtest";
     thisspan.appendChild(thisinp);
-    thisspan.appendChild(h);
     thisspan.appendChild(abb);
 
     var inp = document.createElement("input");
@@ -86,10 +85,42 @@ function setSchedules() {
     inplabel.appendChild(text);
 
     otherContainer.appendChild(thisinp);
+    otherContainer.appendChild(h);
+
+    var myBreak = document.createElement("br");
+    otherContainer.appendChild(myBreak);
+
+
     otherContainer.appendChild(abb);
+
+    var q = document.createElement("H5");
+    var o = document.createTextNode("Examples: A, B, 1, 2, HR, Mon, Tues, Wed");
+    q.className = "boringSchedule";
+    q.appendChild(o);
+
+    otherContainer.appendChild(q);
+
+
     otherContainer.appendChild(thisspan);
+
+    var text2 = document.createTextNode("Name Of Period");
+    var inplabel2 = document.createElement("H5");
+    inplabel2.className = "boringSchedule2";
+    inplabel2.appendChild(text2);
+
+    var text3 = document.createTextNode("Time Period Ends");
+    var inplabel3 = document.createElement("H5");
+    inplabel3.className = "boringSchedule3";
+    inplabel3.appendChild(text3);
+
     otherContainer.appendChild(inplabel);
     otherContainer.appendChild(inp);
+
+    var myBreak2 = document.createElement("br");
+    otherContainer.appendChild(myBreak2);
+
+    otherContainer.appendChild(inplabel2);
+    otherContainer.appendChild(inplabel3);
 
     var periodTimeContainer = document.createElement("div");
     periodTimeContainer.id = i + "periodTimeContainer";
@@ -123,6 +154,7 @@ function setAllPeriods () {
       perinp.maxLength = 30;
       perinp.className = "remixPeriodNameInput";
       perinp.id = i + " " + p + "name";
+      perinp.placeholder = "Period Name";
 
       perinp.oninput = function () {
         rememberPeriodInput();

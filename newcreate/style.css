@@ -124,3 +124,66 @@ input:focus {
   visibility: visible;
   opacity: 1;
 }
+
+#remixSchoolName {
+  width: 50%;
+}
+
+#schoolColorInput {
+  background-color:white;
+  cursor:pointer;
+  width: 10%;
+  height: 30px;
+}
+
+
+.actualScheduleName, .scheduleAbbreviationInput {
+  height: 30px;
+  font-size: 15px;
+  margin-bottom:10px;
+}
+
+.otherboring {
+  font-size: 17px;
+  margin-bottom:0;
+  display:inline-block;
+  margin-right: 7px;
+}
+
+.remixNumberOfPeriodsInput {
+  height: 3vh;
+  width: 5vh;
+  font-size: 2vh;
+  cursor:pointer;
+  vertical-align:middle;
+  border:1px solid gray;
+  padding-left:2px;
+  text-align:center;
+}
+
+.boringSchedule {
+  display:inline-block;
+  margin:0;
+  margin-left: 10px;
+  color:gray;
+  font-weight:100;
+}
+
+.boringSchedule2 {
+  display:inline-block;
+  margin:0;
+  margin-top: 20px;
+  margin-left: 0px;
+  margin-right:40px;
+  color:gray;
+  font-weight:100;
+}
+
+.boringSchedule3 {
+  display:inline-block;
+  margin:0;
+  margin-top: 20px;
+  margin-left: 55px;
+  color:gray;
+  font-weight:100;
+}

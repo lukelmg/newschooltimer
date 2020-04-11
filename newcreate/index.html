@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300&display=swap" rel="stylesheet">
 
   </head>
+  <body onload="setSchedules()">
 <h5 class="pageHeader">Create a Custom Timer</h5>
 <div id="leftSide">
 <div class="remixElement">
@@ -33,7 +34,7 @@
 
 <div class="remixElement">
   <h3 class="remixHeader" id="number">Number Of Schedules</h3>
-  <p class="explain other">Most schools have different schedules for each day of the week, early dismissals, or even two hour delays. </p> <br>
+  <p class="explain other">How many schedules does your school have? <br> Most schools have different schedules for each day of the week, early dismissals, or even two hour delays. </p> <br>
   <input onkeydown="return false" min="1" max="8" class="remixNumberInput" id="remixSchoolScheduleNumbers" oninput="setSchedules();" type="number" value="1"></input>
 </div>
 
@@ -58,6 +59,7 @@
 </div>
 
 <div id="remixScheduleContainer"></div>
+</body>
 </html>
 
 <script src="script.js"></script>
