@@ -224,6 +224,9 @@ input {
 
 .pasteButtons {
   display:none;
+  font-weight:bold;
+  background-color:#F2F2F2;
+  color:black;
 }
 
 button:focus {

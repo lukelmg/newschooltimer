@@ -14,12 +14,12 @@ var remScheduleAbbs = [];
 var copyNames = [];
 var copyTimes = [];
 
-
 function myCopy(id) {
   var currentSchedule = id.charAt(0);
   var currentNumberOfPeriods = document.getElementById(currentSchedule + "numberOfPeriodsPerThisSchedule").value;
   for (var p = 0; p < currentNumberOfPeriods; p++) {
     copyNames[p] = document.getElementById(currentSchedule + " " + p + "name").value;
+    copyTimes[p] = document.getElementById(currentSchedule + " " + p + "theTimes").value;
   }
   var copyButtons = document.getElementsByClassName("copyButtons");
   var pasteButtons = document.getElementsByClassName("pasteButtons");
@@ -27,16 +27,21 @@ function myCopy(id) {
       copyButtons[i].style.display="none";
       pasteButtons[i].style.display="block";
   }
-    document.getElementById(currentSchedule + "paste").style.display = "none";
+    document.getElementById(currentSchedule + "paste").innerHTML = "Cancel"
 }
 
 
 function myPaste(id) {
-  var currentSchedule = id.charAt(0);
-  var currentNumberOfPeriods = document.getElementById(currentSchedule + "numberOfPeriodsPerThisSchedule").value;
-  for (var i = 0; i < currentNumberOfPeriods; i++) {
-    if (copyNames[i] != undefined) {
-    document.getElementById(currentSchedule + " " + i + "name").value = copyNames[i];
+  var cancelOrPaste = document.getElementById(id).innerHTML;
+  if (cancelOrPaste == "Paste Schedule") {
+
+    var currentSchedule = id.charAt(0);
+    var currentNumberOfPeriods = document.getElementById(currentSchedule + "numberOfPeriodsPerThisSchedule").value;
+    for (var i = 0; i < currentNumberOfPeriods; i++) {
+      if (copyNames[i] != undefined && copyTimes[i] != undefined) {
+        document.getElementById(currentSchedule + " " + i + "name").value = copyNames[i];
+        document.getElementById(currentSchedule + " " + i + "theTimes").value = copyTimes[i];
+      }
     }
   }
   var copyButtons = document.getElementsByClassName("copyButtons");
@@ -44,6 +49,7 @@ function myPaste(id) {
   for (var q = 0; q < copyButtons.length; q++) {
       copyButtons[q].style.display="block";
       pasteButtons[q].style.display="none";
+      pasteButtons[q].innerHTML="Paste Schedule";
   }
   rememberPeriodInput();
 }
