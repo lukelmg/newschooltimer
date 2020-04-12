@@ -239,9 +239,10 @@ function setAllPeriods () {
       timeinp.type = "time";
       timeinp.id = i + " " + p + "theTimes";
       timeinp.className = "timeInput";
+      timeinp.min = "00:00";
+      timeinp.max = "12:00";
 
       timeinp.oninput = function () {
-        alert("hello");
         rememberPeriodInput();
       }
       timeinp.onkeydown = function () {
@@ -275,6 +276,7 @@ function setAllPeriods () {
 
 
 function rememberPeriodInput () {
+
   var numberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
   for (var i = 0; i < numberOfSchedules; i++) {
     remPeriodsPerSchedule[i] = document.getElementById(i + "numberOfPeriodsPerThisSchedule").value;
@@ -296,4 +298,163 @@ function rememberPeriodInput () {
 }
 
 
-//copy pase buttons between schedules
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+var verified = 'no';
+var completed = 'no';
+
+function verifyCaptcha() {
+  document.getElementById('g-recaptcha-error').innerHTML = '';
+  verified = 'yes';
+}
+
+var schoolCountry;
+var schoolState;
+var schoolCity;
+var schoolName;
+
+function readRemix() { // happens on captcha press
+
+  schoolName = document.getElementById("remixSchoolName").value;
+  schoolCountry = document.getElementById("countryId").value;
+  schoolState = document.getElementById("stateId").value;
+  schoolCity = document.getElementById("cityId").value;
+
+
+  if (verified == 'yes') {
+    var numberOfSchedules = document.getElementById("remixSchoolScheduleNumbers").value;
+
+    var periodsPerSchedule = [];
+    var arrayTestNew = [];
+    var arrayTimingTestNew = [];
+
+    var periodNameURL = [];
+    var scheduleTimes = [];
+
+    var scheduleNames = [];
+    var scheduleAbbs = [];
+
+    for (var p = 0; p < numberOfSchedules; p++) {
+      periodsPerSchedule[p] = document.getElementById(p + "numberOfPeriodsPerThisSchedule").value;
+      scheduleNames[p] = document.getElementById(p + "scheduleName").value;
+      scheduleAbbs[p] = document.getElementById(p + "remixAbb").value;
+    }
+    for (var i = 0; i < numberOfSchedules; i++) {
+      for (var e = 0; e < periodsPerSchedule[i]; e++) {
+        arrayTestNew[e] = document.getElementById(i + " " + e + "name").value;
+        arrayTimingTestNew[e] = document.getElementById(i + " " + e + "theTimes").value;
+      }
+      periodNameURL[i] = arrayTestNew;
+      scheduleTimes[i] = arrayTimingTestNew;
+      arrayTestNew = [];
+      arrayTimingTestNew = [];
+    }
+
+     schoolName = document.getElementById("remixSchoolName").value;
+     schoolCountry = document.getElementById("countryId").value;
+     schoolState = document.getElementById("stateId").value;
+     schoolCity = document.getElementById("cityId").value;
+    var schoolColor = document.getElementById("schoolColorInput").value;
+
+    var theURL = "?nums=" + numberOfSchedules + "&names=" + periodNameURL +  "&schedNames=" + scheduleNames + "&abbs=" + scheduleAbbs + "&pers=" + periodsPerSchedule + "&school=" + schoolName + "&color=" + schoolColor + "&newvariable=" + scheduleTimes;
+    theURL = theURL + "&schoolCountry=" + schoolCountry + "&schoolState=" + schoolState + "&schoolCity=" + schoolCity;
+
+    document.getElementById("longURL").value = theURL;
+
+    createShortURL();
+
+  } else {
+    alert('Please Check the "I am not a robot" box');
+  }
+
+
+}
+
+
+function goToRemix() {
+  setTimeout(function() {
+        document.getElementById("phpformstuff").submit();
+        setTimeout(function() {
+          var res = document.getElementById("shortURL").value;
+            window.location.href = "https://www.lukegutman.com/" + res;
+        }, 200);
+  }, 200);
+}
+
+
+// new timers make text black? ohhhhhh wait, it's default color on newcreate. need to change to red;
+
+
+
+
+
+function createShortURL () {
+
+  const list = "ABCDEFGHIJKLMNPQRSTUVWXYZ123456789";
+    var res = "";
+    for(var i = 0; i < 6; i++) {
+        var rnd = Math.floor(Math.random() * list.length);
+        res = res + list.charAt(rnd);
+        if (i == 2) {
+          res = res + "-";
+        }
+    }
+
+    var uniqueid = "";
+    for(var i = 0; i < 10; i++) {
+        var rnd = Math.floor(Math.random() * list.length);
+        uniqueid = uniqueid + list.charAt(rnd);
+    }
+
+    var uni = document.getElementById("uniqueid");
+    uni.value = uniqueid;
+
+    var d = new Date();
+    var date = document.getElementById("timeanddate");
+    date.value = d;
+
+    var input = document.getElementById("shortURL");
+    input.value = res;
+
+    var country = document.getElementById("country");
+    country.value = schoolCountry;
+
+    var state = document.getElementById("state");
+    state.value = schoolState;
+
+    var city = document.getElementById("city");
+    city.value = schoolCity;
+
+    var schoolInput = document.getElementById("schoolNameID");
+    schoolInput.value = schoolName;
+
+    goToRemix();
+}
+
+
+function gogo() {
+  var val = document.getElementById("backupCode").value;
+  window.location.href = ("https://www.lukegutman.com/" + val);
+}

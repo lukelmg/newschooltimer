@@ -96,9 +96,6 @@
   margin-top:25px;
 }
 
- input[type=time]::-webkit-datetime-edit-ampm-field {
-   display: none;
- }
 
  #location, #number {
    margin-bottom:5px;
@@ -262,4 +259,8 @@ input {
 
 button:focus {
   outline:none;
+}
+
+#customerLol {
+  display:none;
 }

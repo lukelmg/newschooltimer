@@ -63,6 +63,28 @@
   <button onclick=readRemix(); id="createButton">Create Timer!</button>
  </div>
 
+
+
+
+ <div id="customerLol">
+   <iframe width="0" height="0" border="0" style="display:none;" name="myFrame" id="myFrame"></iframe>
+   <form method="post" id="phpformstuff" action="create.php" target="myFrame">
+     <span class="closingLabel">Name of your School</span><br /><input id="schoolNameID" class="closingInput" name="schoolNameID" placeholder="Random Area High School"></input> <br>
+
+
+     <input type="text" class="hide" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
+     <input type="text" class="hide" name="shorturl" id="shortURL"></input>
+     <input id="uniqueid" class="hide" name="uniqueid"></input>
+     <input id="timeanddate" class="hide" name="timeanddate"></input>
+
+     <input id="country" class="hide" name="country"></input>
+     <input id="state" class="hide" name="state"></input>
+     <input id="city" class="hide" name="city"></input>
+ </div>
+</div>
+
+
+
 </body>
 </html>
 
