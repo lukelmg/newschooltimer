@@ -21,7 +21,7 @@
 
 #leftSide {
   width: 45%;
-  height:75vh;
+  height:77vh;
   position:absolute;
   float:left;
   background-color: #f2f2f2;
@@ -263,4 +263,11 @@ button:focus {
 
 #customerLol {
   display:none;
+}
+
+.countries, .states, .cities {
+  background-color:white;
+  border: 0.5px solid gray;
+  margin-bottom: 10px;
+  height: 30px;
 }
