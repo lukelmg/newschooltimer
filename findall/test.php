@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html>
+<head>
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css">
+	<script type="text/javascript" language="javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+	<script type="text/javascript" language="javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+  <script>
+    $(document).ready( function () {
+      $('#example').DataTable();
+    } );
+  </script>
+  </head>
 <body>
 
-<table name="boi">
-    <tr>
+<table id="example" class="display" style="width:100%;">
+  <thead>  <tr>
       <th>School</th>
       <th>Country</th>
       <th>State</th>
       <th>City</th>
       <th>Timer Code</th>
     </tr>
+  </thead>
 <?php
 $servername = "localhost";
 $username = "phpmyadmin";
@@ -35,7 +46,7 @@ if ($result->num_rows > 0) {
                   echo '<td>'. $row['country'] .'</td>';
                   echo '<td>'. $row['state'] .'</td>';
                   echo '<td>'. $row['city'] .'</td>';
-                  echo '<td>'. $row['shorturl'] .'</td>';
+                  echo '<td class="caps"><a href="https://www.lukegutman.com/' . $row['shorturl']. ' "> '. $row['shorturl'] .'</a></td>';
                 echo '</tr>';
     }
 } else {
@@ -49,3 +60,12 @@ $conn->close();
 
 </body>
 </html>
+
+<style>
+
+.caps {
+  text-transform:uppercase;
+}
+
+
+</style>
