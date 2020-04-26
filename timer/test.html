@@ -1,13 +1,457 @@
 <html>
-test
+  <body>
+     <div id="bigDiv">
+            <table id="timerContainer"></table>
+        </div>
+        <form id="selectorDiv"></form>
+  </body>
 </html>
 
-<script type="text/javascript">
-alert("hello");
-var p,j,temparray,chunk = 10;
-for (p=0,j=array.length; p<j; p+=chunk) {
-    temparray = array.slice(p,p+chunk);
-  alert(p);
+
+
+
+
+<script>
+
+  var phsCode = "?nums=4&schoolCountry=United States&schoolState=Pennsylvania&schoolCity=Allentown&names=Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9&schedNames=Normal,Homeroom,Early Dismissal,2 Hour Delay&abbs=A,B,C,D&pers=9,9,9,9&school=Parkland High School &color=#ff0000&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53";
+ analyze();
+
+
+var test = [];
+
+var numberOfSchedules, selectedColor, scheduleNames, realScheduleNames, scheduleAbbreviations, periodsPerSchedule, periodTimes, schoolName, schoolCountry, schoolState, schoolCity;
+
+var scheduleAbbreviationsArray = [];
+var periodScheduleArray = [];
+var nameArray = [];
+var timeArray = [];
+var realScheduleNamesArray = [];
+var scheduleSplit;
+
+
+function analyze() {
+
+    var newCode = new String(phsCode);
+
+    test = newCode.split("&");
+
+    numberOfSchedules = test[0].slice(-1);
+    schoolCountry = test[1].replace('schoolCountry=', '');
+    schoolState = test[2].replace('schoolState=', '');
+    schoolCity = test[3].replace('schoolCity=', '');
+    scheduleNames = test[4].replace('names=', '');
+    realScheduleNames = test[5].replace('schedNames=', '');
+    scheduleAbbreviations = test[6].replace('abbs=', '');
+    periodsPerSchedule = test[7].replace('pers=', '');
+    schoolName = test[8].replace('school=', '');
+    selectedColor = test[9].replace('color=', '');
+    periodTimes = test[10].replace('newvariable=', '');
+
+    scheduleAbbreviationsArray = scheduleAbbreviations.split(",");
+
+    periodScheduleArray = periodsPerSchedule.split(",");
+
+
+    nameArray = scheduleNames.split(",");
+
+    timeArray = periodTimes.split(",");
+
+    if (realScheduleNames != null) {
+      realScheduleNamesArray = realScheduleNames.split(",");
+    }
+
+    var container = document.getElementById("selectorDiv");
+
+      while (container.hasChildNodes()) {
+        container.removeChild(container.lastChild);
+      }
+
+      for (var i = 0; i < (numberOfSchedules); i++) {
+          var abbreviationLabel = document.createTextNode(scheduleAbbreviationsArray[i]);
+          var abbreviationLabelElement = document.createElement("span");
+
+          abbreviationLabelElement.appendChild(abbreviationLabel);
+          abbreviationLabelElement.className = "actualAbbreviationLetter";
+
+          var outer = document.createElement('div');
+          outer.className = "radioButton";
+          outer.id = i + "outer";
+          outer.onclick = function () {
+            myChangeSelected(this.id);
+          }
+
+
+          var inner = document.createElement('div');
+          inner.className = "inner";
+          inner.id = i + "inner";
+
+          outer.appendChild(inner);
+          container.appendChild(outer);
+
+          var myBreak = document.createElement("BR");
+          container.appendChild(myBreak);
+      }
+
+
+
+  var k = 0;
+  var p, j, timeSplitArray, nameSplitArray, chunk;
+
+  scheduleSplit = [];
+
+  for (p = 0, j = nameArray.length; p < j; p += chunk) {
+
+    var prtest = parseInt(periodScheduleArray[k]);
+    p, j, timeSplitArray, nameSplitArray, chunk = prtest;
+    timeSplitArray = timeArray.slice(p, p + chunk);
+    nameSplitArray = nameArray.slice(p, p + chunk);
+
+    scheduleSplit[k] = timeSplitArray + "#" + nameSplitArray + "|||";
+
+    k++;
+  }
+
+
+
+    getSchedulesReadyForTimer();
 }
 
-  </script>
+
+var changer = [];
+
+
+
+
+
+
+
+
+function newChunk(array, size) {
+  const chunked_arr = [];
+  for (let i = 0; i < array.length; i++) {
+    const last = chunked_arr[chunked_arr.length - 1];
+    if (!last || last.length === size) {
+      chunked_arr.push([array[i]]);
+    } else {
+      last.push(array[i]);
+    }
+  }
+  return chunked_arr;
+}
+
+
+var which;
+
+var currentScheduleSelected = 0;
+
+var changer = [];
+
+    myChangeSelected("0outer");
+
+function myChangeSelected(id) {
+    for (var i = 0; i < numberOfSchedules; i++) {
+      changer[i] = document.getElementById(i + "inner");
+      changer[i].style.display = "none";
+    }
+    document.getElementById(id.charAt(0) + "inner").style.display = "block";
+    localStorage.setItem('setSchedule', id);
+    currentScheduleSelected = (id.charAt(0));
+   // alert(currentScheduleSelected);
+    setUpTimesForTimers();
+    getSchedulesReadyForTimer();
+  }
+
+
+var newTest = [];
+
+function getSchedulesReadyForTimer() { // good
+  newTest = [];
+  for (var i = 0; i < numberOfSchedules; i++) {
+    newTest[i] = scheduleSplit[i].split("|||");
+  }
+  addTimersPerSchedule();
+}
+
+var newNameArrayTest = [];
+
+
+
+var testNewTestNameNew = [];
+
+function addTimersPerSchedule() {
+  var timerContainer = document.getElementById("timerContainer");
+  while (timerContainer.hasChildNodes()) {
+    timerContainer.removeChild(timerContainer.lastChild);
+  }
+// issue happens right below this
+
+
+  periodScheduleArray = [9,9,9,9];
+
+
+  // don't include this in production ^^^^
+
+  for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+    testNewTestNameNew = [];
+    var split1 = newTest[currentScheduleSelected];
+    var split2 = String(split1);
+    split2 = split2.split('#')[1]
+    testNewTestNameNew = split2.split(',');
+
+
+    var lastPeriod = testNewTestNameNew.slice(-2)[0];
+
+    var track = document.createElement("tr")
+
+    var para = document.createElement("td");
+    para.id = "nameTimer" + i;
+    para.className = "nameDisplay"
+    var node = document.createTextNode(testNewTestNameNew[i] + " Ends In ");
+
+    var timer = document.createElement("td");
+    var blah = document.createElement("BR");
+    timer.id = "realTimer" + i;
+    timer.className = "timeDisplay";
+    blah.class = "timeDisplay";
+    node.className = "nameOfPeriod";
+
+    var sizeOfFont = periodScheduleArray[currentScheduleSelected] / 2;
+
+
+  var eToThe = Math.exp(-0.113 * periodScheduleArray[currentScheduleSelected]);
+
+  sizeOfFont = 15.5 * eToThe;
+
+  if (periodScheduleArray[currentScheduleSelected] == 4) {
+    sizeOfFont = 10;
+  }
+
+  sizeOfFont = (9.1) + (0.0746 * periodScheduleArray[currentScheduleSelected]) + (-0.018 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
+  var lineHeightNew = (24.5) + (-1.99 * periodScheduleArray[currentScheduleSelected]) + (0.0514 * (periodScheduleArray[currentScheduleSelected] * periodScheduleArray[currentScheduleSelected]));
+
+  para.style.lineHeight = lineHeightNew + "vh";
+  timer.style.lineHeight = lineHeightNew + "vh";
+
+  para.style.fontSize = sizeOfFont + "vh";
+  timer.style.fontSize = sizeOfFont + "vh";
+
+    para.appendChild(node);
+    timer.appendChild(blah);
+
+    track.appendChild(para);
+    //isMobile = true;
+    if (isMobile == true) {
+      var myBreak = document.createElement("BR");
+      track.appendChild(myBreak);
+    }
+    track.appendChild(timer);
+
+    timerContainer.appendChild(track);
+
+    if (lastPeriod == testNewTestNameNew[i]) {
+      var newColor = String(selectedColor);
+
+      document.getElementById("realTimer" + i).style.color = newColor;
+      document.getElementById("nameTimer" + i).style.color = newColor;
+
+      configureAccent(i);
+
+
+    } else {
+      document.getElementById("realTimer" + i).style.color = "white";
+    }
+  }
+  setUpTimesForTimers();
+}
+
+var alertLineHeight;
+var timeForMathArray = [];
+var newTimeForMathArray = [];
+var hourArray = [];
+var minuteArray = [];
+var orderArray = [];
+
+function setUpTimesForTimers() {
+  hourArray = [];
+  minuteArray = [];
+  timeForMathArray = [];
+  newTimeForMathArray = [];
+
+//  alert(newTest[currentScheduleSelected]);
+
+  var split1 = newTest[currentScheduleSelected];
+  var split2 = String(split1);
+  split2 = split2.split('#')[0]
+
+  var s = split2;
+  var n = s.indexOf('&');
+  s = s.substring(0, n != -1 ? n : s.length);
+
+  split2 = s;
+
+
+  timeForMathArray = split2.split(":");
+  timeForMathArray = String(timeForMathArray);
+  newTimeForMathArray = timeForMathArray.split(",");
+
+  var k = 0;
+  for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+    hourArray[i] = newTimeForMathArray[k];
+    minuteArray[i] = newTimeForMathArray[(k + 1)];
+    k = k + 2;
+  }
+
+  for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+    if (hourArray[i] == "00") {
+      hourArray[i] = "12";
+    } else if (hourArray[i] == "01") {
+      hourArray[i] = "13";
+    } else if (hourArray[i] == "02") {
+      hourArray[i] = "14";
+    } else if (hourArray[i] == "03") {
+      hourArray[i] = "15";
+    } else if (hourArray[i] == "04") {
+      hourArray[i] = "16";
+    } else if (hourArray[i] == "05") {
+      hourArray[i] = "17";
+    } else if (hourArray[i] == "06") {
+      hourArray[i] = "18";
+    }
+    orderArray[i] = hourArray[i] + minuteArray[i];
+    k = k + 2;
+  }
+  // issue happens before this ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+
+
+}
+
+var stateOfPeriod = [];
+
+
+(function() {
+  var start = new Date;
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function tick() {
+
+    var now = new Date;
+
+    for (var i = 0; i < periodScheduleArray[currentScheduleSelected]; i++) {
+
+      start.setHours(hourArray[i], minuteArray[i], 0); // 11pm
+      if (now > start) { // too late, go to tomorrow
+        start.setDate(start.getDate() + 1);
+      }
+      var remain = ((start - now) / 1000);
+      var hh = pad((remain / 60 / 60) % 60);
+      var mm = pad((remain / 60) % 60);
+      var ss = pad(remain % 60);
+      if (hh >= 24) {
+        hh = hh - 24;
+      }
+
+      if (hh < 10) {
+        hh = "0" + hh;
+      }
+
+      if (hh >= 10) {
+        stateOfPeriod[i] = "over";
+        document.getElementById("nameTimer" + i).innerHTML = testNewTestNameNew[i] + " is Over";
+        document.getElementById('realTimer' + i).innerHTML = "";
+        //document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+
+      } else {
+        if (hh != "" || mm != "") {
+          stateOfPeriod[i] = "notover"
+          var a = stateOfPeriod.indexOf("notover");
+
+          if (hh < 10 && a == i) {
+            document.title = hh + ":" + mm + ":" + ss;
+          }
+          document.getElementById('realTimer' + i).innerHTML = hh + ":" + mm + ":" + ss + "<br>";
+        }
+      }
+
+    }
+    setTimeout(tick, 500);
+  }
+
+   document.addEventListener('DOMContentLoaded', tick);
+
+   var path = window.location.pathname;
+
+    if (localStorage.getItem(path + "hasCodeRunBefore2") === null) {
+          setTimeout(newDeafult, 1000);
+        localStorage.setItem(path + "hasCodeRunBefore2", true);
+    } else {
+
+
+    }
+      //  changeSelected(setSchedule);
+
+})();
+
+var setSchedule;
+
+
+function newDeafult() {
+  setToDefault();
+}
+
+
+function chunkArray(myArray, chunk_size) {
+  var index = 0;
+  var arrayLength = myArray.length;
+  var tempArray = [];
+
+  for (index = 0; index < arrayLength; index += chunk_size) {
+    myChunk = myArray.slice(index, index + chunk_size);
+
+    tempArray.push(myChunk);
+  }
+
+  return tempArray;
+}
+
+
+
+</script>
+
+
+
+<style>
+
+
+.radioButton {
+  width: 35px;
+  height: 35px;
+  background-color:gray;
+  display:inline-block;
+  border-radius:50%;
+  position:relative;
+  margin: 10px;
+}
+
+.inner {
+  background-color:white;
+  height: 17.5px;
+  width: 17.5px;
+  border-radius: 50%;
+
+   margin: 0;
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   -ms-transform: translate(-50%, -50%);
+   transform: translate(-50%, -50%);
+
+}
+
+
+
+</style>
