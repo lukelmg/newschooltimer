@@ -1,0 +1,532 @@
+.countries, .cities, .states {
+  width: 27vw;
+  height: 5vh;
+  margin-top: 2vh;
+  margin-left: 4vw;
+  font-size: 2.75vh;
+  color:gray;
+}
+
+select:focus {
+  outline:none;
+}
+
+ #colorPickerID {
+    text-align:center;
+    padding: 10px 10px 10px 10px;
+    margin-left: 4vw;
+    margin-top: 1vw;
+    margin-bottom: 1vw;
+    width: 300px;
+    font-size: 20px;
+    height: 50px;
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+    outline:none;
+    border:none;
+    transition: .03s ease-in-out;
+    border-radius: 3px;
+  }
+
+  #colorPickerID:hover {
+   filter:invert(7%);
+    cursor:pointer;
+  }
+
+#bigHeading {
+  color:black;
+}
+
+span {
+  color:white;
+}
+
+h1, h2, h3 {
+  margin-top 0;
+}
+
+h2 {
+  color:white;
+  margin-top: 1vw;
+  margin-left: 1vw;
+}
+.smallLabel {
+  font-weight: normal;
+  margin-left: 1vw;
+  font-size: 5vh;
+  margin-top:0px;
+  margin-bottom:0px;
+}
+
+.note {
+  margin-left: 1vw;
+  color:gray;
+  margin-bottom: 0px;
+  margin-top:0px;
+  font-size: 3vh;
+}
+
+h3 {
+  color:white;
+}
+
+body {
+  background-color: white;
+  color:white;
+  font-family:Arial;
+  margin: 0px 0px 0px 0px;
+  }
+.period {
+  color: #A6AAAD;
+  font-weight: bold;
+  font-size: 2em;
+  font-family: Arial;
+
+  }
+
+
+input {
+  vertical-align:middle;
+  margin-left: 1vw;
+  width: 10vw;
+  font-size:0.5em;
+}
+select {
+  vertical-align:middle;
+  margin-left:1vw;
+  width: 2vw;
+}
+
+.inputLabel {
+  vertical-align: top;
+}
+
+.scheduleNameInput {
+  background-color:Transparent;
+  border: 1px solid white;
+  color:white;
+  padding: .2vw .2vw .2vw .2vw;
+  width: 20vw;
+  margin-bottom: 1vw;
+  vertical-align: top;
+  font-size: 0.5em;
+}
+
+input:focus {outline:0;}
+
+
+
+#sameInner {
+  width: 1vw;
+  height: 1vw;
+  background-color:#1E1E1E;
+  transform: translateY(25%);
+  border-radius: 50%;
+ }
+#sameOuter {
+  width: 2vw;
+  height: 2vw;
+  background-color:#1E1E1E;
+  vertical-align: middle;
+  border-radius: 50%;
+  border:3px solid white;
+}
+
+.container {
+  display: inline-block;
+  position: relative;
+  padding-left: 35px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+/* Hide the browser's default radio button */
+.container input {
+  position: absolute;
+  opacity: 0;
+  cursor: pointer;
+}
+
+/* Create a custom radio button */
+.checkmark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 25px;
+  width: 25px;
+  background-color: #eee;
+  border-radius: 50%;
+}
+
+#radio1 {
+    z-index: -10;
+}
+
+/* On mouse-over, add a grey background color */
+.container:hover input ~ .checkmark {
+  background-color: #ccc;
+}
+
+/* When the radio button is checked, add a blue background */
+.container input:checked ~ .checkmark {
+  background-color: #2196F3;
+}
+
+/* Create the indicator (the dot/circle - hidden when not checked) */
+.checkmark:after {
+  content: "";
+  position: absolute;
+  display: none;
+}
+
+/* Show the indicator (dot/circle) when checked */
+.container input:checked ~ .checkmark:after {
+  display: block;
+}
+
+/* Style the indicator (dot/circle) */
+.container .checkmark:after {
+ 	top: 9px;
+	left: 9px;
+	width: 8px;
+	height: 8px;
+	border-radius: 50%;
+	background: white;
+}
+
+
+#numPeriodSame {
+  display:inline-block;
+}
+
+input[type="number"] {
+  -webkit-appearance: textfield;
+     -moz-appearance: textfield;
+          appearance: textfield;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
+
+.updowndiv {
+  float:left;
+  margin-bottom:0px;
+  margin-left: 1vw;
+  margin-top: 0px;
+}
+
+.updown {
+  margin-top: 10%;
+  height: 7vw;
+  vertical-align: top;
+  width: 7vw;
+  margin-left:0px;
+  margin-right: 0px;
+  font-size: 5em;
+  font-family: 'Lato', sans-serif;
+  background-color:white;
+  color:black;
+  outline:none;
+  border: none;
+  cursor:pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+}
+
+
+.numberSelect {
+  margin-top: 10%;
+  color:white;
+  background-color:Transparent;
+  border: 1px solid white;
+  vertical-align:middle;
+  font-size: 2em;
+  z-index: 10;
+  height: 7vw;
+  width: 20vw;
+  text-align:center;
+  margin-right: 0px;
+  margin-left: 0px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+}
+
+#numPeriodSame {
+  width: 3vw;
+}
+
+.timeInput {
+  background-color:white;
+  border: 1px solid white;
+  color:gray;
+  padding: 0vw .2vw 0vw .2vw;
+  width: 7vw;
+  margin-bottom: 1vw;
+  vertical-align: top;
+  font-size: 0.5em;
+  border-radius: 5px;
+  border: 1px solid gray;
+  font-family:Arial;
+  text-align:center;
+}
+
+.periodDiv {
+  background-color:#2196F3;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+  padding: 1vw 1vw 1vw 1vw;
+  margin-bottom:1vw;
+  margin-top:0px;
+  margin-left: 1vw;
+  width: 25vw;
+  border-radius: 5px;
+  display:inline-block;
+}
+
+.periodNameInput {
+  background-color:white;
+  border: 1px solid white;
+  color:black;
+  padding: .2vw .2vw .2vw .2vw;
+  width: 20vw;
+  margin-bottom: 1vw;
+  vertical-align: top;
+  font-size: 0.5em;
+  border-radius: 5px;
+  border: 1px solid gray;
+}
+.periodNameInput::-webkit-input-placeholder {
+    color: gray;
+}
+
+
+
+
+.periodHeader {
+  color:white;
+  margin-top:0;
+  margin-bottom:0;
+}
+
+.scheduleDiv {
+  background-color:#Transparent;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+  padding: .5vw .5vw .5vw .5vw;
+  margin-bottom:1vw;
+  margin-top:0px;
+  margin-left: 0vw;
+  margin-right: 1vw;
+  width: 20%;
+  display:inline-block;
+  left: 50%;
+  text-align:left;
+  outline: 1px solid white;
+}
+
+
+.scheduleNameInput {
+  background-color:white;
+  border: 1px solid white;
+  color:black;
+  padding: .2vw .2vw .2vw .2vw;
+  width: 80%;
+  margin-bottom: 1vw;
+  vertical-align: top;
+  font-size: 3vh;
+  border: 1px solid gray;
+  margin-right: 0px;
+}
+
+.scheduleAbbInput {
+  background-color:white;
+  border: 1px solid white;
+  color:black;
+  padding: .2vw .2vw .2vw .2vw;
+  width: 7vw;
+  margin-bottom: 1vw;
+  vertical-align: top;
+  font-size: 3vh;
+  border: 1px solid gray;
+}
+
+#scheduleNameInputContainer {
+  position:absolute;
+  width: 100%;
+  text-align:left;
+  margin-left: 1vw;
+}
+
+
+
+.yesno {
+  background-color: Transparent;
+  color:white;
+  border: 1px solid white;
+
+  width: 10vw;
+  height: 10vw;
+  font-size: 2em;
+  font-family: 'Lato', sans-serif;
+  cursor:pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+  margin-left: 1vw;
+  margin-top: 2vw;
+
+  transition: ease-in 0.3s;
+  touch-action: manipulation;
+}
+
+#yes:hover {
+  background-color:white;
+  color:black;
+  outline:none;
+}
+
+#no:hover {
+  background-color:white;
+  color:black;
+  outline:none;
+}
+
+.yesno:focus {
+  outline:none;
+}
+
+
+#yesSame {
+  display: inline-block;
+  display:none;
+  margin-left: 10%;
+}
+
+.updownPeriod {
+  height: 5vh;
+  width: 5vh;
+  margin-left:0px;
+  margin-right: 0px;
+  font-size: 3vh;
+  font-family: 'Lato', sans-serif;
+  background-color:white;
+  color:black;
+  outline:none;
+  border: none;
+  cursor:pointer;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+  vertical-align: middle;
+  text-align:bottom;
+}
+.upPeriod {
+  margin-left: 1vw;
+}
+
+.numberSelectPeriodNumber {
+  color:white;
+  background-color:Transparent;
+  border: 1px solid white;
+  vertical-align:middle;
+  font-size: 3vh;
+  z-index: 10;
+  height: 5vh;
+  width: 15vh;
+  text-align:center;
+  margin-right: 0px;
+  margin-left: 0px;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+}
+
+
+.timeInput {
+  padding: .2vw .2vw .2vw .2vw;
+  font-size: 1vw;
+  border-radius: 0px;
+  margin-bottom:0;
+  margin-top:0;
+  height: 3vh;
+}
+
+.timeInput::-webkit-datetime-edit-ampm-field {
+   display: none;
+ }
+ input[type=time]::-webkit-clear-button {
+   -webkit-appearance: none;
+   -moz-appearance: none;
+   -o-appearance: none;
+   -ms-appearance:none;
+   appearance: none;
+   margin: -10px;
+ }
+
+.periodNameInput {
+  padding: .2vw .2vw .2vw .2vw;
+  font-size: 1vw;
+  border-radius: 0px;
+  width: 50%;
+  margin-bottom:0;
+  margin-top:0;
+  height: 3vh;
+}
+
+.scheduleTimeDiv {
+  background-color:#Transparent;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+  margin-bottom:1vw;
+  margin-top:0px;
+  margin-left: 1vw;
+  margin-right: 1vw;
+  margin-bottom: 1vw;
+  display:inline-block;
+  left: 50%;
+  text-align:left;
+  outline: 1px solid white;
+  padding: 5px 5px 5px 5px;
+  margin-top: 1vw;
+  padding-bottom: 1vw;
+}
+
+
+#schedulePeriodTimingDiv {
+  overflow: auto;
+  height: 80%;
+  background-color:354459;
+  box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 20px 20px rgba(0,0,0,0.22);
+}
+
+.scheduleHeaderTextDivText {
+  margin-left: 1vw;
+  color:white;
+  font-size: 1vw;
+}
+
+.colorPicker {
+margin-left: 4vw;
+}
+
+.closingLabel {
+  font-size: 4vh;
+  color:white;
+  font-weight:100;
+  margin-left: 4vw;
+  margin-bottom: 0vw;
+}
+
+.closingInput {
+  font-size: 3vh;
+  color:black;
+  width: 30%;
+  margin-left: 4vw;
+  margin-bottom: 0vh;
+}
+
+#closingCaptcha {
+  margin-left: 4vw;
+  margin-bottom:0px;
+  width: 20%;
+}
+
+#captchaSubmit {
+  margin-left: 4vw;
+  font-size: 2.5vh;
+  margin-top:0px;
+  width: 20%;
+}

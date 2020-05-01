@@ -1,209 +1,103 @@
-<!-- Parkland:
-https://www.lukegutman.com/newschooltimer/timer.html?nums=4&names=Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209,Period%201,Period%202,Period%203,Period%204,Period%205,Period%206,Period%207,Period%208,Period%209&times=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53&abbs=A,B,C,D&pers=9,9,9,9
--->
 <html>
 
 <head>
-  <link rel="icon" href="https://images.vexels.com/media/users/3/132607/isolated/preview/86e952b378eaa8c5ea573fa2bf280d5b-wall-clock-icon-by-vexels.png">
-  <title>SchoolTimer</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="slide.css">
-  <link href="https://fonts.googleapis.com/css?family=Lato:100&display=swap" rel="stylesheet">
-  <script src="https://www.google.com/recaptcha/api.js" async defer></script>
-  <script src="https://cdn.jsdelivr.net/npm/@jaames/iro/dist/iro.min.js"></script>
-</head>
 
-<body onload="slide1(); initialInputs(); differentNumberSchedules();">
-  <div id="startDiv">
-  </div>
+<link rel="stylesheet" type="text/css" href="style.css">
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato|Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Heebo:100&display=swap" rel="stylesheet">
 
-  <!-- Slide 1 Start -->
-
-  <div class="slide" id="slide1">
-    <h2 class="slideHeading" id="slide1Heading">Number of Schedules</h2>
-    <span class="smallLabel">How many different schedules does your school have? </span>
-    <p class="note">Most schools have different schedules depending on the day. <br /> Some have normal days followed by an activity day or even special days like early dissmissals.</p>
-    <div class="updowndiv">
-      <button class="updown" id="down" onclick="subSchedule()">-</button>
-      <input id="numSchedule" class="numberSelect" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Schedule">
-      <button class="updown" id="up" onclick="plusSchedule()">+</button>
+  </head>
+  <body onload="setSchedules()">
+    <div id="titleBar">
+      <li class="navSpace schoolTimerHome"><button class="schoolTimerHome">SchoolTimer</button></li>
+      <li class="navSpace navHome"><button class="titleBarNav home">Home</button></li>
+      <li class="navSpace navTopRated"><button class="titleBarNav topRated">Find A Timer</button></li>
+      <li class="navSpace navRateYour"><button class="titleBarNav rateYour">Create a Custom Timer</button></li>
     </div>
-    <button class="next back" onclick="backSlide1()"><span>Back </span></button>
-    <button class="next" onclick="slide2(); addFields();"><span>Next </span></button>
-  </div>
+<div id="leftSide">
+  <h3 class="pageHeader">Create a Custom Timer</h3>
+<div class="remixElement" id="schoolNameRemixElement">
+  <h3 class="remixHeader">Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text" maxlength="40"></input>
+</div>
+<div class="remixElement">
+  <h3 class="remixHeader" id="location"> Location of School </h3>
+   <p class="explain">Why do we need this? <span class="tooltiptext">We use the location of your school to help other students find the timer you create.</span></p> <br>
+
+   <select name="country" class="countries" id="countryId">
+       <option value="">Select Country</option>
+   </select> <br>
+   <select name="state" class="states" id="stateId">
+       <option value="">Select State</option>
+   </select> <br>
+   <select name="city" class="cities" id="cityId">
+       <option value="">Select City</option>
+   </select> <br>
+   <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+   <script src="//geodata.solutions/includes/countrystatecity.js"></script>
+
+</div>
+<div class="remixElement">
+  <h3 class="remixHeader">School Color</h3><input type="color" id="schoolColorInput" value="#ff1414">
+</div>
+
+<div class="remixElement">
+  <h3 class="remixHeader" id="number">Number Of Schedules</h3>
+  <p class="explain other">How many schedules does your school have? <br> Most schools have different schedules for each day of the week, early dismissals, or even two hour delays. </p> <br>
+  <input onkeydown="return false" min="1" max="8" class="remixNumberInput" id="remixSchoolScheduleNumbers" oninput="setSchedules();" type="number" value="1"></input>
+</div>
+
+</div>
+
+<div id="remixScheduleContainer"></div>
+
+<div id="done">
+  <h5 class="pageHeader" id="allDone"> All Done? </h5>
+  <form method="post" onsubmit="return submitUserForm();">
+    <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
+    <div id="g-recaptcha-error"></div>
+  </form>
+
+  <script src='https://www.google.com/recaptcha/api.js'></script>
+  <script>
+    function submitUserForm() {
+      var response = grecaptcha.getResponse();
+      if (response.length == 0) {
+        document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
+        return false;
+      }
+      return true;
+    }
+  </script>
+  <button onclick=readRemix(); id="createButton">Create Timer!</button>
+ </div>
 
 
-  <div class="slide" id="slide2">
-    <h2 class="slideHeading" id="slide2Heading">Schedule Configuration</h2>
-    <span class="smallLabel">Are there the same number of periods every schedule?</span> <br />
-    <button class="yesno" id="yes" onclick="periodSameYes(); yesslide()">Yes</button> <button class="yesno" id="no" onclick="periodSameNo(); noslide()">No</button>
-
-    <div id="yesSame">
-      <span class="smallLabel" id="howMany">How many?</span>
-      <button class="updownPeriod" id="downSamePeriod" onclick="downSame() ">-</button>
-      <input id="numSamePeriod" class="numberSelectSame" onchange="addFields();" disabled="disabled" min="1" max="8" value="1 Period">
-      <button class="updownPeriod" id="upSamePeriod" onclick="upSame()">+</button>
-    </div>
 
 
-    <button class="next back" onclick="backSlide2()"><span>Back </span></button>
-    <button class="next" onclick="slide3()"><span>Next </span></button>
-  </div>
-
-  <!-- Slide 3 Start -->
-
+ <div id="customerLol">
+   <iframe width="0" height="0" border="0" style="display:none;" name="myFrame" id="myFrame"></iframe>
+   <form method="post" id="phpformstuff" action="create.php" target="myFrame">
+     <span class="closingLabel">Name of your School</span><br /><input id="schoolNameID" class="closingInput" name="schoolNameID" placeholder="Random Area High School"></input> <br>
 
 
-  <div class="slide" id="slide3">
+     <input type="text" class="hide" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
+     <input type="text" class="hide" name="shorturl" id="shortURL"></input>
+     <input id="uniqueid" class="hide" name="uniqueid"></input>
+     <input id="timeanddate" class="hide" name="timeanddate"></input>
 
-    <div id="scheduleNames">
-      <h2 class="inputLabel">Schedule Configuration</h2>
-      <div id="scheduleNameInputContainer" />
-    </div>
-
-    <button class="next back" onclick="backSlide3()"><span>Back </span></button>
-    <button class="next" onclick="slide4(); getScheduleNameInfo();"><span>Next </span></button>
-
-  </div>
-
-  </div>
-  <div class="slide" id="slide4">
-    <div>
-      <h2 class="inputLabel">Time Each Period Ends</h2>
-      <div id="schedulePeriodTimingDiv" />
-    </div>
+     <input id="country" class="hide" name="country"></input>
+     <input id="state" class="hide" name="state"></input>
+     <input id="city" class="hide" name="city"></input>
+ </div>
+</div>
 
 
-    <button class="next back" onclick="backSlide4()"><span>Back </span></button>
-    <button class="next" onclick="slide5()"><span>Next </span></button>
-  </div>
-  </div>
-
-
-  <div class="slide" id="slide5">
-    <div>
-      <h2 class="inputLabel">Almost Done...</h2>
-      <iframe width="0" height="0" border="0" style="display:none;" name="myFrame" id="myFrame"></iframe>
-      <form method="post" id="phpformstuff" action="input.php" target="myFrame">
-      <span class="closingLabel">Name of your School</span><br /><input id="schoolNameID" class="closingInput" name="schoolNameID" placeholder="Random Area High School"></input> <br>
-<br>
-      <span class="closingLabel">Location of School</span> <br>
-      <select name="country" class="countries" id="countryId">
-      <option value="">Select Country</option>
-  </select> <br>
-  <select name="state" class="states" id="stateId">
-      <option value="">Select State</option>
-  </select> <br>
-  <select name="city" class="cities" id="cityId">
-      <option value="">Select City</option>
-  </select>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
-  <script src="//geodata.solutions/includes/countrystatecity.js"></script>
-
-   <br><br>
-
-      <span class="closingLabel">Pick Your School Color</span> <br>
-      <input id="colorPickerID" type="color" value="#e66465">
-
-      <input type="text" class="hide" name="longurl" id="longURL" oninput="createShortURL()"><br><br>
-      <input type="text" class="hide" name="shorturl" id="shortURL"></input>
-      <input id="uniqueid" class="hide" name="uniqueid"></input>
-      <input id="timeanddate" class="hide" name="timeanddate"></input>
-
-      <input id="country" class="hide" name="country"></input>
-      <input id="state" class="hide" name="state"></input>
-      <input id="city" class="hide" name="city"></input>
-
-
-      <form method="post" onsubmit="return submitUserForm();">
-        <div class="g-recaptcha" id="closingCaptcha" data-sitekey="6Lc1escUAAAAADNwPVDHFJ4hRENozAf_aNZiY6rN" data-callback="verifyCaptcha"></div>
-        <div id="g-recaptcha-error"></div>
-      </form>
-      <script src='https://www.google.com/recaptcha/api.js'></script>
-      <script>
-        function submitUserForm() {
-          var response = grecaptcha.getResponse();
-          if (response.length == 0) {
-            document.getElementById('g-recaptcha-error').innerHTML = '<span style="color:red;">This field is required.</span>';
-            return false;
-          }
-          return true;
-        }
-
-        function verifyCaptcha() {
-        //  alert("verified");
-          document.getElementById('g-recaptcha-error').innerHTML = '';
-          gogogo();
-
-
-          setTimeout(function() {
-                document.getElementById("phpformstuff").submit();
-                setTimeout(function() {
-                  var res = document.getElementById("shortURL").value;
-                    location.replace("https://www.lukegutman.com/" + res);
-                }, 200);
-          }, 200);
-        }
-      </script>
-      <button class="next back" onclick="backSlide5()"><span>Back </span></button>
-    </div>
-  </div>
 
 </body>
-
 </html>
 
 <script src="script.js"></script>
-<script src="forwardSlide.js"></script>
-<script src="backSlide.js"></script>
-<script type="text/javascript">
-  $(document).ready(function1);
-</script>
-
-<script src="jscolor.js"></script>
-<script>
-
-  var myHex;
-  var count = 0;
-
-  var colorPicker = new iro.ColorPicker(".colorPicker", {
-
-    width: 150,
-    borderWidth: 1,
-    borderColor: "#fff"
-  });
-
-  var values = document.getElementById("values");
-
-  colorPicker.on(["color:init", "color:change"], function(color) {
-
-    values.innerHTML = [
-      (myHex = color.hexString),
-      "hex: " + color.hexString,
-      "rgb: " + color.rgbString,
-      "hsl: " + color.hslString
-    ].join("<br>");
-    count = count + 1;
-    if (count > 1) {
-      updateColors();
-    }
-  });
-
-  function updateColors() {
-    alert(myHex);
-  }
-
-
-
-</script>
-
-
-
-<style>
-
-
-  .hide {
-    display:none;
-  }
-
-  </style>
