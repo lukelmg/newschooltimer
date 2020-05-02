@@ -13,15 +13,15 @@
   </head>
   <body onload="setSchedules()">
     <div id="titleBar">
-      <li class="navSpace schoolTimerHome"><button class="schoolTimerHome">SchoolTimer</button></li>
-      <li class="navSpace navHome"><button class="titleBarNav home">Home</button></li>
-      <li class="navSpace navTopRated"><button class="titleBarNav topRated">Find A Timer</button></li>
-      <li class="navSpace navRateYour"><button class="titleBarNav rateYour">Create a Custom Timer</button></li>
+      <li class="navSpace" id="logoNav"><button class="schoolTimerHome" onclick="window.location.href = 'https://www.lukegutman.com';">SchoolTimer</button></li>
+      <li class="navSpace" id="homeNav"><button class="titleBarNav home" onclick="window.location.href = 'https://www.lukegutman.com';">Home</button></li>
+      <li class="navSpace" id="findNav"><button class="titleBarNav topRated" onclick="window.location.href = 'https://www.lukegutman.com/find';">Find A Timer</button></li>
+      <li class="navSpace" id="createNav"><button class="titleBarNav rateYour" onclick="window.location.href = 'https://www.lukegutman.com/create';">Create a Custom Timer</button></li>
     </div>
 <div id="leftSide">
-  <h3 class="pageHeader">Create a Custom Timer</h3>
+  <!--<h3 class="pageHeader">Create a Custom Timer</h3> -->
 <div class="remixElement" id="schoolNameRemixElement">
-  <h3 class="remixHeader">Name Of School</h3><input class="remixInput" id="remixSchoolName" type="text" maxlength="40"></input>
+  <h3 class="remixHeader">Name Of School</h3><input class="remixInput" id="remixSchoolName" placeholder="Type the Name of Your School Here" type="text" maxlength="40"></input>
 </div>
 <div class="remixElement">
   <h3 class="remixHeader" id="location"> Location of School </h3>

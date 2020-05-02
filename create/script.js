@@ -74,6 +74,7 @@ function setSchedules() {
     copy.innerHTML = "Copy Schedule";
     copy.id = i + "copy";
     copy.className = "copyButtons";
+    copy.tabIndex = "-1";
     copy.onclick = function () {
       myCopy(this.id);
     }
