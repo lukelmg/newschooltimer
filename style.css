@@ -378,3 +378,8 @@ input:focus {
 #timerBody {
   display: none;
 }
+
+
+#verification {
+  cursor:pointer;
+}

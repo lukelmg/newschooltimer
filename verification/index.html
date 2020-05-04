@@ -1,0 +1,174 @@
+
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div id="titleBar">
+    <li class="navSpace" id="logoNav"><button class="schoolTimerHome" onclick="window.location.href = 'https://www.lukegutman.com';">SchoolTimer</button></li>
+    <li class="navSpace" id="homeNav"><button class="titleBarNav home" onclick="window.location.href = 'https://www.lukegutman.com';">Home</button></li>
+    <li class="navSpace" id="findNav"><button class="titleBarNav topRated" onclick="window.location.href = 'https://www.lukegutman.com/find';">Find A Timer</button></li>
+    <li class="navSpace" id="createNav"><button class="titleBarNav rateYour" onclick="window.location.href = 'https://www.lukegutman.com/create';">Create a Custom Timer</button></li>
+  </div>
+  <div id="big">
+    <h1>Apply for <br> Verification</h1>
+    <h2>A verified SchoolTimer can have:</h2>
+    <h3>A custom URL like... <br> https://www.schooltimer.net/PHS</h3> <br>
+    <h3>Advanced features like... <br> Days until summer break</h3> <br>
+    <h3>Looking cool by...<br> Having a fancy verification badge</h3>
+    <iframe class="goog" src="https://docs.google.com/forms/d/e/1FAIpQLSdlcjc7bluQ3MePrMDNj5BCE8y-Ku-892k71qzC6Hr1rDXb0g/viewform?embedded=true" width="640" height="750" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+  </div>
+</body>
+
+<style>
+
+body {
+  margin:0;
+}
+
+#big {
+  overflow: hidden;
+  position: relative;
+  margin: 5vw 5vw 0vw 5vw;
+  margin-top:0;
+  padding-top:0;
+}
+
+h1 {
+  font-family: 'Raleway', sans-serif;
+  font-weight: 100;
+  font-size: 15vh;
+  margin-top: 3vw;
+}
+
+h2, h3 {
+    font-family: 'Fira Sans Extra Condensed', sans-serif;
+}
+
+h3 {
+  margin-left: 1vw;
+  font-weight: 100;
+}
+
+.goog {
+  float:right;
+  height: 80vh;
+
+  margin: 0;
+position: absolute;
+top: 60%;
+left:85%;
+-ms-transform: translate(-85%, -60%);
+transform: translate(-85%, -60%);
+}
+
+
+
+
+
+
+
+
+
+.titleHolder{
+  padding-left: 2vw;
+  padding-top: 2vw;
+}
+
+input, .paginate_button {
+  margin-right: 2.5vw;
+}
+
+#titleBar {
+  background-color: #262626;
+  height:90px;
+  width:100%;
+  padding-left: 0;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+    z-index: 10;
+}
+
+
+#logo {
+  height: 80px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display:inline-block;
+}
+
+
+.titleBarNav {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3vh;
+
+  background-color: #262626;
+  border:none;
+  display:inline-block;
+  color:white;
+}
+
+
+
+#logoNav {
+  margin-top: 7px;
+  margin-left: 1vw;
+}
+
+.titleBarNav:focus {outline:0;}
+.titleBarNav:hover {
+  background-color:white;
+  color: #262626;
+  cursor: pointer;
+}
+
+
+
+
+.navSpace {
+  margin:0px 0px 0px 0px;
+  color: white;
+  text-align: center;
+  padding: 0px 0px 0px 0px;
+  text-decoration: none;
+  display:inline-block;
+  margin-top: 0px;
+  margin-left: 2%;
+  cursor:pointer;
+}
+
+.navHome {
+   margin-left: 7%;
+}
+
+.schoolTimerHome {
+   font-family: 'Raleway', sans-serif;
+   margin-left: 0.75vw;
+   background-color:Transparent;
+   border:none;
+   color:white;
+   font-size: 50px;
+   margin-top:7px;
+   cursor:pointer;
+}
+
+.navLogIn {
+  margin-left:35%;
+  border: 1px solid white;
+}
+
+.navSignUp {
+  border: 1px solid white;
+}
+
+.topRated {
+  color:#262626;
+  background-color:white;
+}
+
+</style>

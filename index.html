@@ -59,7 +59,7 @@
 
           <script>
             function copyURL() {
-              alert("Copied to you clipboard: \n \n " + window.location.href + " \n \n Paste this to anywhere you want to share.")
+              alert("This Timer's URL has been copied. \n \n  Paste this to anywhere you want to share.")
               const el = document.createElement('textarea');
               el.value = window.location.href;
               el.setAttribute('readonly', '');
@@ -80,6 +80,9 @@
           <a href="http://www.reddit.com/submit?url=&title=" target="_blank" title="Submit to Reddit"
             onclick="window.open('http://www.reddit.com/submit?url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent('SchoolTimer')); return false;" class="fa fa-reddit"></a>
           <a class="fa fa-rss" onclick="copyURL();"></a>
+
+          <br><br>
+          <span id="verification" onclick="window.location.href = 'https://www.lukegutman.com/verification';"><u>Apply for Verification</u></span>
           <br><br>
           <span id="copy">Copyright &copy; <a href="https://www.lukegutman.com"> SchoolTimer 2020 </a></span> <br>
            <a href="https://www.lukegutman.com/privacy-policy">Privacy-Policy</a> | <a href="https://www.lukegutman.com/terms-of-use">Terms of Use </a> <br>
