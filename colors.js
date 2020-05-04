@@ -132,6 +132,10 @@ function setColors () {
   document.getElementById("timerCode").style.borderColor = sidebarText;
 }
 
+function getAccentColorFunction() {
+  return accentColor;
+}
+
 
 
 

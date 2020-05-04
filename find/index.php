@@ -8,6 +8,13 @@
 <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
 <link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300&display=swap" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Fira+Sans+Extra+Condensed&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Raleway:wght@100&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=BenchNine:wght@300&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Lato|Press+Start+2P&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Oswald&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css?family=Heebo:100&display=swap" rel="stylesheet">
 <link rel="stylesheet" type="text/css" href="style.css">
   <script>
     $(document).ready( function () {
@@ -17,11 +24,17 @@
   </script>
   </head>
 <body>
-<h5 class="pageHeader">Find Your School's Timer</h5>
-<h5 class="verifiedHeader">Verified Timers</h5>
+  <div id="titleBar">
+    <li class="navSpace" id="logoNav"><button class="schoolTimerHome" onclick="window.location.href = 'https://www.lukegutman.com';">SchoolTimer</button></li>
+    <li class="navSpace" id="homeNav"><button class="titleBarNav home" onclick="window.location.href = 'https://www.lukegutman.com';">Home</button></li>
+    <li class="navSpace" id="findNav"><button class="titleBarNav topRated" onclick="window.location.href = 'https://www.lukegutman.com/find';">Find A Timer</button></li>
+    <li class="navSpace" id="createNav"><button class="titleBarNav rateYour" onclick="window.location.href = 'https://www.lukegutman.com/create';">Create a Custom Timer</button></li>
+  </div>
+  <div id="all">
+<div class="titleHolder"><h5 class="verifiedHeader">Verified Timers</h5></div>
 
 
-<table id="example" class="display" style="width:100%">
+<table id="example" class="display" style="width:95%">
 <thead>
   <tr>
     <th>School</th>
@@ -76,8 +89,8 @@
 </table>
  <br><br><br>
 
-<h5 class="verifiedHeader">User Created Timers</h5>
-<table id="example2" class="display" style="width:100%;">
+<div class="titleHolder"><h5 class="verifiedHeader">User Created Timers</h5></div>
+<table id="example2" class="display" style="width:95%;">
   <thead>  <tr>
       <th>School</th>
       <th>Country</th>
@@ -122,7 +135,7 @@ $conn->close();
 ?>
 
 </table>
-
+</div>
 </body>
 </html>
 

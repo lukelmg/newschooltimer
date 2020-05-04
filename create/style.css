@@ -1,3 +1,4 @@
+
 .pageHeader {
   font-family: Arial;
   font-size: 5vh;
@@ -282,11 +283,15 @@ button:focus {
 }
 
 
-
+#all {
+  margin-left:1vw;
+  margin-right:1vw;
+  padding: 1vw 1vw 1vw 1vw;
+}
 
 
 body {
-  margin:0px 0px 0px 0px;
+  margin:0;
   background-color: #F2F2F2;  /* dark mode color: 020D19 */
   overflow-x:hidden;
 }
@@ -422,4 +427,8 @@ body {
 
 .navSignUp {
   border: 1px solid white;
+}
+
+.verifiedHeader {
+  margin-bottom:1vw;
 }

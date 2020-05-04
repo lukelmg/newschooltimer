@@ -289,7 +289,6 @@ function read() {
     timeSplitArray = timeArray.slice(p, p + chunk);
     nameSplitArray = nameArray.slice(p, p + chunk);
     scheduleSplit[k] = timeSplitArray + "#" + nameSplitArray + "|||";
-    alert(k);
     k++;
   }
 
@@ -425,7 +424,9 @@ function addTimersPerSchedule() {
     timerContainer.appendChild(track);
 
     if (lastPeriod == testNewTestNameNew[i]) {
-      var newColor = String(selectedColor);
+    //  var newColor = String(selectedColor); // need to get current color from customize
+
+      var newColor = String(getAccentColorFunction());
 
       document.getElementById("realTimer" + i).style.color = newColor;
       document.getElementById("nameTimer" + i).style.color = newColor;
@@ -433,17 +434,12 @@ function addTimersPerSchedule() {
       configureAccent(i);
 
 
+
     } else {
       document.getElementById("realTimer" + i).style.color = "white";
     }
   }
   setUpTimesForTimers();
-}
-
-var alertLineHeight;
-
-function getLineHeight () {
-  alert(alertLineHeight)
 }
 
 var timeForMathArray = [];

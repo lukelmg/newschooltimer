@@ -1,0 +1,508 @@
+
+<html>
+  <head>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-140137723-1"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'UA-140137723-1');
+
+      function promo(event) {
+      ga('send', 'event', {
+        eventCategory: 'Buttons',
+        eventAction: 'promo',
+        eventLabel: event.target.href
+      });
+    }
+
+    </script>
+    <title>School Timer</title>
+
+        <meta name="description" content="This is a Timer for School meant for students to be able to know when each class ends.">
+    <meta name="keywords" content="Timer,School,School Timer,Timer School,Timer for School,School Schedule,Timer Schedule,Stopwatch,Stopwatch School,schooltimer,schooltimers,stopwatch for school,school stopwatch,schedule, school schedule">
+    <meta http-equiv="refresh" content="1800">
+  </head>
+  <body onload="defineTiming(); Apressed();">
+
+    <h1>
+      School Timer Mobile
+    </h1>
+    <h2>
+      Made by Luke Gutman 2020
+    </h2>
+
+    <p class="periods" id="period1">1|</p> <p class="time" id="time1"></p> <br>
+    <p class="periods" id="period2">2|</p> <p class="time" id="time2"></p> <br>
+    <p class="periods" id="period3">3|</p> <p class="time" id="time3"></p> <br>
+    <p class="periods" id="period4">4|</p> <p class="time" id="time4"></p> <br>
+    <p class="periods" id="period5">5|</p> <p class="time" id="time5"></p> <br>
+    <p class="periods" id="period6">6|</p> <p class="time" id="time6"></p> <br>
+    <p class="periods" id="period7">7|</p> <p class="time" id="time7"></p> <br>
+    <p class="periods" id="period8">8|</p> <p class="time" id="time8"></p> <br>
+    <p class="periods" id="period9">9|</p> <p class="time" id="time9"></p> <br>
+
+    <!--
+    <button class="checkButton ConSchedule" id="conSchedule" onclick="concert()">
+      12/20 Schedule Times
+    </button>
+    -->
+
+    <p id="schedule">
+      Schedule
+    </p>
+
+
+     <button class="checkButton Abutton" id="Abutton" onclick="Apressed();">A</button>
+     <button class="checkButton Bbutton" id="Bbutton" onclick="Bpressed();">B</button>
+     <button class="checkButton Cbutton" id="Cbutton" onclick="Cpressed();">C</button>
+     <button class="checkButton Dbutton" id="Dbutton" onclick="Dpressed();">D</button>
+
+    <br>
+
+  </body>
+</html>
+
+<script>
+
+  function concert () {
+
+    alert("12/20 Concert Schedule \n \n Period 1 | 7:40-10:04 \n Concert 1 | 7:54-8:47 \n Concert 2 | 9:07-10:04 \n Period 2 | 10:08-10:38 \n Period 3 | 10:42-11:12 \n Period 4 | 11:16-11:46 \n Period 5 | 11:50-12:20 \n Period 6 | 12:24-12:54 \n Period 7 | 12:58-1:28 \n Period 8 | 1:32:2:12 \n Period 9 | 2:16-2:53");
+
+  }
+
+  var schedule = 'A';
+
+  function Apressed() {
+    schedule = 'A';
+    document.getElementById("Abutton").style.backgroundColor = "db3d3d";
+    document.getElementById("Bbutton").style.backgroundColor = "white";
+    document.getElementById("Cbutton").style.backgroundColor = "white";
+    document.getElementById("Dbutton").style.backgroundColor = "white";
+    defineTiming();
+  }
+   function Bpressed() {
+    schedule = 'B';
+     document.getElementById("Abutton").style.backgroundColor = "white";
+     document.getElementById("Bbutton").style.backgroundColor = "db3d3d";
+     document.getElementById("Cbutton").style.backgroundColor = "white";
+     document.getElementById("Dbutton").style.backgroundColor = "white";
+    defineTiming();
+  }
+   function Cpressed() {
+    schedule = 'C';
+      document.getElementById("Abutton").style.backgroundColor = "white";
+     document.getElementById("Bbutton").style.backgroundColor = "white";
+     document.getElementById("Cbutton").style.backgroundColor = "db3d3d";
+     document.getElementById("Dbutton").style.backgroundColor = "white";
+    defineTiming();
+  }
+   function Dpressed() {
+    schedule = 'D';
+    document.getElementById("Abutton").style.backgroundColor = "white";
+     document.getElementById("Bbutton").style.backgroundColor = "white";
+     document.getElementById("Cbutton").style.backgroundColor = "white";
+     document.getElementById("Dbutton").style.backgroundColor = "db3d3d";
+    defineTiming();
+  }
+
+var h1; var m1;
+var h2; var m2;
+var h3; var m3;
+var h4; var m4;
+var h5; var m5;
+var h6; var m6;
+var h7; var m7;
+var h8; var m8;
+var h9; var m9;
+
+var displayPeriod1;
+var displayPeriod2;
+var displayPeriod3;
+var displayPeriod4;
+var displayPeriod5;
+var displayPeriod6;
+var displayPeriod7;
+var displayPeriod8;
+var displayPeriod9;
+
+function defineTiming() {   //sets the variables of each period end time based on the schedule
+
+  if (schedule == 'A') {
+    h1 = 8;  m1 = 29;
+    h2 = 9;  m2 = 17;
+    h3 = 10; m3 = 5;
+    h4 = 10; m4 = 53;
+    h5 = 11; m5 = 41;
+    h6 = 12; m6 = 29;
+    h7 = 13; m7 = 17;
+    h8 = 14; m8 = 5;
+    h9 = 14; m9 = 53;
+  } else {
+    if (schedule == 'B') {
+      h1 = 8;  m1 = 37;
+      h2 = 9;  m2 = 24;
+      h3 = 10; m3 = 11;
+      h4 = 10; m4 = 58;
+      h5 = 11; m5 = 45;
+      h6 = 12; m6 = 32;
+      h7 = 13; m7 = 19;
+      h8 = 14; m8 = 6;
+      h9 = 14; m9 = 53;
+
+
+    } else {
+      if (schedule == 'C') {
+        h1 = 8;  m1 = 22;
+        h2 = 9;  m2 = 4;
+        h3 = 9;  m3 = 46;
+        h4 = 10; m4 = 20;
+        h5 = 10; m5 = 54;
+        h6 = 11; m6 = 28;
+        h7 = 12; m7 = 2;
+        h8 = 12; m8 = 31;
+        h9 = 13; m9 = 0;
+      } else {
+        if (schedule == 'D') {
+          h1 = 10; m1 = 9;
+          h2 = 10; m2 = 39;
+          h3 = 11; m3 = 9;
+          h4 = 11; m4 = 43;
+          h5 = 12; m5 = 17;
+          h6 = 12; m6 = 51;
+          h7 = 13; m7 = 25;
+          h8 = 14; m8 = 9;
+          h9 = 14; m9 = 53;
+        }
+      }
+    }
+  }
+}
+
+function displayPeriods() {
+  setTimeout(function () {
+
+    document.getElementById("time1").innerHTML = displayPeriod1;
+    document.getElementById("time2").innerHTML = displayPeriod2;
+    document.getElementById("time3").innerHTML = displayPeriod3;
+    document.getElementById("time4").innerHTML = displayPeriod4;
+    document.getElementById("time5").innerHTML = displayPeriod5;
+    document.getElementById("time6").innerHTML = displayPeriod6;
+    document.getElementById("time7").innerHTML = displayPeriod7;
+    document.getElementById("time8").innerHTML = displayPeriod8;
+    document.getElementById("time9").innerHTML = displayPeriod9;
+
+    displayPeriods();
+  }, 0)
+}
+
+var realSeconds;
+
+(function() {
+
+  function pad(num) {
+    return ("0" + parseInt(num)).substr(-2);
+  }
+
+  function getRealSeconds() {
+    var start = new Date;
+    start.setHours(21, 0, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var ss = pad(remain % 60);
+    realSeconds = ss;
+    setTimeout(getRealSeconds, 1000);
+  }
+
+  function period1() {
+    var start = new Date;
+    start.setHours(h1, m1, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+     if (hh > 8) {
+      displayPeriod1 = "Over";
+    } else {
+    displayPeriod1 = hh + ":" + mm + ":" + realSeconds;
+    }
+    setTimeout(period1, 100);
+  }
+ function period2() {
+    var start = new Date;
+    start.setHours(h2, m2, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+     if (hh > 8) {
+     displayPeriod2 = "Over";
+    } else {
+    displayPeriod2 = hh + ":" + mm + ":" + realSeconds;
+    }
+    setTimeout(period2, 100);
+  }
+ function period3() {
+    var start = new Date;
+    start.setHours(h3, m3, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+     if (hh > 8) {
+      displayPeriod3 = "Over";
+    } else {
+    displayPeriod3 = hh + ":" + mm + ":" + realSeconds;
+    }
+    setTimeout(period3, 100);
+  }
+ function period4() {
+    var start = new Date;
+    start.setHours(h4, m4, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+     if (hh > 8) {
+      displayPeriod4 = "Over";
+    } else {
+    displayPeriod4 = hh + ":" + mm + ":" + realSeconds;
+    }
+    setTimeout(period4, 100);
+  }
+ function period5() {
+    var start = new Date;
+    start.setHours(h5, m5, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+     if (hh > 8) {
+      displayPeriod5 = "Over";
+    } else {
+    displayPeriod5 = hh + ":" + mm + ":" + realSeconds;
+    }
+    setTimeout(period5, 100);
+  }
+ function period6() {
+    var start = new Date;
+    start.setHours(h6, m6, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+     if (hh > 8) {
+      displayPeriod6 = "Over";
+    } else {
+    displayPeriod6 = hh + ":" + mm + ":" + realSeconds;
+    }
+    setTimeout(period6, 100);
+  }
+ function period7() {
+    var start = new Date;
+    start.setHours(h7, m7, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+     if (hh > 8) {
+      displayPeriod7 = "Over";
+    } else {
+    displayPeriod7 = hh + ":" + mm + ":" + realSeconds;
+    }
+    setTimeout(period7, 100);
+  }
+ function period8() {
+    var start = new Date;
+    start.setHours(h8, m8, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+     if (hh > 8) {
+      displayPeriod8 = "Over";
+    } else {
+    displayPeriod8 = hh + ":" + mm + ":" + realSeconds;
+    }
+    setTimeout(period8, 100);
+  }
+function period9() {
+    var start = new Date;
+    start.setHours(h9, m9, 0);
+    var now = new Date;
+    if (now > start) {
+      start.setDate(start.getDate() + 1);
+    }
+    var remain = ((start - now) / 1000);
+    var hh = pad((remain / 60 / 60) % 60);
+    var mm = pad((remain / 60) % 60);
+     if (hh > 8) {
+      displayPeriod9 = "Over";
+    } else {
+    displayPeriod9 = hh + ":" + mm + ":" + realSeconds;
+    }
+    setTimeout(period9, 100);
+  }
+
+  displayPeriods();
+  document.addEventListener('DOMContentLoaded', getRealSeconds);
+  document.addEventListener('DOMContentLoaded', period1);
+  document.addEventListener('DOMContentLoaded', period2);
+  document.addEventListener('DOMContentLoaded', period3);
+  document.addEventListener('DOMContentLoaded', period4);
+  document.addEventListener('DOMContentLoaded', period5);
+  document.addEventListener('DOMContentLoaded', period6);
+  document.addEventListener('DOMContentLoaded', period7);
+  document.addEventListener('DOMContentLoaded', period8);
+  document.addEventListener('DOMContentLoaded', period9);
+})();
+
+</script>
+
+<style>
+  h1 {
+    color:White;
+     font-style: italic;
+    font-weight:Bold;
+    font-family:Arial;
+    font-size:6em;
+    padding-bottom:0px;
+    margin-bottom:0px;
+  }
+
+   h2 {
+    color:Gray;
+     font-style: italic;
+    font-weight:Bold;
+    font-family:Arial;
+    font-size:2em;
+     margin-top:0px;
+     padding-top0px;
+  }
+
+  body {
+    background-color:black;
+  }
+
+  #Abutton {
+    background-color:db3d3d;
+    width:125px;
+    height: 125px;
+    border-radius: 50%;
+    border:none;
+    margin-right:5%;
+    outline:none;
+    color:black;
+     font-size: 4em;
+     font-weight:bold;
+  }
+
+   #Bbutton, #Cbutton, #Dbutton {
+    background-color:white;
+    width:125px;
+    height: 125px;
+    border-radius: 50%;
+    border:none;
+    margin-right:5%;
+     outline:none;
+     color:black;
+     font-size: 4em;
+     font-weight:bold;
+  }
+
+  .periods {
+    color:gray;
+    font-weight:bold;
+    font-family:Arial;
+    font-size: 5em;
+    display:inline-block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+  }
+
+ .time {
+    color:white;
+    font-weight:bold;
+    font-family:Arial;
+    font-size: 5em;
+    display:inline-block;
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 0px 0px;
+  }
+
+  .label {
+    color:white;
+    font-size: 4em;
+    display:inline-block;
+    margin-right:3%;
+    font-family:Arial;
+    margin-left:0%;
+    margin-top: -50px;
+     postiiton:static;
+  }
+
+  #period9 {
+    color:db3d3d;
+  }
+
+  #schedule {
+     color:White;
+     font-style: italic;
+    font-weight:Bold;
+    font-family:Arial;
+    font-size:5em;
+    margin-bottom:10px;
+  }
+
+
+    #conSchedule {
+    background-color:white;
+    padding: 20px 20px 20px 20px;
+    border-radius: 10px;
+    border:none;
+    margin-right:5%;
+    outline:none;
+    color:black;
+    font-size: 4em;
+    font-weight:bold;
+    margin-top: 30px;
+
+      border-top: 1px solid #CCCCCC;
+  border-right: 1px solid #333333;
+  border-bottom: 1px solid #333333;
+  border-left: 1px solid #CCCCCC;
+  }
+
+  #message {
+    margin-top:0px;
+  }
+
+</style>

@@ -1,5 +1,6 @@
 body {
   font-family:Arial;
+  margin:0;
 }
 .pageHeader {
   font-family: 'Raleway', sans-serif;
@@ -15,4 +16,116 @@ body {
   font-weight:100;
   margin-bottom: 20px;
   margin-top:0;
+}
+
+
+
+button {
+  background-color:blue;
+}
+
+
+label, .dataTables_info {
+  padding-left: 2.5vw;
+}
+
+
+.titleHolder{
+  padding-left: 2vw;
+  padding-top: 2vw;
+}
+
+input, .paginate_button {
+  margin-right: 2.5vw;
+}
+
+#titleBar {
+  background-color: #262626;
+  height:90px;
+  width:100%;
+  padding-left: 0;
+  overflow: hidden;
+  position: relative;
+  top: 0;
+    z-index: 10;
+}
+
+
+#logo {
+  height: 80px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  -ms-transform: translateY(-50%);
+  transform: translateY(-50%);
+  display:inline-block;
+}
+
+
+.titleBarNav {
+  font-family: 'Oswald', sans-serif;
+  font-size: 3vh;
+
+  background-color: #262626;
+  border:none;
+  display:inline-block;
+  color:white;
+}
+
+
+
+#logoNav {
+  margin-top: 7px;
+  margin-left: 1vw;
+}
+
+.titleBarNav:focus {outline:0;}
+.titleBarNav:hover {
+  background-color:white;
+  color: #262626;
+  cursor: pointer;
+}
+
+
+
+
+.navSpace {
+  margin:0px 0px 0px 0px;
+  color: white;
+  text-align: center;
+  padding: 0px 0px 0px 0px;
+  text-decoration: none;
+  display:inline-block;
+  margin-top: 0px;
+  margin-left: 2%;
+  cursor:pointer;
+}
+
+.navHome {
+   margin-left: 7%;
+}
+
+.schoolTimerHome {
+   font-family: 'Raleway', sans-serif;
+   margin-left: 0.75vw;
+   background-color:Transparent;
+   border:none;
+   color:white;
+   font-size: 50px;
+   margin-top:7px;
+   cursor:pointer;
+}
+
+.navLogIn {
+  margin-left:35%;
+  border: 1px solid white;
+}
+
+.navSignUp {
+  border: 1px solid white;
+}
+
+.topRated {
+  color:#262626;
+  background-color:white;
 }
