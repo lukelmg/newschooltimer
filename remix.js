@@ -96,7 +96,11 @@ function readRemix() { // happens on captcha press
     for (var i = 0; i < numberOfSchedules; i++) {
       for (var e = 0; e < periodsPerSchedule[i]; e++) {
         arrayTestNew[e] = document.getElementById(i + " " + e + "name").value;
+        if (document.getElementById(i + " " + e + "theTimes") != null) {
         arrayTimingTestNew[e] = document.getElementById(i + " " + e + "theTimes").value;
+      } else {
+        alert(i + " " + e + "theTimes");
+      }
       }
       periodNameURL[i] = arrayTestNew;
       scheduleTimes[i] = arrayTimingTestNew;
@@ -134,7 +138,7 @@ function goToRemix() {
         document.getElementById("phpformstuff").submit();
         setTimeout(function() {
           var res = document.getElementById("shortURL").value;
-            window.location.href("https://www.lukegutman.com/" + res);
+            window.location.href = "https://www.lukegutman.com/" + res;
         }, 200);
   }, 200);
 }

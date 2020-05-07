@@ -190,11 +190,9 @@ function read() {
 
   periodTimes = url_string.split('newvariable=')[1];
 
-
   schoolCountry = url.searchParams.get("schoolCountry");
   schoolState = url.searchParams.get("schoolState");
   schoolCity = url.searchParams.get("schoolCity");
-
 
   getAccent(selectedColor);
 
@@ -236,10 +234,11 @@ function read() {
       var outer = document.createElement('div');
       outer.className = "radioButton";
       outer.id = i + "outer";
+      outer.width = "100px"; // dynamic  width based on number of schedules
       outer.onclick = function () {
         myChangeSelected(this.id);
       }
-    outer.onmouseover = function () {
+      outer.onmouseover = function () {
 
         for (var p = 0; p < numberOfSchedules; p++) {
           document.getElementById(p + "outer" + "tooltip").style.display = "none";
@@ -273,9 +272,58 @@ function read() {
 
 
 
-
   //  var node = document.createTextNode(scheduleAbbreviationsArray[i]);
   //  var tool = document.createTextNode(realScheduleNamesArray[i])
+  }
+
+  var outerSize;
+  var innerSize;
+  var fontSched;
+  var outerPad;
+  switch (parseInt(numberOfSchedules)) {
+  case 0:
+    outerSize = "Sunday";
+    break;
+  case 1:
+    outerSize = "Monday";
+    break;
+  case 2:
+    outerSize = "Tuesday";
+    break;
+  case 3:
+    outerSize = "Wednesday";
+    break;
+  case 4:
+    outerSize = "50px";
+    innerSize = "25px"
+    break;
+  case 5:
+    outerSize = "Friday";
+    break;
+  case  6:
+    outerSize = "Saturday";
+    break;
+  case 7:
+    outerSize = "";
+    break;
+  case 8:
+    outerSize = "";
+}
+
+  var radioButtonOuter = document.getElementsByClassName('radioButton');
+  var radioButtonInner = document.getElementsByClassName('inner');
+  var actualAbbreviationLetterThing = document.getElementsByClassName('actualAbbreviationLetter');
+  for (var i = 0; i < radioButtonOuter.length; i++) {
+    radioButtonOuter[i].style.width = outerSize;
+    radioButtonOuter[i].style.height = outerSize;
+    radioButtonOuter[i].style.margin = "5px 0px 22px 0px";
+    radioButtonOuter[i].style.padding = "12px";
+
+    radioButtonInner[i].style.width = innerSize;
+    radioButtonInner[i].style.height = innerSize;
+
+    actualAbbreviationLetterThing[i].style.fontSize = "45px";
+    actualAbbreviationLetterThing[i].style.margin = "0px 10px 12px 0px";
   }
   // end of make radios buttons
 

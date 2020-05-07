@@ -136,6 +136,13 @@ $conn->close();
 
 </table>
 </div>
+
+<br><br><br>
+<center>
+  <footer>
+    &copy; Copyright SchoolTimer 2020 <a href="https://www.lukegutman.com/privacy-policy">Privacy Policy</a> <a href="https://www.lukegutman.com/terms-of-service"> Terms of Service Agreement </a>
+  </footer>
+</center>
 </body>
 </html>
 
