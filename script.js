@@ -263,39 +263,57 @@ function read() {
       container.appendChild(abbreviationLabelElement);
       container.appendChild(outer);
 
+      if (numberOfSchedules == 6 || numberOfSchedules == 7) {
+        if (i == 2) {
+          var myBreak = document.createElement("BR");
+          container.appendChild(myBreak);
+        }
+      } else  {
+        if (numberOfSchedules == 8) {
+        if (i == 1 ||  i == 3 || i == 5) {
+          var myBreak = document.createElement("BR");
+          container.appendChild(myBreak);
+        }
+      }
+    }
 
-
-
+    if (numberOfSchedules < 6) {
       var myBreak = document.createElement("BR");
       container.appendChild(myBreak);
-
-
-
-
-  //  var node = document.createTextNode(scheduleAbbreviationsArray[i]);
-  //  var tool = document.createTextNode(realScheduleNamesArray[i])
+    }
   }
 
   var outerSize;
   var innerSize;
   var fontSched;
   var outerPad;
+  var datMargin;
   switch (parseInt(numberOfSchedules)) {
   case 0:
-    outerSize = "Sunday";
     break;
   case 1:
-    outerSize = "Monday";
+    outerSize = "50px";
+    innerSize = "25px";
+    fontSched = "60px";
+    outerPad = "12px";
     break;
   case 2:
-    outerSize = "Tuesday";
+    outerSize = "50px";
+    innerSize = "25px";
+    fontSched = "60px";
+    outerPad = "12px";
     break;
   case 3:
-    outerSize = "Wednesday";
+    outerSize = "50px";
+    innerSize = "25px";
+    fontSched = "60px";
+    outerPad = "12px";
     break;
   case 4:
     outerSize = "50px";
-    innerSize = "25px"
+    innerSize = "25px";
+    fontSched = "45px";
+    outerPad = "12px";
     break;
   case 5:
     outerSize = "Friday";
@@ -307,7 +325,10 @@ function read() {
     outerSize = "";
     break;
   case 8:
-    outerSize = "";
+    outerSize = "40px";
+    innerSize = "22.5px";
+    fontSched = "30px";
+    outerPad = "8px";
 }
 
   var radioButtonOuter = document.getElementsByClassName('radioButton');
@@ -316,14 +337,14 @@ function read() {
   for (var i = 0; i < radioButtonOuter.length; i++) {
     radioButtonOuter[i].style.width = outerSize;
     radioButtonOuter[i].style.height = outerSize;
-    radioButtonOuter[i].style.margin = "5px 0px 22px 0px";
-    radioButtonOuter[i].style.padding = "12px";
+    radioButtonOuter[i].style.margin = "0px 10px 0px 5px";
+    radioButtonOuter[i].style.padding = outerPad;
 
     radioButtonInner[i].style.width = innerSize;
     radioButtonInner[i].style.height = innerSize;
 
-    actualAbbreviationLetterThing[i].style.fontSize = "45px";
-    actualAbbreviationLetterThing[i].style.margin = "0px 10px 12px 0px";
+    actualAbbreviationLetterThing[i].style.fontSize = fontSched;
+    actualAbbreviationLetterThing[i].style.margin = "5px 10px 5px 10px";
   }
   // end of make radios buttons
 
@@ -470,6 +491,12 @@ function addTimersPerSchedule() {
     track.appendChild(timer);
 
     timerContainer.appendChild(track);
+
+
+    var normalTextColor = String(getNormalTextColorNow());
+
+    document.getElementById("realTimer" + i).style.color = normalTextColor;
+    document.getElementById("nameTimer" + i).style.color = normalTextColor;
 
     if (lastPeriod == testNewTestNameNew[i]) {
     //  var newColor = String(selectedColor); // need to get current color from customize

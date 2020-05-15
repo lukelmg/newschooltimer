@@ -136,6 +136,10 @@ function getAccentColorFunction() {
   return accentColor;
 }
 
+function getNormalTextColorNow () {
+  return textColor;
+}
+
 
 
 
