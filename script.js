@@ -264,7 +264,7 @@ function read() {
       container.appendChild(outer);
 
       if (numberOfSchedules == 6 || numberOfSchedules == 7) {
-        if (i == 2) {
+        if (i == 1 || i ==3 || i == 5) {
           var myBreak = document.createElement("BR");
           container.appendChild(myBreak);
         }
@@ -316,13 +316,22 @@ function read() {
     outerPad = "12px";
     break;
   case 5:
-    outerSize = "Friday";
+  outerSize = "50px";
+  innerSize = "25px";
+  fontSched = "45px";
+  outerPad = "12px";
     break;
   case  6:
-    outerSize = "Saturday";
+  outerSize = "40px";
+  innerSize = "22.5px";
+  fontSched = "30px";
+  outerPad = "8px";
     break;
   case 7:
-    outerSize = "";
+  outerSize = "40px";
+  innerSize = "22.5px";
+  fontSched = "30px";
+  outerPad = "8px";
     break;
   case 8:
     outerSize = "40px";
