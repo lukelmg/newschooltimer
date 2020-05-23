@@ -316,9 +316,9 @@ function read() {
     outerPad = "12px";
     break;
   case 5:
-  outerSize = "50px";
-  innerSize = "25px";
-  fontSched = "45px";
+  outerSize = "40px";
+  innerSize = "20px";
+  fontSched = "40px";
   outerPad = "12px";
     break;
   case  6:
