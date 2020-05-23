@@ -40,12 +40,18 @@ function start () {
 }
 
 function createScheduleButtons() {
+  var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
+  var buttonSize = width / numberOfSchedules;
+  alert(buttonSize);
   var container = document.getElementById("buttonBody");
   for (var i = 0; i < numberOfSchedules; i++) {
     var scheduleButton = document.createElement("button");
     scheduleButton.className = "scheduleButtonClass";
+    scheduleButton.id = i;
+    scheduleButton.style.height = buttonSize + "px";
+    scheduleButton.style.width = buttonSize + "px";
     scheduleButton.onclick = function () {
-      change(i);
+      change(this.id);
     }
     scheduleButton.innerHTML = rawScheduleAbbs[i];
     container.appendChild(scheduleButton);
@@ -126,6 +132,7 @@ function createTimesAndNameTextAreas () {
 var currentScheduleSelected = 0;
 
 function change (sched) {
+  console.log(sched);
   currentScheduleSelected = sched;
   times();
 }
