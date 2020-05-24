@@ -1,3 +1,159 @@
 <html>
-Timer.html enabled
+  <header><h1 class="homeElementHead">Favorite Timers</h1><span class="edit">Edit</span></header>
+  <div class="homeElement horizontalScrollDiv">
+    <div class="favorite" id="PHS">
+      <h1 class="favoriteCode"> PHS </h1>
+    </div>
+    <div class="favorite" id="EMMAUS">
+      <h1 class="favoriteCode"> EMMAUS </h1>
+    </div>
+    <div class="favorite" id="KE7-FE2">
+      <h1 class="favoriteCode"> KE7-FE2 </h1>
+    </div>
+  </div>
+  <h1 class="homeElementHead">Recent Timers</h1>
+  <div class="homeElement horizontalScrollDiv">
+    <div class="favorite" id="PHS">
+      <h1 class="favoriteCode"> PHS </h1>
+    </div>
+    <div class="favorite" id="LB5-7F3">
+      <h1 class="favoriteCode"> LB5-7F3 </h1>
+    </div>
+    <div class="favorite" id="J86-HWE">
+      <h1 class="favoriteCode"> J86-HWE </h1>
+    </div>
+    <div class="favorite" id="EMMAUS">
+      <h1 class="favoriteCode"> EMMAUS </h1>
+    </div>
+    <div class="favorite" id="KE7-FE2">
+      <h1 class="favoriteCode"> KE7-FE2 </h1>
+    </div>
+  </div>
+  <h1 class="homeElementHead">Search With Code</h1>
+  <input class="code" placeholder="Have a Code?"></input>
+  <h1 class="homeElementHead">Browse Timers</h1>
 </html>
+
+
+
+<style>
+
+@font-face {
+    font-family: "MyriadB";
+    src: url(http://www.lukegutman.com/resources/fonts/MYRIADAB.ttf) format("truetype");
+}
+
+body {
+  margin: 20px;
+  background-color:black;
+  overflow-y: scroll; /* has to be scroll, not auto */
+  -webkit-overflow-scrolling: touch;
+}
+
+.favorite {
+  position: relative;
+  background-color:red;
+  display:inline-block;
+  height: 65px;
+  width: 115px;
+  border-radius: 10px;
+  margin-left: 0px;
+  margin-right: 15px;
+}
+
+.favoriteCode {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 20px;
+}
+
+#PHS {
+  background-color:#EE2A41;
+}
+
+#EMMAUS {
+  background-color:#EEA402;
+}
+
+#KE7-FE2 {
+  background-color:#00B9A1;
+}
+
+#LB5-7F3 {
+  background-color:#305ACE;
+}
+
+#J86-HWE {
+  background-color:#F37703;
+}
+
+.homeElement {
+  height: 150px;
+  background-color: #1C1C1E;
+  color:white;
+  margin-bottom: 50px;
+  border-radius: 10px;
+}
+
+.horizontalScrollDiv {
+  overflow: auto;
+  white-space: nowrap;
+  height: 64.5px;
+  position: relative;
+  background-color:black;
+  overflow-x: scroll;
+  -webkit-overflow-scrolling: touch;
+  margin-top:10px;
+  overflow-y: hidden;
+}
+
+h1 {
+
+  font-family: "MyriadB", Verdana, Tahoma;
+  font-size: 32px;
+  padding:0px;
+  margin: 0px;
+  margin-bottom: 10px;
+  color:white;
+}
+
+.homeElementHead {
+  display:inline;
+}
+
+.edit {
+  color:#21a3ff;
+  float:right;
+  font-size:20px;
+  vertical-align:sub;
+  position:absolute;
+  bottom:0;
+  right:0;
+}
+
+header {
+  position:relative;
+}
+
+.code {
+  background-color:#1D1D1F;
+  border-radius:10px;
+  color:white;
+  font-family: "MyriadB", Verdana, Tahoma;
+  height: 50px;
+  margin-top: 10px;
+  border:none;
+  font-size: 20px;
+  padding-left: 10px;
+  width:100%;
+  margin-bottom: 40px;
+}
+
+input:focus {
+  border:none;
+  outline:none;
+}
+</style>

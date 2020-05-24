@@ -14,7 +14,6 @@
 
 var phsURL = "?nums=4&schoolCountry=United States&schoolState=Pennsylvania&schoolCity=Allentown&names=Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9,Period 1,Period 2,Period 3,Period 4,Period 5,Period 6,Period 7,Period 8,Period 9&schedNames=Normal,Homeroom,Early Dismissal,2 Hour Delay&abbs=A,B,C,D&pers=9,9,9,9&school=Parkland High School&color=#ff0000&newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53"
 
-
 var numberOfSchedules, schoolName, schoolColor;
 var rawPeriodNames = [];
 var rawPeriodTimes = [];
@@ -42,7 +41,6 @@ function start () {
 function createScheduleButtons() {
   var width = (window.innerWidth > 0) ? window.innerWidth : screen.width;
   var buttonSize = width / numberOfSchedules;
-  alert(buttonSize);
   var container = document.getElementById("buttonBody");
   for (var i = 0; i < numberOfSchedules; i++) {
     var scheduleButton = document.createElement("button");
@@ -126,6 +124,25 @@ function createTimesAndNameTextAreas () {
     var myBreak = document.createElement("br");
     container.appendChild(myBreak);
   }
+  var timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
+  var width = parseInt((window.innerWidth > 0) ? window.innerWidth : screen.width);
+
+  console.log(timerBodyWidth);
+  console.log(width);
+
+  var startingSize = 10;
+
+    while (timerBodyWidth < (width-197)) {
+      startingSize = startingSize + 1;
+      var times = document.getElementsByClassName("periodTimeClass");
+      var names = document.getElementsByClassName("periodNameClass");
+      for (var e = 0; e < times.length; e++) {
+        times[e].style.fontSize = startingSize + "px";
+        names[e].style.fontSize = startingSize + "px";
+      }
+      timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
+      console.log(timerBodyWidth);
+    }
 }
 
 
@@ -133,6 +150,11 @@ var currentScheduleSelected = 0;
 
 function change (sched) {
   console.log(sched);
+  var x = document.getElementsByClassName("scheduleButtonClass");
+  for (var i = 0; i < x.length; i++) {
+    x[i].style.backgroundColor = "#1E1E1E";
+  }
+    document.getElementById(sched).style.backgroundColor = "#262626";
   currentScheduleSelected = sched;
   times();
 }
@@ -159,7 +181,7 @@ function pad(num) {
 
       document.getElementById(i + 'time').innerHTML = hh + ":" + mm + ":" + ss;
     }
-    setTimeout(tick, 100);
+    setTimeout(tick, 0);
   }
   document.addEventListener('DOMContentLoaded', tick);
 })();

@@ -9,7 +9,7 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="start();">
+<body onload="start(); change(0);">
   <div id="timerBody"/>
   <div id="buttonBody"/>
 </body>
@@ -20,11 +20,31 @@
 
 body {
   margin: 0;
+  background-color:black;
+  color:white;
+  font-family:Arial;
+}
+
+.scheduleButtonClass {
+  background-color:#1e1e1e;
+  color:white;
+  border: 0px;
 }
 
 #buttonBody {
   position: fixed;
   bottom:0%;
 }
+
+#timerBody {
+  display:inline;
+  font-weight:bold;
+}
+
+button:focus {
+  outline:none;
+}
+
+
 
 </style>
