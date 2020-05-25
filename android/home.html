@@ -1,14 +1,33 @@
 <html>
-  <header><h1 class="homeElementHead">Favorite Timers</h1><span class="edit">Edit</span></header>
+<head>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+
+  <script src="home.js" defer></script>
+  <script type="text/javascript">
+       $(document).ready(function() {
+
+       });
+   </script>
+</head>
+  <header><h1 class="homeElementHead">Favorite Timers</h1><span class="edit" id="editButton" onclick="edit();">Edit</span></header>
   <div class="homeElement horizontalScrollDiv">
     <div class="favorite" id="PHS">
+      <exit class="exit">-</exit>
       <h1 class="favoriteCode"> PHS </h1>
     </div>
     <div class="favorite" id="EMMAUS">
+      <exit class="exit">-</exit>
       <h1 class="favoriteCode"> EMMAUS </h1>
     </div>
     <div class="favorite" id="KE7-FE2">
+      <exit class="exit">-</exit>
       <h1 class="favoriteCode"> KE7-FE2 </h1>
+    </div>
+    <div class="favorite" id="addFavorite">
+      <exit class="exit">-</exit>
+      <h1 class="favoriteCode"> + </h1>
     </div>
   </div>
   <h1 class="homeElementHead">Recent Timers</h1>
@@ -33,14 +52,11 @@
   <input class="code" placeholder="Have a Code?"></input>
   <h1 class="homeElementHead">Browse Timers</h1>
 </html>
-
-
-
 <style>
 
 @font-face {
     font-family: "MyriadB";
-    src: url(http://www.lukegutman.com/resources/fonts/MYRIADAB.ttf) format("truetype");
+    src: url(https://www.lukegutman.com/resources/fonts/MYRIADAB.ttf) format("truetype");
 }
 
 body {
@@ -90,12 +106,16 @@ body {
   background-color:#F37703;
 }
 
+#addFavorite {
+  background-color:#35363A;
+  display:none;
+}
+
 .homeElement {
   height: 150px;
   background-color: #1C1C1E;
   color:white;
   margin-bottom: 50px;
-  border-radius: 10px;
 }
 
 .horizontalScrollDiv {
@@ -108,6 +128,8 @@ body {
   -webkit-overflow-scrolling: touch;
   margin-top:10px;
   overflow-y: hidden;
+  padding-top: 10px;
+  padding-bottom:10px;
 }
 
 h1 {
@@ -155,5 +177,44 @@ header {
 input:focus {
   border:none;
   outline:none;
+}
+
+exit {
+  position:absolute;
+  top:-10%;
+  right:-10%;
+  background-color:red;
+  color:white;
+  height: 25px;
+  width: 25px;
+  border-radius:50%;
+  padding:0;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+  text-align:center;
+  vertical-align: center;
+  font-size:20px;
+  z-index: 999999;
+  display:none;
+}
+
+
+
+.shakeImage {
+  animation: shake 1.2s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes shake {
+  0% { transform: translate(1px, 1px) rotate(0deg); }
+  10% { transform: translate(-1px, -2px) rotate(-1deg); }
+  20% { transform: translate(-3px, 0px) rotate(1deg); }
+  30% { transform: translate(3px, 2px) rotate(0deg); }
+  40% { transform: translate(1px, -1px) rotate(1deg); }
+  50% { transform: translate(-1px, 2px) rotate(-1deg); }
+  60% { transform: translate(-3px, 1px) rotate(0deg); }
+  70% { transform: translate(3px, 1px) rotate(-1deg); }
+  80% { transform: translate(-1px, -1px) rotate(1deg); }
+  90% { transform: translate(1px, 2px) rotate(0deg); }
+  100% { transform: translate(1px, -2px) rotate(-1deg); }
 }
 </style>
