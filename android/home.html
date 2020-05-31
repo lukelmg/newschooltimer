@@ -11,8 +11,14 @@
        });
    </script>
 </head>
+<h1 class="homeElementHead">Search With Code</h1>
+<input class="code" id="customCode" placeholder="Have a Code?" oninput="setToCaps();"></input>
   <header><h1 class="homeElementHead">Favorite Timers</h1><span class="edit" id="editButton" onclick="edit();">Edit</span></header>
   <div class="homeElement horizontalScrollDiv">
+    <div class="favorite" id="addFavorite">
+      <exit class="exit">-</exit>
+      <h1 class="favoriteCode"> + </h1>
+    </div>
     <div class="favorite" id="PHS">
       <exit class="exit">-</exit>
       <h1 class="favoriteCode"> PHS </h1>
@@ -24,10 +30,6 @@
     <div class="favorite" id="KE7-FE2">
       <exit class="exit">-</exit>
       <h1 class="favoriteCode"> KE7-FE2 </h1>
-    </div>
-    <div class="favorite" id="addFavorite">
-      <exit class="exit">-</exit>
-      <h1 class="favoriteCode"> + </h1>
     </div>
   </div>
   <h1 class="homeElementHead">Recent Timers</h1>
@@ -48,11 +50,13 @@
       <h1 class="favoriteCode"> KE7-FE2 </h1>
     </div>
   </div>
-  <h1 class="homeElementHead">Search With Code</h1>
-  <input class="code" placeholder="Have a Code?"></input>
-  <h1 class="homeElementHead">Browse Timers</h1>
 </html>
 <style>
+
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 @font-face {
     font-family: "MyriadB";
@@ -88,6 +92,8 @@ body {
 
 #PHS {
   background-color:#EE2A41;
+  transition-property: all;
+  transition: 1s;
 }
 
 #EMMAUS {

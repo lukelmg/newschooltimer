@@ -12,14 +12,46 @@
   <link rel="stylesheet" href="style.css">
 </head>
 
-<body onload="start(); change(0);">
+<body>
+  <div id="txtHint"></div>
   <div id="timerBody"/>
   <div id="buttonBody"/>
 </body>
 
 </html>
 
+<script>
+
+const urlParams = new URLSearchParams(window.location.search);
+const myCode = urlParams.get('code');
+showCustomer(myCode);
+
+function showCustomer(str) {
+  var xhttp;
+  if (str == "") {
+    document.getElementById("txtHint").innerHTML = "";
+    return;
+  }
+  xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+      document.getElementById("txtHint").innerHTML = this.responseText;
+      var longpInput = String(document.getElementById("longp").innerHTML);
+      setURL(longpInput);
+    }
+  };
+  xhttp.open("GET", "readMobile.php?q=" + str, true);
+  xhttp.send();
+}
+
+
+</script>
+
 <style>
+
+#txtHint {
+  display:none;
+}
 
 body {
   margin: 0;
