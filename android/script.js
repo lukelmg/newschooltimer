@@ -86,6 +86,8 @@ function chunk () {
     timeSplitArray = rawPeriodTimes.slice(p, p + chunk);
     nameSplitArray = rawPeriodNames.slice(p, p + chunk);
 
+    timeSplitArray = (timeSplitArray + "").split('&')[0];
+
     timeMultiDem[k] = "(" + timeSplitArray + ")";
     nameMultiDem[k] = "(" + nameSplitArray + ")";
 
@@ -110,20 +112,24 @@ function times() {
     //Hours
 
     //Minutes
-    var x = onlyMinutes[i];
-    onlyMinutes[i] = x.substring(x.indexOf(":") + 1);
-    //Minutes
+      var x = onlyMinutes[i];
+      onlyMinutes[i] = x.substring(x.indexOf(":") + 1);
+      //Minutes
   }
-  console.log(onlyHours);
-  console.log(onlyMinutes);
 }
 
 var onlyNames = [];
 
 function createTimesAndNameTextAreas () {
   onlyNames = (nameMultiDem[currentScheduleSelected].substring(1, nameMultiDem[currentScheduleSelected].length-1)).split(',');
+
+  var container = document.getElementById("timerBody");
+
+  while (container.hasChildNodes()) {
+    container.removeChild(container.lastChild);
+  }
+
   for (var i = 0; i < rawNumberOfPeriods[currentScheduleSelected]; i++) {
-    var container = document.getElementById("timerBody");
     var periodName = document.createElement("span");
     periodName.id = i + "name";
     periodName.className = "periodNameClass";
@@ -136,15 +142,19 @@ function createTimesAndNameTextAreas () {
     var myBreak = document.createElement("br");
     container.appendChild(myBreak);
   }
+  setTimeout(adjustTextSize, 1000);
+}
+
+function adjustTextSize() {
   var timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
   var width = parseInt((window.innerWidth > 0) ? window.innerWidth : screen.width);
 
   console.log(timerBodyWidth);
   console.log(width);
-
+/*
   var startingSize = 10;
-
-    while (timerBodyWidth < (width-197)) {
+// this glitches out because the timer body is nothing before it reads the php
+    while (timerBodyWidth < (width-197) && startingSize < 2000) {
       startingSize = startingSize + 1;
       var times = document.getElementsByClassName("periodTimeClass");
       var names = document.getElementsByClassName("periodNameClass");
@@ -153,8 +163,9 @@ function createTimesAndNameTextAreas () {
         names[e].style.fontSize = startingSize + "px";
       }
       timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
-      console.log(timerBodyWidth);
-    }
+      console.log(startingSize);
+
+    */
 }
 
 
@@ -169,6 +180,7 @@ function change (sched) {
     document.getElementById(sched).style.backgroundColor = "#262626";
   currentScheduleSelected = sched;
   times();
+  createTimesAndNameTextAreas();
 }
 
 function pad(num) {
@@ -178,8 +190,8 @@ function pad(num) {
 (function() {
   var start = new Date;
   function tick() {
-
     for (var i = 0; i < rawNumberOfPeriods[currentScheduleSelected]; i++) {
+    //  console.log(onlyMinutes[i]);
       start.setHours(onlyHours[i], onlyMinutes[i], 0); // 11pm
 
       var now = new Date;
@@ -190,7 +202,6 @@ function pad(num) {
       var hh = pad((remain / 60 / 60) % 60);
       var mm = pad((remain / 60) % 60);
       var ss = pad(remain % 60);
-
       document.getElementById(i + 'time').innerHTML = hh + ":" + mm + ":" + ss;
     }
     setTimeout(tick, 0);
