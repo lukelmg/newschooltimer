@@ -142,36 +142,43 @@ function createTimesAndNameTextAreas () {
     var myBreak = document.createElement("br");
     container.appendChild(myBreak);
   }
-  setTimeout(adjustTextSize, 1000);
+  setTimeout(adjustTextSize, 1);
 }
 
 function adjustTextSize() {
   var timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
   var width = parseInt((window.innerWidth > 0) ? window.innerWidth : screen.width);
 
+  var startingSize = 10;
+
   console.log("body width=" + timerBodyWidth);
   console.log("width=" + width);
 
-/*  var startingSize = 10;
-// this glitches out because the timer body is nothing before it reads the php
-    while (timerBodyWidth < (width-197) && startingSize < 2000) {
-      startingSize = startingSize + 1;
+  while (timerBodyWidth < (width - 10)) {
       var times = document.getElementsByClassName("periodTimeClass");
       var names = document.getElementsByClassName("periodNameClass");
       for (var e = 0; e < times.length; e++) {
         times[e].style.fontSize = startingSize + "px";
         names[e].style.fontSize = startingSize + "px";
+
+        var timeWidth = times[e].offsetWidth;
+        var nameWidth = names[e].offsetWidth;
+
+        var full = timeWidth + nameWidth;
+        console.log("full= " + full)
       }
-*/      timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
+      timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
+      startingSize = startingSize + 1;
+  }
 
-
+  console.log("new body width=" + timerBodyWidth);
+  console.log("new width=" + width);
 }
 
 
 var currentScheduleSelected = 0;
 
 function change (sched) {
-  console.log(sched);
   var x = document.getElementsByClassName("scheduleButtonClass");
   for (var i = 0; i < x.length; i++) {
     x[i].style.backgroundColor = "#1E1E1E";
@@ -192,7 +199,6 @@ var previous;
   var start = new Date;
   function tick() {
     for (var i = 0; i < rawNumberOfPeriods[currentScheduleSelected]; i++) {
-    //  console.log(onlyMinutes[i]);
       start.setHours(onlyHours[i], onlyMinutes[i], 0); // 11pm
 
       var now = new Date;
