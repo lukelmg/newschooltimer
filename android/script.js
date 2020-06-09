@@ -149,10 +149,10 @@ function adjustTextSize() {
   var timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
   var width = parseInt((window.innerWidth > 0) ? window.innerWidth : screen.width);
 
-  console.log(timerBodyWidth);
-  console.log(width);
-/*
-  var startingSize = 10;
+  console.log("body width=" + timerBodyWidth);
+  console.log("width=" + width);
+
+/*  var startingSize = 10;
 // this glitches out because the timer body is nothing before it reads the php
     while (timerBodyWidth < (width-197) && startingSize < 2000) {
       startingSize = startingSize + 1;
@@ -162,10 +162,9 @@ function adjustTextSize() {
         times[e].style.fontSize = startingSize + "px";
         names[e].style.fontSize = startingSize + "px";
       }
-      timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
-      console.log(startingSize);
+*/      timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
 
-    */
+
 }
 
 
@@ -187,6 +186,8 @@ function pad(num) {
   return ("0" + parseInt(num)).substr(-2);
 }
 
+var previous;
+
 (function() {
   var start = new Date;
   function tick() {
@@ -195,16 +196,20 @@ function pad(num) {
       start.setHours(onlyHours[i], onlyMinutes[i], 0); // 11pm
 
       var now = new Date;
-      if (now > start) { // too late, go to tomorrow
-        start.setDate(start.getDate() + 1);
-      }
+      if (now > start) {
+        onlyNames = (nameMultiDem[currentScheduleSelected].substring(1, nameMultiDem[currentScheduleSelected].length-1)).split(',');
+        document.getElementById(i + "name").innerHTML = onlyNames[i];
+        document.getElementById(i + "time").innerHTML = " is Over";
+      } else {
       var remain = ((start - now) / 1000);
       var hh = pad((remain / 60 / 60) % 60);
       var mm = pad((remain / 60) % 60);
       var ss = pad(remain % 60);
       document.getElementById(i + 'time').innerHTML = hh + ":" + mm + ":" + ss;
     }
-    setTimeout(tick, 0);
+
+    }
+    setTimeout(tick, 1);
   }
   document.addEventListener('DOMContentLoaded', tick);
 })();
