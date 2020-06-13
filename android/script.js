@@ -12,6 +12,23 @@
 &newvariable=08:29,09:17,10:05,10:53,11:41,00:29,01:17,02:05,02:53,08:37,09:24,10:11,10:58,11:45,00:32,01:19,02:06,02:53,08:22,09:04,09:46,10:20,10:54,11:28,00:02,00:31,01:00,10:09,10:39,11:09,11:43,00:17,00:51,01:25,02:09,02:53
 */
 
+function addToFavorites () {
+  const urlParams = new URLSearchParams(window.location.search);
+  const myCode = urlParams.get('code');
+
+  var currentFavorites = localStorage.getItem('favorites');
+  if (currentFavorites == null) {
+    currentFavorites = myCode + rawSchoolColor;
+  } else {
+    currentFavorites = currentFavorites.split(',');
+    if (currentFavorites.includes(myCode + rawSchoolColor)) {
+    } else {
+    currentFavorites.push(myCode + rawSchoolColor);
+  }
+  }
+  localStorage.setItem('favorites', currentFavorites);
+}
+
 var phsURL = "";
 function setURL(thisURL) {
   phsURL = thisURL;
@@ -33,11 +50,11 @@ var rawScheduleNames = [];
 var rawScheduleAbbs = [];
 var rawNumberOfPeriods = [];
 
-
+var rawSchoolColor;
 
 function start () {
   var url_string = "https://www.test.com/" + phsURL;
-  var url = new URL(url_string);
+  var url = new URL (url_string);
 
   numberOfSchedules = url.searchParams.get("nums");
   rawPeriodNames = url.searchParams.get("names").split(",")
@@ -45,6 +62,10 @@ function start () {
   rawScheduleNames = url.searchParams.get("schedNames").split(",");
   rawScheduleAbbs = url.searchParams.get("abbs").split(",");
   rawNumberOfPeriods = url.searchParams.get("pers").split(",");
+
+  var urlsplit = url_string.split("color=")[1]; // <= Note the [1]!
+  rawSchoolColor = urlsplit.slice(0, 7);
+
   chunk();
   createTimesAndNameTextAreas();
   createScheduleButtons();
@@ -142,37 +163,38 @@ function createTimesAndNameTextAreas () {
     var myBreak = document.createElement("br");
     container.appendChild(myBreak);
   }
-  setTimeout(adjustTextSize, 1);
+  setTimeout(adjustTextSize, 100);
 }
+
+var full = [];
+
+  var universalWidth = parseInt((window.innerWidth > 0) ? window.innerWidth : screen.width);
 
 function adjustTextSize() {
   var timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
-  var width = parseInt((window.innerWidth > 0) ? window.innerWidth : screen.width);
 
-  var startingSize = 10;
+  var startingSize = 50;
 
-  console.log("body width=" + timerBodyWidth);
-  console.log("width=" + width);
-
-  while (timerBodyWidth < (width - 10)) {
       var times = document.getElementsByClassName("periodTimeClass");
       var names = document.getElementsByClassName("periodNameClass");
       for (var e = 0; e < times.length; e++) {
         times[e].style.fontSize = startingSize + "px";
         names[e].style.fontSize = startingSize + "px";
+        full[e] = times[e].offsetWidth + names[e].offsetWidth;
+        //console.log("full["+ e + "] = " + full[e]);
 
-        var timeWidth = times[e].offsetWidth;
-        var nameWidth = names[e].offsetWidth;
+        while (full[e] < (universalWidth - 10)) {
+          console.log(startingSize);
+          times[e].style.fontSize = startingSize + "px";
+          names[e].style.fontSize = startingSize + "px";
 
-        var full = timeWidth + nameWidth;
-        console.log("full= " + full)
-      }
-      timerBodyWidth = parseInt(document.getElementById("timerBody").offsetWidth);
-      startingSize = startingSize + 1;
-  }
+          startingSize = startingSize + 1;
 
-  console.log("new body width=" + timerBodyWidth);
-  console.log("new width=" + width);
+          full[e] = times[e].offsetWidth + names[e].offsetWidth;
+        }
+        startingSize = 10;
+    }
+  //  console.log("width=" + width)
 }
 
 
@@ -187,6 +209,7 @@ function change (sched) {
   currentScheduleSelected = sched;
   times();
   createTimesAndNameTextAreas();
+    setTimeout(adjustTextSize, 5);
 }
 
 function pad(num) {
@@ -204,8 +227,9 @@ var previous;
       var now = new Date;
       if (now > start) {
         onlyNames = (nameMultiDem[currentScheduleSelected].substring(1, nameMultiDem[currentScheduleSelected].length-1)).split(',');
-        document.getElementById(i + "name").innerHTML = onlyNames[i];
-        document.getElementById(i + "time").innerHTML = " is Over";
+        document.getElementById(i + "name").innerHTML = onlyNames[i] + " Is Over";
+        document.getElementById(i + "time").innerHTML = ""
+        document.getElementById(i + "name").style.color = "#808080";
       } else {
       var remain = ((start - now) / 1000);
       var hh = pad((remain / 60 / 60) % 60);

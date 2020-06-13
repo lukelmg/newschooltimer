@@ -17,6 +17,7 @@
   <center><div id="timerBody"></div></center>
   <p id="timerBodyWidthDisplay"></p>
   <p id="timerTextWidthDisplay"></p>
+  <button id="favorite" onclick="addToFavorites()">Add to Favorites</button>
   <div id="buttonBody"></div>
 </body>
 
@@ -61,6 +62,7 @@ body {
   color:white;
   font-family:Arial;
   white-space: nowrap;
+  transition: color 1s, font-size 1s;
 }
 
 .scheduleButtonClass {
