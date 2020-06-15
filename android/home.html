@@ -23,6 +23,8 @@
   </script>
 </head>
 <div id="homePage">
+<div id="bg">Text Example</div>
+
   <h1 class="homeElementHead">Search With Code</h1>
   <input class="code" id="customCode" placeholder="Have a Code?" oninput="setToCaps();"></input>
   <header>
@@ -85,6 +87,13 @@ function showCustomer(str) {
 
 
 <style>
+#bg{
+width: 200px;
+height: 200px;
+}
+
+
+
   html,
   body {
     max-width: 100%;
@@ -122,33 +131,6 @@ function showCustomer(str) {
     left: 50%;
     transform: translate(-50%, -50%);
     font-size: 20px;
-  }
-
-  #PHS {
-    background-color: #EE2A41;
-    transition-property: all;
-    transition: 1s;
-  }
-
-  #EMMAUS {
-    background-color: #EEA402;
-  }
-
-  #KE7-FE2 {
-    background-color: #00B9A1;
-  }
-
-  #LB5-7F3 {
-    background-color: #305ACE;
-  }
-
-  #J86-HWE {
-    background-color: #F37703;
-  }
-
-  #addFavorite {
-    background-color: #35363A;
-    display: none;
   }
 
   .homeElement {
@@ -288,5 +270,11 @@ function showCustomer(str) {
     100% {
       transform: translate(1px, -2px) rotate(-1deg);
     }
+  }
+
+  #addFavorite {
+    background-color: #35363A;
+    display: none;
+    width: 65px;
   }
 </style>

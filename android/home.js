@@ -3,14 +3,10 @@ var editState = false;
 function edit() {
   const exitButtons = document.getElementsByClassName("exit");
   const favorites = document.getElementsByClassName("favorite");
-  for (var i = 0; i < 4; i++) {
-    if (editState == false) {
-      if (i == 0) {
-        exitButtons[i].style.display = "none";
-      } else {
-        exitButtons[i].style.display = "block";
-      }
-      favorites[i].className = "favorite shakeImage"
+  for (var i = 0; i < (numberOfFavorites + 1); i++) {
+    if (editState == false && i > 0) {
+      exitButtons[i].style.display = "block";
+      favorites[i].className = "favorite shakeImage";
     } else {
       exitButtons[i].style.display = "none";
       favorites[i].className = "favorite"
@@ -54,8 +50,13 @@ document.getElementById('customCode').onkeypress = function(e){
 
 addFavoritesToScreen();
 
+var favoritesArray = [];
+var numberOfFavorites;
+
   function addFavoritesToScreen () {
-    var favoritesArray = localStorage.getItem('favorites').split(',');
+    favoritesArray = localStorage.getItem('favorites').split(',');
+    favoritesArray = favoritesArray.reverse();
+    numberOfFavorites = favoritesArray.length;
     for (var i = 0; i < favoritesArray.length; i++) {
       var code = favoritesArray[i].substr(0, favoritesArray[i].indexOf('#'));
       var color = favoritesArray[i].replace(code, "");
@@ -65,17 +66,60 @@ addFavoritesToScreen();
       var timerButton = document.createElement("div");
       timerButton.className = "favorite";
       timerButton.id = code;
-      timerButton.backgroundColor = color;
+      timerButton.style.backgroundColor = color;
 
       var exitButton = document.createElement("exit");
-      exitButton.class = "exit";
+      exitButton.className = "exit";
+      exitButton.innerHTML = "-"
       timerButton.appendChild(exitButton);
 
       var label = document.createElement("h1");
       label.className = "favoriteCode";
-      label.innerHTML = code;
+      if (code.length < 9) {
+        label.innerHTML = code;
+      } else {
+        label.innerHTML = "toolong";
+      }
       timerButton.appendChild(label);
 
       container.appendChild(timerButton);
+
+      color = "";
+      code = "";
     }
+  }
+
+
+
+  //Color text change
+
+  var rgb = ['255', '0', '0'];
+
+function blackandwhitetext () {
+  
+      var c = 'rgb('+rgb[0]+','+rgb[1]+','+rgb[2]+')';
+
+      //http://www.w3.org/TR/AERT#color-contrast
+
+      var o = Math.round(((parseInt(rgb[0]) * 299) + (parseInt(rgb[1]) * 587) + (parseInt(rgb[2]) * 114)) /1000);
+
+      //console.log(o);
+
+      if(o > 125) {
+          $('#bg').css('color', 'black');
+      }else{
+          $('#bg').css('color', 'white');
+      }
+
+      $('#bg').css('background-color', c);
+
+      var r = Math.round(Math.random() * 255);
+      var g = Math.round(Math.random() * 255);
+      var b = Math.round(Math.random() * 255);
+
+      rgb[0] = r;
+      rgb[1] = g;
+      rgb[2] = b;
+
+
   }
